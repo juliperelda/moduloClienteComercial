@@ -8,9 +8,10 @@ import { GlobalContext } from './context/GlobalContext';
 function App() {
 
   const [dataContext, setDataContext] = useState();
+  const [isCosecha, setIsCosecha] = useState();
 
   return (
-    <GlobalContext.Provider value={{ dataContext, setDataContext }}>
+    <GlobalContext.Provider value={{ dataContext, setDataContext, isCosecha, setIsCosecha }}>
       <Analitica />
     </GlobalContext.Provider>
   );

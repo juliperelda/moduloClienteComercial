@@ -75,10 +75,10 @@ const columns = [
 const Capacidad = () => {
     const [isDataStorage, setIsDataStorage] = useState([]);
     const [isDataTable, setIsDataTable] = useState([]);
-    const [isCosecha, setIsCosecha] = useState();
+    // const [isCosecha, setIsCosecha] = useState();
     const [isCosechaEdit, setIsCosechaEdit] = useState();
 
-    const {dataContext, setDataContext} = useContext ( GlobalContext )
+    const {dataContext, setDataContext, isCosecha, setIsCosecha} = useContext ( GlobalContext )
 
     let cosechaSelect = 2223
 

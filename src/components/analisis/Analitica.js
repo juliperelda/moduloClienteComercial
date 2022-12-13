@@ -4,7 +4,7 @@ import Capacidad from './capacidad/Capacidad';
 import Evolucion from './evolucion/Evolucion';
 import './analitica.css';
 import { DownOutlined, EditOutlined, PlusCircleOutlined } from '@ant-design/icons';
-import { Button, Dropdown, Input, Modal, Select, Space } from 'antd';
+import { Button, Dropdown, Form, Input, Modal, Select, Space } from 'antd';
 import { Option } from 'antd/es/mentions';
 import { GlobalContext } from '../../context/GlobalContext';
 
@@ -45,13 +45,15 @@ const Analitica = () => {
     const [isData, setIsData] = useState({});
     const [isDataEdit, setIsDataEdit] = useState({});
     const [isDataSet, setIsDataSet] = useState({});
-    const [isCosecha, setIsCosecha] = useState();
+    // const [isCosecha, setIsCosecha] = useState();
     const [isVista, setIsVista] = useState(false);
     const [isVistaEditar, setIsVistaEditar] = useState(false);
     const [isPrueba, setIsPrueba] = useState(false);
 
 
-    const { dataContext, setDataContext } = useContext(GlobalContext)
+    const { dataContext, setDataContext, isCosecha, setIsCosecha } = useContext(GlobalContext)
+
+    console.log(isCosecha)
 
     const traeData = () => {
         if (localStorage.getItem("data")) {
@@ -84,6 +86,8 @@ const Analitica = () => {
         // setIsModalOpen(false);
         setIsVista(false)
 
+        if (isData.cosecha !== null) {
+
             if (localStorage.getItem("data")) {
                 objData = [
                     ...isDataSet,
@@ -96,23 +100,37 @@ const Analitica = () => {
             }
 
             localStorage.setItem('data', JSON.stringify({ objData }))
+
+        } else {
+            alert("Se debe ingresar la cosecha")
+        }
     };
 
     const handEdit = () => {
-        console.log('metodo para actualizar')
-        const dataLS = JSON.parse(localStorage.getItem("data")).objData
-        const itemAModificar = dataLS.find(data => data.cosecha === '2223')
 
-        // itemAModificar.propias = isDataEdit.propias
-        itemAModificar.propias = dataContext.propias
+        isDataSet.forEach(function (data) {
 
-        localStorage.setItem('data', JSON.stringify(dataLS))
+            if (parseInt(data.cosecha) !== parseInt(isCosecha)) {
+
+                objData = [
+                    ...objData,
+                    data
+                ]
+
+            }
+
+        })
+
+        objData = [
+            ...objData,
+            dataContext
+        ]
+
+        localStorage.setItem('data', JSON.stringify({ objData }))
 
         setIsVista(false)
         setDataContext(null)
 
-        // console.log(itemAModificar)
-        // console.log(dataLS)
     }
 
     const handleInputChange = (event) => {
@@ -122,8 +140,6 @@ const Analitica = () => {
             cosecha: isCosecha ? isCosecha : null,
             [event.target.name]: event.target.value
         })
-
-
     }
 
     const handleInputChangeEdit = (event) => {
@@ -133,7 +149,6 @@ const Analitica = () => {
             cosecha: isCosecha ? isCosecha : null,
             [event.target.name]: event.target.value
         })
-        console.log(isCosecha)
 
     }
 
@@ -146,10 +161,11 @@ const Analitica = () => {
         setIsVistaEditar(false);
         setDataContext(null)
     };
-    const editCosecha = () => {
-        setIsVista(true);
-        setIsVistaEditar(true);
-    }
+
+    // const editCosecha = () => {
+    //     setIsVista(true);
+    //     setIsVistaEditar(true);
+    // }
 
     const salir = () => {
         setIsVista(false)
@@ -217,58 +233,67 @@ const Analitica = () => {
                             }
                             <div className='agCosecha'>
                                 <div className='agRubroPropias'>
-                                    <h3 style={{ 'color': 'green' }}>PROPIAS</h3>
-                                    <Input
-                                        className='input-unidad'
-                                        placeholder="0"
-                                        name='propias'
-                                        defaultValue={isVistaEditar ? dataContext.propias : null}
-                                        onChange={isVistaEditar ? handleInputChangeEdit : (e) => handleInputChange(e)}
-                                    />
-                                    &nbsp;
-                                    &nbsp;
-                                    <div>
-                                        <h3 style={{ 'paddingTop': '15px' }}>AGRICULTURA</h3>
-                                        <Input
-                                            className='input-unidad'
-                                            type="number"
-                                            placeholder="0"
-                                            name='agricultura'
-                                            // value={isVistaEditar ? dataContext.agricultura : null}
-                                            defaultValue={isVistaEditar ? dataContext.agricultura : null}
-                                            onChange={isVistaEditar ? handleInputChangeEdit : (e) => handleInputChange(e)}
-                                        />
+                                    <Form>
+
+                                        <h3 style={{ 'color': 'green' }}>PROPIAS</h3>
+                                        <Form.Item
+                                            // label="Username"
+                                            name="inputPropias"
+                                            rules={[{ required: true, message: 'Por favor ingrese un valor' }]}
+                                        >
+                                            <Input
+                                                className='input-unidad'
+                                                placeholder="0"
+                                                name='propias'
+                                                defaultValue={isVistaEditar ? dataContext.propias : null}
+                                                onChange={isVistaEditar ? handleInputChangeEdit : (e) => handleInputChange(e)}
+                                            />
+                                        </Form.Item>
                                         &nbsp;
-                                        <h3 style={{ 'paddingTop': '15px' }}>GANADERIA</h3>
-                                        <Input
-                                            className='input-unidad'
-                                            placeholder="0"
-                                            name='ganaderia'
-                                            defaultValue={isVistaEditar ? dataContext.ganaderia : null}
-                                            onChange={(e) => handleInputChange(e)}
-                                        />
                                         &nbsp;
-                                        <h3 style={{ 'paddingTop': '15px' }}>TAMBO</h3>
-                                        <Input
-                                            className='input-unidad'
-                                            placeholder="0"
-                                            name='tambo'
-                                            defaultValue={isVistaEditar ? dataContext.tambo : null}
-                                            onChange={(e) => handleInputChange(e)}
-                                        />
-                                        &nbsp;
-                                        <h3 style={{ 'paddingTop': '15px' }}>MIXTO</h3>
-                                        <Input
-                                            className='input-unidad'
-                                            placeholder="0"
-                                            name='mixto'
-                                            defaultValue={isVistaEditar ? dataContext.mixto : null}
-                                            onChange={(e) => handleInputChange(e)}
-                                        />
-                                    </div>
+                                        <div>
+                                            <h3 style={{ 'paddingTop': '15px' }}>AGRICULTURA</h3>
+                                            <Input
+                                                className='input-unidad'
+                                                type="number"
+                                                placeholder="0"
+                                                name='agricultura'
+                                                // value={isVistaEditar ? dataContext.agricultura : null}
+                                                defaultValue={isVistaEditar ? dataContext.agricultura : null}
+                                                onChange={isVistaEditar ? handleInputChangeEdit : (e) => handleInputChange(e)}
+                                            />
+                                            &nbsp;
+                                            <h3 style={{ 'paddingTop': '15px' }}>GANADERIA</h3>
+                                            <Input
+                                                className='input-unidad'
+                                                placeholder="0"
+                                                name='ganaderia'
+                                                defaultValue={isVistaEditar ? dataContext.ganaderia : null}
+                                                onChange={(e) => handleInputChange(e)}
+                                            />
+                                            &nbsp;
+                                            <h3 style={{ 'paddingTop': '15px' }}>TAMBO</h3>
+                                            <Input
+                                                className='input-unidad'
+                                                placeholder="0"
+                                                name='tambo'
+                                                defaultValue={isVistaEditar ? dataContext.tambo : null}
+                                                onChange={(e) => handleInputChange(e)}
+                                            />
+                                            &nbsp;
+                                            <h3 style={{ 'paddingTop': '15px' }}>MIXTO</h3>
+                                            <Input
+                                                className='input-unidad'
+                                                placeholder="0"
+                                                name='mixto'
+                                                defaultValue={isVistaEditar ? dataContext.mixto : null}
+                                                onChange={(e) => handleInputChange(e)}
+                                            />
+                                        </div>
+                                    </Form>
                                 </div>
                                 <div className='agRubroAlquiladas'>
-                                    
+
                                     <h3 style={{ 'color': 'green' }}>ALQUILADAS</h3>
                                     <Input
                                         className='input-unidad'
@@ -319,7 +344,7 @@ const Analitica = () => {
                                 </div>
                             </div>
                             <div>
-                                { isPrueba === true ? (<label style={{'color':'red'}}>Se superó el total de Has.</label>) : ('')}
+                                {isPrueba === true ? (<label style={{ 'color': 'red' }}>Se superó el total de Has.</label>) : ('')}
                             </div>
                             <div className='AddCosecha'>
                                 <Button
