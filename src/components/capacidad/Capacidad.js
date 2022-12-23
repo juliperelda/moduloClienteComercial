@@ -1,35 +1,9 @@
 import React, { useEffect, useState , useContext} from 'react';
-import { Button, Dropdown, Select, Space, Table, Tag } from 'antd';
-import { DownOutlined, EditOutlined } from '@ant-design/icons';
-import { GlobalContext } from '../../../context/GlobalContext';
+import { Button, Select, Table } from 'antd';
+import { EditOutlined } from '@ant-design/icons';
+import { GlobalContext } from '../../context/GlobalContext';
+import { useHistory } from 'react-router-dom';
 
-const items = [
-    {
-        label: (
-            <a target="_blank" rel="noopener noreferrer">
-                2223
-            </a>
-        ),
-        key: '0',
-    },
-    {
-        label: (
-            <a target="_blank" rel="noopener noreferrer">
-                2122
-            </a>
-        ),
-        key: '1',
-    },
-    {
-        label: (
-            <a target="_blank" rel="noopener noreferrer">
-                2021
-            </a>
-        ),
-        key: '2',
-    },
-
-];
 
 const columns = [
     {
@@ -48,31 +22,11 @@ const columns = [
         key: 'alquiler',
     },
 ];
-// const data = [
-//     {
-//         key: '1',
-//         categoria: 'AGRICULTURA',
-//         propias: 1000,
-//     },
-//     {
-//         key: '2',
-//         categoria: 'GANADERÍA',
-//         propias: 42,
-//     },
-//     {
-//         key: '3',
-//         categoria: 'TAMBO',
-//         propias: 32,
-//     },
-//     {
-//         key: '4',
-//         categoria: 'MIXTO',
-//         propias: 32,
-//     },
-
-// ];
 
 const Capacidad = () => {
+
+    let history = useHistory();
+
     const [isDataStorage, setIsDataStorage] = useState([]);
     const [isDataTable, setIsDataTable] = useState([]);
     // const [isCosecha, setIsCosecha] = useState();
@@ -80,7 +34,7 @@ const Capacidad = () => {
 
     const {dataContext, setDataContext, isCosecha, setIsCosecha} = useContext ( GlobalContext )
 
-    let cosechaSelect = 2223
+    let cosechaSelect = 2021
 
     const traeData = () => {
         if (localStorage.getItem("data")) {
@@ -101,6 +55,8 @@ const Capacidad = () => {
                     setDataContext(data)
                 }
             })
+
+            history.push('/editCapacidad')
     }
 
     const recuperaCosecha = (event) => {
@@ -141,7 +97,7 @@ const Capacidad = () => {
                         alqMixto += parseInt(data.mixtoA)
                         propioTotal += parseInt(data.propias)
                         alqTotal += parseInt(data.alquiladas)
-                        console.log(parseInt(data.agricultura));
+                        // console.log(parseInt(data.agricultura));
                         setIsDataTable(arrayData = [
                             {
                                 key: 1,
@@ -183,10 +139,12 @@ const Capacidad = () => {
     return (
         <>
             <div className='divDropdown'>
-                <Select //PRUEBA
+                <Select
+                    className='selectCosecha'
                     defaultValue="[Seleccionar Cosecha]"
                     placeholder="Seleccione Cosecha"
                     name='cosecha'
+                    bordered='false'
                     onChange={(e) => recuperaCosecha(e)}
                 >
                     <Select.Option value="2223">2223</Select.Option>
@@ -194,26 +152,11 @@ const Capacidad = () => {
                     <Select.Option value="2021">2021</Select.Option>
                 </Select>
                 <Button
-                    className='btnAddCosecha'
-                    icon={<EditOutlined style={{ 'backgroundColor':'#f2f0f1'}}/>}
+                    className='btnEditCosecha'
+                    icon={<EditOutlined />}
                     // onClick={() => addCosecha()/*showModal()*/}
                     onClick = {() => editarCosecha()}
                 />
-                {/* <Dropdown
-                    trigger={['click']}
-                    menu={{
-                        items,
-                        selectable: true,
-                    }}
-
-                >
-                    <a onClick={(e) => e.preventDefault()}>
-                        <Space>
-                            Cosecha: {isCosecha}
-                            <DownOutlined />
-                        </Space>
-                    </a>
-                </Dropdown> */}
             </div>
 
             <Table columns={columns} dataSource={isDataTable} pagination={false} />

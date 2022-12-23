@@ -1,9 +1,9 @@
 
 import './App.css';
 import React, { useState } from 'react';
-import Analitica from './components/analisis/Analitica';
 import { GlobalContext } from './context/GlobalContext';
-
+// import { BrowserRouter } from 'react-router-dom';
+import AppRouter from './router/AppRouter';
 
 function App() {
 
@@ -11,8 +11,14 @@ function App() {
   const [isCosecha, setIsCosecha] = useState();
 
   return (
-    <GlobalContext.Provider value={{ dataContext, setDataContext, isCosecha, setIsCosecha }}>
-      <Analitica />
+    <GlobalContext.Provider value={{
+      dataContext, setDataContext,
+      isCosecha, setIsCosecha,
+    }}>
+      
+      {/* <BrowserRouter> */}
+      <AppRouter />
+      {/* </BrowserRouter> */}
     </GlobalContext.Provider>
   );
 }
