@@ -2,7 +2,7 @@ import { Button, Card, Form, Input, Modal, Select } from 'antd'
 import React, { useContext, useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { GlobalContext } from '../../context/GlobalContext'
-
+import './capacidad.css';
 
 export const EditarCapacidad = () => {
 
@@ -25,6 +25,8 @@ export const EditarCapacidad = () => {
     const [isDataEdit, setIsDataEdit] = useState({});
     const [isPrueba, setIsPrueba] = useState(false);
 
+    const [IsVisible, setIsVisible] = useState();
+    
 
     //! Funciones
 
@@ -96,7 +98,7 @@ export const EditarCapacidad = () => {
             history.goBack()
 
         } else {
-            alert("El total de Has. de Rubros supera a las Has. Propias en general")
+            // alert("El total de Has. de Rubros supera a las Has. Propias en general")
             setIsActiveModal(true)
         }
 
@@ -133,9 +135,7 @@ export const EditarCapacidad = () => {
 
                     <h3>Editar Cosecha/Rubro</h3>
 
-                    <hr style={{
-                        'text-decoration': 'underline'
-                    }} />
+                    <hr />
                     &nbsp;
 
                     <div className='agCosecha'>
@@ -310,13 +310,12 @@ export const EditarCapacidad = () => {
                 {
                     isActiveModal ?
                         (
-                            <Modal title="" open={isActiveModal} onOk={cerrar} >
+                            <Modal title="" open={isActiveModal} onCancel={cerrar} footer={null} centered >
                                 <h2>VALOR INCORRECTO</h2>
                                 <p>Revise la cantidad de Has. Total con las Has. de los Rubros</p>
                             </Modal>
                         )
                         : ('')
-                    // : ('')
                 }
             </div >
         </>

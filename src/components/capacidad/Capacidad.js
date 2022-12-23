@@ -3,7 +3,7 @@ import { Button, Select, Table } from 'antd';
 import { EditOutlined } from '@ant-design/icons';
 import { GlobalContext } from '../../context/GlobalContext';
 import { useHistory } from 'react-router-dom';
-
+import './capacidad.css';
 
 const columns = [
     {
@@ -144,7 +144,7 @@ const Capacidad = () => {
                     defaultValue="[Seleccionar Cosecha]"
                     placeholder="Seleccione Cosecha"
                     name='cosecha'
-                    bordered='false'
+                    bordered={false}
                     onChange={(e) => recuperaCosecha(e)}
                 >
                     <Select.Option value="2223">2223</Select.Option>

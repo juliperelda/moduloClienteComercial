@@ -7,10 +7,10 @@
  html {
     height: 100%;
  }
-
+/* 
  .grid-container > * {
     padding: 10;
- }
+ } */
 
  .divContainer{
    display: flex;
@@ -20,10 +20,10 @@
    display: flex;
    flex-direction: column;
  }
- .container-input{
+ /* .container-input{
    display: flex;
    flex-direction: row !important;
- }
+ } */
 
  .cardTable {
    min-width: 500px;
@@ -49,20 +49,20 @@
    background-color: #00b33c;
    color: #ffffff;
 }
-.container-input{
+/* .container-input{
    display: flex;
    flex-direction: column;
-}
-.modal-Input-group {
+} */
+/* .modal-Input-group {
    display: flex;
    flex-direction: column;
    width: 100%;
    align-items:flex-end;
-}
-.prueba{
+} */
+/* .prueba{
    display: flex;
    flex-direction: row;
-}
+} */
 
  @media only screen and (max-width: 1500px) {
    .divContainer{
@@ -85,35 +85,35 @@
    flex-direction: row;
  }
 
-
+/*No me acuerdo que era*/
  :where(.css-dev-only-do-not-override-1dsa5t3) a {
    color: black;
  }
+ :where(.css-dev-only-do-not-override-1wizrxm) a {
+    color: #605d5f;
+ }
+ 
+ :where(.css-dev-only-do-not-override-1e67qka).ant-card {
+    font-size: 18px;
+ }
 
-.input-group {
+/* .input-group {
    display: flex;
    flex-direction: row;
    padding-top: 10px;
-}
+} */
 
-.modalCosecha {
+/* .modalCosecha {
    width: 800px !important;
-}
+} */
 
 
 /* prueba color letra */
-.addcosecha {
+/* .addcosecha {
    color:#00b33c;
   
-}
+} */
 
-:where(.css-dev-only-do-not-override-1wizrxm) a {
-   color: #605d5f;
-}
-
-:where(.css-dev-only-do-not-override-1e67qka).ant-card {
-   font-size: 18px;
-}
 
 
 .agCosecha {
@@ -133,12 +133,12 @@
    margin-left: 88%;
 }
 
-.agRubro{
+/* .agRubro{
    display: flex;
    flex-direction: column;
    width: 100%;
    align-items: center;
-}
+} */
 
 .input-unidad {
    width: 300px;
@@ -183,7 +183,6 @@
 }
 .selectCosecha{
    background-color: transparent
-   
 }
 
 /*Select*/
@@ -192,45 +191,6 @@
    border: 0 !important;
 }
 
-
-/*Fila de tabla donde figura "Propias" y "Alquiladas"*/
-/* :where(.css-dev-only-do-not-override-1745goh).ant-table-wrapper .ant-table-thead >tr>th {
-   background-color: #f8f6f7 !important;
-} */
-
 :where(.css-dev-only-do-not-override-1wizrxm).ant-table-wrapper .ant-table-thead >tr>th {
    background-color: #f8f6f7 !important;
 }
-
-/* @media only screen and (max-width: 1040px) {
-   .divContainerAddCosecha{
-      display: flex;
-      flex-direction: column;
-      width: 100% !important;
-   }
-   .divContainerTitles{
-      width: 100% !important;
-   }
-   .agCosecha{
-      display: flex;
-      flex-direction: column;
-      width: 100% !important;
-    }
-    .agRubroPropias {
-      width: 100% !important;
-   }
-   .agRubroAlquiladas {
-      width: 100% !important;
-   }
-   .AddCosecha{
-      display: flex;
-      flex-direction: row;
-      width: 100% !important;
-      align-content:flex-start;
-   }
-   
- } */
-/*
- divContainerAddCosecha
-divContainerTitles
- */
