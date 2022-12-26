@@ -11,3 +11,24 @@ input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none; 
   margin: 0; 
 }
+
+/*Btn editar*/
+.btnEditCosecha {
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    border: none;
+    font-size: 28px;
+    color: #00b33c;
+    background-color: transparent
+}
+ .selectCosecha{
+    background-color: transparent
+}
+
+
+:where(.css-dev-only-do-not-override-1dsa5t3).ant-btn-default:not(:disabled):hover {
+    color: #8fd14a;
+    border-color: #8fd14a;
+    
+}

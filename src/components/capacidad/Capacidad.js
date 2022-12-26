@@ -152,8 +152,9 @@ const Capacidad = () => {
                     <Select.Option value="2021">2021</Select.Option>
                 </Select>
                 <Button
+                    style={{alignItems:"center"}}
                     className='btnEditCosecha'
-                    icon={<EditOutlined />}
+                    icon={<EditOutlined style={{fontSize:"20px"}}/>}
                     // onClick={() => addCosecha()/*showModal()*/}
                     onClick = {() => editarCosecha()}
                 />

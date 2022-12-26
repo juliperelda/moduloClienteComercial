@@ -126,19 +126,7 @@
    color: #605d5f !important;
 }
 
-/*Btn editar*/
-.btnEditCosecha {
-   display: flex;
-   flex-direction: row;
-   margin-left: auto;
-   border: none;
-   font-size: 28px;
-   color: #00b33c;
-   background-color: transparent
-}
-.selectCosecha{
-   background-color: transparent
-}
+
 
 /*Select*/
 .ant-select-selector {

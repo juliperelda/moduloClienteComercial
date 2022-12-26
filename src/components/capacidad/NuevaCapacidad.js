@@ -2,6 +2,7 @@ import { Button, Card, Form, Input, Modal, Select } from 'antd'
 import React, { useContext, useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { GlobalContext } from '../../context/GlobalContext'
+import './capacidad.css';
 
 
 export const NuevaCapacidad = () => {
