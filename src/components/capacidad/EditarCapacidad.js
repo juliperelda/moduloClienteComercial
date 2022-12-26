@@ -37,12 +37,12 @@ export const EditarCapacidad = () => {
         }
     }
 
-    useEffect(() => {
-        const fetchData = () => {
-            traeData()
-        }
-        fetchData()
-    }, [])
+    // useEffect(() => {
+    //     const fetchData = () => {
+    //         traeData()
+    //     }
+    //     fetchData()
+    // }, [])
 
     useEffect(() => {
         const fetchData = () => {
