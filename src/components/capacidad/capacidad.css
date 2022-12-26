@@ -13,30 +13,39 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 
-:where(.css-dev-only-do-not-override-1dsa5t3).ant-btn-default:not(:disabled).btnEditCosecha:hover {
+.ant-btn-default:not(:disabled).btnEditCosecha:hover {
     color: #8fd14a;
     border-color: #8fd14a;
     
 }
 
-:where(.css-dev-only-do-not-override-1dsa5t3).ant-btn-default:not(:disabled).btnAddCosecha:hover {
+.ant-btn-default:not(:disabled).btnAddCosecha:hover {
     color: #8fd14a;
     border-color: #8fd14a;
 
     
 }
 
-:where(.css-dev-only-do-not-override-1dsa5t3).ant-btn-default.btnAddCosecha {
+.ant-btn-default.btnAddCosecha {
     box-shadow: none;
     margin-top: 2px;
     margin-right: 2px;
 }
 
-:where(.css-dev-only-do-not-override-1dsa5t3).ant-btn-default:not(:disabled).btnAddCosechaData:hover {
+.ant-btn-default:not(:disabled).btnAddCosechaData:hover {
     color: #ffffff;
     border-color: #8fd14a;
 }
 
+.ant-input.input-unidad:hover {
+    border-color: #8fd14a;
+    border-inline-end-width: 1px;
+}
+
+.ant-input.input-unidad:focus {
+    border-color: #8fd14a;
+    border-inline-end-width: 1px;
+}
 
 .divContainerAddCosecha{
   display: flex;
