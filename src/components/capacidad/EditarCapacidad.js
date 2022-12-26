@@ -37,12 +37,12 @@ export const EditarCapacidad = () => {
         }
     }
 
-    useEffect(() => {
-        const fetchData = () => {
-            traeData()
-        }
-        fetchData()
-    }, [])
+    // useEffect(() => {
+    //     const fetchData = () => {
+    //         traeData()
+    //     }
+    //     fetchData()
+    // }, [])
 
     useEffect(() => {
         const fetchData = () => {
@@ -149,6 +149,7 @@ export const EditarCapacidad = () => {
                                 >
                                     <Input
                                         className='input-unidad'
+                                        type="number"
                                         placeholder="0"
                                         name='propias'
                                         // defaultValue={dataContext.propias}
@@ -180,6 +181,7 @@ export const EditarCapacidad = () => {
                                     >
                                         <Input
                                             className='input-unidad'
+                                            type="number"
                                             placeholder="0"
                                             name='ganaderia'
                                             // defaultValue={dataContext.ganaderia}
@@ -194,6 +196,7 @@ export const EditarCapacidad = () => {
                                     >
                                         <Input
                                             className='input-unidad'
+                                            type="number"
                                             placeholder="0"
                                             name='tambo'
                                             // defaultValue={dataContext.tambo}
@@ -208,6 +211,7 @@ export const EditarCapacidad = () => {
                                     >
                                         <Input
                                             className='input-unidad'
+                                            type="number"
                                             placeholder="0"
                                             name='mixto'
                                             // defaultValue={dataContext.mixto}
@@ -226,6 +230,7 @@ export const EditarCapacidad = () => {
                                 >
                                     <Input
                                         className='input-unidad'
+                                        type="number"
                                         placeholder="0"
                                         name='alquiladas'
                                         // defaultValue={dataContext.alquiladas}
@@ -242,6 +247,7 @@ export const EditarCapacidad = () => {
                                     >
                                         <Input
                                             className='input-unidad'
+                                            type="number"
                                             placeholder="0"
                                             name='agriculturaA'
                                             // defaultValue={dataContext.agriculturaA}
@@ -256,6 +262,7 @@ export const EditarCapacidad = () => {
                                     >
                                         <Input
                                             className='input-unidad'
+                                            type="number"
                                             placeholder="0"
                                             name='ganaderiaA'
                                             // defaultValue={dataContext.ganaderiaA}
@@ -270,6 +277,7 @@ export const EditarCapacidad = () => {
                                     >
                                         <Input
                                             className='input-unidad'
+                                            type="number"
                                             placeholder="0"
                                             name='tamboA'
                                             // defaultValue={dataContext.tamboA}
@@ -284,6 +292,7 @@ export const EditarCapacidad = () => {
                                     >
                                         <Input
                                             className='input-unidad'
+                                            type="number"
                                             placeholder="0"
                                             name='mixtoA'
                                             // defaultValue={dataContext.mixtoA}

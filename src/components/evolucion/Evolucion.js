@@ -1,5 +1,3 @@
-    import { isVisible } from '@testing-library/user-event/dist/utils';
-    import { Button } from 'antd';
     import React, { useEffect, useState } from 'react';
     import {
         BarChart,

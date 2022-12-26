@@ -141,7 +141,7 @@ const Capacidad = () => {
             <div className='divDropdown'>
                 <Select
                     className='selectCosecha'
-                    defaultValue="[Seleccionar Cosecha]"
+                    defaultValue="Seleccionar Cosecha"
                     placeholder="Seleccione Cosecha"
                     name='cosecha'
                     bordered={false}
