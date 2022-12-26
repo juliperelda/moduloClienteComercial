@@ -130,7 +130,7 @@ export const NuevaCapacidad = () => {
                 <div className='agCosecha'>
                     <div className='agRubroPropias'>
                         <Form>
-                            <h3 style={{ 'color': 'green' }}>PROPIAS</h3>
+                            <h3 style={{ 'color': 'green', 'textAlign':'center' }}>PROPIAS</h3>
                             <Form.Item
                                 // label="Username"
                                 name="inputPropias"
@@ -208,7 +208,7 @@ export const NuevaCapacidad = () => {
                         </Form>
                     </div>
                     <div className='agRubroAlquiladas'>
-                        <h3 style={{ 'color': 'green' }}>ALQUILADAS</h3>
+                        <h3 className='title-input' style={{ 'color': 'green' }}>ALQUILADAS</h3>
                         <Form.Item
                             name="inputAlquiladas"
                         >
