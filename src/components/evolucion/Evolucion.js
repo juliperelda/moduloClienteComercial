@@ -42,26 +42,22 @@
 
 
         /*-----------------------------------*/
-        const [isValorPropias, setIsValorPropias] = useState()
-        const [isValorAlquiladas, setIsValorAlquiladas] = useState()
+        const [isValorPropias, setIsValorPropias] = useState(true)
+        const [isValorAlquiladas, setIsValorAlquiladas] = useState(true)
         /*-----------------------------------*/
-        const [selectedItems, setSelectedItems] = useState([]);
 
-        const handleLegendClick = (event) => {
-            const { dataKey } = event;
-            const index = selectedItems.indexOf(dataKey);
-            if (index === -1) {
-                setSelectedItems([...selectedItems, dataKey]);
-                // const v = 0
-                setIsValorPropias(0)
-                setIsValorAlquiladas(0)
-            } else {
-                const newSelectedItems = [...selectedItems];
-                newSelectedItems.splice(index, 1);
-                setSelectedItems(newSelectedItems);
-                setIsValorPropias('propias')
-                setIsValorAlquiladas('alquiladas')
-            }
+        const handleLegendClick = (x) => {
+            console.log(x)
+            console.log("click")
+            if(x.value === "Propias"){
+                console.log("seleccionaste propias");
+                setIsValorPropias(!isValorPropias);
+            };
+
+            if(x.value === "Alquiladas"){
+                console.log("seleccionaste alquiladas");
+                setIsValorAlquiladas(!isValorAlquiladas);
+            };
         };
         /*-----------------------------------*/
 
@@ -71,8 +67,6 @@
             <>
                 <ResponsiveContainer className="" width="100%" height={400}>
                     <BarChart
-                        // width="100%"
-                        // height="100%"
                         width={500}
                         height={300}
                         data={arrayData}
@@ -87,33 +81,35 @@
                         <XAxis dataKey="cosecha" />
                         <YAxis label={{ value: 'Has.', angle: -90, position: 'insideLeft' }} />
                         <Tooltip />
-                        <Legend iconType="circle" onClick={handleLegendClick} />
+                        <Legend iconType="circle" onClick={(x) => handleLegendClick(x)} />
                         {
-                            selectedItems.indexOf('propias') === -1 ?
-                                <Bar
-                                    dataKey="propias"
-                                    name='Propias'
-                                    stackId="a"
-                                    barSize={100}
-                                    fill="#a9ff96"
-                                    key={'propias'}
-                                    label={renderCustomBarLabel}
-                                    isAnimationActive={false}
-                                />
-                                :
-                                <Bar
-                                    dataKey={isValorPropias}
-                                    name='Propias'
-                                    stackId="a"
-                                    barSize={100}
-                                    fill="#a9ff96"
-                                    key={'propias'}
-                                    label={renderCustomBarLabel}
-                                    isAnimationActive={false}
-                                />
+                          isValorPropias ?(
+                              <Bar
+                                  dataKey="propias"
+                                  name='Propias'
+                                  stackId="a"
+                                  barSize={100}
+                                  fill="#a9ff96"
+                                  key={'propias'}
+                                  label={renderCustomBarLabel}
+                                  isAnimationActive={true}
+                              />
+
+                          ) :(
+                              <Bar
+                                  dataKey={0}
+                                  name='Propias'
+                                  stackId="a"
+                                  barSize={100}
+                                  fill="#a9ff96"
+                                  key={'propias'}
+                                  label={renderCustomBarLabel}
+                                  isAnimationActive={true}
+                              />
+                          )
                         }
                         {
-                            selectedItems.indexOf('alquiladas') === -1 ?
+                            isValorAlquiladas ?(
                                 <Bar
                                     dataKey="alquiladas"
                                     name='Alquiladas'
@@ -122,19 +118,20 @@
                                     fill="#434348"
                                     key={'alquiladas'}
                                     label={renderCustomBarLabel}
-                                    isAnimationActive={false}
+                                    isAnimationActive={true}
                                 />
-                                :
+                            ) :(
                                 <Bar
-                                    dataKey={isValorAlquiladas}
+                                    dataKey={0}
                                     name='Alquiladas'
                                     stackId="a"
                                     barSize={100}
                                     fill="#434348"
                                     key={'alquiladas'}
                                     label={renderCustomBarLabel}
-                                    isAnimationActive={false}
+                                    isAnimationActive={true}
                                 />
+                            )
                         }
                     </BarChart>
                 </ResponsiveContainer>

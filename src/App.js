@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { GlobalContext } from './context/GlobalContext';
 // import { BrowserRouter } from 'react-router-dom';
 import AppRouter from './router/AppRouter';
+import Analitica from './components/analisis/Analitica';
 
 function App() {
 
@@ -17,7 +18,8 @@ function App() {
     }}>
       
       {/* <BrowserRouter> */}
-      <AppRouter />
+      {/* <AppRouter /> */}
+        <Analitica/>
       {/* </BrowserRouter> */}
     </GlobalContext.Provider>
   );

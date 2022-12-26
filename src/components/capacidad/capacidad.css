@@ -22,15 +22,24 @@ input[type=number]::-webkit-outer-spin-button {
 .ant-btn-default:not(:disabled).btnAddCosecha:hover {
     color: #8fd14a;
     border-color: #8fd14a;
-
+    transition: none;
     
 }
 
-.ant-btn-default.btnAddCosecha {
+.ant-btn-default:not(:disabled).btnAddCosecha:focus {
+    color: #8fd14a;
+    border-color: #8fd14a;
+    transition: none;
+    
+}
+
+.ant-btn-default.btnAddCosecha{
     box-shadow: none;
     margin-top: 2px;
     margin-right: 2px;
+    transition: none !important;
 }
+
 
 .ant-btn-default:not(:disabled).btnAddCosechaData:hover {
     color: #ffffff;
