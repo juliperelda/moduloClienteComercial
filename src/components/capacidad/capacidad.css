@@ -13,11 +13,30 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 
-:where(.css-dev-only-do-not-override-1dsa5t3).ant-btn-default:not(:disabled):hover {
+:where(.css-dev-only-do-not-override-1dsa5t3).ant-btn-default:not(:disabled).btnEditCosecha:hover {
     color: #8fd14a;
     border-color: #8fd14a;
     
 }
+
+:where(.css-dev-only-do-not-override-1dsa5t3).ant-btn-default:not(:disabled).btnAddCosecha:hover {
+    color: #8fd14a;
+    border-color: #8fd14a;
+
+    
+}
+
+:where(.css-dev-only-do-not-override-1dsa5t3).ant-btn-default.btnAddCosecha {
+    box-shadow: none;
+    margin-top: 2px;
+    margin-right: 2px;
+}
+
+:where(.css-dev-only-do-not-override-1dsa5t3).ant-btn-default:not(:disabled).btnAddCosechaData:hover {
+    color: #ffffff;
+    border-color: #8fd14a;
+}
+
 
 .divContainerAddCosecha{
   display: flex;
