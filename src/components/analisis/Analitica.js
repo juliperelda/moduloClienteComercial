@@ -15,14 +15,9 @@ import { useHistory } from "react-router-dom";
 
 const Analitica = () => {
     var objData = []
-    // const [isModalOpen, setIsModalOpen] = useState(false);
-    // const [isData, setIsData] = useState({});
-    // const [isDataEdit, setIsDataEdit] = useState({});
-    // const [isDataSet, setIsDataSet] = useState({});
+
     const [isVista, setIsVista] = useState(false);
     const [isVistaEditar, setIsVistaEditar] = useState(false);
-    // const [isPrueba, setIsPrueba] = useState(false);
-    // const [isActiveModal, setIsActiveModal] = useState(false);
 
     const { dataContext, setDataContext, isCosecha, setIsCosecha } = useContext(GlobalContext)
 
@@ -33,7 +28,6 @@ const Analitica = () => {
         setIsVista(true);
         setIsVistaEditar(false);
         setDataContext(null)
-        // navigate('/addCapacidad');
         history.push("/addCapacidad");
     };
 

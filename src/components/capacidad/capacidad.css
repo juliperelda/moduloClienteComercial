@@ -11,3 +11,80 @@ input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none; 
   margin: 0; 
 }
+
+
+.divContainerAddCosecha{
+  display: flex;
+  flex-direction: column;
+}
+
+.agCosecha {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  margin: 5px;
+  padding: 10px;
+}
+
+.agRubroPropias{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+.agRubroAlquiladas{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+.input-unidad {
+  width: 300px;
+  text-align:right
+}
+
+.AddCosecha {
+  display: flex;
+  flex-direction: row;
+  padding-top: 20px;
+  margin-left: 88%;
+}
+
+.btnAddCosechaData {
+  display: flex;
+  margin-left: auto;
+  background-color: #00b33c;
+  color: #ffffff;
+}
+
+.divDropdown {
+  background-color: #f2f0f1;
+  display: flex;
+  flex-direction: row;
+}
+
+.selectCosecha{
+  background-color: transparent
+}
+
+.btnEditCosecha {
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+  border: none;
+  font-size: 28px;
+  color: #00b33c;
+  background-color: transparent
+}
+
+/*Select*/
+.ant-select-selector {
+  background-color: transparent !important;
+  border: 0 !important;
+}
+
+:where(.css-dev-only-do-not-override-1wizrxm).ant-table-wrapper .ant-table-thead >tr>th {
+  background-color: #f8f6f7 !important;
+}

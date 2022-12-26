@@ -2,6 +2,7 @@ import { Button, Card, Form, Input, Modal, Select } from 'antd'
 import React, { useContext, useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { GlobalContext } from '../../context/GlobalContext'
+import './capacidad.css';
 
 
 export const NuevaCapacidad = () => {
@@ -114,7 +115,7 @@ export const NuevaCapacidad = () => {
                     &nbsp;
                     <h4>Seleccione Cosecha:</h4>
                     <Select
-                        defaultValue="[Seleccionar Cosecha]"
+                        defaultValue="Seleccionar Cosecha"
                         placeholder="Seleccione Cosecha"
                         name='cosecha'
                         onChange={(e) => recuperaCosecha(e)}
@@ -137,6 +138,7 @@ export const NuevaCapacidad = () => {
                             >
                                 <Input
                                     className='input-unidad'
+                                    type="number"
                                     placeholder="0"
                                     name='propias'
                                     // defaultValue={isVistaEditar ? dataContext.propias : null}
@@ -167,6 +169,7 @@ export const NuevaCapacidad = () => {
                                 >
                                     <Input
                                         className='input-unidad'
+                                        type="number"
                                         placeholder="0"
                                         name='ganaderia'
                                         // defaultValue={isVistaEditar ? dataContext.ganaderia : null}
@@ -180,6 +183,7 @@ export const NuevaCapacidad = () => {
                                 >
                                     <Input
                                         className='input-unidad'
+                                        type="number"
                                         placeholder="0"
                                         name='tambo'
                                         // defaultValue={isVistaEditar ? dataContext.tambo : null}
@@ -193,6 +197,7 @@ export const NuevaCapacidad = () => {
                                 >
                                     <Input
                                         className='input-unidad'
+                                        type="number"
                                         placeholder="0"
                                         name='mixto'
                                         // defaultValue={isVistaEditar ? dataContext.mixto : null}
@@ -209,6 +214,7 @@ export const NuevaCapacidad = () => {
                         >
                             <Input
                                 className='input-unidad'
+                                type="number"
                                 placeholder="0"
                                 name='alquiladas'
                                 // defaultValue={isVistaEditar ? dataContext.alquiladas : null}
@@ -224,6 +230,7 @@ export const NuevaCapacidad = () => {
                             >
                                 <Input
                                     className='input-unidad'
+                                    type="number"
                                     placeholder="0"
                                     name='agriculturaA'
                                     // defaultValue={isVistaEditar ? dataContext.agriculturaA : null}
@@ -237,6 +244,7 @@ export const NuevaCapacidad = () => {
                             >
                                 <Input
                                     className='input-unidad'
+                                    type="number"
                                     placeholder="0"
                                     name='ganaderiaA'
                                     // defaultValue={isVistaEditar ? dataContext.ganaderiaA : null}
@@ -250,6 +258,7 @@ export const NuevaCapacidad = () => {
                             >
                                 <Input
                                     className='input-unidad'
+                                    type="number"
                                     placeholder="0"
                                     name='tamboA'
                                     // defaultValue={isVistaEditar ? dataContext.tamboA : null}
@@ -263,6 +272,7 @@ export const NuevaCapacidad = () => {
                             >
                                 <Input
                                     className='input-unidad'
+                                    type="number"
                                     placeholder="0"
                                     name='mixtoA'
                                     // defaultValue={isVistaEditar ? dataContext.mixtoA : null}
