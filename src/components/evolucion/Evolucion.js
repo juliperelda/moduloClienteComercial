@@ -1,6 +1,5 @@
     import { isVisible } from '@testing-library/user-event/dist/utils';
     import { Button } from 'antd';
-    import { DeprecatedLayoutGroupContext } from 'framer-motion';
     import React, { useEffect, useState } from 'react';
     import {
         BarChart,
@@ -10,9 +9,7 @@
         CartesianGrid,
         Tooltip,
         Legend,
-        ResponsiveContainer,
-        Surface,
-        Symbols,
+        ResponsiveContainer
     } from 'recharts';
 
     const Evolucion = () => {
