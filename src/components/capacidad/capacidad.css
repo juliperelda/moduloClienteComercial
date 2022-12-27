@@ -105,31 +105,40 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .divDropdown {
-  background-color: #f2f0f1;
+  /* background-color: #f2f0f1; */
   display: flex;
   flex-direction: row;
 }
 
-.selectCosecha{
+/* .selectCosecha{
   background-color: transparent
-}
+} */
 
 .btnEditCosecha {
   display: flex;
   flex-direction: row;
-  margin-left: auto;
+  margin-left: 10px;
   border: none;
-  font-size: 28px;
+  font-size: 18px !important;
   color: #00b33c;
   background-color: transparent
 }
 
+.btnAddCosecha {
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+  border: none;
+  font-size: 18px !important;
+  color: #00b33c;
+}
+
 /*Select*/
-.ant-select-selector {
+/* .ant-select-selector {
   background-color: transparent !important;
   border: 0 !important;
 }
 
 :where(.css-dev-only-do-not-override-1wizrxm).ant-table-wrapper .ant-table-thead >tr>th {
   background-color: #f8f6f7 !important;
-}
+} */

@@ -1,6 +1,6 @@
-import React, { useEffect, useState , useContext} from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { Button, Select, Table } from 'antd';
-import { EditOutlined } from '@ant-design/icons';
+import { EditOutlined, PlusCircleOutlined } from '@ant-design/icons';
 import { GlobalContext } from '../../context/GlobalContext';
 import { useHistory } from 'react-router-dom';
 import './capacidad.css';
@@ -32,7 +32,7 @@ const Capacidad = () => {
     // const [isCosecha, setIsCosecha] = useState();
     const [isCosechaEdit, setIsCosechaEdit] = useState();
 
-    const {dataContext, setDataContext, isCosecha, setIsCosecha} = useContext ( GlobalContext )
+    const { dataContext, setDataContext, isCosecha, setIsCosecha } = useContext(GlobalContext)
 
     let cosechaSelect = 2021
 
@@ -50,13 +50,13 @@ const Capacidad = () => {
     }, [])
 
     const editarCosecha = () => {
-            isDataStorage.forEach(function (data) {
-                if (parseInt(data.cosecha) === parseInt(isCosecha)){
-                    setDataContext(data)
-                }
-            })
+        isDataStorage.forEach(function (data) {
+            if (parseInt(data.cosecha) === parseInt(isCosecha)) {
+                setDataContext(data)
+            }
+        })
 
-            history.push('/editCapacidad')
+        history.push('/editCapacidad')
     }
 
     const recuperaCosecha = (event) => {
@@ -135,7 +135,28 @@ const Capacidad = () => {
             }
         }
         console.log(arrayData)
+
+
+        
+        
     }
+
+
+
+    /* -----------------------------------*/
+    const [isVista, setIsVista] = useState(false);
+    const [isVistaEditar, setIsVistaEditar] = useState(false);
+
+    const addCosecha = () => {
+        setIsVista(true);
+        setIsVistaEditar(false);
+        setDataContext(null)
+        history.push("/addCapacidad");
+    };
+    /* -----------------------------------*/
+
+
+
     return (
         <>
             <div className='divDropdown'>
@@ -144,19 +165,25 @@ const Capacidad = () => {
                     defaultValue="Seleccionar Cosecha"
                     placeholder="Seleccione Cosecha"
                     name='cosecha'
-                    bordered={false}
+                    bordered={true}
                     onChange={(e) => recuperaCosecha(e)}
                 >
                     <Select.Option value="2223">2223</Select.Option>
                     <Select.Option value="2122">2122</Select.Option>
                     <Select.Option value="2021">2021</Select.Option>
+                    <Select.Option value="1920">1920</Select.Option>
                 </Select>
                 <Button
-                    style={{alignItems:"center"}}
+                    style={{ alignItems: "center" }}
                     className='btnEditCosecha'
-                    icon={<EditOutlined style={{fontSize:"20px"}}/>}
+                    icon={<EditOutlined />}
                     // onClick={() => addCosecha()/*showModal()*/}
-                    onClick = {() => editarCosecha()}
+                    onClick={() => editarCosecha()}
+                />
+                <Button
+                    className='btnAddCosecha'
+                    icon={<PlusCircleOutlined />}
+                    onClick={() => { addCosecha(); history.push("/addCapacidad") }}
                 />
             </div>
 

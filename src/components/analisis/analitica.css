@@ -16,9 +16,11 @@ html {
 .cardTable {
    min-width: 200px;
    border-radius: 0 !important;
+   border: hidden;
 }
 .cardGrafico {
    border-radius: 0 !important;
+   border: hidden;
 }
 .titulos{
    font-family: 'Open Sans', sans-serif;
@@ -30,14 +32,14 @@ html {
    flex-direction: row;
    margin-left: auto;
 }
-.btnAddCosecha {
+/* .btnAddCosecha {
    display: flex;
    flex-direction: row;
    margin-left: auto;
    border: none;
    font-size: 20px;
    color: #00b33c;
-}
+} */
 
 @media only screen and (max-width: 1024px) {
   .divContainer{
@@ -62,6 +64,6 @@ html {
 }
 
 :where(.css-dev-only-do-not-override-1e67qka).ant-card {
-   font-size: 18px;
+   font-size: 14px;
 }
 

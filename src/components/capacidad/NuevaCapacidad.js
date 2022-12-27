@@ -20,6 +20,7 @@ export const NuevaCapacidad = () => {
     const [isVista, setIsVista] = useState(false);
     const [isActiveModal, setIsActiveModal] = useState(false);
     const [isDataSet, setIsDataSet] = useState({});
+    
 
     const traeData = () => {
         if (localStorage.getItem("data")) {
@@ -120,11 +121,12 @@ export const NuevaCapacidad = () => {
                         name='cosecha'
                         onChange={(e) => recuperaCosecha(e)}
                         style={{ width: 200 }}
-                        bordered={false}
+                        bordered={true}
                     >
                         <Select.Option value="2223">2223</Select.Option>
                         <Select.Option value="2122">2122</Select.Option>
                         <Select.Option value="2021">2021</Select.Option>
+                        <Select.Option value="1920">1920</Select.Option>
                     </Select>
                 </div>
                 <div className='agCosecha'>
