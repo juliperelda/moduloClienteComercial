@@ -11,14 +11,17 @@ html {
 .divContainer{
    display: flex;
    flex-direction: row;
-   width: 1024px;
+   /* width: 1024px; */
+   width: 100%;
 }
 .cardTable {
    min-width: 200px;
    border-radius: 0 !important;
+   border: hidden;
 }
 .cardGrafico {
    border-radius: 0 !important;
+   border: hidden;
 }
 .titulos{
    font-family: 'Open Sans', sans-serif;
@@ -30,16 +33,16 @@ html {
    flex-direction: row;
    margin-left: auto;
 }
-.btnAddCosecha {
+/* .btnAddCosecha {
    display: flex;
    flex-direction: row;
    margin-left: auto;
    border: none;
    font-size: 20px;
    color: #00b33c;
-}
+} */
 
-@media only screen and (max-width: 1024px) {
+/* @media only screen and (max-width: 1024px) {
   .divContainer{
      display: flex;
      flex-direction: column;
@@ -51,7 +54,7 @@ html {
      width: 100% !important;
   }
   
-}
+} */
 
 /*No me acuerdo que era*/
 :where(.css-dev-only-do-not-override-1dsa5t3) a {
@@ -62,6 +65,6 @@ html {
 }
 
 :where(.css-dev-only-do-not-override-1e67qka).ant-card {
-   font-size: 18px;
+   font-size: 14px;
 }
 

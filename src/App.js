@@ -18,8 +18,8 @@ function App() {
     }}>
       
       {/* <BrowserRouter> */}
-      {/* <AppRouter /> */}
-        <Analitica/>
+      <AppRouter />
+        {/* <Analitica/> */}
       {/* </BrowserRouter> */}
     </GlobalContext.Provider>
   );
