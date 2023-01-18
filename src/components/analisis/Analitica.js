@@ -45,7 +45,7 @@ const Analitica = () => {
                             <Button
                                 className='btnAddCosecha'
                                 icon={<PlusCircleOutlined />}
-                                onClick={() => {addCosecha(); history.push("/addCapacidad")}}
+                                onClick={() => addCosecha()}
                             />
                         </div>
                     </Card>
