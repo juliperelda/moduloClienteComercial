@@ -7,11 +7,11 @@ import NuevaCapacidadView from '../views/NuevaCapacidadView';
 const AppRouter = () => {
     return (
         <BrowserRouter basename="/app">
-            <Switch>
+            <Route>
                 <Route exact path="/" component={AnaliticaView} />
                 <Route exact path="/addCapacidad" component={NuevaCapacidadView} />
                 <Route exact path="/editCapacidad" component={EditarCapacidadView} />
-            </Switch>
+            </Route>
         </BrowserRouter>
     )
 }
