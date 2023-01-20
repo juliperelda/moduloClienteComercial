@@ -108,6 +108,12 @@ input[type=number]::-webkit-outer-spin-button {
   /* background-color: #f2f0f1; */
   display: flex;
   flex-direction: row;
+  /* flex-direction: column; */
+}
+.divNuevaCapacidad {
+  display: flex;
+  /* flex-direction: row; */
+  flex-direction: column;
 }
 
 /* .selectCosecha{
@@ -243,4 +249,12 @@ td {
   /* display:flex; */
   display:inline-flex;
   flex-direction: row;
+}
+
+
+.contBotonesNuevaCapacidad{
+  /* display:flex; */
+  display:flex;
+  flex-direction: row;
+  margin: initial;
 }

@@ -8,6 +8,8 @@ import { PlusCircleOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 import { GlobalContext } from '../../context/GlobalContext';
 import { useHistory } from "react-router-dom";
+import { NuevaCapacidad } from '../capacidad/NuevaCapacidad';
+import { EditarCapacidad } from '../capacidad/EditarCapacidad';
 // import { useNavigate } from 'react-router-dom';
 
 
@@ -19,7 +21,7 @@ const Analitica = () => {
     // const [isVista, setIsVista] = useState(false);
     // const [isVistaEditar, setIsVistaEditar] = useState(false);
 
-    const { dataContext, setDataContext, isCosecha, setIsCosecha } = useContext(GlobalContext)
+    const { dataContext, setDataContext, isCosecha, setIsCosecha, appStage, setAppStage, } = useContext(GlobalContext)
 
     let history = useHistory();
 
@@ -31,6 +33,19 @@ const Analitica = () => {
     //     history.push("/addCapacidad");
     // };
 
+    // const handleStage = () => {
+    //     switch (appStage) {
+    //       case 0:
+    //       return <Capacidad />;
+    //       case 1:
+    //       return <EditarCapacidad />;
+    //       case 2:
+    //       return <NuevaCapacidad />;
+    //       default:
+    //       return <Capacidad />;
+    //     }
+    //   };
+
     return (
         <>
                 <div className='divContainer'>
@@ -40,14 +55,8 @@ const Analitica = () => {
                     </Card>
                     <Card className='cardTable' style={{ width: "50%" }}>
                         <h1 className='titulos' style={{ marginBottom: '11px' }}>CAPACIDAD PRODUCTIVA</h1>
+                        {/* <div>{<>{handleStage()}</>}</div>; */}
                         <Capacidad />
-                        {/* <div className='divBtnAddCosecha'>
-                            <Button
-                                className='btnAddCosecha'
-                                icon={<PlusCircleOutlined />}
-                                onClick={() => {addCosecha(); history.push("/addCapacidad")}}
-                            />
-                        </div> */}
                     </Card>
                 </div>
         </>

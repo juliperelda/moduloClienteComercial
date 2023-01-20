@@ -12,7 +12,7 @@ export const NuevaCapacidad = () => {
     let history = useHistory();
 
     //! UseContext
-    const { dataContext, setDataContext, isCosecha, setIsCosecha } = useContext(GlobalContext)
+    const { dataContext, setDataContext, isCosecha, setIsCosecha, appStage, setAppStage } = useContext(GlobalContext)
 
 
     //! UseState
@@ -20,7 +20,7 @@ export const NuevaCapacidad = () => {
     const [isVista, setIsVista] = useState(false);
     const [isActiveModal, setIsActiveModal] = useState(false);
     const [isDataSet, setIsDataSet] = useState({});
-    
+
 
     const traeData = () => {
         if (localStorage.getItem("data")) {
@@ -72,7 +72,8 @@ export const NuevaCapacidad = () => {
 
                 localStorage.setItem('data', JSON.stringify({ objData }))
                 setIsVista(false)
-                history.goBack()
+                // history.goBack()
+                setAppStage(0)
             } else {
                 alert("El total de Has. de Rubros supera a las Has. Propias en general")
                 setIsActiveModal(true)
@@ -100,6 +101,7 @@ export const NuevaCapacidad = () => {
     const salir = () => {
         setIsVista(false)
         setDataContext(null)
+        setAppStage(0)
     }
 
     const cerrar = () => {
@@ -107,206 +109,295 @@ export const NuevaCapacidad = () => {
     }
 
     return (
-        <div className='divContainerAddCosecha'>
-            <Card className='cardRubros'>
-                <div className='divContainerTitles'>
-                    <h3>Cargar Cosecha/Rubro</h3>
+        <>
+            <div className='divNuevaCapacidad'>
+                {/* <Card className='cardRubros'> */}
+                {/* <div className='divContainerTitles'> */}
+                {/* <h3>Cargar Cosecha/Rubro</h3>
 
                     <hr />
                     &nbsp;
-                    <h4>Seleccione Cosecha:</h4>
-                    <Select
-                        defaultValue="Seleccionar Cosecha"
-                        placeholder="Seleccione Cosecha"
-                        name='cosecha'
-                        onChange={(e) => recuperaCosecha(e)}
-                        style={{ width: 200 }}
-                        bordered={true}
-                    >
-                        <Select.Option value="2223">2223</Select.Option>
-                        <Select.Option value="2122">2122</Select.Option>
-                        <Select.Option value="2021">2021</Select.Option>
-                        <Select.Option value="1920">1920</Select.Option>
-                    </Select>
+                    <h4>Seleccione Cosecha:</h4> */}
+                {/* <Select
+                    defaultValue="Seleccionar Cosecha"
+                    placeholder="Seleccione Cosecha"
+                    name='cosecha'
+                    onChange={(e) => recuperaCosecha(e)}
+                    style={{ width: 200 }}
+                    bordered={true}
+                >
+                    <Select.Option value="2223">2223</Select.Option>
+                    <Select.Option value="2122">2122</Select.Option>
+                    <Select.Option value="2021">2021</Select.Option>
+                    <Select.Option value="1920">1920</Select.Option>
+                </Select> */}
+                {/* </div> */}
+                {/* <> */}
+                <div className='cont'>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th className="encabezados1" style={{ 'width': '385px' }}></th>
+                                <th className="encabezados" style={{ "text-align": "right" }}>PROPIAS</th>
+                                <th className="encabezados" style={{ "text-align": "right" }}>ALQUILER</th>
+                            </tr>
+                        </thead>
+                        <thead>
+                            <tr>
+                                <td className="prueba1">AGRICULTURA</td>
+                                <td className="prueba">
+
+                                    <Form.Item
+                                        name="inputAgricultura"
+                                    // initialValue={dataContext.agricultura}
+                                    >
+                                        <Input
+                                            className="a"
+                                            // className='input-unidad'
+                                            type="number"
+                                            placeholder="0"
+                                            name='agricultura'
+                                            style={{ 'textAlign': 'right' }}
+                                            defaultValue={0}
+                                            onChange={(e) => handleInputChange(e)}
+                                        />
+                                    </Form.Item>
+
+                                </td>
+                                <td className="prueba">
+
+                                    <Form.Item
+                                        name="inputAgriculturaA"
+                                    // initialValue={dataContext.agriculturaA}
+                                    >
+                                        <Input
+                                            className="a"
+                                            // className='input-unidad'
+                                            type="number"
+                                            placeholder="0"
+                                            name='agriculturaA'
+                                            style={{ 'textAlign': 'right' }}
+                                            defaultValue={0}
+                                            onChange={(e) => handleInputChange(e)}
+                                        />
+                                    </Form.Item>
+
+
+                                </td>
+                            </tr>
+                        </thead>
+                        <thead>
+                            <tr>
+                                <td className="prueba1">GANADERÍA</td>
+                                <td className="prueba">
+
+                                    <Form.Item
+                                        name="inputGanaderia"
+                                    // initialValue={dataContext.ganaderia}
+                                    >
+                                        <Input
+                                            className="a"
+                                            // className='input-unidad'
+                                            type="number"
+                                            placeholder="0"
+                                            name='ganaderia'
+                                            style={{ 'textAlign': 'right' }}
+                                            defaultValue={0}
+                                            onChange={(e) => handleInputChange(e)}
+                                        />
+                                    </Form.Item>
+
+                                </td>
+                                <td className="prueba">
+
+                                    <Form.Item
+                                        name="inputGanaderiaA"
+                                    // initialValue={dataContext.ganaderiaA}
+                                    >
+                                        <Input
+                                            className="a"
+                                            // className='input-unidad'
+                                            type="number"
+                                            placeholder="0"
+                                            name='ganaderiaA'
+                                            style={{ 'textAlign': 'right' }}
+                                            defaultValue={0}
+                                            onChange={(e) => handleInputChange(e)}
+                                        />
+                                    </Form.Item>
+
+
+                                </td>
+                            </tr>
+                        </thead>
+                        <thead>
+                            <tr>
+                                <td className="prueba1">TAMBO</td>
+                                <td className="prueba">
+
+                                    <Form.Item
+                                        name="inputTambo"
+                                    // initialValue={dataContext.tambo}
+                                    >
+                                        <Input
+                                            className="a"
+                                            // className='input-unidad'
+                                            type="number"
+                                            placeholder="0"
+                                            name='tambo'
+                                            style={{ 'textAlign': 'right' }}
+                                            defaultValue={0}
+                                            onChange={(e) => handleInputChange(e)}
+                                        />
+                                    </Form.Item>
+
+                                </td>
+                                <td className="prueba">
+
+                                    <Form.Item
+                                        name="inputTamboA"
+                                    // initialValue={dataContext.tamboA}
+                                    >
+                                        <Input
+                                            className="a"
+                                            // className='input-unidad'
+                                            type="number"
+                                            placeholder="0"
+                                            name='tamboA'
+                                            style={{ 'textAlign': 'right' }}
+                                            defaultValue={0}
+                                            onChange={(e) => handleInputChange(e)}
+                                        />
+                                    </Form.Item>
+
+
+                                </td>
+                            </tr>
+                        </thead>
+                        <thead>
+                            <tr>
+                                <td className="prueba1">MIXTO</td>
+                                <td className="prueba">
+
+                                    <Form.Item
+                                        name="inputMixto"
+                                    // initialValue={dataContext.mixto}
+                                    >
+                                        <Input
+                                            className="a"
+                                            // className='input-unidad'
+                                            type="number"
+                                            placeholder="0"
+                                            name='mixto'
+                                            style={{ 'textAlign': 'right' }}
+                                            defaultValue={0}
+                                            onChange={(e) => handleInputChange(e)}
+                                        />
+                                    </Form.Item>
+
+                                </td>
+                                <td className="prueba">
+
+                                    <Form.Item
+                                        name="inputMixtoA"
+                                    // initialValue={dataContext.mixtoA}
+                                    >
+                                        <Input
+                                            className="a"
+                                            // className='input-unidad'
+                                            type="number"
+                                            placeholder="0"
+                                            name='mixtoA'
+                                            style={{ 'textAlign': 'right' }}
+                                            defaultValue={0}
+                                            onChange={(e) => handleInputChange(e)}
+                                        />
+                                    </Form.Item>
+
+
+                                </td>
+                            </tr>
+                        </thead>
+                        <thead>
+                            <tr>
+                                <td className="prueba" style={{ 'font-weight': 'bold' }}>TOTAL</td>
+                                <td className="prueba">
+
+                                    <Form.Item
+                                        name="inputPropias"
+                                    // initialValue={dataContext.propias}
+                                    >
+                                        <Input
+                                            className="a"
+                                            // className='input-unidad'
+                                            type="number"
+                                            placeholder="0"
+                                            name='propias'
+                                            style={{ 'textAlign': 'right' }}
+                                            defaultValue={0}
+                                            onChange={handleInputChange}
+                                        />
+                                    </Form.Item>
+
+
+
+                                </td>
+                                <td className="prueba">
+
+                                    <Form.Item
+                                        name="inputAlquiladas"
+                                    // initialValue={dataContext.alquiladas}
+                                    >
+                                        <Input
+                                            className="a"
+                                            // className='input-unidad'
+                                            type="number"
+                                            placeholder="0"
+                                            name='alquiladas'
+                                            style={{ 'textAlign': 'right' }}
+                                            defaultValue={0}
+                                            onChange={(e) => handleInputChange(e)}
+                                        />
+                                    </Form.Item>
+
+                                </td>
+                            </tr>
+                        </thead>
+                    </table>
                 </div>
-                <div className='agCosecha'>
-                    <div className='agRubroPropias'>
-                        <Form>
-                            <h3 style={{ 'color': 'green', 'textAlign':'center' }}>PROPIAS</h3>
-                            <Form.Item
-                                // label="Username"
-                                name="inputPropias"
-                                rules={[{ required: false, message: 'Por favor ingrese un valor' }]}
-                            >
-                                <Input
-                                    className='input-unidad'
-                                    type="number"
-                                    placeholder="0"
-                                    name='propias'
-                                    // defaultValue={isVistaEditar ? dataContext.propias : null}
-                                    onChange={(e) => handleInputChange(e)}
-                                />
-                            </Form.Item>
-                            &nbsp;
-                            &nbsp;
-                            <div>
-                                <h3 style={{ 'paddingTop': '15px' }}>AGRICULTURA</h3>
-                                <Form.Item
-                                    name="inputAgricultura"
-                                >
-                                    <Input
-                                        className='input-unidad'
-                                        type="number"
-                                        placeholder="0"
-                                        name='agricultura'
-                                        // value={isVistaEditar ? dataContext.agricultura : null}
-                                        // defaultValue={isVistaEditar ? dataContext.agricultura : null}
-                                        onChange={(e) => handleInputChange(e)}
-                                    />
-                                </Form.Item>
-                                &nbsp;
-                                <h3 style={{ 'paddingTop': '15px' }}>GANADERIA</h3>
-                                <Form.Item
-                                    name="inputGanaderia"
-                                >
-                                    <Input
-                                        className='input-unidad'
-                                        type="number"
-                                        placeholder="0"
-                                        name='ganaderia'
-                                        // defaultValue={isVistaEditar ? dataContext.ganaderia : null}
-                                        onChange={(e) => handleInputChange(e)}
-                                    />
-                                </Form.Item>
-                                &nbsp;
-                                <h3 style={{ 'paddingTop': '15px' }}>TAMBO</h3>
-                                <Form.Item
-                                    name="inputTambo"
-                                >
-                                    <Input
-                                        className='input-unidad'
-                                        type="number"
-                                        placeholder="0"
-                                        name='tambo'
-                                        // defaultValue={isVistaEditar ? dataContext.tambo : null}
-                                        onChange={(e) => handleInputChange(e)}
-                                    />
-                                </Form.Item>
-                                &nbsp;
-                                <h3 style={{ 'paddingTop': '15px' }}>MIXTO</h3>
-                                <Form.Item
-                                    name="inputMixto"
-                                >
-                                    <Input
-                                        className='input-unidad'
-                                        type="number"
-                                        placeholder="0"
-                                        name='mixto'
-                                        // defaultValue={isVistaEditar ? dataContext.mixto : null}
-                                        onChange={(e) => handleInputChange(e)}
-                                    />
-                                </Form.Item>
-                            </div>
-                        </Form>
+                <div className='contBotonesNuevaCapacidad'>
+                    <div>
+                        <Button
+                            className='btnAddCosechaData'
+                            onClick={() => salir()}
+                        > Salir
+                        </Button>
+
                     </div>
-                    <div className='agRubroAlquiladas'>
-                        <h3 className='title-input' style={{ 'color': 'green' }}>ALQUILADAS</h3>
-                        <Form.Item
-                            name="inputAlquiladas"
-                        >
-                            <Input
-                                className='input-unidad'
-                                type="number"
-                                placeholder="0"
-                                name='alquiladas'
-                                // defaultValue={isVistaEditar ? dataContext.alquiladas : null}
-                                onChange={(e) => handleInputChange(e)}
-                            />
-                        </Form.Item>
-                        &nbsp;
-                        &nbsp;
-                        <div>
-                            <h3 style={{ 'paddingTop': '15px' }}>AGRICULTURA</h3>
-                            <Form.Item
-                                name="inputAgriculturaA"
-                            >
-                                <Input
-                                    className='input-unidad'
-                                    type="number"
-                                    placeholder="0"
-                                    name='agriculturaA'
-                                    // defaultValue={isVistaEditar ? dataContext.agriculturaA : null}
-                                    onChange={(e) => handleInputChange(e)}
-                                />
-                            </Form.Item>
-                            &nbsp;
-                            <h3 style={{ 'paddingTop': '15px' }}>GANADERIA</h3>
-                            <Form.Item
-                                name="inputGanaderiaA"
-                            >
-                                <Input
-                                    className='input-unidad'
-                                    type="number"
-                                    placeholder="0"
-                                    name='ganaderiaA'
-                                    // defaultValue={isVistaEditar ? dataContext.ganaderiaA : null}
-                                    onChange={(e) => handleInputChange(e)}
-                                />
-                            </Form.Item>
-                            &nbsp;
-                            <h3 style={{ 'paddingTop': '15px' }}>TAMBO</h3>
-                            <Form.Item
-                                name="inputTamboA"
-                            >
-                                <Input
-                                    className='input-unidad'
-                                    type="number"
-                                    placeholder="0"
-                                    name='tamboA'
-                                    // defaultValue={isVistaEditar ? dataContext.tamboA : null}
-                                    onChange={(e) => handleInputChange(e)}
-                                />
-                            </Form.Item>
-                            &nbsp;
-                            <h3 style={{ 'paddingTop': '15px' }}>MIXTO</h3>
-                            <Form.Item
-                                name="inputMixtoA"
-                            >
-                                <Input
-                                    className='input-unidad'
-                                    type="number"
-                                    placeholder="0"
-                                    name='mixtoA'
-                                    // defaultValue={isVistaEditar ? dataContext.mixtoA : null}
-                                    onChange={(e) => handleInputChange(e)}
-                                />
-                            </Form.Item>
-                        </div>
+                    <div>
+                        <Button
+                            className='btnAddCosechaData'
+                            onClick={() => handleOk()}
+                        > Guardar
+                        </Button>
+
                     </div>
+
+
                 </div>
-                <div className='AddCosecha'>
-                    <Button
-                        className='btnAddCosechaData'
-                        onClick={() => history.goBack()}
-                    > Salir
-                    </Button>
-                    <Button
-                        className='btnAddCosechaData'
-                        onClick={/*(data) => setIsDatoPrueba(data)}*/() => handleOk()}
-                    > Guardar
-                    </Button>
-                </div>
-            </Card>
-            {
-                isActiveModal ?
-                    (
-                        <Modal title="" open={isActiveModal} onOk={cerrar}>
-                            <h2>VALOR INCORRECTO</h2>
-                            <p>Revise la cantidad de Has. Total con las Has. de los Rubros</p>
-                        </Modal>
-                    )
-                    : ('')
-            }
-        </div >
+                {/* </> */}
+                {/* </Card> */}
+                {
+                    isActiveModal ?
+                        (
+                            <Modal title="" open={isActiveModal} onOk={cerrar}>
+                                <h2>VALOR INCORRECTO</h2>
+                                <p>Revise la cantidad de Has. Total con las Has. de los Rubros</p>
+                            </Modal>
+                        )
+                        : ('')
+                }
+            </div >
+        </>
     )
 }

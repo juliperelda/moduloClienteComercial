@@ -4,6 +4,8 @@ import { EditOutlined, PlusCircleOutlined } from '@ant-design/icons';
 import { GlobalContext } from '../../context/GlobalContext';
 import { useHistory } from 'react-router-dom';
 import './capacidad.css';
+import { EditarCapacidad } from './EditarCapacidad';
+import { NuevaCapacidad } from './NuevaCapacidad';
 
 
 
@@ -62,7 +64,7 @@ const Capacidad = () => {
     // const [isCosecha, setIsCosecha] = useState();
     const [isCosechaEdit, setIsCosechaEdit] = useState();
 
-    const { dataContext, setDataContext, isCosecha, setIsCosecha } = useContext(GlobalContext)
+    const { dataContext, setDataContext, isCosecha, setIsCosecha, appStage, setAppStage } = useContext(GlobalContext)
 
     let cosechaSelect = 2021
 
@@ -75,6 +77,7 @@ const Capacidad = () => {
         })
         setIsPrueba(true)
         prueba()
+        setAppStage(1)
         // history.push('/editCapacidad')
     }
 
@@ -107,6 +110,7 @@ const Capacidad = () => {
         }
         fetchData()
     })
+
 
 
     const handEdit = () => {
@@ -157,6 +161,8 @@ const Capacidad = () => {
         }
 
     }
+
+
 
     const handleInputChangeEdit = (event) => {
 
@@ -313,12 +319,12 @@ const Capacidad = () => {
     const [isVistaEditar, setIsVistaEditar] = useState(false);
 
     const addCosecha = () => {
-        setIsVista(true);
-        setIsVistaEditar(false);
-        setDataContext(null)
+        // setIsVista(true);
+        // setIsVistaEditar(false);
+        // setDataContext(null)
         // history.push("/addCapacidad");
-
-        setIsPrueba1(false)
+        setAppStage(2)
+        setIsPrueba1(true)
     };
     /* -----------------------------------*/
 
@@ -338,7 +344,18 @@ const Capacidad = () => {
 
     /* ------------------FIN EDITAR-----------------*/
 
-
+    const handleStage = () => {
+        switch (appStage) {
+          case 0:
+          return <Table columns={columns} dataSource={isDataTable} pagination={false} />;
+          case 1:
+          return <EditarCapacidad />;
+          case 2:
+          return <NuevaCapacidad />;
+          default:
+          return <Table columns={columns} dataSource={isDataTable} pagination={false} />
+        }
+      };
 
 
 
@@ -363,496 +380,21 @@ const Capacidad = () => {
                     className='btnEditCosecha'
                     icon={<EditOutlined />}
                     // onClick={() => addCosecha()/*showModal()*/}
-                    onClick={() => editarCosecha()}
+                    onClick={() => editarCosecha() /*handEdit()*/}
                     onChange={(e) => recuperaCosecha(e)}
                 />
                 <Button
                     className='btnAddCosecha'
                     icon={<PlusCircleOutlined />}
-                    onClick={() => { addCosecha(); history.push("/addCapacidad") }}
+                    onClick={() => { addCosecha()/*; history.push("/addCapacidad")*/ }}
                 />
             </div>
 
-            {
-                !isPrueba || !isPrueba1 ?
-                    (
-                        <Table columns={columns}
-                            dataSource={isDataTable}
-                            pagination={false} />
-                    )
-                    : 
-                    (
-                        <>
-                            <div className='cont'>
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th className="encabezados1" style={{ 'width': '385px' }}></th>
-                                            <th className="encabezados" style={{ "text-align": "right" }}>PROPIAS</th>
-                                            <th className="encabezados" style={{ "text-align": "right" }}>ALQUILER</th>
-                                        </tr>
-                                    </thead>
-                                    <thead>
-                                        <tr>
-                                            <td className="prueba1">AGRICULTURA</td>
-                                            <td className="prueba">
-                                                {
-                                                    !isPrueba1 ?
-                                                        (
-                                                            <Form.Item
-                                                                name="inputAgricultura"
-                                                            // initialValue={dataContext.agricultura}
-                                                            >
-                                                                <Input
-                                                                    className="a"
-                                                                    // className='input-unidad'
-                                                                    type="number"
-                                                                    placeholder="0"
-                                                                    name='agricultura'
-                                                                    style={{ 'textAlign': 'right' }}
-                                                                    defaultValue={0}
-                                                                    onChange={(e) => handleInputChangeEdit(e)}
-                                                                />
-                                                            </Form.Item>
-                                                        )
-                                                        :
-                                                        (
-                                                            <Form.Item
-                                                                name="inputAgricultura"
-                                                            // initialValue={dataContext.agricultura}
-                                                            >
-                                                                <Input
-                                                                    className="a"
-                                                                    // className='input-unidad'
-                                                                    type="number"
-                                                                    placeholder="0"
-                                                                    name='agricultura'
-                                                                    style={{ 'textAlign': 'right' }}
-                                                                    defaultValue={dataContext.agricultura}
-                                                                    onChange={(e) => handleInputChangeEdit(e)}
-                                                                />
-                                                            </Form.Item>
-                                                        )
-                                                }
-                                            </td>
-                                            <td className="prueba">
-                                                {
-                                                    !isPrueba1 ?
-                                                        (
-                                                            <Form.Item
-                                                                name="inputAgriculturaA"
-                                                            // initialValue={dataContext.agriculturaA}
-                                                            >
-                                                                <Input
-                                                                    className="a"
-                                                                    // className='input-unidad'
-                                                                    type="number"
-                                                                    placeholder="0"
-                                                                    name='agriculturaA'
-                                                                    style={{ 'textAlign': 'right' }}
-                                                                    defaultValue={0}
-                                                                    onChange={(e) => handleInputChangeEdit(e)}
-                                                                />
-                                                            </Form.Item>
-                                                        )
-                                                        :
-                                                        (
-                                                            <Form.Item
-                                                                name="inputAgriculturaA"
-                                                            // initialValue={dataContext.agriculturaA}
-                                                            >
-                                                                <Input
-                                                                    className="a"
-                                                                    // className='input-unidad'
-                                                                    type="number"
-                                                                    placeholder="0"
-                                                                    name='agriculturaA'
-                                                                    style={{ 'textAlign': 'right' }}
-                                                                    defaultValue={dataContext.agriculturaA}
-                                                                    onChange={(e) => handleInputChangeEdit(e)}
-                                                                />
-                                                            </Form.Item>
-                                                        )
-                                                }
+            {<>{handleStage()}</>}
 
-                                            </td>
-                                        </tr>
-                                    </thead>
-                                    <thead>
-                                        <tr>
-                                            <td className="prueba1">GANADERÍA</td>
-                                            <td className="prueba">
-                                                {
-                                                    !isPrueba1 ?
-                                                        (
-                                                            <Form.Item
-                                                                name="inputGanaderia"
-                                                            // initialValue={dataContext.ganaderia}
-                                                            >
-                                                                <Input
-                                                                    className="a"
-                                                                    // className='input-unidad'
-                                                                    type="number"
-                                                                    placeholder="0"
-                                                                    name='ganaderia'
-                                                                    style={{ 'textAlign': 'right' }}
-                                                                    defaultValue={0}
-                                                                    onChange={(e) => handleInputChangeEdit(e)}
-                                                                />
-                                                            </Form.Item>
-                                                        )
-                                                        :
-                                                        (
-                                                            <Form.Item
-                                                                name="inputGanaderia"
-                                                            // initialValue={dataContext.ganaderia}
-                                                            >
-                                                                <Input
-                                                                    className="a"
-                                                                    // className='input-unidad'
-                                                                    type="number"
-                                                                    placeholder="0"
-                                                                    name='ganaderia'
-                                                                    style={{ 'textAlign': 'right' }}
-                                                                    defaultValue={dataContext.ganaderia}
-                                                                    onChange={(e) => handleInputChangeEdit(e)}
-                                                                />
-                                                            </Form.Item>
-                                                        )
-                                                }
-                                            </td>
-                                            <td className="prueba">
-                                                {
-                                                    !isPrueba1 ?
-                                                        (
-                                                            <Form.Item
-                                                                name="inputGanaderiaA"
-                                                            // initialValue={dataContext.ganaderiaA}
-                                                            >
-                                                                <Input
-                                                                    className="a"
-                                                                    // className='input-unidad'
-                                                                    type="number"
-                                                                    placeholder="0"
-                                                                    name='ganaderiaA'
-                                                                    style={{ 'textAlign': 'right' }}
-                                                                    defaultValue={0}
-                                                                    onChange={(e) => handleInputChangeEdit(e)}
-                                                                />
-                                                            </Form.Item>
-                                                        )
-                                                        :
-                                                        (
-                                                            <Form.Item
-                                                                name="inputGanaderiaA"
-                                                            // initialValue={dataContext.ganaderiaA}
-                                                            >
-                                                                <Input
-                                                                    className="a"
-                                                                    // className='input-unidad'
-                                                                    type="number"
-                                                                    placeholder="0"
-                                                                    name='ganaderiaA'
-                                                                    style={{ 'textAlign': 'right' }}
-                                                                    defaultValue={dataContext.ganaderiaA}
-                                                                    onChange={(e) => handleInputChangeEdit(e)}
-                                                                />
-                                                            </Form.Item>
-                                                        )
-                                                }
+            {/* <Table columns={columns} dataSource={isDataTable} pagination={false} /> */}
 
-                                            </td>
-                                        </tr>
-                                    </thead>
-                                    <thead>
-                                        <tr>
-                                            <td className="prueba1">TAMBO</td>
-                                            <td className="prueba">
-                                                {
-                                                    !isPrueba1 ?
-                                                        (
-                                                            <Form.Item
-                                                                name="inputTambo"
-                                                            // initialValue={dataContext.tambo}
-                                                            >
-                                                                <Input
-                                                                    className="a"
-                                                                    // className='input-unidad'
-                                                                    type="number"
-                                                                    placeholder="0"
-                                                                    name='tambo'
-                                                                    style={{ 'textAlign': 'right' }}
-                                                                    defaultValue={0}
-                                                                    onChange={(e) => handleInputChangeEdit(e)}
-                                                                />
-                                                            </Form.Item>
-                                                        )
-                                                        :
-                                                        (
-                                                            <Form.Item
-                                                                name="inputTambo"
-                                                            // initialValue={dataContext.tambo}
-                                                            >
-                                                                <Input
-                                                                    className="a"
-                                                                    // className='input-unidad'
-                                                                    type="number"
-                                                                    placeholder="0"
-                                                                    name='tambo'
-                                                                    style={{ 'textAlign': 'right' }}
-                                                                    defaultValue={dataContext.tambo}
-                                                                    onChange={(e) => handleInputChangeEdit(e)}
-                                                                />
-                                                            </Form.Item>
-                                                        )
-                                                }
-                                            </td>
-                                            <td className="prueba">
-                                                {
-                                                    !isPrueba1 ?
-                                                        (
-                                                            <Form.Item
-                                                                name="inputTamboA"
-                                                            // initialValue={dataContext.tamboA}
-                                                            >
-                                                                <Input
-                                                                    className="a"
-                                                                    // className='input-unidad'
-                                                                    type="number"
-                                                                    placeholder="0"
-                                                                    name='tamboA'
-                                                                    style={{ 'textAlign': 'right' }}
-                                                                    defaultValue={0}
-                                                                    onChange={(e) => handleInputChangeEdit(e)}
-                                                                />
-                                                            </Form.Item>
-                                                        )
-                                                        :
-                                                        (
-                                                            <Form.Item
-                                                                name="inputTamboA"
-                                                            // initialValue={dataContext.tamboA}
-                                                            >
-                                                                <Input
-                                                                    className="a"
-                                                                    // className='input-unidad'
-                                                                    type="number"
-                                                                    placeholder="0"
-                                                                    name='tamboA'
-                                                                    style={{ 'textAlign': 'right' }}
-                                                                    defaultValue={dataContext.tamboA}
-                                                                    onChange={(e) => handleInputChangeEdit(e)}
-                                                                />
-                                                            </Form.Item>
-                                                        )
-                                                }
-
-                                            </td>
-                                        </tr>
-                                    </thead>
-                                    <thead>
-                                        <tr>
-                                            <td className="prueba1">MIXTO</td>
-                                            <td className="prueba">
-                                                {
-                                                    !isPrueba1 ?
-                                                        (
-                                                            <Form.Item
-                                                                name="inputMixto"
-                                                            // initialValue={dataContext.mixto}
-                                                            >
-                                                                <Input
-                                                                    className="a"
-                                                                    // className='input-unidad'
-                                                                    type="number"
-                                                                    placeholder="0"
-                                                                    name='mixto'
-                                                                    style={{ 'textAlign': 'right' }}
-                                                                    defaultValue={0}
-                                                                    onChange={(e) => handleInputChangeEdit(e)}
-                                                                />
-                                                            </Form.Item>
-                                                        )
-                                                        :
-                                                        (
-                                                            <Form.Item
-                                                                name="inputMixto"
-                                                            // initialValue={dataContext.mixto}
-                                                            >
-                                                                <Input
-                                                                    className="a"
-                                                                    // className='input-unidad'
-                                                                    type="number"
-                                                                    placeholder="0"
-                                                                    name='mixto'
-                                                                    style={{ 'textAlign': 'right' }}
-                                                                    defaultValue={dataContext.mixto}
-                                                                    onChange={(e) => handleInputChangeEdit(e)}
-                                                                />
-                                                            </Form.Item>
-                                                        )
-                                                }
-                                            </td>
-                                            <td className="prueba">
-                                                {
-                                                    !isPrueba1 ?
-                                                        (
-                                                            <Form.Item
-                                                                name="inputMixtoA"
-                                                            // initialValue={dataContext.mixtoA}
-                                                            >
-                                                                <Input
-                                                                    className="a"
-                                                                    // className='input-unidad'
-                                                                    type="number"
-                                                                    placeholder="0"
-                                                                    name='mixtoA'
-                                                                    style={{ 'textAlign': 'right' }}
-                                                                    defaultValue={0}
-                                                                    onChange={(e) => handleInputChangeEdit(e)}
-                                                                />
-                                                            </Form.Item>
-                                                        )
-                                                        :
-                                                        (
-                                                            <Form.Item
-                                                                name="inputMixtoA"
-                                                            // initialValue={dataContext.mixtoA}
-                                                            >
-                                                                <Input
-                                                                    className="a"
-                                                                    // className='input-unidad'
-                                                                    type="number"
-                                                                    placeholder="0"
-                                                                    name='mixtoA'
-                                                                    style={{ 'textAlign': 'right' }}
-                                                                    defaultValue={dataContext.mixtoA}
-                                                                    onChange={(e) => handleInputChangeEdit(e)}
-                                                                />
-                                                            </Form.Item>
-                                                        )
-                                                }
-
-                                            </td>
-                                        </tr>
-                                    </thead>
-                                    <thead>
-                                        <tr>
-                                            <td className="prueba" style={{ 'font-weight': 'bold' }}>TOTAL</td>
-                                            <td className="prueba">
-                                                {
-                                                    !isPrueba1 ?
-                                                        (
-                                                            <Form.Item
-                                                                name="inputPropias"
-                                                            // initialValue={dataContext.propias}
-                                                            >
-                                                                <Input
-                                                                    className="a"
-                                                                    // className='input-unidad'
-                                                                    type="number"
-                                                                    placeholder="0"
-                                                                    name='propias'
-                                                                    style={{ 'textAlign': 'right' }}
-                                                                    defaultValue={0}
-                                                                    onChange={handleInputChangeEdit}
-                                                                />
-                                                            </Form.Item>
-                                                        )
-                                                        :
-                                                        (
-                                                            <Form.Item
-                                                                name="inputPropias"
-                                                            // initialValue={dataContext.propias}
-                                                            >
-                                                                <Input
-                                                                    className="a"
-                                                                    // className='input-unidad'
-                                                                    type="number"
-                                                                    placeholder="0"
-                                                                    name='propias'
-                                                                    style={{ 'textAlign': 'right' }}
-                                                                    defaultValue={dataContext.propias}
-                                                                    onChange={handleInputChangeEdit}
-                                                                />
-                                                            </Form.Item>
-                                                        )
-                                                }
-
-                                            </td>
-                                            <td className="prueba">
-                                                {
-                                                    !isPrueba1 ?
-                                                        (
-                                                            <Form.Item
-                                                                name="inputAlquiladas"
-                                                            // initialValue={dataContext.alquiladas}
-                                                            >
-                                                                <Input
-                                                                    className="a"
-                                                                    // className='input-unidad'
-                                                                    type="number"
-                                                                    placeholder="0"
-                                                                    name='alquiladas'
-                                                                    style={{ 'textAlign': 'right' }}
-                                                                    defaultValue={0}
-                                                                    onChange={(e) => handleInputChangeEdit(e)}
-                                                                />
-                                                            </Form.Item>
-                                                        )
-                                                        :
-                                                        (
-                                                            <Form.Item
-                                                                name="inputAlquiladas"
-                                                            // initialValue={dataContext.alquiladas}
-                                                            >
-                                                                <Input
-                                                                    className="a"
-                                                                    // className='input-unidad'
-                                                                    type="number"
-                                                                    placeholder="0"
-                                                                    name='alquiladas'
-                                                                    style={{ 'textAlign': 'right' }}
-                                                                    defaultValue={dataContext.alquiladas}
-                                                                    onChange={(e) => handleInputChangeEdit(e)}
-                                                                />
-                                                            </Form.Item>
-                                                        )
-                                                }
-                                            </td>
-                                        </tr>
-                                    </thead>
-                                </table>
-                            </div>
-                            <div className='contBotones'>
-                                <Button
-                                    className='btnAddCosechaData'
-                                    onClick={() => salir()}
-                                > Salir
-                                </Button>
-                                {
-                                    !isPrueba1 ?
-                                        (
-                                            <Button
-                                                className='btnAddCosechaData'
-                                                onClick={() => handleOk()}
-                                            > Guardar
-                                            </Button>
-                                        )
-                                        :
-                                        (
-                                            <Button
-                                                className='btnAddCosechaData'
-                                                onClick={() => handEdit()}
-                                            > Actualizar
-                                            </Button>
-                                        )
-                                }
-                            </div>
-                        </>
-                    )
-            }
-        </>
+        </> 
 
     );
 };
