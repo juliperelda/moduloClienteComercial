@@ -12,7 +12,7 @@ export const NuevaCapacidad = () => {
     let history = useHistory();
 
     //! UseContext
-    const { dataContext, setDataContext, isCosecha, setIsCosecha, appStage, setAppStage } = useContext(GlobalContext)
+    const { dataContext, setDataContext, isCosecha, setIsCosecha, appStage, setAppStage, isButtonDisabled, setIsButtonDisabled } = useContext(GlobalContext)
 
 
     //! UseState
@@ -99,6 +99,7 @@ export const NuevaCapacidad = () => {
     }
 
     const salir = () => {
+        setIsButtonDisabled(false);
         setIsVista(false)
         setDataContext(null)
         setAppStage(0)

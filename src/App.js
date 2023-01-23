@@ -14,7 +14,8 @@ function App() {
   const [dataContext, setDataContext] = useState();
   const [isCosecha, setIsCosecha] = useState();
   const [appStage, setAppStage] = useState();
-
+  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+  const [isButtonEditDisabled, setIsButtonEditDisabled] = useState(true);
 
 
   // const handleStage = () => {
@@ -36,6 +37,8 @@ function App() {
       dataContext, setDataContext,
       isCosecha, setIsCosecha,
       appStage, setAppStage,
+      isButtonDisabled, setIsButtonDisabled, 
+      isButtonEditDisabled, setIsButtonEditDisabled
     }}>
       
       {/* <div>{<>{handleStage()}</>}</div>; */}

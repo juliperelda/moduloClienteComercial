@@ -93,7 +93,7 @@
                         <XAxis dataKey="cosecha" />
                         <YAxis label={{ value: 'Has.', angle: -90, position: 'insideLeft' }} />
                         <Tooltip />
-                        <Legend iconType="circle" onClick={(x) => handleLegendClick(x)} />
+                        <Legend iconType="circle" onClick={(x) => handleLegendClick(x)} wrapperStyle={{ fontWeight: 'bold', color: '#000000' }} />
                         {
                           isValorPropias ?(
                               <Bar
