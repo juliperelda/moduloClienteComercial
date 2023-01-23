@@ -28,6 +28,7 @@ function App() {
   //   }
   // };
 
+  const idC = localStorage.getItem("cliente");
 
   return (
     <GlobalContext.Provider value={{
@@ -45,4 +46,6 @@ function App() {
     </GlobalContext.Provider>
   );
 }
+
+
 export default App;
