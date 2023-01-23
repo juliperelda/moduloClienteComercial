@@ -28,7 +28,6 @@ function App() {
   //   }
   // };
 
-  const idC = localStorage.getItem("cliente");
 
   return (
     <GlobalContext.Provider value={{
