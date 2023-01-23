@@ -12,7 +12,7 @@ export const EditarCapacidad = () => {
     let history = useHistory();
 
     //! UseContext
-    const { dataContext, setDataContext, isCosecha, setIsCosecha, appStage, setAppStage } = useContext(GlobalContext)
+    const { dataContext, setDataContext, isCosecha, setIsCosecha, appStage, setAppStage, isButtonEditDisabled, setIsButtonEditDisabled  } = useContext(GlobalContext)
 
     //! UseState
     const [isData, setIsData] = useState({});
@@ -122,6 +122,7 @@ export const EditarCapacidad = () => {
     }
 
     const salir = () => {
+        setIsButtonEditDisabled(false)
         setIsVista(false)
         setDataContext(null)
         setAppStage(0)

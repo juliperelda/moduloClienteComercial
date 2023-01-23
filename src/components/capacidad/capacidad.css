@@ -127,8 +127,18 @@ input[type=number]::-webkit-outer-spin-button {
   border: none;
   font-size: 18px !important;
   color: #00b33c;
-  background-color: transparent
+  background-color: transparent;
+  
 }
+
+
+.btnEditCosecha:disabled {
+  background-color: #fafafa !important;
+}
+
+/* .btnEditCosecha:hover {
+  border-color: #ec1f1f !important;
+} */
 
 .btnAddCosecha {
   display: flex;
@@ -137,6 +147,10 @@ input[type=number]::-webkit-outer-spin-button {
   border: none;
   font-size: 18px !important;
   color: #00b33c;
+}
+
+.btnAddCosecha:disabled {
+  background-color: #fafafa !important;
 }
 
 /*Select*/

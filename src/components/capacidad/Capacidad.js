@@ -48,6 +48,9 @@ const Capacidad = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isDataEdit, setIsDataEdit] = useState({});
     const [IsVisible, setIsVisible] = useState();
+    // const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+    // const [isButtonEditDisabled, setIsButtonEditDisabled] = useState(true);
+
 
 
 
@@ -64,21 +67,58 @@ const Capacidad = () => {
     // const [isCosecha, setIsCosecha] = useState();
     const [isCosechaEdit, setIsCosechaEdit] = useState();
 
-    const { dataContext, setDataContext, isCosecha, setIsCosecha, appStage, setAppStage } = useContext(GlobalContext)
+    const { dataContext, setDataContext, isCosecha, setIsCosecha, appStage, setAppStage, isButtonDisabled, setIsButtonDisabled, isButtonEditDisabled, setIsButtonEditDisabled } = useContext(GlobalContext)
 
     let cosechaSelect = 2021
 
-
+    
     const editarCosecha = () => {
+        /*-----------COMO LO TENIA ANTES-----------------------*/
+        setIsButtonEditDisabled(true)
         isDataStorage.forEach(function (data) {
             if (parseInt(data.cosecha) === parseInt(isCosecha)) {
                 setDataContext(data)
             }
         })
+        setIsVisible(false);
         setIsPrueba(true)
         prueba()
         setAppStage(1)
-        // history.push('/editCapacidad')
+        // // history.push('/editCapacidad')
+        /*-----------FIN - COMO LO TENIA ANTES-----------------------*/
+        // if (!isCosecha) {
+        //     // setIsVisible(true);
+        //     // setTimeout(() => {
+        //     //     setIsVisible(false);
+        //     // }, 5000);
+        //     // return;
+        //     setIsButtonEditDisabled(true)
+        // }
+        // // setIsVisible(false);
+
+        // let dataExist = false;
+        // // if (localStorage.getItem("data")) {
+        // isDataStorage.forEach(function (data) {
+        //     if (parseInt(data.cosecha) === parseInt(isCosecha)) {
+        //         dataExist = true;
+        //         setDataContext(data)
+        //     }
+        // });
+        // // }
+
+        // if (!dataExist) {
+        //     setIsVisibleError(true);
+        //     setTimeout(() => {
+        //         setIsVisibleError(false);
+        //     }, 5000);
+        //     return;
+        // }
+        // setIsVisibleError(false);
+
+        // setIsPrueba(true);
+        // prueba();
+        // setAppStage(1);
+        // history.push('/editCapacidad');
     }
 
 
@@ -317,6 +357,9 @@ const Capacidad = () => {
     /* -----------------------------------*/
     const [isVista, setIsVista] = useState(false);
     const [isVistaEditar, setIsVistaEditar] = useState(false);
+    const [IsVisibleError, setIsVisibleError] = useState(false);
+    const [ValorExiste, setValorExiste] = useState(false);
+
 
     const addCosecha = () => {
         // setIsVista(true);
@@ -324,7 +367,16 @@ const Capacidad = () => {
         // setDataContext(null)
         // history.push("/addCapacidad");
         setAppStage(2)
+        if (isCosecha) {
+            setIsButtonDisabled(true)
+            // setValorExiste(true);
+            // setTimeout(() => {
+            //     setValorExiste(false);
+            // }, 5000);
+            return;
+        }
         setIsPrueba1(true)
+        setIsButtonDisabled(false)
     };
     /* -----------------------------------*/
 
@@ -344,18 +396,39 @@ const Capacidad = () => {
 
     /* ------------------FIN EDITAR-----------------*/
 
+
+    const handleSelectChange = (value) => {
+        setIsCosecha(value);
+        let dataExist = false;
+        let dataExistEdit = true;
+        if (localStorage.getItem("data")) {
+            const dataStorage = JSON.parse(localStorage.getItem("data")).objData;
+            dataStorage.forEach(function (data) {
+                if (parseInt(data.cosecha) === parseInt(value)) {
+                    dataExist = true;
+                    dataExistEdit = false;
+                }
+            });
+        }
+        setIsButtonDisabled(dataExist); // false
+        setIsButtonEditDisabled(dataExistEdit); // true
+    }
+
+
+
+
     const handleStage = () => {
         switch (appStage) {
-          case 0:
-          return <Table columns={columns} dataSource={isDataTable} pagination={false} />;
-          case 1:
-          return <EditarCapacidad />;
-          case 2:
-          return <NuevaCapacidad />;
-          default:
-          return <Table columns={columns} dataSource={isDataTable} pagination={false} />
+            case 0:
+                return <Table columns={columns} dataSource={isDataTable} pagination={false} />;
+            case 1:
+                return <EditarCapacidad />;
+            case 2:
+                return <NuevaCapacidad />;
+            default:
+                return <Table columns={columns} dataSource={isDataTable} pagination={false} />
         }
-      };
+    };
 
 
 
@@ -368,7 +441,7 @@ const Capacidad = () => {
                     placeholder="Seleccione Cosecha"
                     name='cosecha'
                     bordered={true}
-                    onChange={(e) => recuperaCosecha(e)}
+                    onChange={(e) => {recuperaCosecha(e); handleSelectChange(e)}} value={isCosecha}
                 >
                     <Select.Option value="2223">2223</Select.Option>
                     <Select.Option value="2122">2122</Select.Option>
@@ -382,19 +455,19 @@ const Capacidad = () => {
                     // onClick={() => addCosecha()/*showModal()*/}
                     onClick={() => editarCosecha() /*handEdit()*/}
                     onChange={(e) => recuperaCosecha(e)}
+                    disabled={isButtonEditDisabled}
                 />
                 <Button
                     className='btnAddCosecha'
                     icon={<PlusCircleOutlined />}
                     onClick={() => { addCosecha()/*; history.push("/addCapacidad")*/ }}
+                    disabled={isButtonDisabled}
                 />
             </div>
 
             {<>{handleStage()}</>}
 
-            {/* <Table columns={columns} dataSource={isDataTable} pagination={false} /> */}
-
-        </> 
+        </>
 
     );
 };
