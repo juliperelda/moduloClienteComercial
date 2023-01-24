@@ -526,7 +526,7 @@ const Capacidad = () => {
             <div className="divDropdown">
                 <Select
                     className="selectCosecha"
-                    value={selectedValue}
+                    // value={selectedValue}
                     defaultValue={selectedValue}
                     style={{ width: '80px' }}
                     onChange={(value) => { setSelectedValue(value); console.log(value)}}
