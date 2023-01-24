@@ -512,6 +512,7 @@ const Capacidad = () => {
 
 
 
+    const [selectedValue, setSelectedValue] = useState(infoCosechas.length > 0 && infoCosechas[0].acos_desc);
     //*-----------------------------------------------------------------------*//
 
 
@@ -520,10 +521,9 @@ const Capacidad = () => {
             <div className="divDropdown">
                 <Select
                     className="selectCosecha"
-                    // defaultValue={infoCosechas.length > 0 && infoCosechas[0].acos_desc}
-                    value={infoCosechas.length > 0 && infoCosechas[0].acos_desc}
+                    value={selectedValue}
                     style={{ width: '80px' }}
-                    onChange={(value) => console.log(value)}
+                    onChange={(value) => { setSelectedValue(value); console.log(value)}}
                 >
                     {infoCosechas.length > 0 && infoCosechas.map((cosecha) => {
                         return (
