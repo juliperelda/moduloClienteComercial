@@ -1,35 +1,25 @@
-
-import './App.css';
-import React, { useState } from 'react';
-import { GlobalContext } from './context/GlobalContext';
-// import { BrowserRouter } from 'react-router-dom';
-import AppRouter from './router/AppRouter';
+import "./App.css";
+import React, { useState } from "react";
+import { GlobalContext } from "./context/GlobalContext";
 import Analitica from './components/analisis/Analitica';
-import Capacidad from './components/capacidad/Capacidad';
-import { EditarCapacidad } from './components/capacidad/EditarCapacidad';
-import { NuevaCapacidad } from './components/capacidad/NuevaCapacidad';
 
 function App() {
-
   const [dataContext, setDataContext] = useState();
   const [isCosecha, setIsCosecha] = useState();
   const [appStage, setAppStage] = useState();
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
   const [isButtonEditDisabled, setIsButtonEditDisabled] = useState(true);
 
+  //* Id de cliente que se obtine desde local storage
+  const idC = localStorage.getItem("cliente");
+  const [idCliente, setIdCliente]=useState(idC);
 
-  // const handleStage = () => {
-  //   switch (appStage) {
-  //     case 0:
-  //     return <Analitica />;
-  //     case 1:
-  //     return <EditarCapacidad />;
-  //     case 2:
-  //     return <NuevaCapacidad />;
-  //     default:
-  //     return <Analitica />;
-  //   }
-  // };
+  //! ESTADOS QUE ALMACENAN INFO QUE SE TRAE DESDE BASE DE DATOS
+  const [infoEvo, setInfoEvo]=useState({});
+  const [infoRubros, setInfoRubros]=useState({});
+  const [infoCap, setInfoCap]=useState({});
+
+
 
 
   return (
@@ -38,16 +28,18 @@ function App() {
       isCosecha, setIsCosecha,
       appStage, setAppStage,
       isButtonDisabled, setIsButtonDisabled, 
-      isButtonEditDisabled, setIsButtonEditDisabled
+      isButtonEditDisabled, setIsButtonEditDisabled,
+      infoEvo, setInfoEvo,
+      infoRubros, setInfoRubros,
+      infoCap, setInfoCap,
+      idCliente, setIdCliente
     }}>
       
-      {/* <div>{<>{handleStage()}</>}</div>; */}
-      {/* <BrowserRouter> */}
-      {/* <AppRouter /> */}
       <Analitica/>
-      {/* </BrowserRouter> */}
+
     </GlobalContext.Provider>
   );
 }
+
 
 export default App;
