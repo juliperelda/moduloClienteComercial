@@ -514,15 +514,21 @@ const Capacidad = () => {
 
     const [selectedValue, setSelectedValue] = useState(infoCosechas.length > 0 && infoCosechas[0].acos_desc);
     
-    useEffect(() => {
-        if (idCliente) {
-            infoTabCapacidad(idCliente, cosecha);
-            cosechas(idCliente);
-            rubros();
-            setSelectedValue(infoCosechas.length > 0 && infoCosechas[0].acos_desc);
-        }
-    }, [idCliente]);
+    const [dataLoaded, setDataLoaded] = useState(false);
 
+    useEffect(() => {
+            if (idCliente) {
+                infoTabCapacidad(idCliente, cosecha);
+                cosechas(idCliente);
+                rubros();
+                setDataLoaded(true);
+            }
+        }, [idCliente]);
+    
+    if(dataLoaded){
+        setSelectedValue(infoCosechas.length > 0 && infoCosechas[0].acos_desc);
+    }
+    
     //*-----------------------------------------------------------------------*//
 
 
