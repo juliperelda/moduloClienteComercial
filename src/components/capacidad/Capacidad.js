@@ -71,7 +71,7 @@ const Capacidad = () => {
 
     let cosechaSelect = 2021
 
-    
+
     const editarCosecha = () => {
         /*-----------COMO LO TENIA ANTES-----------------------*/
         setIsButtonEditDisabled(true)
@@ -367,14 +367,14 @@ const Capacidad = () => {
         // setDataContext(null)
         // history.push("/addCapacidad");
         setAppStage(2)
-        if (isCosecha) {
-            setIsButtonDisabled(true)
-            // setValorExiste(true);
-            // setTimeout(() => {
-            //     setValorExiste(false);
-            // }, 5000);
-            return;
-        }
+        // if (isCosecha) {
+        //     setIsButtonDisabled(true)
+        //     // setValorExiste(true);
+        //     // setTimeout(() => {
+        //     //     setValorExiste(false);
+        //     // }, 5000);
+        //     return;
+        // }
         setIsPrueba1(true)
         setIsButtonDisabled(false)
     };
@@ -395,7 +395,6 @@ const Capacidad = () => {
     }
 
     /* ------------------FIN EDITAR-----------------*/
-
 
     const handleSelectChange = (value) => {
         setIsCosecha(value);
@@ -441,7 +440,7 @@ const Capacidad = () => {
                     placeholder="Seleccione Cosecha"
                     name='cosecha'
                     bordered={true}
-                    onChange={(e) => {recuperaCosecha(e); handleSelectChange(e)}} value={isCosecha}
+                    onChange={(e) => { recuperaCosecha(e); handleSelectChange(e) }} value={isCosecha}
                 >
                     <Select.Option value="2223">2223</Select.Option>
                     <Select.Option value="2122">2122</Select.Option>
@@ -451,15 +450,14 @@ const Capacidad = () => {
                 <Button
                     style={{ alignItems: "center" }}
                     className='btnEditCosecha'
-                    icon={<EditOutlined />}
-                    // onClick={() => addCosecha()/*showModal()*/}
+                    icon={<EditOutlined className='iconEdit' />}
                     onClick={() => editarCosecha() /*handEdit()*/}
                     onChange={(e) => recuperaCosecha(e)}
                     disabled={isButtonEditDisabled}
                 />
                 <Button
                     className='btnAddCosecha'
-                    icon={<PlusCircleOutlined />}
+                    icon={<PlusCircleOutlined className='iconAdd' />}
                     onClick={() => { addCosecha()/*; history.push("/addCapacidad")*/ }}
                     disabled={isButtonDisabled}
                 />

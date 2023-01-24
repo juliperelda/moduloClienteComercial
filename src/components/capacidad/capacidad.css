@@ -128,17 +128,15 @@ input[type=number]::-webkit-outer-spin-button {
   font-size: 18px !important;
   color: #00b33c;
   background-color: transparent;
-  
 }
-
-
+.btnEditCosecha:active {
+  background: none !important;
+  border-color: #ffffff !important;
+}
 .btnEditCosecha:disabled {
-  background-color: #fafafa !important;
+  background-color: #ffffff !important;
 }
 
-/* .btnEditCosecha:hover {
-  border-color: #ec1f1f !important;
-} */
 
 .btnAddCosecha {
   display: flex;
@@ -147,11 +145,22 @@ input[type=number]::-webkit-outer-spin-button {
   border: none;
   font-size: 18px !important;
   color: #00b33c;
+  background-color: transparent;  
+}
+.btnAddCosecha:active:hover {
+  background: none !important;
+  border-color: #ffffff !important;
+}
+.btnAddCosecha:disabled {
+  background-color: #ffffff !important;
+}
+.iconAdd:active {
+  background: none !important;
+}
+.iconAdd:disabled {
+  background-color: #ffffff !important;
 }
 
-.btnAddCosecha:disabled {
-  background-color: #fafafa !important;
-}
 
 /*Select*/
 /* .ant-select-selector {
