@@ -388,7 +388,7 @@ const Capacidad = () => {
   };
 
   const cerrar = () => {
-    setIsActiveModal(false);
+    console.log()
   };
 
   /* ------------------FIN EDITAR-----------------*/
@@ -520,20 +520,26 @@ if(infoCosechas.length > 0){
       <div className="divDropdown">
         <Select
           className="selectCosecha"
-          defaultValue="Seleccionar Cosecha"
-          placeholder="Seleccione Cosecha"
-          name="cosecha"
-          bordered={true}
-          onChange={(e) => {
-            recuperaCosecha(e);
-            handleSelectChange(e);
-          }}
-          value={isCosecha}
+        //   defaultValue="Seleccionar Cosecha"
+        //   placeholder="Seleccione Cosecha"
+        //   name="cosecha"
+        //   bordered={true}
+        //   onChange={(e) => {
+        //     recuperaCosecha(e);
+        //     handleSelectChange(e);
+        //   }}
+        //   value={isCosecha}
+        onChange={(value) => console.log(value)}
         >
-          <Select.Option value="2223">2223</Select.Option>
+            {infoCosechas && infoCosechas.map((cosecha) => {
+                return (
+                    <Select.Option key={cosecha.acos_desc} value={cosecha.acos_desc}>{cosecha.acos_desc}</Select.Option>
+                )
+            })}
+          {/* <Select.Option value="2223">2223</Select.Option>
           <Select.Option value="2122">2122</Select.Option>
           <Select.Option value="2021">2021</Select.Option>
-          <Select.Option value="1920">1920</Select.Option>
+          <Select.Option value="1920">1920</Select.Option> */}
         </Select>
         <Button
           style={{ alignItems: "center" }}
