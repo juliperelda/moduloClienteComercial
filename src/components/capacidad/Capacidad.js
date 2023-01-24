@@ -467,6 +467,7 @@ const Capacidad = () => {
 
 
     // * FUNCION QUE TRAE LOS DATOS PARA LLENAR TABLA CAPACIDAD PRODUCTIVA INICIAL
+    const [selectedValue, setSelectedValue] = useState(infoCosechas.length > 0 && infoCosechas[0].acos_desc);
 
     var cosecha = 2021;
 
@@ -485,13 +486,13 @@ const Capacidad = () => {
             });
         });
     }
-
     //* EJECUTA LAS FUNCIONES QUE TRAE LA INFO
     useEffect(() => {
         if (idCliente) {
             infoTabCapacidad(idCliente, cosecha);
             cosechas(idCliente);
             rubros();
+            setSelectedValue(infoCosechas.length > 0 && infoCosechas[0].acos_desc);
         }
     }, [idCliente]);
 
@@ -512,23 +513,9 @@ const Capacidad = () => {
 
 
 
-    const [selectedValue, setSelectedValue] = useState(infoCosechas.length > 0 && infoCosechas[0].acos_desc);
+   
     
-    const [dataLoaded, setDataLoaded] = useState(false);
 
-    useEffect(() => {
-            if (idCliente) {
-                infoTabCapacidad(idCliente, cosecha);
-                cosechas(idCliente);
-                rubros();
-                setDataLoaded(true);
-            }
-        }, [idCliente]);
-    
-    if(dataLoaded){
-        setSelectedValue(infoCosechas.length > 0 && infoCosechas[0].acos_desc);
-    }
-    
     //*-----------------------------------------------------------------------*//
 
 
