@@ -520,8 +520,9 @@ const Capacidad = () => {
             <div className="divDropdown">
                 <Select
                     className="selectCosecha"
-                    defaultValue={infoCosechas.length > 0 && infoCosechas[0].acos_desc}
-                    style={{ width: '100px' }}
+                    // defaultValue={infoCosechas.length > 0 && infoCosechas[0].acos_desc}
+                    value={infoCosechas.length > 0 && infoCosechas[0].acos_desc}
+                    style={{ width: '80px' }}
                     onChange={(value) => console.log(value)}
                 >
                     {infoCosechas.length > 0 && infoCosechas.map((cosecha) => {
