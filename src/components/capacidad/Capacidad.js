@@ -531,7 +531,7 @@ if(infoCosechas.length > 0){
         //   value={isCosecha}
         onChange={(value) => console.log(value)}
         >
-            {infoCosechas && infoCosechas.map((cosecha) => {
+            {infoCosechas.length > 0 && infoCosechas.map((cosecha) => {
                 return (
                     <Select.Option key={cosecha.acos_desc} value={cosecha.acos_desc}>{cosecha.acos_desc}</Select.Option>
                 )
