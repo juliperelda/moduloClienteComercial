@@ -1,12 +1,7 @@
 import "./App.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { GlobalContext } from "./context/GlobalContext";
-// import { BrowserRouter } from 'react-router-dom';
-import AppRouter from './router/AppRouter';
 import Analitica from './components/analisis/Analitica';
-import Capacidad from './components/capacidad/Capacidad';
-import { EditarCapacidad } from './components/capacidad/EditarCapacidad';
-import { NuevaCapacidad } from './components/capacidad/NuevaCapacidad';
 
 function App() {
   const [dataContext, setDataContext] = useState();
@@ -15,19 +10,38 @@ function App() {
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
   const [isButtonEditDisabled, setIsButtonEditDisabled] = useState(true);
 
+  //* Id de cliente que se obtine desde local storage
+  const idC = localStorage.getItem("cliente");
+  const [idCliente, setIdCliente]=useState(idC);
 
-  // const handleStage = () => {
-  //   switch (appStage) {
-  //     case 0:
-  //     return <Analitica />;
-  //     case 1:
-  //     return <EditarCapacidad />;
-  //     case 2:
-  //     return <NuevaCapacidad />;
-  //     default:
-  //     return <Analitica />;
-  //   }
-  // };
+  //! ESTADOS QUE ALMACENAN INFO QUE SE TRAE DESDE BASE DE DATOS
+  const [infoEvo, setInfoEvo]=useState({});
+  const [infoRubros, setInfoRubros]=useState({});
+  const [infoCap, setInfoCap]=useState({});
+
+  // setTimeout(() => {
+    
+  //   const getInfoGrafEvol = (idC) => {
+  //     const data = new FormData();
+  //     data.append("idC", idC);
+  //     fetch("../com_graEvolucionData.php", {
+  //         method: "POST",
+  //         body: data,
+  //     }).then(function (response) {
+  //         response.text().then((resp) => {
+  //         console.log("PARA GRAFICO EVOLUCION");
+  //         const data = resp;
+  //         const objetoData = JSON.parse(data);
+  //         //console.log(objetoData);
+  //         setInfoEvo(objetoData)
+  //         });
+  //     });
+  //   };
+  //   getInfoGrafEvol(idCliente);
+  //   console.log(infoEvo);    
+  // }, 1);
+
+
 
 
   return (
@@ -36,14 +50,14 @@ function App() {
       isCosecha, setIsCosecha,
       appStage, setAppStage,
       isButtonDisabled, setIsButtonDisabled, 
-      isButtonEditDisabled, setIsButtonEditDisabled
+      isButtonEditDisabled, setIsButtonEditDisabled,
+      infoEvo, setInfoEvo,
+      infoRubros, setInfoRubros,
+      infoCap, setInfoCap,
+      idCliente, setIdCliente
     }}>
       
-      {/* <div>{<>{handleStage()}</>}</div>; */}
-      {/* <BrowserRouter> */}
-      {/* <AppRouter /> */}
       <Analitica/>
-      {/* </BrowserRouter> */}
 
     </GlobalContext.Provider>
   );
