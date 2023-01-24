@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { GlobalContext } from "./context/GlobalContext";
 import Analitica from './components/analisis/Analitica';
 
@@ -18,28 +18,6 @@ function App() {
   const [infoEvo, setInfoEvo]=useState({});
   const [infoRubros, setInfoRubros]=useState({});
   const [infoCap, setInfoCap]=useState({});
-
-  // setTimeout(() => {
-    
-  //   const getInfoGrafEvol = (idC) => {
-  //     const data = new FormData();
-  //     data.append("idC", idC);
-  //     fetch("../com_graEvolucionData.php", {
-  //         method: "POST",
-  //         body: data,
-  //     }).then(function (response) {
-  //         response.text().then((resp) => {
-  //         console.log("PARA GRAFICO EVOLUCION");
-  //         const data = resp;
-  //         const objetoData = JSON.parse(data);
-  //         //console.log(objetoData);
-  //         setInfoEvo(objetoData)
-  //         });
-  //     });
-  //   };
-  //   getInfoGrafEvol(idCliente);
-  //   console.log(infoEvo);    
-  // }, 1);
 
 
 

@@ -2,7 +2,7 @@ const idC = localStorage.getItem("cliente");
 
 <button onClick={() => infoTabCapacidad(idC)}>INFO EVO</button>
 
-const infoTabCapacidad = (idC) => {
+function infoTabCapacidad(idC){
     const data = new FormData();
     data.append('idC', idC);
     fetch('../com_tabCapacidadData.php', {
@@ -17,4 +17,4 @@ const infoTabCapacidad = (idC) => {
           console.log(objetoData);
       });
     })
-  }
+}

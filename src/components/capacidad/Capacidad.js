@@ -8,7 +8,6 @@ import { EditarCapacidad } from './EditarCapacidad';
 import { NuevaCapacidad } from './NuevaCapacidad';
 
 
-
 const columns = [
     {
         title: '',
@@ -429,6 +428,25 @@ const Capacidad = () => {
                 return <Table columns={columns} dataSource={isDataTable} pagination={false} />
         }
     };
+
+
+
+    //* FUNCION QUE TRAE LOS DATOS DE TABLA RUBROS
+    function rubros() {
+        // Trae la información  con GET
+        fetch('../com_traerRubros.php', {
+            method: 'GET'
+        }).then(function(response) {
+           response.text().then(resp => {
+              console.log('INFO RUBROS');
+              const data = resp;
+              const objetoData = JSON.parse(data);
+      
+              console.log(objetoData);
+          });
+        })
+    } 
+
 
 
 
