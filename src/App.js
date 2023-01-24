@@ -18,6 +18,7 @@ function App() {
   const [infoEvo, setInfoEvo]=useState({});
   const [infoRubros, setInfoRubros]=useState({});
   const [infoCap, setInfoCap]=useState({});
+  const [infoCosechas, setCosechas]=useState({});
 
 
 
@@ -32,7 +33,8 @@ function App() {
       infoEvo, setInfoEvo,
       infoRubros, setInfoRubros,
       infoCap, setInfoCap,
-      idCliente, setIdCliente
+      idCliente, setIdCliente,
+      infoCosechas,setCosechas
     }}>
       
       <Analitica/>

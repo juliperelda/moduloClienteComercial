@@ -78,6 +78,8 @@ const Capacidad = () => {
     setInfoRubros,
     infoCap, 
     setInfoCap,
+    infoCosechas,
+    setCosechas,
   } = useContext(GlobalContext);
 
   let cosechaSelect = 2021;
@@ -447,6 +449,23 @@ const Capacidad = () => {
     });
   }
 
+   //* FUNCION QUE TRAE LOS DATOS DE COSECHA ACTIVA Y LAS QUE SE PUEDEN VISUALIZAR DEL CLIENTE
+   function cosechas(idCliente) {
+    const data = new FormData();
+    data.append("idC", idCliente);
+    fetch("../com_traerCosechas.php", {
+      method: "POST",
+      body: data,
+    }).then(function (response) {
+      response.text().then((resp) => {
+        const data = resp;
+        const objetoData = JSON.parse(data);
+        setCosechas(objetoData);
+      });
+    });
+  }
+
+
   // * FUNCION QUE TRAE LOS DATOS PARA LLENAR TABLA CAPACIDAD PRODUCTIVA INICIAL
 
   var cosecha = 2021;
@@ -467,10 +486,11 @@ const Capacidad = () => {
     });
   }
 
-
+ //* EJECUTA LAS FUNCIONES QUE TRAE LA INFO
   useEffect(() => {
     if (idCliente) {
         infoTabCapacidad(idCliente, cosecha);
+        cosechas(idCliente);
         rubros();
     }
 }, [idCliente]);
@@ -484,6 +504,16 @@ if(infoRubros.length > 0){
     console.log("infoRubros desde Capacidad: ",infoRubros);
     console.log("infoRubros[0] desde Capacidad: ",infoRubros[0].arubro_desc);  
 }
+
+if(infoCosechas.length > 0){
+    console.log("infoCosechas desde Capacidad: ",infoCosechas);
+    console.log("infoCosechas[0] desde Capacidad: ",infoCosechas[0].acos_desc);  
+}
+
+
+
+//*-----------------------------------------------------------------------*//
+
 
   return (
     <>
