@@ -27,7 +27,6 @@ const Evolucion = () => {
         setIsDataStorage(data);
         setSortedData(sortedData);
       } else {
-        //   setIsDataStorage(null);
         setSortedData(null);
       }
     };
@@ -37,11 +36,6 @@ const Evolucion = () => {
 
   // Armo un array con lo que recupero del localstorage
   const arrayData = [];
-  // if (isDataStorage) {
-  //     isDataStorage.forEach(function (data) {
-  //         arrayData.push(data)
-  //     })
-  // }
   /*USO EL sortedData para ordenar de mayor y menor y para que funcione la animacion de los graficos*/
   if (sortedData) {
     sortedData.forEach(function (data) {

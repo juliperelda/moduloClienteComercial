@@ -1,11 +1,3 @@
-/* .ant-card ant-card-bordered css-dev-only-do-not-override-1wizrxm{
-    height: 50px;
-} */
-
-/* :hover.selectCosecha{
-    border: none;
-} */
-
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
   -webkit-appearance: none; 
@@ -192,7 +184,7 @@ input[type=number]::-webkit-outer-spin-button {
 
   /* border-left: 1px solid rgba(5, 5, 5, 0.06); */
 }
-.encabezados1{
+.encabezadoVacio{
   font-weight: bold;
   font-family: 'Open Sans', sans-serif;
   border-bottom: 1px solid rgba(5, 5, 5, 0.06);
@@ -201,14 +193,14 @@ input[type=number]::-webkit-outer-spin-button {
   width: 200px;
 }
 
-.prueba {
+.celdaInput {
   margin: 0px;
   /* padding: 16px; */
   padding: 0px 15px 0px !important;
   border-bottom: 1px solid rgba(5, 5, 5, 0.06);
   text-align: start;
 }
-.prueba1{
+.celdaRubro{
   margin: 0px;
   /* padding: 16px; */
   padding: 0px 15px 0px !important;
@@ -250,7 +242,7 @@ td {
 }
 
 
-.a{
+.inputTable{
   border-width: 1px;
   border-style: solid;
   border-color: #d9d9d9;
