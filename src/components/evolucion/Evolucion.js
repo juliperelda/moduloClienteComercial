@@ -105,13 +105,27 @@ if (infoEvo.length > 0) {
     console.log("infoEvo[0] desde Evolucion: ",infoEvo[0].acos_desc);                
 }    
 
-const dataForChart = infoEvo.map(item => {
-  return {
-      cosecha: item.acos_desc,
-      propias: item.ahxs_propias,
-      alquiladas: item.ahxs_alquiladas
-  }
-});
+// const dataForChart = infoEvo.map(item => {
+//   return {
+//       cosecha: item.acos_desc,
+//       propias: item.ahxs_propias,
+//       alquiladas: item.ahxs_alquiladas
+//   }
+// });
+
+const [dataForChart, setDataForChart] = useState([]);
+
+useEffect(() => {
+    if (infoEvo.length > 0) {
+        setDataForChart(infoEvo.map(item => {
+            return {
+                cosecha: item.acos_desc,
+                propias: item.ahxs_propias,
+                alquiladas: item.ahxs_alquiladas
+            }
+        }));
+    }
+}, [infoEvo]);
 
   return (
     <>
