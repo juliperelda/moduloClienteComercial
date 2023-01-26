@@ -247,7 +247,6 @@ const Capacidad = () => {
     function infoTabCapacidad(idCliente, cosecha) {
         const data = new FormData();
         data.append("idC", idCliente);
-        data.append("cosecha", cosecha);
         fetch("../com_tabCapacidadData.php", {
             method: "POST",
             body: data,
