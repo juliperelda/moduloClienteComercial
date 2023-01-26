@@ -4,7 +4,6 @@ input[type=number]::-webkit-outer-spin-button {
   margin: 0; 
 }
 
-
 .ant-btn-default:not(:disabled).btnEditCosecha:hover {
     color: #8fd14a;
     border-color: #8fd14a;
@@ -15,14 +14,12 @@ input[type=number]::-webkit-outer-spin-button {
     color: #8fd14a;
     border-color: #8fd14a;
     transition: none;
-    
 }
 
 .ant-btn-default:not(:disabled).btnAddCosecha:focus {
     color: #8fd14a;
     border-color: #8fd14a;
     transition: none;
-    
 }
 
 .ant-btn-default.btnAddCosecha{
@@ -31,7 +28,6 @@ input[type=number]::-webkit-outer-spin-button {
     margin-right: 2px;
     transition: none !important;
 }
-
 
 .ant-btn-default:not(:disabled).btnAddCosechaData:hover {
     color: #ffffff;
@@ -77,6 +73,7 @@ input[type=number]::-webkit-outer-spin-button {
   align-items: center;
   font-size: 14px;
 }
+
 .input-unidad {
   width: 300px;
   text-align:right
@@ -102,15 +99,12 @@ input[type=number]::-webkit-outer-spin-button {
   flex-direction: row;
   /* flex-direction: column; */
 }
+
 .divNuevaCapacidad {
   display: flex;
   /* flex-direction: row; */
   flex-direction: column;
 }
-
-/* .selectCosecha{
-  background-color: transparent
-} */
 
 .btnEditCosecha {
   display: flex;
@@ -128,7 +122,6 @@ input[type=number]::-webkit-outer-spin-button {
 .btnEditCosecha:disabled {
   background-color: #ffffff !important;
 }
-
 
 .btnAddCosecha {
   display: flex;
@@ -151,27 +144,6 @@ input[type=number]::-webkit-outer-spin-button {
 }
 .iconAdd:disabled {
   background-color: #ffffff !important;
-}
-
-
-/*Select*/
-/* .ant-select-selector {
-  background-color: transparent !important;
-  border: 0 !important;
-}
-
-:where(.css-dev-only-do-not-override-1wizrxm).ant-table-wrapper .ant-table-thead >tr>th {
-  background-color: #f8f6f7 !important;
-} */
-
-
-
-
-
-.probandodiv{
-  display: flex;
-  flex-direction: row;
-  align-items: center;  
 }
 
 .encabezados{
@@ -215,8 +187,6 @@ input[type=number]::-webkit-outer-spin-button {
   height: 0em;
 }
 
-
-
 table {
   width: 600px;
   margin:auto;
@@ -241,7 +211,6 @@ td {
   justify-content: center; */
 }
 
-
 .inputTable{
   border-width: 1px;
   border-style: solid;
@@ -251,7 +220,6 @@ td {
   /* margin-top; */
   /* width: 65px; */
 } 
-
 
 .cont {
   display: flex;
@@ -265,7 +233,6 @@ td {
   display:inline-flex;
   flex-direction: row;
 }
-
 
 .contBotonesNuevaCapacidad{
   /* display:flex; */
