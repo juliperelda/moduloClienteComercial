@@ -105,8 +105,8 @@ if (infoEvo.length > 0) {
         <BarChart
           width={500}
           height={300}
-          // data={arrayData}
-          data={infoEvo}
+          data={arrayData}
+          // data={infoEvo}
           margin={{
             top: 20,
             right: 0,
