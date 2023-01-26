@@ -37,11 +37,6 @@ const columns = [
 
 const Capacidad = () => {
 
-    const [isData, setIsData] = useState({});
-    const [isDataStorage, setIsDataStorage] = useState([]);
-    const [isDataTable, setIsDataTable] = useState([]);
-    const [isDataSet, setIsDataSet] = useState({});
-
     const {
         dataContext,
         setDataContext,
@@ -62,7 +57,99 @@ const Capacidad = () => {
         setCosechas,
     } = useContext(GlobalContext);
 
-    let cosechaSelect = 2021;
+    const [isData, setIsData] = useState({});
+    const [isDataStorage, setIsDataStorage] = useState([]);
+    const [isDataTable, setIsDataTable] = useState([]);
+    const [isDataSet, setIsDataSet] = useState({});
+
+    const [selectedValue, setSelectedValue] = useState(infoCosechas.length > 0 && infoCosechas[0].acos_desc);
+    const [prueba, setPrueba] = useState({
+        agriculturaPr: '',
+        agriculturaAl: '',
+        ganaderiaPr: '',
+        ganaderiaAl: '',
+        tamboPr: '',
+        tamboAl:'',
+        mixtoPr:'',
+        mixtoAl:'',
+    });
+    const [probando, setprobando] = useState({});
+
+
+    const pruebaSaveData = () => {
+        infoCap.map((value) => {
+            if(value.condicion === "P"){
+                if(value.arubro_desc === "AGRICULTURA"){
+                    setPrueba((prevState) => {
+                        return {
+                            ...prevState,
+                            agriculturaPr: value.has
+                        }
+                    });
+                }
+                if(value.arubro_desc === "GANADERIA"){
+                    setPrueba((prevState) => {
+                        return {
+                            ...prevState,
+                            ganaderiaPr: value.has
+                        }
+                    });
+                }
+                if(value.arubro_desc === "TAMBO"){
+                    setPrueba((prevState) => {
+                        return {
+                            ...prevState,
+                            tamboPr: value.has
+                        }
+                    });
+                }
+                if(value.arubro_desc === "MIXTO"){
+                    setPrueba((prevState) => {
+                        return {
+                            ...prevState,
+                            mixtoPr: value.has
+                        }
+                    });
+                }
+            }
+            if(value.condicion === "A"){
+                if(value.arubro_desc === "AGRICULTURA"){
+                    setPrueba((prevState) => {
+                        return {
+                            ...prevState,
+                            agriculturaAl: value.has
+                        }
+                    });
+                }
+                if(value.arubro_desc === "GANADERIA"){
+                    setPrueba((prevState) => {
+                        return {
+                            ...prevState,
+                            ganaderiaAl: value.has
+                        }
+                    });
+                }
+                if(value.arubro_desc === "TAMBO"){
+                    setPrueba((prevState) => {
+                        return {
+                            ...prevState,
+                            tamboAl: value.has
+                        }
+                    });
+                }
+                if(value.arubro_desc === "MIXTO"){
+                    setPrueba((prevState) => {
+                        return {
+                            ...prevState,
+                            mixtoAl: value.has
+                        }
+                    });
+                }
+            }
+        });
+    }
+
+    let cosechaSelect = selectedValue;
 
     const editarCosecha = () => {
         setIsButtonEditDisabled(true);
@@ -88,6 +175,13 @@ const Capacidad = () => {
         fetchData();
     }, []);
 
+    useEffect(() => {
+        const fetchData = () => {
+            infoTabCapacidad()
+        }
+        fetchData()
+    }, [])
+
     const recuperaCosecha = (event) => {
         cosechaSelect = parseInt(event);
         setIsCosecha(cosechaSelect);
@@ -97,70 +191,40 @@ const Capacidad = () => {
 
     const generaData = () => {
         var arrayData = [];
-        let propioAgricultura = 0;
-        let alqAgricultura = 0;
-        let propioGanaderia = 0;
-        let alqGanaderia = 0;
-        let propioTambo = 0;
-        let alqTambo = 0;
-        let propioMixto = 0;
-        let alqMixto = 0;
-        let propioTotal = 0;
-        let alqTotal = 0;
-
-        if (isDataStorage) {
-            if (cosechaSelect !== 0) {
-                isDataStorage.forEach(function (data) {
-                    if (parseInt(data.cosecha) === cosechaSelect) {
-                        propioAgricultura += parseInt(data.agricultura);
-                        alqAgricultura += parseInt(data.agriculturaA);
-                        propioGanaderia += parseInt(data.ganaderia);
-                        alqGanaderia += parseInt(data.ganaderiaA);
-                        propioTambo += parseInt(data.tambo);
-                        alqTambo += parseInt(data.tamboA);
-                        propioMixto += parseInt(data.mixto);
-                        alqMixto += parseInt(data.mixtoA);
-                        propioTotal += parseInt(data.propias);
-                        alqTotal += parseInt(data.alquiladas);
-                        // console.log(parseInt(data.agricultura));
-                        setIsDataTable(
+                        setprobando(
                             (arrayData = [
                                 {
                                     key: 1,
                                     categoria: "AGRICULTURA",
-                                    propias: propioAgricultura,
-                                    alquiler: alqAgricultura,
+                                    propias: prueba.agriculturaPr,
+                                    alquiler: prueba.agriculturaAl,
                                 },
                                 {
                                     key: 2,
                                     categoria: "GANADERIA",
-                                    propias: propioGanaderia,
-                                    alquiler: alqGanaderia,
+                                    propias: prueba.ganaderiaPr,
+                                    alquiler: prueba.ganaderiaAl,
                                 },
                                 {
                                     key: 3,
                                     categoria: "TAMBO",
-                                    propias: propioTambo,
-                                    alquiler: alqTambo,
+                                    propias: prueba.tamboPr,
+                                    alquiler: prueba.tamboAl,
                                 },
                                 {
                                     key: 4,
                                     categoria: "MIXTO",
-                                    propias: propioMixto,
-                                    alquiler: alqMixto,
+                                    propias: prueba.mixtoPr,
+                                    alquiler: prueba.mixtoAl,
                                 },
-                                {
-                                    key: 5,
-                                    categoria: "TOTAL",
-                                    propias: propioTotal,
-                                    alquiler: alqTotal,
-                                },
+                                // {
+                                //     key: 5,
+                                //     categoria: "TOTAL",
+                                //     propias: propioTotal,
+                                //     alquiler: alqTotal,
+                                // },
                             ])
                         );
-                    }
-                });
-            }
-        }
         console.log(arrayData);
     };
 
@@ -181,7 +245,8 @@ const Capacidad = () => {
                 return (
                     <Table
                         columns={columns}
-                        dataSource={isDataTable}
+                        dataSource={probando}
+                        // dataSource={isDataTable}
                         pagination={false}
                     />
                 );
@@ -193,7 +258,8 @@ const Capacidad = () => {
                 return (
                     <Table
                         columns={columns}
-                        dataSource={isDataTable}
+                        dataSource={probando}
+                        // dataSource={isDataTable}
                         pagination={false}
                     />
                 );
@@ -234,7 +300,7 @@ const Capacidad = () => {
     // * FUNCION QUE TRAE LOS DATOS PARA LLENAR TABLA CAPACIDAD PRODUCTIVA INICIAL
     // const [selectedValue, setSelectedValue] = useState(infoCosechas.length > 0 && infoCosechas[0].acos_desc);
 
-    var cosecha = 2021;
+    var cosecha = selectedValue;
 
     function infoTabCapacidad(idCliente, cosecha) {
         const data = new FormData();
