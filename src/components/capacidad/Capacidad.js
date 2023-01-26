@@ -60,8 +60,6 @@ const Capacidad = () => {
         setInfoCap,
         infoCosechas,
         setCosechas,
-        infoEvo, 
-        setInfoEvo
     } = useContext(GlobalContext);
 
     let cosechaSelect = 2021;
@@ -97,7 +95,6 @@ const Capacidad = () => {
         generaData();
     };
 
-    // 
     const generaData = () => {
         var arrayData = [];
         let propioAgricultura = 0;
@@ -184,8 +181,7 @@ const Capacidad = () => {
                 return (
                     <Table
                         columns={columns}
-                        dataSource={isDataTable} // ESto es con la data del localstorage
-                        // dataSource={setInfoRubros} // o setInfoCap
+                        dataSource={isDataTable}
                         pagination={false}
                     />
                 );
@@ -197,8 +193,7 @@ const Capacidad = () => {
                 return (
                     <Table
                         columns={columns}
-                        dataSource={isDataTable} // ESto es con la data del localstorage
-                        // dataSource={setInfoRubros} // o setInfoCap
+                        dataSource={isDataTable}
                         pagination={false}
                     />
                 );
@@ -220,15 +215,9 @@ const Capacidad = () => {
     }
 
     //* FUNCION QUE TRAE LOS DATOS DE COSECHA ACTIVA Y LAS QUE SE PUEDEN VISUALIZAR DEL CLIENTE
-
-    const [selectedValue, setSelectedValue] = useState(infoCosechas.length > 0 && infoCosechas[0].acos_desc);
-
-    var cosecha = selectedValue;
-
     function cosechas(idCliente) {
         const data = new FormData();
         data.append("idC", idCliente);
-        data.append("cosecha", selectedValue); // PRUEBA
         fetch("../com_traerCosechas.php", {
             method: "POST",
             body: data,
@@ -243,10 +232,14 @@ const Capacidad = () => {
 
 
     // * FUNCION QUE TRAE LOS DATOS PARA LLENAR TABLA CAPACIDAD PRODUCTIVA INICIAL
+    // const [selectedValue, setSelectedValue] = useState(infoCosechas.length > 0 && infoCosechas[0].acos_desc);
+
+    var cosecha = 2021;
 
     function infoTabCapacidad(idCliente, cosecha) {
         const data = new FormData();
         data.append("idC", idCliente);
+        data.append("cosecha", cosecha);
         fetch("../com_tabCapacidadData.php", {
             method: "POST",
             body: data,
@@ -283,15 +276,15 @@ const Capacidad = () => {
         console.log("infoCosechas[0] desde Capacidad: ", infoCosechas[0].acos_desc);
     }
 
-
+    
 
     //*-----------------------------------------------------------------------*//
-    
-    
+
+
     return (
         <>
             <div className="divDropdown">
-                {/* <Select
+                <Select
                     className="selectCosecha"
                     style={{ width: '80px' }}
                 >
@@ -301,45 +294,26 @@ const Capacidad = () => {
                         )
                     })}
 
-                </Select> */}
-
-
-                <Select
-                    className="selectCosecha"
-                    style={{ width: '80px' }}
-                    value={selectedValue}
-                    onChange={(e) => setSelectedValue(e)}
-                    >
-
-                    {infoCosechas.length > 0 && infoCosechas.map((cosecha) => {
-                        return (
-                            <Select.Option key={cosecha.acos_desc} value={cosecha.acos_desc}>{cosecha.acos_desc}</Select.Option>
-                        )
-                    })}
                 </Select>
+                <Button
+                    style={{ alignItems: "center" }}
+                    className="btnEditCosecha"
+                    icon={<EditOutlined />}
+                    onClick={() => editarCosecha()}
+                    onChange={(e) => recuperaCosecha(e)}
+                    disabled={isButtonEditDisabled}
+                />
+                <Button
+                    className="btnAddCosecha"
+                    icon={<PlusCircleOutlined />}
+                    onClick={() => {
+                        addCosecha();
+                    }}
+                    disabled={isButtonDisabled}
+                />
+            </div>
 
-
-
-
-            <Button
-                style={{ alignItems: "center" }}
-                className="btnEditCosecha"
-                icon={<EditOutlined />}
-                onClick={() => editarCosecha()}
-                onChange={(e) => recuperaCosecha(e)}
-                disabled={isButtonEditDisabled}
-            />
-            <Button
-                className="btnAddCosecha"
-                icon={<PlusCircleOutlined />}
-                onClick={() => {
-                    addCosecha();
-                }}
-                disabled={isButtonDisabled}
-            />
-        </div>
-
-            { <>{handleStage()}</> }
+            {<>{handleStage()}</>}
         </>
     );
 };
