@@ -85,6 +85,8 @@ const Capacidad = () => {
                             ...prevState,
                             agriculturaPr: value.has
                         }
+                        console.log(prevState)
+                        console.log(...prevState)
                     });
                 }
                 if(value.arubro_desc === "GANADERIA"){
@@ -143,9 +145,11 @@ const Capacidad = () => {
                             ...prevState,
                             mixtoAl: value.has
                         }
+                        
                     });
                 }
             }
+            console.log(value)
         });
     }
 
@@ -177,6 +181,7 @@ const Capacidad = () => {
 
     useEffect(() => {
         const fetchData = () => {
+            pruebaSaveData()
             infoTabCapacidad()
         }
         fetchData()
@@ -190,6 +195,10 @@ const Capacidad = () => {
     };
 
     const generaData = () => {
+        console.log(prueba)
+        console.log(prueba.agriculturaPr)
+        console.log(prueba.agriculturaAl)
+        console.log('Entra en generarData')
         var arrayData = [];
                         setprobando(
                             (arrayData = [

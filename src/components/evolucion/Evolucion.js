@@ -18,6 +18,12 @@ const Evolucion = () => {
 
   const [sortedData, setSortedData] = useState([]);
 
+  const [dale, setDale] = useState({
+    propias: '',
+    alquiladas:''
+  });
+
+
   useEffect(() => {
     const fetchData = () => {
       if (localStorage.getItem("data")) {
@@ -99,13 +105,21 @@ if (infoEvo.length > 0) {
     console.log("infoEvo[0] desde Evolucion: ",infoEvo[0].acos_desc);                
 }    
 
+const dataForChart = infoEvo.map(item => {
+  return {
+      cosecha: item.acos_desc,
+      propias: item.ahxs_propias,
+      alquiladas: item.ahxs_alquiladas
+  }
+});
+
   return (
     <>
       <ResponsiveContainer className="" width="100%" height={400}>
         <BarChart
           width={500}
           height={300}
-          data={arrayData}
+          data={dataForChart}
           // data={infoEvo}
           margin={{
             top: 20,
