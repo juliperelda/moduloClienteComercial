@@ -5,7 +5,6 @@ export const MainLayout = ({children}) => {
   return (
     <>
       <div>{children}</div>
-      {/* <div className="home_contenido">{children}</div> */}
     </>
   )
 }

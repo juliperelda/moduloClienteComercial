@@ -18,6 +18,12 @@ const Evolucion = () => {
 
   const [sortedData, setSortedData] = useState([]);
 
+  const [dale, setDale] = useState({
+    propias: '',
+    alquiladas:''
+  });
+
+
   useEffect(() => {
     const fetchData = () => {
       if (localStorage.getItem("data")) {
@@ -27,7 +33,6 @@ const Evolucion = () => {
         setIsDataStorage(data);
         setSortedData(sortedData);
       } else {
-        //   setIsDataStorage(null);
         setSortedData(null);
       }
     };
@@ -37,11 +42,6 @@ const Evolucion = () => {
 
   // Armo un array con lo que recupero del localstorage
   const arrayData = [];
-  // if (isDataStorage) {
-  //     isDataStorage.forEach(function (data) {
-  //         arrayData.push(data)
-  //     })
-  // }
   /*USO EL sortedData para ordenar de mayor y menor y para que funcione la animacion de los graficos*/
   if (sortedData) {
     sortedData.forEach(function (data) {
@@ -105,13 +105,36 @@ if (infoEvo.length > 0) {
     console.log("infoEvo[0] desde Evolucion: ",infoEvo[0].acos_desc);                
 }    
 
+// const dataForChart = infoEvo.map(item => {
+//   return {
+//       cosecha: item.acos_desc,
+//       propias: item.ahxs_propias,
+//       alquiladas: item.ahxs_alquiladas
+//   }
+// });
+
+const [dataForChart, setDataForChart] = useState([]);
+
+useEffect(() => {
+    if (infoEvo.length > 0) {
+        setDataForChart(infoEvo.map(item => {
+            return {
+                cosecha: item.acos_desc,
+                propias: item.ahxs_propias,
+                alquiladas: item.ahxs_alquiladas
+            }
+        }));
+    }
+}, [infoEvo]);
+
   return (
     <>
       <ResponsiveContainer className="" width="100%" height={400}>
         <BarChart
           width={500}
           height={300}
-          data={arrayData}
+          data={dataForChart}
+          // data={infoEvo}
           margin={{
             top: 20,
             right: 0,

@@ -1,6 +1,5 @@
-import { Button, Card, Form, Input, Modal, Select } from 'antd'
+import { Button, Card, Form, Input } from 'antd'
 import React, { useContext, useEffect, useState } from 'react'
-import { useHistory } from 'react-router-dom'
 import { GlobalContext } from '../../context/GlobalContext'
 import './capacidad.css';
 
@@ -9,18 +8,13 @@ export const NuevaCapacidad = () => {
 
     var objData = []
 
-    let history = useHistory();
-
     //! UseContext
     const { dataContext, setDataContext, isCosecha, setIsCosecha, appStage, setAppStage, isButtonDisabled, setIsButtonDisabled } = useContext(GlobalContext)
 
-
     //! UseState
     const [isData, setIsData] = useState({});
-    const [isVista, setIsVista] = useState(false);
     const [isActiveModal, setIsActiveModal] = useState(false);
     const [isDataSet, setIsDataSet] = useState({});
-
 
     const traeData = () => {
         if (localStorage.getItem("data")) {
@@ -34,9 +28,6 @@ export const NuevaCapacidad = () => {
         }
         fetchData()
     }, [])
-
-
-    /*--------------------------------*/
 
 
     //! Funciones
@@ -56,7 +47,6 @@ export const NuevaCapacidad = () => {
         let inputMixtoA = document.getElementById("inputMixtoA").value;
         let totalAlquiladas = parseInt(inputAgriculturaA) + parseInt(inputGanaderiaA) + parseInt(inputTamboA) + parseInt(inputMixtoA)
 
-
         if (isData.cosecha !== null) {
             if (totalPropias <= inputPropias && totalAlquiladas <= inputAlquiladas) {
                 if (localStorage.getItem("data")) {
@@ -64,30 +54,21 @@ export const NuevaCapacidad = () => {
                         ...isDataSet,
                         isData
                     ]
-                    // }
                 } else {
                     objData = [isData]
                 }
 
 
                 localStorage.setItem('data', JSON.stringify({ objData }))
-                setIsVista(false)
-                // history.goBack()
                 setAppStage(0)
             } else {
                 alert("El total de Has. de Rubros supera a las Has. Propias en general")
                 setIsActiveModal(true)
             }
-            // setIsActiveModal(false)
         } else {
             alert("Se debe ingresar la cosecha")
         }
     };
-
-    const recuperaCosecha = (event) => {
-        setIsCosecha(event)
-        // console.log(event)
-    }
 
     const handleInputChange = (event) => {
 
@@ -100,61 +81,32 @@ export const NuevaCapacidad = () => {
 
     const salir = () => {
         setIsButtonDisabled(false);
-        setIsVista(false)
         setDataContext(null)
         setAppStage(0)
-    }
-
-    const cerrar = () => {
-        setIsActiveModal(false)
     }
 
     return (
         <>
             <div className='divNuevaCapacidad'>
-                {/* <Card className='cardRubros'> */}
-                {/* <div className='divContainerTitles'> */}
-                {/* <h3>Cargar Cosecha/Rubro</h3>
-
-                    <hr />
-                    &nbsp;
-                    <h4>Seleccione Cosecha:</h4> */}
-                {/* <Select
-                    defaultValue="Seleccionar Cosecha"
-                    placeholder="Seleccione Cosecha"
-                    name='cosecha'
-                    onChange={(e) => recuperaCosecha(e)}
-                    style={{ width: 200 }}
-                    bordered={true}
-                >
-                    <Select.Option value="2223">2223</Select.Option>
-                    <Select.Option value="2122">2122</Select.Option>
-                    <Select.Option value="2021">2021</Select.Option>
-                    <Select.Option value="1920">1920</Select.Option>
-                </Select> */}
-                {/* </div> */}
-                {/* <> */}
                 <div className='cont'>
                     <table>
                         <thead>
                             <tr>
-                                <th className="encabezados1" style={{ 'width': '385px' }}></th>
+                                <th className="encabezadoVacio" style={{ 'width': '385px' }}></th>
                                 <th className="encabezados" style={{ "text-align": "right" }}>PROPIAS</th>
                                 <th className="encabezados" style={{ "text-align": "right" }}>ALQUILER</th>
                             </tr>
                         </thead>
                         <thead>
                             <tr>
-                                <td className="prueba1">AGRICULTURA</td>
-                                <td className="prueba">
+                                <td className="celdaRubro">AGRICULTURA</td>
+                                <td className="celdaInput">
 
                                     <Form.Item
                                         name="inputAgricultura"
-                                    // initialValue={dataContext.agricultura}
                                     >
                                         <Input
-                                            className="a"
-                                            // className='input-unidad'
+                                            className="inputTable"
                                             type="number"
                                             placeholder="0"
                                             name='agricultura'
@@ -165,15 +117,13 @@ export const NuevaCapacidad = () => {
                                     </Form.Item>
 
                                 </td>
-                                <td className="prueba">
+                                <td className="celdaInput">
 
                                     <Form.Item
                                         name="inputAgriculturaA"
-                                    // initialValue={dataContext.agriculturaA}
                                     >
                                         <Input
-                                            className="a"
-                                            // className='input-unidad'
+                                            className="inputTable"
                                             type="number"
                                             placeholder="0"
                                             name='agriculturaA'
@@ -183,22 +133,19 @@ export const NuevaCapacidad = () => {
                                         />
                                     </Form.Item>
 
-
                                 </td>
                             </tr>
                         </thead>
                         <thead>
                             <tr>
-                                <td className="prueba1">GANADERÍA</td>
-                                <td className="prueba">
+                                <td className="celdaRubro">GANADERÍA</td>
+                                <td className="celdaInput">
 
                                     <Form.Item
                                         name="inputGanaderia"
-                                    // initialValue={dataContext.ganaderia}
                                     >
                                         <Input
-                                            className="a"
-                                            // className='input-unidad'
+                                            className="inputTable"
                                             type="number"
                                             placeholder="0"
                                             name='ganaderia'
@@ -209,15 +156,13 @@ export const NuevaCapacidad = () => {
                                     </Form.Item>
 
                                 </td>
-                                <td className="prueba">
+                                <td className="celdaInput">
 
                                     <Form.Item
                                         name="inputGanaderiaA"
-                                    // initialValue={dataContext.ganaderiaA}
                                     >
                                         <Input
-                                            className="a"
-                                            // className='input-unidad'
+                                            className="inputTable"
                                             type="number"
                                             placeholder="0"
                                             name='ganaderiaA'
@@ -227,22 +172,19 @@ export const NuevaCapacidad = () => {
                                         />
                                     </Form.Item>
 
-
                                 </td>
                             </tr>
                         </thead>
                         <thead>
                             <tr>
-                                <td className="prueba1">TAMBO</td>
-                                <td className="prueba">
+                                <td className="celdaRubro">TAMBO</td>
+                                <td className="celdaInput">
 
                                     <Form.Item
                                         name="inputTambo"
-                                    // initialValue={dataContext.tambo}
                                     >
                                         <Input
-                                            className="a"
-                                            // className='input-unidad'
+                                            className="inputTable"
                                             type="number"
                                             placeholder="0"
                                             name='tambo'
@@ -253,15 +195,13 @@ export const NuevaCapacidad = () => {
                                     </Form.Item>
 
                                 </td>
-                                <td className="prueba">
+                                <td className="celdaInput">
 
                                     <Form.Item
                                         name="inputTamboA"
-                                    // initialValue={dataContext.tamboA}
                                     >
                                         <Input
-                                            className="a"
-                                            // className='input-unidad'
+                                            className="inputTable"
                                             type="number"
                                             placeholder="0"
                                             name='tamboA'
@@ -271,22 +211,19 @@ export const NuevaCapacidad = () => {
                                         />
                                     </Form.Item>
 
-
                                 </td>
                             </tr>
                         </thead>
                         <thead>
                             <tr>
-                                <td className="prueba1">MIXTO</td>
-                                <td className="prueba">
+                                <td className="celdaRubro">MIXTO</td>
+                                <td className="celdaInput">
 
                                     <Form.Item
                                         name="inputMixto"
-                                    // initialValue={dataContext.mixto}
                                     >
                                         <Input
-                                            className="a"
-                                            // className='input-unidad'
+                                            className="inputTable"
                                             type="number"
                                             placeholder="0"
                                             name='mixto'
@@ -297,15 +234,13 @@ export const NuevaCapacidad = () => {
                                     </Form.Item>
 
                                 </td>
-                                <td className="prueba">
+                                <td className="celdaInput">
 
                                     <Form.Item
                                         name="inputMixtoA"
-                                    // initialValue={dataContext.mixtoA}
                                     >
                                         <Input
-                                            className="a"
-                                            // className='input-unidad'
+                                            className="inputTable"
                                             type="number"
                                             placeholder="0"
                                             name='mixtoA'
@@ -315,22 +250,19 @@ export const NuevaCapacidad = () => {
                                         />
                                     </Form.Item>
 
-
                                 </td>
                             </tr>
                         </thead>
                         <thead>
                             <tr>
-                                <td className="prueba" style={{ 'font-weight': 'bold' }}>TOTAL</td>
-                                <td className="prueba">
+                                <td className="celdaInput" style={{ 'font-weight': 'bold' }}>TOTAL</td>
+                                <td className="celdaInput">
 
                                     <Form.Item
                                         name="inputPropias"
-                                    // initialValue={dataContext.propias}
                                     >
                                         <Input
-                                            className="a"
-                                            // className='input-unidad'
+                                            className="inputTable"
                                             type="number"
                                             placeholder="0"
                                             name='propias'
@@ -340,18 +272,14 @@ export const NuevaCapacidad = () => {
                                         />
                                     </Form.Item>
 
-
-
                                 </td>
-                                <td className="prueba">
+                                <td className="celdaInput">
 
                                     <Form.Item
                                         name="inputAlquiladas"
-                                    // initialValue={dataContext.alquiladas}
                                     >
                                         <Input
-                                            className="a"
-                                            // className='input-unidad'
+                                            className="inputTable"
                                             type="number"
                                             placeholder="0"
                                             name='alquiladas'
@@ -386,15 +314,13 @@ export const NuevaCapacidad = () => {
 
 
                 </div>
-                {/* </> */}
-                {/* </Card> */}
                 {
                     isActiveModal ?
                         (
-                            <Modal title="" open={isActiveModal} onOk={cerrar}>
-                                <h2>VALOR INCORRECTO</h2>
-                                <p>Revise la cantidad de Has. Total con las Has. de los Rubros</p>
-                            </Modal>
+                            // <Modal title="" open={isActiveModal} onOk={cerrar}>
+                                // <h2>VALOR INCORRECTO</h2>
+                                <p style={{'color':'red'}}>Revise la cantidad de Has. Total con las Has. de los Rubros</p>
+                            // </Modal>
                         )
                         : ('')
                 }

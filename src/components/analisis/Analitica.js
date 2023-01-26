@@ -17,8 +17,7 @@ const Analitica = () => {
           <h1 className="titulos" style={{ marginBottom: "11px" }}>
             CAPACIDAD PRODUCTIVA
           </h1>
-          {/* <div>{<>{handleStage()}</>}</div>; */}
-          <Capacidad />
+          {/* <Capacidad /> */}
         </Card>
       </div>
     </>

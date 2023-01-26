@@ -20,9 +20,6 @@ function App() {
   const [infoCap, setInfoCap]=useState({});
   const [infoCosechas, setCosechas]=useState({});
 
-
-
-
   return (
     <GlobalContext.Provider value={{
       dataContext, setDataContext,
