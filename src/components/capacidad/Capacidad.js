@@ -516,7 +516,7 @@ const Capacidad = () => {
     
     useEffect(() => {
         setSelectedValue(infoCosechas.length > 0 && infoCosechas[0].acos_desc);
-    }, []);
+    }, [infoCosechas]);
     
     //*-----------------------------------------------------------------------*//
 
@@ -526,8 +526,8 @@ const Capacidad = () => {
             <div className="divDropdown">
                 <Select
                     className="selectCosecha"
-                    // value={selectedValue}
-                    defaultValue={selectedValue}
+                    value={selectedValue}
+                    // defaultValue={infoCosechas.length > 0 && infoCosechas[0].acos_desc}
                     style={{ width: '80px' }}
                     onChange={(value) => { setSelectedValue(value); console.log(value)}}
                 >
