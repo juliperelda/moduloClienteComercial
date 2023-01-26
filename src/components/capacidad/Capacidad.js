@@ -60,6 +60,8 @@ const Capacidad = () => {
         setInfoCap,
         infoCosechas,
         setCosechas,
+        infoEvo, 
+        setInfoEvo
     } = useContext(GlobalContext);
 
     let cosechaSelect = 2021;
@@ -95,6 +97,7 @@ const Capacidad = () => {
         generaData();
     };
 
+    // 
     const generaData = () => {
         var arrayData = [];
         let propioAgricultura = 0;
@@ -217,9 +220,15 @@ const Capacidad = () => {
     }
 
     //* FUNCION QUE TRAE LOS DATOS DE COSECHA ACTIVA Y LAS QUE SE PUEDEN VISUALIZAR DEL CLIENTE
+
+    const [selectedValue, setSelectedValue] = useState(infoCosechas.length > 0 && infoCosechas[0].acos_desc);
+
+    var cosecha = selectedValue;
+
     function cosechas(idCliente) {
         const data = new FormData();
         data.append("idC", idCliente);
+        data.append("cosecha", selectedValue); // PRUEBA
         fetch("../com_traerCosechas.php", {
             method: "POST",
             body: data,
@@ -234,9 +243,6 @@ const Capacidad = () => {
 
 
     // * FUNCION QUE TRAE LOS DATOS PARA LLENAR TABLA CAPACIDAD PRODUCTIVA INICIAL
-    const [selectedValue, setSelectedValue] = useState(infoCosechas.length > 0 && infoCosechas[0].acos_desc);
-
-    var cosecha = selectedValue;
 
     function infoTabCapacidad(idCliente, cosecha) {
         const data = new FormData();
