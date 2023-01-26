@@ -181,8 +181,8 @@ const Capacidad = () => {
                 return (
                     <Table
                         columns={columns}
-                        // dataSource={isDataTable} // ESto es con la data del localstorage
-                        dataSource={setInfoRubros} // o setInfoCap
+                        dataSource={isDataTable} // ESto es con la data del localstorage
+                        // dataSource={setInfoRubros} // o setInfoCap
                         pagination={false}
                     />
                 );
@@ -194,8 +194,8 @@ const Capacidad = () => {
                 return (
                     <Table
                         columns={columns}
-                        // dataSource={isDataTable} // ESto es con la data del localstorage
-                        dataSource={setInfoRubros} // o setInfoCap
+                        dataSource={isDataTable} // ESto es con la data del localstorage
+                        // dataSource={setInfoRubros} // o setInfoCap
                         pagination={false}
                     />
                 );
