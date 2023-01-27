@@ -409,6 +409,10 @@ const Capacidad = () => {
     //     }
     // }
 
+    const handleChange = (value) => {
+        setSelectedValue(value);
+        console.log(infoCap);
+      }
 
 
 
@@ -418,7 +422,9 @@ const Capacidad = () => {
                 <Select
                     className="selectCosecha"
                     style={{ width: '80px' }}
-                    onChange={(value) => /*{ cambiosCosecha(value);*/ setSelectedValue(value) /*}*/}
+                    // onChange={(value) => /*{ cambiosCosecha(value);*/ setSelectedValue(value) /*}*/}
+                    onChange={handleChange}
+                    value={selectedValue}
                     defaultValue={selectedValue}
                 >
                     {infoCosechas.length > 0 && infoCosechas.map((cosecha) => {
