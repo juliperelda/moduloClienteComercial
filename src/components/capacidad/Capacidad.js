@@ -333,7 +333,8 @@ const Capacidad = () => {
     // * FUNCION QUE TRAE LOS DATOS PARA LLENAR TABLA CAPACIDAD PRODUCTIVA INICIAL
     // const [selectedValue, setSelectedValue] = useState(infoCosechas.length > 0 && infoCosechas[0].acos_desc);
 
-    var cosecha = selectedValue;
+    // var cosecha = selectedValue;
+    var cosecha = 2021;
     console.log("variable cosecha: ", cosecha)
 
     function infoTabCapacidad(idCliente, cosecha) {
