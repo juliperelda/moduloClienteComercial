@@ -363,7 +363,7 @@ const Capacidad = () => {
             rubros();
             // setSelectedValue(infoCosechas.length > 0 && infoCosechas[0].acos_desc);
         }
-    }, [idCliente, cosecha, selectedValue]);
+    }, [idCliente, cosecha]);
 
     if (infoCap.length > 0) {
         console.log("infoCap desde Capacidad: ", infoCap);
