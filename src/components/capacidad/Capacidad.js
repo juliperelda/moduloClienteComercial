@@ -62,7 +62,7 @@ const Capacidad = () => {
     const [isDataTable, setIsDataTable] = useState([]);
     const [isDataSet, setIsDataSet] = useState({});
 
-    const [selectedValue, setSelectedValue] = useState(infoCosechas.length > 0 && infoCosechas[0].acos_desc);
+    const [selectedValue, setSelectedValue] = useState();
     const [prueba, setPrueba] = useState({
         agriculturaPr: '',
         agriculturaAl: '',
@@ -385,7 +385,7 @@ const Capacidad = () => {
                 <Select
                     className="selectCosecha"
                     style={{ width: '80px' }}
-                    // onChange={(value) => cambiosCosecha(value)}
+                    onChange={(value) => {cambiosCosecha(value); setSelectedValue(value)}}
                 >
                     {infoCosechas.length > 0 && infoCosechas.map((cosecha) => {
                         return (
