@@ -382,15 +382,15 @@ const Capacidad = () => {
     }
 
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        // if (selectedValue !== 0 || selectedValue !== '' || selectedValue !== null) {
-        infoTabCapacidad(idCliente, selectedValue)
-        console.log(infoCap)
-        console.log(infoCap[0])
-        // }
+    //     // if (selectedValue !== 0 || selectedValue !== '' || selectedValue !== null) {
+    //     infoTabCapacidad(idCliente, selectedValue)
+    //     console.log(infoCap)
+    //     console.log(infoCap[0])
+    //     // }
 
-    }, [selectedValue])
+    // }, [selectedValue])
 
     //*-----------------------------------------------------------------------*//
     // const cambiosCosecha = (value) => {
