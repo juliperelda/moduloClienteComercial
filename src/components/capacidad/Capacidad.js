@@ -179,13 +179,13 @@ const Capacidad = () => {
         fetchData();
     }, []);
 
-    useEffect(() => {
-        const fetchData = () => {
-            pruebaSaveData()
-            infoTabCapacidad()
-        }
-        fetchData()
-    }, [])
+    // useEffect(() => {
+    //     const fetchData = () => {
+    //         // pruebaSaveData()
+    //         infoTabCapacidad()
+    //     }
+    //     fetchData()
+    // }, [])
 
     const recuperaCosecha = (event) => {
         cosechaSelect = event;
@@ -367,7 +367,7 @@ const Capacidad = () => {
                 <Select
                     className="selectCosecha"
                     style={{ width: '80px' }}
-                    onClick={(value) => recuperaCosecha(value)}
+                    onChange={(value) => recuperaCosecha(value)}
                 >
                     {infoCosechas.length > 0 && infoCosechas.map((cosecha) => {
                         return (
