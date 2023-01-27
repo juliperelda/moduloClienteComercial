@@ -260,8 +260,8 @@ const Capacidad = () => {
                 return (
                     <Table
                         columns={columns}
-                        dataSource={probando}
-                        // dataSource={isDataTable}
+                        // dataSource={probando}
+                        dataSource={isDataTable}
                         pagination={false}
                     />
                 );
@@ -273,8 +273,8 @@ const Capacidad = () => {
                 return (
                     <Table
                         columns={columns}
-                        dataSource={probando}
-                        // dataSource={isDataTable}
+                        // dataSource={probando}
+                        dataSource={isDataTable}
                         pagination={false}
                     />
                 );
@@ -361,6 +361,12 @@ const Capacidad = () => {
 
     //*-----------------------------------------------------------------------*//
 
+    const cambiosCosecha = (value) => {
+        console.log(value)
+
+
+    }
+
 
     return (
         <>
@@ -368,7 +374,7 @@ const Capacidad = () => {
                 <Select
                     className="selectCosecha"
                     style={{ width: '80px' }}
-                    // onChange={(value) => recuperaCosecha(value)}
+                    onChange={(value) => cambiosCosecha(value)}
                 >
                     {infoCosechas.length > 0 && infoCosechas.map((cosecha) => {
                         return (
