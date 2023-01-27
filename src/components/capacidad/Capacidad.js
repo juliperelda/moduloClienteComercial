@@ -367,27 +367,29 @@ const Capacidad = () => {
 
         if (selectedValue !== 0 || selectedValue !== '' || selectedValue !== null) {
             infoTabCapacidad(idCliente, selectedValue)
+            console.log(infoCap)
+            console.log(infoCap[0])
         }
 
     }, [selectedValue])
 
 
     //*-----------------------------------------------------------------------*//
-    const cambiosCosecha = (value) => {
-        console.log(value)
-        console.log(infoCap)
-        console.log(infoCap[0])
+    // const cambiosCosecha = (value) => {
+    //     console.log(value)
+    //     // console.log(infoCap)
+    //     // console.log(infoCap[0])
 
-        // cosechaSelect = value;
-        // setIsCosecha(cosechaSelect);
+    //     // cosechaSelect = value;
+    //     // setIsCosecha(cosechaSelect);
 
-        // generaData();
+    //     // generaData();
 
-        if (infoCap.length > 0) {
-            console.log("infoCap desde Capacidad: ", infoCap);
-            console.log("infoCap[0] desde Capacidad: ", infoCap[0].condicion);
-        }
-    }
+    //     if (infoCap.length > 0) {
+    //         console.log("infoCap desde Capacidad: ", infoCap);
+    //         console.log("infoCap[0] desde Capacidad: ", infoCap[0].condicion);
+    //     }
+    // }
 
 
 
@@ -398,7 +400,7 @@ const Capacidad = () => {
                 <Select
                     className="selectCosecha"
                     style={{ width: '80px' }}
-                    onChange={(value) => { cambiosCosecha(value); setSelectedValue(value) }}
+                    onChange={(value) => /*{ cambiosCosecha(value);*/ setSelectedValue(value) /*}*/}
                 >
                     {infoCosechas.length > 0 && infoCosechas.map((cosecha) => {
                         return (
