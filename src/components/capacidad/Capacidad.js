@@ -62,7 +62,7 @@ const Capacidad = () => {
     const [isDataTable, setIsDataTable] = useState([]);
     const [isDataSet, setIsDataSet] = useState({});
 
-    const [selectedValue, setSelectedValue] = useState(infoCosechas.length > 0 && infoCosechas[0].acos_desc);
+    const [selectedValue, setSelectedValue] = useState(localStorage.getItem("cosechaActiva"));
     const [prueba, setPrueba] = useState({
         agriculturaPr: '',
         agriculturaAl: '',
@@ -358,6 +358,7 @@ const Capacidad = () => {
     }
 
     if (infoCosechas.length > 0) {
+        localStorage.setItem("cosechaActiva",infoCosechas[0].acos_desc);
         console.log("infoCosechas desde Capacidad: ", infoCosechas);
         console.log("infoCosechas[0] desde Capacidad: ", infoCosechas[0].acos_desc);
     }
@@ -401,6 +402,7 @@ const Capacidad = () => {
                     className="selectCosecha"
                     style={{ width: '80px' }}
                     onChange={(value) => /*{ cambiosCosecha(value);*/ setSelectedValue(value) /*}*/}
+                    defaultValue={selectedValue}
                 >
                     {infoCosechas.length > 0 && infoCosechas.map((cosecha) => {
                         return (
