@@ -281,6 +281,24 @@ const Capacidad = () => {
         }
     };
 
+    const cambiosCosecha = (value) => {
+        console.log(value)
+        console.log(infoCap)
+        console.log(infoCap[0])
+        
+        // cosechaSelect = value;
+        // setIsCosecha(cosechaSelect);
+
+        // generaData();
+
+        if (infoCap.length > 0) {
+            console.log("infoCap desde Capacidad: ", infoCap);
+            console.log("infoCap[0] desde Capacidad: ", infoCap[0].condicion);
+        }
+
+    }
+
+
     //* FUNCION QUE TRAE LOS DATOS DE TABLA RUBROS
     function rubros() {
         // Trae la información  con GET
@@ -316,6 +334,7 @@ const Capacidad = () => {
     // const [selectedValue, setSelectedValue] = useState(infoCosechas.length > 0 && infoCosechas[0].acos_desc);
 
     var cosecha = selectedValue;
+    console.log("variable cosecha: ", cosecha)
 
     function infoTabCapacidad(idCliente, cosecha) {
         const data = new FormData();
@@ -361,22 +380,7 @@ const Capacidad = () => {
 
     //*-----------------------------------------------------------------------*//
 
-    const cambiosCosecha = (value) => {
-        console.log(value)
-        console.log(infoCap)
-        console.log(infoCap[0])
 
-        // cosechaSelect = value;
-        // setIsCosecha(cosechaSelect);
-
-        // generaData();
-
-        if (infoCap.length > 0) {
-            console.log("infoCap desde Capacidad: ", infoCap);
-            console.log("infoCap[0] desde Capacidad: ", infoCap[0].condicion);
-        }
-
-    }
 
 
     return (
