@@ -76,82 +76,82 @@ const Capacidad = () => {
     const [probando, setprobando] = useState({});
 
 
-    const pruebaSaveData = () => {
-        infoCap.map((value) => {
-            if (value.condicion === "P") {
-                if (value.arubro_desc === "AGRICULTURA") {
-                    setPrueba((prevState) => {
-                        return {
-                            ...prevState,
-                            agriculturaPr: value.has
-                        }
-                        console.log(prevState)
-                        console.log(...prevState)
-                    });
-                }
-                if (value.arubro_desc === "GANADERIA") {
-                    setPrueba((prevState) => {
-                        return {
-                            ...prevState,
-                            ganaderiaPr: value.has
-                        }
-                    });
-                }
-                if (value.arubro_desc === "TAMBO") {
-                    setPrueba((prevState) => {
-                        return {
-                            ...prevState,
-                            tamboPr: value.has
-                        }
-                    });
-                }
-                if (value.arubro_desc === "MIXTO") {
-                    setPrueba((prevState) => {
-                        return {
-                            ...prevState,
-                            mixtoPr: value.has
-                        }
-                    });
-                }
-            }
-            if (value.condicion === "A") {
-                if (value.arubro_desc === "AGRICULTURA") {
-                    setPrueba((prevState) => {
-                        return {
-                            ...prevState,
-                            agriculturaAl: value.has
-                        }
-                    });
-                }
-                if (value.arubro_desc === "GANADERIA") {
-                    setPrueba((prevState) => {
-                        return {
-                            ...prevState,
-                            ganaderiaAl: value.has
-                        }
-                    });
-                }
-                if (value.arubro_desc === "TAMBO") {
-                    setPrueba((prevState) => {
-                        return {
-                            ...prevState,
-                            tamboAl: value.has
-                        }
-                    });
-                }
-                if (value.arubro_desc === "MIXTO") {
-                    setPrueba((prevState) => {
-                        return {
-                            ...prevState,
-                            mixtoAl: value.has
-                        }
+    // const pruebaSaveData = () => {
+    //     infoCap.map((value) => {
+    //         if (value.condicion === "P") {
+    //             if (value.arubro_desc === "AGRICULTURA") {
+    //                 setPrueba((prevState) => {
+    //                     return {
+    //                         ...prevState,
+    //                         agriculturaPr: value.has
+    //                     }
+    //                     console.log(prevState)
+    //                     console.log(...prevState)
+    //                 });
+    //             }
+    //             if (value.arubro_desc === "GANADERIA") {
+    //                 setPrueba((prevState) => {
+    //                     return {
+    //                         ...prevState,
+    //                         ganaderiaPr: value.has
+    //                     }
+    //                 });
+    //             }
+    //             if (value.arubro_desc === "TAMBO") {
+    //                 setPrueba((prevState) => {
+    //                     return {
+    //                         ...prevState,
+    //                         tamboPr: value.has
+    //                     }
+    //                 });
+    //             }
+    //             if (value.arubro_desc === "MIXTO") {
+    //                 setPrueba((prevState) => {
+    //                     return {
+    //                         ...prevState,
+    //                         mixtoPr: value.has
+    //                     }
+    //                 });
+    //             }
+    //         }
+    //         if (value.condicion === "A") {
+    //             if (value.arubro_desc === "AGRICULTURA") {
+    //                 setPrueba((prevState) => {
+    //                     return {
+    //                         ...prevState,
+    //                         agriculturaAl: value.has
+    //                     }
+    //                 });
+    //             }
+    //             if (value.arubro_desc === "GANADERIA") {
+    //                 setPrueba((prevState) => {
+    //                     return {
+    //                         ...prevState,
+    //                         ganaderiaAl: value.has
+    //                     }
+    //                 });
+    //             }
+    //             if (value.arubro_desc === "TAMBO") {
+    //                 setPrueba((prevState) => {
+    //                     return {
+    //                         ...prevState,
+    //                         tamboAl: value.has
+    //                     }
+    //                 });
+    //             }
+    //             if (value.arubro_desc === "MIXTO") {
+    //                 setPrueba((prevState) => {
+    //                     return {
+    //                         ...prevState,
+    //                         mixtoAl: value.has
+    //                     }
 
-                    });
-                }
-            }
-            console.log(value)
-        });
-    }
+    //                 });
+    //             }
+    //         }
+    //         console.log(value)
+    //     });
+    // }
 
     let cosechaSelect = selectedValue;
 
@@ -368,7 +368,7 @@ const Capacidad = () => {
                 <Select
                     className="selectCosecha"
                     style={{ width: '80px' }}
-                    onChange={(value) => recuperaCosecha(value)}
+                    // onChange={(value) => recuperaCosecha(value)}
                 >
                     {infoCosechas.length > 0 && infoCosechas.map((cosecha) => {
                         return (
@@ -381,16 +381,16 @@ const Capacidad = () => {
                     style={{ alignItems: "center" }}
                     className="btnEditCosecha"
                     icon={<EditOutlined />}
-                    onClick={() => editarCosecha()}
-                    onChange={(e) => recuperaCosecha(e)}
+                    // onClick={() => editarCosecha()}
+                    // onChange={(e) => recuperaCosecha(e)}
                     disabled={isButtonEditDisabled}
                 />
                 <Button
                     className="btnAddCosecha"
                     icon={<PlusCircleOutlined />}
-                    onClick={() => {
-                        addCosecha();
-                    }}
+                    // onClick={() => {
+                    //     addCosecha();
+                    // }}
                     disabled={isButtonDisabled}
                 />
             </div>
