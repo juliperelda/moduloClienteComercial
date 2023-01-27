@@ -322,30 +322,43 @@ const Capacidad = () => {
     // var cosecha = 2021;
     console.log("variable cosecha: ", cosecha)
 
-    function infoTabCapacidad(idCliente, selectedValue) {
-        const data = new FormData();
-        data.append("idC", idCliente);
-        data.append("cosecha", selectedValue);
-        fetch("../com_tabCapacidadData.php", {
-            method: "POST",
-            body: data,
-        }).then(function (response) {
-            response.text().then((resp) => {
-                const data = resp;
-                const objetoData = JSON.parse(data);
-                setInfoCap(objetoData);
-            });
-        });
-    }
+    // function infoTabCapacidad(idCliente, cosecha) {
+    //     const data = new FormData();
+    //     data.append("idC", idCliente);
+    //     data.append("cosecha", cosecha);
+    //     fetch("../com_tabCapacidadData.php", {
+    //         method: "POST",
+    //         body: data,
+    //     }).then(function (response) {
+    //         response.text().then((resp) => {
+    //             const data = resp;
+    //             const objetoData = JSON.parse(data);
+    //             setInfoCap(objetoData);
+    //         });
+    //     });
+    // }
     //* EJECUTA LAS FUNCIONES QUE TRAE LA INFO
     useEffect(() => {
         if (idCliente) {
-            infoTabCapacidad(idCliente, cosecha);
+            //infoTabCapacidad(idCliente, cosecha);
+            const data = new FormData();
+            data.append("idC", idCliente);
+            data.append("cosecha", cosecha);
+            fetch("../com_tabCapacidadData.php", {
+                method: "POST",
+                body: data,
+            }).then(function (response) {
+                response.text().then((resp) => {
+                    const data = resp;
+                    const objetoData = JSON.parse(data);
+                    setInfoCap(objetoData);
+                });
+            });
             cosechas(idCliente);
             rubros();
             // setSelectedValue(infoCosechas.length > 0 && infoCosechas[0].acos_desc);
         }
-    }, [idCliente]);
+    }, [idCliente, cosecha]);
 
     if (infoCap.length > 0) {
         console.log("infoCap desde Capacidad: ", infoCap);
@@ -364,13 +377,13 @@ const Capacidad = () => {
     }
 
 
-    useEffect(() => {
+    // useEffect(() => {
 
 
-            infoTabCapacidad(idCliente, selectedValue)
-            console.log(infoCap)
-            console.log(infoCap[0])
-    }, [selectedValue])
+    //         //infoTabCapacidad(idCliente, selectedValue)
+    //         console.log(infoCap)
+    //         console.log(infoCap[0])
+    // }, [selectedValue])
 
     //*-----------------------------------------------------------------------*//
     // const cambiosCosecha = (value) => {
