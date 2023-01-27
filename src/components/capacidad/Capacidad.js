@@ -62,7 +62,7 @@ const Capacidad = () => {
     const [isDataTable, setIsDataTable] = useState([]);
     const [isDataSet, setIsDataSet] = useState({});
 
-    const [selectedValue, setSelectedValue] = useState();
+    const [selectedValue, setSelectedValue] = useState(0);
     const [prueba, setPrueba] = useState({
         agriculturaPr: '',
         agriculturaAl: '',
@@ -282,19 +282,19 @@ const Capacidad = () => {
     };
 
     const cambiosCosecha = (value) => {
-        console.log(value)
-        console.log(infoCap)
-        console.log(infoCap[0])
-        
-        // cosechaSelect = value;
-        // setIsCosecha(cosechaSelect);
-
-        // generaData();
-
-        if (infoCap.length > 0) {
-            console.log("infoCap desde Capacidad: ", infoCap);
-            console.log("infoCap[0] desde Capacidad: ", infoCap[0].condicion);
-        }
+            console.log(value)
+            console.log(infoCap)
+            console.log(infoCap[0])
+            
+            // cosechaSelect = value;
+            // setIsCosecha(cosechaSelect);
+    
+            // generaData();
+    
+            if (infoCap.length > 0) {
+                console.log("infoCap desde Capacidad: ", infoCap);
+                console.log("infoCap[0] desde Capacidad: ", infoCap[0].condicion);
+            }
 
     }
 
@@ -389,7 +389,7 @@ const Capacidad = () => {
                 <Select
                     className="selectCosecha"
                     style={{ width: '80px' }}
-                    onChange={(value) => /*{cambiosCosecha(value);*/ setSelectedValue(value)/*}*/}
+                    onChange={(value) => {cambiosCosecha(value); setSelectedValue(value)}}
                 >
                     {infoCosechas.length > 0 && infoCosechas.map((cosecha) => {
                         return (
