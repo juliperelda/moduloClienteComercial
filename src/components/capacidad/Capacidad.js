@@ -385,7 +385,7 @@ const Capacidad = () => {
                 <Select
                     className="selectCosecha"
                     style={{ width: '80px' }}
-                    onChange={(value) => cambiosCosecha(value)}
+                    // onChange={(value) => cambiosCosecha(value)}
                 >
                     {infoCosechas.length > 0 && infoCosechas.map((cosecha) => {
                         return (
