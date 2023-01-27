@@ -322,10 +322,10 @@ const Capacidad = () => {
     // var cosecha = 2021;
     console.log("variable cosecha: ", cosecha)
 
-    function infoTabCapacidad(idCliente, cosecha) {
+    function infoTabCapacidad(idCliente, selectedValue) {
         const data = new FormData();
         data.append("idC", idCliente);
-        data.append("cosecha", cosecha);
+        data.append("cosecha", selectedValue);
         fetch("../com_tabCapacidadData.php", {
             method: "POST",
             body: data,
