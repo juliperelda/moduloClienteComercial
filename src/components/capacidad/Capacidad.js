@@ -63,97 +63,7 @@ const Capacidad = () => {
     const [isDataSet, setIsDataSet] = useState({});
 
     const [selectedValue, setSelectedValue] = useState(localStorage.getItem("cosechaActiva"));
-    const [prueba, setPrueba] = useState({
-        agriculturaPr: '',
-        agriculturaAl: '',
-        ganaderiaPr: '',
-        ganaderiaAl: '',
-        tamboPr: '',
-        tamboAl: '',
-        mixtoPr: '',
-        mixtoAl: '',
-    });
     const [probando, setprobando] = useState({});
-
-
-    // const pruebaSaveData = () => {
-    //     infoCap.map((value) => {
-    //         if (value.condicion === "P") {
-    //             if (value.arubro_desc === "AGRICULTURA") {
-    //                 setPrueba((prevState) => {
-    //                     return {
-    //                         ...prevState,
-    //                         agriculturaPr: value.has
-    //                     }
-    //                     console.log(prevState)
-    //                     console.log(...prevState)
-    //                 });
-    //             }
-    //             if (value.arubro_desc === "GANADERIA") {
-    //                 setPrueba((prevState) => {
-    //                     return {
-    //                         ...prevState,
-    //                         ganaderiaPr: value.has
-    //                     }
-    //                 });
-    //             }
-    //             if (value.arubro_desc === "TAMBO") {
-    //                 setPrueba((prevState) => {
-    //                     return {
-    //                         ...prevState,
-    //                         tamboPr: value.has
-    //                     }
-    //                 });
-    //             }
-    //             if (value.arubro_desc === "MIXTO") {
-    //                 setPrueba((prevState) => {
-    //                     return {
-    //                         ...prevState,
-    //                         mixtoPr: value.has
-    //                     }
-    //                 });
-    //             }
-    //         }
-    //         if (value.condicion === "A") {
-    //             if (value.arubro_desc === "AGRICULTURA") {
-    //                 setPrueba((prevState) => {
-    //                     return {
-    //                         ...prevState,
-    //                         agriculturaAl: value.has
-    //                     }
-    //                 });
-    //             }
-    //             if (value.arubro_desc === "GANADERIA") {
-    //                 setPrueba((prevState) => {
-    //                     return {
-    //                         ...prevState,
-    //                         ganaderiaAl: value.has
-    //                     }
-    //                 });
-    //             }
-    //             if (value.arubro_desc === "TAMBO") {
-    //                 setPrueba((prevState) => {
-    //                     return {
-    //                         ...prevState,
-    //                         tamboAl: value.has
-    //                     }
-    //                 });
-    //             }
-    //             if (value.arubro_desc === "MIXTO") {
-    //                 setPrueba((prevState) => {
-    //                     return {
-    //                         ...prevState,
-    //                         mixtoAl: value.has
-    //                     }
-
-    //                 });
-    //             }
-    //         }
-    //         console.log(value)
-    //     });
-    // }
-
-    let cosechaSelect = selectedValue;
 
     const editarCosecha = () => {
         setIsButtonEditDisabled(true);
@@ -195,9 +105,6 @@ const Capacidad = () => {
     // };
 
     const generaData = () => {
-        console.log(prueba)
-        console.log(prueba.agriculturaPr)
-        console.log(prueba.agriculturaAl)
         console.log('Entra en generarData')
         if (infoCap.length > 0) {
             console.log("infoCap desde Capacidad: ", infoCap);
@@ -316,27 +223,9 @@ const Capacidad = () => {
 
 
     // * FUNCION QUE TRAE LOS DATOS PARA LLENAR TABLA CAPACIDAD PRODUCTIVA INICIAL
-    // const [selectedValue, setSelectedValue] = useState(infoCosechas.length > 0 && infoCosechas[0].acos_desc);
-
     var cosecha = parseInt(selectedValue);
-    // var cosecha = 2021;
     console.log("variable cosecha: ", cosecha)
 
-    // function infoTabCapacidad(idCliente, cosecha) {
-    //     const data = new FormData();
-    //     data.append("idC", idCliente);
-    //     data.append("cosecha", cosecha);
-    //     fetch("../com_tabCapacidadData.php", {
-    //         method: "POST",
-    //         body: data,
-    //     }).then(function (response) {
-    //         response.text().then((resp) => {
-    //             const data = resp;
-    //             const objetoData = JSON.parse(data);
-    //             setInfoCap(objetoData);
-    //         });
-    //     });
-    // }
     //* EJECUTA LAS FUNCIONES QUE TRAE LA INFO
     useEffect(() => {
         if (idCliente) {
@@ -375,34 +264,6 @@ const Capacidad = () => {
         console.log("infoCosechas desde Capacidad: ", infoCosechas);
         console.log("infoCosechas[0] desde Capacidad: ", infoCosechas[0].acos_desc);
     }
-
-
-    // useEffect(() => {
-
-
-    //         //infoTabCapacidad(idCliente, selectedValue)
-    //         console.log(infoCap)
-    //         console.log(infoCap[0])
-    // }, [selectedValue])
-
-    //*-----------------------------------------------------------------------*//
-    // const cambiosCosecha = (value) => {
-    //     console.log(value)
-    //     // console.log(infoCap)
-    //     // console.log(infoCap[0])
-
-    //     // cosechaSelect = value;
-    //     // setIsCosecha(cosechaSelect);
-
-    //     // generaData();
-
-    //     if (infoCap.length > 0) {
-    //         console.log("infoCap desde Capacidad: ", infoCap);
-    //         console.log("infoCap[0] desde Capacidad: ", infoCap[0].condicion);
-    //     }
-    // }
-
-
 
 
     return (
