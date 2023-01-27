@@ -145,7 +145,7 @@ const Capacidad = () => {
                             ...prevState,
                             mixtoAl: value.has
                         }
-                        
+
                     });
                 }
             }
@@ -188,53 +188,57 @@ const Capacidad = () => {
     }, [])
 
     const recuperaCosecha = (event) => {
-        cosechaSelect = parseInt(event);
+        cosechaSelect = event;
         setIsCosecha(cosechaSelect);
 
         generaData();
     };
 
     const generaData = () => {
-        console.log(prueba)
-        console.log(prueba.agriculturaPr)
-        console.log(prueba.agriculturaAl)
-        console.log('Entra en generarData')
-        var arrayData = [];
-                        setprobando(
-                            (arrayData = [
-                                {
-                                    key: 1,
-                                    categoria: "AGRICULTURA",
-                                    propias: prueba.agriculturaPr,
-                                    alquiler: prueba.agriculturaAl,
-                                },
-                                {
-                                    key: 2,
-                                    categoria: "GANADERIA",
-                                    propias: prueba.ganaderiaPr,
-                                    alquiler: prueba.ganaderiaAl,
-                                },
-                                {
-                                    key: 3,
-                                    categoria: "TAMBO",
-                                    propias: prueba.tamboPr,
-                                    alquiler: prueba.tamboAl,
-                                },
-                                {
-                                    key: 4,
-                                    categoria: "MIXTO",
-                                    propias: prueba.mixtoPr,
-                                    alquiler: prueba.mixtoAl,
-                                },
-                                // {
-                                //     key: 5,
-                                //     categoria: "TOTAL",
-                                //     propias: propioTotal,
-                                //     alquiler: alqTotal,
-                                // },
-                            ])
-                        );
-        console.log(arrayData);
+        if (infoCap.length > 0) {
+            console.log("infoCap desde Capacidad: ", infoCap);
+            console.log("infoCap[0] desde Capacidad: ", infoCap[0].condicion);
+        }
+        // console.log(prueba)
+        // console.log(prueba.agriculturaPr)
+        // console.log(prueba.agriculturaAl)
+        // console.log('Entra en generarData')
+        // var arrayData = [];
+        //                 setprobando(
+        //                     (arrayData = [
+        //                         {
+        //                             key: 1,
+        //                             categoria: "AGRICULTURA",
+        //                             propias: prueba.agriculturaPr,
+        //                             alquiler: prueba.agriculturaAl,
+        //                         },
+        //                         {
+        //                             key: 2,
+        //                             categoria: "GANADERIA",
+        //                             propias: prueba.ganaderiaPr,
+        //                             alquiler: prueba.ganaderiaAl,
+        //                         },
+        //                         {
+        //                             key: 3,
+        //                             categoria: "TAMBO",
+        //                             propias: prueba.tamboPr,
+        //                             alquiler: prueba.tamboAl,
+        //                         },
+        //                         {
+        //                             key: 4,
+        //                             categoria: "MIXTO",
+        //                             propias: prueba.mixtoPr,
+        //                             alquiler: prueba.mixtoAl,
+        //                         },
+        //                         // {
+        //                         //     key: 5,
+        //                         //     categoria: "TOTAL",
+        //                         //     propias: propioTotal,
+        //                         //     alquiler: alqTotal,
+        //                         // },
+        //                     ])
+        //                 );
+        // console.log(arrayData);
     };
 
     const addCosecha = () => {
@@ -336,10 +340,10 @@ const Capacidad = () => {
         }
     }, [idCliente]);
 
-    if (infoCap.length > 0) {
-        console.log("infoCap desde Capacidad: ", infoCap);
-        console.log("infoCap[0] desde Capacidad: ", infoCap[0].condicion);
-    }
+    // if (infoCap.length > 0) {
+    //     console.log("infoCap desde Capacidad: ", infoCap);
+    //     console.log("infoCap[0] desde Capacidad: ", infoCap[0].condicion);
+    // }
 
     if (infoRubros.length > 0) {
         console.log("infoRubros desde Capacidad: ", infoRubros);
@@ -351,7 +355,7 @@ const Capacidad = () => {
         console.log("infoCosechas[0] desde Capacidad: ", infoCosechas[0].acos_desc);
     }
 
-    
+
 
     //*-----------------------------------------------------------------------*//
 
@@ -362,6 +366,7 @@ const Capacidad = () => {
                 <Select
                     className="selectCosecha"
                     style={{ width: '80px' }}
+                    onChange={(value) => recuperaCosecha(value)}
                 >
                     {infoCosechas.length > 0 && infoCosechas.map((cosecha) => {
                         return (
