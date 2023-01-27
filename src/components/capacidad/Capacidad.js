@@ -342,10 +342,10 @@ const Capacidad = () => {
         }
     }, [idCliente]);
 
-    // if (infoCap.length > 0) {
-    //     console.log("infoCap desde Capacidad: ", infoCap);
-    //     console.log("infoCap[0] desde Capacidad: ", infoCap[0].condicion);
-    // }
+    if (infoCap.length > 0) {
+        console.log("infoCap desde Capacidad: ", infoCap);
+        console.log("infoCap[0] desde Capacidad: ", infoCap[0].condicion);
+    }
 
     if (infoRubros.length > 0) {
         console.log("infoRubros desde Capacidad: ", infoRubros);
@@ -363,6 +363,8 @@ const Capacidad = () => {
 
     const cambiosCosecha = (value) => {
         console.log(value)
+        console.log(infoCap)
+        console.log(infoCap[0])
 
         // cosechaSelect = value;
         // setIsCosecha(cosechaSelect);
