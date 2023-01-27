@@ -187,12 +187,12 @@ const Capacidad = () => {
     //     fetchData()
     // }, [])
 
-    const recuperaCosecha = (event) => {
-        cosechaSelect = event;
-        setIsCosecha(cosechaSelect);
+    // const recuperaCosecha = (event) => {
+    //     cosechaSelect = event;
+    //     setIsCosecha(cosechaSelect);
 
-        generaData();
-    };
+    //     generaData();
+    // };
 
     const generaData = () => {
         console.log(prueba)
@@ -364,6 +364,15 @@ const Capacidad = () => {
     const cambiosCosecha = (value) => {
         console.log(value)
 
+        // cosechaSelect = value;
+        // setIsCosecha(cosechaSelect);
+
+        // generaData();
+
+        if (infoCap.length > 0) {
+            console.log("infoCap desde Capacidad: ", infoCap);
+            console.log("infoCap[0] desde Capacidad: ", infoCap[0].condicion);
+        }
 
     }
 
