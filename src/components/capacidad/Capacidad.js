@@ -104,14 +104,20 @@ const Capacidad = () => {
     //     generaData();
     // };
 
-    const generaData = () => {
+    const generaData = (infoCap) => {
         console.log('Entra en generarData')
-        if (infoCap.length > 0) {
-            console.log("infoCap desde Capacidad: ", infoCap);
-            console.log("infoCap[0] desde Capacidad: ", infoCap[0].condicion);
-        }
-        var arrayData = [];
-        setprobando('')
+        // infoCap.map((item) => {
+        //     console.log("Condicion:",item.condicion);
+        //     console.log("rubro:",item.arubro_desc);
+        //     console.log("cantidad:",item.has);
+        // })
+
+        let capacidad = [];
+        infoCap.map(item => capacidad.push(item));
+        console.log('capacidad:', capacidad);
+
+        // var arrayData = [];
+        // setprobando('')
         // setprobando(
         //     (arrayData = [
         //         {
@@ -146,7 +152,7 @@ const Capacidad = () => {
         //         // },
         //     ])
         // );
-        console.log(arrayData);
+        //console.log(arrayData);
 
     };
 
@@ -224,7 +230,7 @@ const Capacidad = () => {
 
     // * FUNCION QUE TRAE LOS DATOS PARA LLENAR TABLA CAPACIDAD PRODUCTIVA INICIAL
     var cosecha = parseInt(selectedValue);
-    console.log("variable cosecha: ", cosecha)
+    // console.log("variable cosecha: ", cosecha)
 
     //* EJECUTA LAS FUNCIONES QUE TRAE LA INFO
     useEffect(() => {
@@ -252,17 +258,18 @@ const Capacidad = () => {
     if (infoCap.length > 0) {
         console.log("infoCap desde Capacidad: ", infoCap);
         console.log("infoCap[0] desde Capacidad: ", infoCap[0].condicion);
+        generaData(infoCap);
     }
 
-    if (infoRubros.length > 0) {
-        console.log("infoRubros desde Capacidad: ", infoRubros);
-        console.log("infoRubros[0] desde Capacidad: ", infoRubros[0].arubro_desc);
-    }
+    // if (infoRubros.length > 0) {
+    //     console.log("infoRubros desde Capacidad: ", infoRubros);
+    //     console.log("infoRubros[0] desde Capacidad: ", infoRubros[0].arubro_desc);
+    // }
 
     if (infoCosechas.length > 0) {
         localStorage.setItem("cosechaActiva",infoCosechas[0].acos_desc);
-        console.log("infoCosechas desde Capacidad: ", infoCosechas);
-        console.log("infoCosechas[0] desde Capacidad: ", infoCosechas[0].acos_desc);
+        // console.log("infoCosechas desde Capacidad: ", infoCosechas);
+        // console.log("infoCosechas[0] desde Capacidad: ", infoCosechas[0].acos_desc);
     }
 
 
@@ -272,7 +279,7 @@ const Capacidad = () => {
                 <Select
                     className="selectCosecha"
                     style={{ width: '80px' }}
-                    onChange={(value) => /*{ cambiosCosecha(value);*/ setSelectedValue(value) /*}*/}
+                    onChange={(value) => setSelectedValue(value)}
                     defaultValue={selectedValue}
                 >
                     {infoCosechas.length > 0 && infoCosechas.map((cosecha) => {
