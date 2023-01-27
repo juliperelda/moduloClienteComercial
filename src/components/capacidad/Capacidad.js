@@ -374,7 +374,6 @@ const Capacidad = () => {
 
     }, [selectedValue])
 
-
     //*-----------------------------------------------------------------------*//
     // const cambiosCosecha = (value) => {
     //     console.log(value)
