@@ -62,7 +62,7 @@ const Capacidad = () => {
     const [isDataTable, setIsDataTable] = useState([]);
     const [isDataSet, setIsDataSet] = useState({});
 
-    const [selectedValue, setSelectedValue] = useState(infoCosechas.length > 0 && infoCosechas[0].acos_desc);
+    const [selectedValue, setSelectedValue] = useState(0);
     const [prueba, setPrueba] = useState({
         agriculturaPr: '',
         agriculturaAl: '',
@@ -187,12 +187,12 @@ const Capacidad = () => {
     //     fetchData()
     // }, [])
 
-    const recuperaCosecha = (event) => {
-        cosechaSelect = event;
-        setIsCosecha(cosechaSelect);
+    // const recuperaCosecha = (event) => {
+    //     cosechaSelect = event;
+    //     setIsCosecha(cosechaSelect);
 
-        generaData();
-    };
+    //     generaData();
+    // };
 
     const generaData = () => {
         console.log(prueba)
@@ -281,6 +281,24 @@ const Capacidad = () => {
         }
     };
 
+    const cambiosCosecha = (value) => {
+            console.log(value)
+            console.log(infoCap)
+            console.log(infoCap[0])
+            
+            // cosechaSelect = value;
+            // setIsCosecha(cosechaSelect);
+    
+            // generaData();
+    
+            if (infoCap.length > 0) {
+                console.log("infoCap desde Capacidad: ", infoCap);
+                console.log("infoCap[0] desde Capacidad: ", infoCap[0].condicion);
+            }
+
+    }
+
+
     //* FUNCION QUE TRAE LOS DATOS DE TABLA RUBROS
     function rubros() {
         // Trae la información  con GET
@@ -315,7 +333,9 @@ const Capacidad = () => {
     // * FUNCION QUE TRAE LOS DATOS PARA LLENAR TABLA CAPACIDAD PRODUCTIVA INICIAL
     // const [selectedValue, setSelectedValue] = useState(infoCosechas.length > 0 && infoCosechas[0].acos_desc);
 
-    var cosecha = selectedValue;
+    var cosecha = parseInt(selectedValue);
+    // var cosecha = 2021;
+    console.log("variable cosecha: ", cosecha)
 
     function infoTabCapacidad(idCliente, cosecha) {
         const data = new FormData();
@@ -361,14 +381,7 @@ const Capacidad = () => {
 
     //*-----------------------------------------------------------------------*//
 
-    const cambiosCosecha = (value) => {
-        console.log(value)
-        if (infoCap.length > 0) {
-            console.log("infoCap desde Capacidad: ", infoCap);
-            console.log("infoCap[0] desde Capacidad: ", infoCap[0].condicion);
-        }
 
-    }
 
 
     return (
@@ -377,7 +390,7 @@ const Capacidad = () => {
                 <Select
                     className="selectCosecha"
                     style={{ width: '80px' }}
-                    onChange={(value) => cambiosCosecha(value)}
+                    onChange={(value) => {cambiosCosecha(value); setSelectedValue(value)}}
                 >
                     {infoCosechas.length > 0 && infoCosechas.map((cosecha) => {
                         return (
