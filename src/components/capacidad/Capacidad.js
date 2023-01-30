@@ -253,9 +253,6 @@ const generaData = (infoCap) => {
             });
             cosechas(idCliente);
             rubros();
-
-            setTablaCap(result);
-            console.log("Tabla Capacidad Info: ", tablaCap);
         }
     }, [idCliente, cosecha]);
 
