@@ -65,8 +65,7 @@ const Capacidad = () => {
 
 
     const [selectedValue, setSelectedValue] = useState(localStorage.getItem("cosechaActiva"));
-    const [condP,setCondP]=([]);
-    const [condA,setCondA]=([]);
+    const [tablaCap,setTablaCap]=([]);
 
     const editarCosecha = () => {
         setIsButtonEditDisabled(true);
@@ -100,6 +99,8 @@ const Capacidad = () => {
 
         const CondP = infoCap.filter(info => info.condicion === "P");
         const CondA = infoCap.filter(info => info.condicion === "A");
+        const concat = CondP + CondA;
+        setTablaCap(concat)
 
         // //! FRILTRO SEGUN RUBROS
 
@@ -117,6 +118,7 @@ const Capacidad = () => {
 
          console.log("condP: ", CondP);
          console.log("condA: ", CondA);
+         console.log("tablaCap: ", tablaCap);
 
         // console.log("AGRICULTURAP: ", condPAgricultura);
         // console.log("AGRICULTURAA: ", condAAgricultura);
