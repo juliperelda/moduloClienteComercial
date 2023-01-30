@@ -82,50 +82,62 @@ const Capacidad = () => {
 
     const generaData = (infoCap) => {
         console.log('Entra en generarData')
-        // infoCap.map((item) => {
-        //     console.log("Condicion:",item.condicion);
-        //     console.log("rubro:",item.arubro_desc);
-        //     console.log("cantidad:",item.has);
-        // })
+        let propias = [];
+        let alquiladas = [];
+        infoCap.map((item) => {
+            // console.log("Condicion:",item.condicion);
+            // console.log("rubro:",item.arubro_desc);
+            // console.log("cantidad:",item.has);
+            if (item.condicion === "P"){
+                infoCap.map(item => propias.push(item));
+            }
+            if (item.condicion === "A"){
+                infoCap.map(item => alquiladas.push(item));
+            }
+        });
 
-        let capacidad = [];
-        infoCap.map(item => capacidad.push(item));
-        setprobando('')
-        setprobando(
-            (capacidad = [
-                {
-                    key: 1,
-                    categoria: capacidad.arubro_desc,
-                    propias: capacidad.has,
-                    alquiler: capacidad.has,
-                },
-                {
-                    key: 2,
-                    categoria: capacidad.arubro_desc,
-                    propias: capacidad.has,
-                    alquiler: capacidad.ganaderiaAl,
-                },
-                {
-                    key: 3,
-                    categoria: capacidad.arubro_desc,
-                    propias: capacidad.has,
-                    alquiler: capacidad.has,
-                },
-                {
-                    key: 4,
-                    categoria: capacidad.arubro_desc,
-                    propias: capacidad.has,
-                    alquiler: capacidad.has,
-                },
-                {
-                    key: 5,
-                    categoria: "TOTAL",
-                    propias: capacidad.ahxs_propias,
-                    alquiler: capacidad.ahxs_alquiladas,
-                },
-            ])
-        );
-        console.log('capacidad:', capacidad);
+        console.log("propias: ", propias);
+        console.log("alquiladas: ", alquiladas);
+
+        // let capacidad = [];
+        // infoCap.map(item => capacidad.push(item));
+        // console.log('capacidad:', capacidad);
+        // setprobando('')
+        // setprobando(
+        //     (capacidad = [
+        //         {
+        //             key: 1,
+        //             categoria: capacidad.arubro_desc,
+        //             propias: capacidad.has,
+        //             alquiler: capacidad.has,
+        //         },
+        //         {
+        //             key: 2,
+        //             categoria: capacidad.arubro_desc,
+        //             propias: capacidad.has,
+        //             alquiler: capacidad.ganaderiaAl,
+        //         },
+        //         {
+        //             key: 3,
+        //             categoria: capacidad.arubro_desc,
+        //             propias: capacidad.has,
+        //             alquiler: capacidad.has,
+        //         },
+        //         {
+        //             key: 4,
+        //             categoria: capacidad.arubro_desc,
+        //             propias: capacidad.has,
+        //             alquiler: capacidad.has,
+        //         },
+        //         {
+        //             key: 5,
+        //             categoria: "TOTAL",
+        //             propias: capacidad.ahxs_propias,
+        //             alquiler: capacidad.ahxs_alquiladas,
+        //         },
+        //     ])
+        // );
+       
 
     };
 
