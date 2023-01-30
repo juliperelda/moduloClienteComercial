@@ -1,3 +1,6 @@
+/* eslint-disable array-callback-return */
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState, useContext } from "react";
 import { Button, Select, Table } from "antd";
 import { EditOutlined, PlusCircleOutlined } from "@ant-design/icons";
@@ -57,21 +60,30 @@ const Capacidad = () => {
         setCosechas,
     } = useContext(GlobalContext);
 
+    const [isDataStorage, setIsDataStorage] = useState([]);
     const [isDataTable, setIsDataTable] = useState([]);
 
 
     const [selectedValue, setSelectedValue] = useState(localStorage.getItem("cosechaActiva"));
-    const [probando, setprobando] = useState({});
+    const [tablaCap,setTablaCap]=useState({});
 
     const editarCosecha = () => {
         setIsButtonEditDisabled(true);
-        // isDataStorage.forEach(function (data) {
-        //     if (parseInt(data.cosecha) === parseInt(isCosecha)) {
-        //         setDataContext(data);
-        //     }
-        // });
+        isDataStorage.forEach(function (data) {
+            if (parseInt(data.cosecha) === parseInt(isCosecha)) {
+                setDataContext(data);
+            }
+        });
         setAppStage(1);
     };
+
+    // useEffect(() => {
+    //     const fetchData = () => {
+    //         // pruebaSaveData()
+    //         infoTabCapacidad()
+    //     }
+    //     fetchData()
+    // }, [])
 
     // const recuperaCosecha = (event) => {
     //     cosechaSelect = event;
@@ -80,54 +92,73 @@ const Capacidad = () => {
     //     generaData();
     // };
 
-    const generaData = (infoCap) => {
-        console.log('Entra en generarData')
-        // infoCap.map((item) => {
-        //     console.log("Condicion:",item.condicion);
-        //     console.log("rubro:",item.arubro_desc);
-        //     console.log("cantidad:",item.has);
-        // })
+    var result = {};
+    let capacidad = [];
 
-        let capacidad = [];
-        infoCap.map(item => capacidad.push(item));
-        setprobando('')
-        setprobando(
-            (capacidad = [
+    const generaData = (infoCap) => {       
+
+        // Iterar sobre cada objeto del array
+        infoCap.forEach(info => {
+            // Verificar si ya existe el arubro_desc en el objeto result
+            if (!result[info.arubro_desc]) {
+                result[info.arubro_desc] = {};
+            }
+
+            // Verificar la condición y asignar el valor correspondiente
+            if (info.condicion === "P") {
+                result[info.arubro_desc].propio = info.has;
+            } else {
+                result[info.arubro_desc].alquilado = info.has;
+            }
+        });
+
+
+        capacidad = result;
+
+        capacidad = [
                 {
                     key: 1,
-                    categoria: capacidad.arubro_desc,
-                    propias: capacidad.has,
-                    alquiler: capacidad.has,
+                    categoria: "AGRICULTURA",
+                    propias: result.AGRICULTURA ? result.AGRICULTURA.propio : undefined,
+                    alquiler: result.AGRICULTURA ? result.AGRICULTURA.alquilado : undefined,
                 },
                 {
                     key: 2,
-                    categoria: capacidad.arubro_desc,
-                    propias: capacidad.has,
-                    alquiler: capacidad.ganaderiaAl,
+                    categoria: "GANADERIA",
+                    propias: result.GANADERIA ? result.GANADERIA.propio : undefined,
+                    alquiler: result.GANADERIA ? result.GANADERIA.alquilado : undefined,
                 },
                 {
                     key: 3,
-                    categoria: capacidad.arubro_desc,
-                    propias: capacidad.has,
-                    alquiler: capacidad.has,
+                    categoria: "TAMBO",
+                    propias: result.TAMBO ? result.TAMBO.propio : undefined,
+                    alquiler: result.TAMBO ? result.TAMBO.alquilado : undefined,
                 },
                 {
                     key: 4,
-                    categoria: capacidad.arubro_desc,
-                    propias: capacidad.has,
-                    alquiler: capacidad.has,
+                    categoria: "MIXTO",
+                    propias: result.MIXTO ? result.MIXTO.propio : undefined,
+                    alquiler: result.MIXTO ? result.MIXTO.alquilado : undefined,
                 },
                 {
                     key: 5,
                     categoria: "TOTAL",
-                    propias: capacidad.ahxs_propias,
-                    alquiler: capacidad.ahxs_alquiladas,
+                    propias: infoCap.ahxs_propias,
+                    alquiler: infoCap.ahxs_alquiladas,
                 },
-            ])
-        );
-        console.log('capacidad:', capacidad);
+            ];
 
-    };
+            console.log(capacidad);
+
+
+        return result;
+
+};
+
+
+
+
+
 
     const addCosecha = () => {
         setAppStage(2);
@@ -138,6 +169,8 @@ const Capacidad = () => {
         setIsButtonDisabled(false);
     };
 
+    var objData = [];
+
     const handleStage = () => {
         switch (appStage) {
             case 0:
@@ -145,7 +178,7 @@ const Capacidad = () => {
                     <Table
                         columns={columns}
                         // dataSource={probando}
-                        dataSource={isDataTable}
+                        dataSource={capacidad}
                         pagination={false}
                     />
                 );
@@ -158,7 +191,7 @@ const Capacidad = () => {
                     <Table
                         columns={columns}
                         // dataSource={probando}
-                        dataSource={isDataTable}
+                        dataSource={capacidad}
                         pagination={false}
                     />
                 );
@@ -222,13 +255,12 @@ const Capacidad = () => {
             });
             cosechas(idCliente);
             rubros();
-            // setSelectedValue(infoCosechas.length > 0 && infoCosechas[0].acos_desc);
         }
     }, [idCliente, cosecha]);
 
     if (infoCap.length > 0) {
-        console.log("infoCap desde Capacidad: ", infoCap);
-        console.log("infoCap[0] desde Capacidad: ", infoCap[0].condicion);
+        // console.log("infoCap desde Capacidad: ", infoCap);
+        // console.log("infoCap[0] desde Capacidad: ", infoCap[0].condicion);
         generaData(infoCap);
     }
 
