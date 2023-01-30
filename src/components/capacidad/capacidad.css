@@ -182,8 +182,14 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 
-.ant-btn-default:not(:disabled).btnAddCosecha:focus, .ant-btn-default:not(:disabled).btnAddCosecha:focus{
+.ant-btn-default:not(:disabled).btnAddCosecha:focus{
   box-shadow: none !important;
+  border: none !important;
+}
+
+.ant-btn-default:not(:disabled).btnAddCosecha:active{
+  box-shadow: none !important;
+  border: none !important;
 }
 
 
