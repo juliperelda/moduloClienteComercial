@@ -95,11 +95,13 @@ const Capacidad = () => {
 
     const generaData = (infoCap) => {
         console.log('Entra en generarData')
-        setCondP(infoCap.filter(info => info.condicion === "P"));
-        setCondA(infoCap.filter(info => info.condicion === "A"));
+        const CondP = infoCap.filter(info => info.condicion === "P");
+        const CondA = infoCap.filter(info => info.condicion === "A");
 
         console.log("condP: ", condP);
         console.log("condA: ", condA);
+
+        return [CondP, CondA]
 
     };
 
