@@ -129,13 +129,15 @@ input[type=number]::-webkit-outer-spin-button {
   margin-left: auto;
   border: none;
   font-size: 18px !important;
+  color: #00b33c;
+  background-color: transparent;  
 }
 .btnAddCosecha:active:hover {
   background: none !important;
-  border-color: transparent !important;
+  border-color: #ffffff !important;
 }
 .btnAddCosecha:disabled {
-  background-color: transparent!important;
+  background-color: #ffffff !important;
 }
 .iconAdd:active {
   background: none !important;
