@@ -147,18 +147,24 @@ const Capacidad = () => {
 };
 
 
-
-
-
-
-    const addCosecha = () => {
+    const addCosecha = (infoCap) => {
         setAppStage(2);
-        if (isCosecha) {
-            setIsButtonDisabled(true);
-            return;
-        }
-        setIsButtonDisabled(false);
+        // if (infoCap.length <= 0) {
+        //     setIsButtonDisabled(true);
+        //     return;
+        // }
+        // setIsButtonDisabled(false);
     };
+
+    useEffect(() => {
+        if (infoCap.length === 0) {
+          setIsButtonEditDisabled(true);
+          setIsButtonDisabled(true);
+        } else {
+          setIsButtonEditDisabled(false);
+          setIsButtonDisabled(false);
+        }
+      }, [infoCap]);
 
     var objData = [];
 
@@ -296,7 +302,7 @@ const Capacidad = () => {
                     className="btnAddCosecha"
                     icon={<PlusCircleOutlined />}
                     onClick={() => {
-                        addCosecha();
+                        addCosecha(infoCap);
                     }}
                     disabled={isButtonDisabled}
                 />
