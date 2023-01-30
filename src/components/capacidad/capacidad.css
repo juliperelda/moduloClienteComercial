@@ -181,6 +181,13 @@ input[type=number]::-webkit-outer-spin-button {
   width: 200px;
 }
 
+.ant-select .selectCosecha .css-1amspvc .ant-select-single .ant-select-show-arrow:hover{
+  border-color: #00b33c !important;
+}
+.ant-select .selectCosecha .css-1amspvc .ant-select-single .ant-select-show-arrow:focus{
+  border-color: #00b33c !important;
+}
+
 .ant-table-wrapper .ant-table-thead >tr>th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before {
   background-color: #fafafa;
   width: 0px;
