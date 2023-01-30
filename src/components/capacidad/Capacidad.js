@@ -57,21 +57,31 @@ const Capacidad = () => {
         setCosechas,
     } = useContext(GlobalContext);
 
+    const [isData, setIsData] = useState({});
+    const [isDataStorage, setIsDataStorage] = useState([]);
     const [isDataTable, setIsDataTable] = useState([]);
-
+    const [isDataSet, setIsDataSet] = useState({});
 
     const [selectedValue, setSelectedValue] = useState(localStorage.getItem("cosechaActiva"));
     const [probando, setprobando] = useState({});
 
     const editarCosecha = () => {
         setIsButtonEditDisabled(true);
-        // isDataStorage.forEach(function (data) {
-        //     if (parseInt(data.cosecha) === parseInt(isCosecha)) {
-        //         setDataContext(data);
-        //     }
-        // });
+        isDataStorage.forEach(function (data) {
+            if (parseInt(data.cosecha) === parseInt(isCosecha)) {
+                setDataContext(data);
+            }
+        });
         setAppStage(1);
     };
+
+    // useEffect(() => {
+    //     const fetchData = () => {
+    //         // pruebaSaveData()
+    //         infoTabCapacidad()
+    //     }
+    //     fetchData()
+    // }, [])
 
     // const recuperaCosecha = (event) => {
     //     cosechaSelect = event;
@@ -82,62 +92,53 @@ const Capacidad = () => {
 
     const generaData = (infoCap) => {
         console.log('Entra en generarData')
-        let propias = [];
-        let alquiladas = [];
-        infoCap.map((item) => {
-            // console.log("Condicion:",item.condicion);
-            // console.log("rubro:",item.arubro_desc);
-            // console.log("cantidad:",item.has);
-            if (item.condicion === "P"){
-                infoCap.map(item => propias.push(item));
-            }
-            if (item.condicion === "A"){
-                infoCap.map(item => alquiladas.push(item));
-            }
-        });
+        // infoCap.map((item) => {
+        //     console.log("Condicion:",item.condicion);
+        //     console.log("rubro:",item.arubro_desc);
+        //     console.log("cantidad:",item.has);
+        // })
 
-        console.log("propias: ", propias);
-        console.log("alquiladas: ", alquiladas);
+        let capacidad = [];
+        infoCap.map(item => capacidad.push(item));
+        console.log('capacidad:', capacidad);
 
-        // let capacidad = [];
-        // infoCap.map(item => capacidad.push(item));
-        // console.log('capacidad:', capacidad);
+        // var arrayData = [];
         // setprobando('')
         // setprobando(
-        //     (capacidad = [
+        //     (arrayData = [
         //         {
         //             key: 1,
-        //             categoria: capacidad.arubro_desc,
-        //             propias: capacidad.has,
-        //             alquiler: capacidad.has,
+        //             categoria: "AGRICULTURA",
+        //             propias: prueba.agriculturaPr,
+        //             alquiler: prueba.agriculturaAl,
         //         },
         //         {
         //             key: 2,
-        //             categoria: capacidad.arubro_desc,
-        //             propias: capacidad.has,
-        //             alquiler: capacidad.ganaderiaAl,
+        //             categoria: "GANADERIA",
+        //             propias: prueba.ganaderiaPr,
+        //             alquiler: prueba.ganaderiaAl,
         //         },
         //         {
         //             key: 3,
-        //             categoria: capacidad.arubro_desc,
-        //             propias: capacidad.has,
-        //             alquiler: capacidad.has,
+        //             categoria: "TAMBO",
+        //             propias: prueba.tamboPr,
+        //             alquiler: prueba.tamboAl,
         //         },
         //         {
         //             key: 4,
-        //             categoria: capacidad.arubro_desc,
-        //             propias: capacidad.has,
-        //             alquiler: capacidad.has,
+        //             categoria: "MIXTO",
+        //             propias: prueba.mixtoPr,
+        //             alquiler: prueba.mixtoAl,
         //         },
-        //         {
-        //             key: 5,
-        //             categoria: "TOTAL",
-        //             propias: capacidad.ahxs_propias,
-        //             alquiler: capacidad.ahxs_alquiladas,
-        //         },
+        //         // {
+        //         //     key: 5,
+        //         //     categoria: "TOTAL",
+        //         //     propias: propioTotal,
+        //         //     alquiler: alqTotal,
+        //         // },
         //     ])
         // );
-       
+        //console.log(arrayData);
 
     };
 
@@ -149,6 +150,8 @@ const Capacidad = () => {
         }
         setIsButtonDisabled(false);
     };
+
+    var objData = [];
 
     const handleStage = () => {
         switch (appStage) {
