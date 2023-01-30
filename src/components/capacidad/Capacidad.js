@@ -92,68 +92,30 @@ const Capacidad = () => {
     //     generaData();
     // };
 
-//     var result = {};
+    var result = {};
 
-//     const generaData = (infoCap) => {       
+    const generaData = (infoCap) => {       
 
-//         // // Iterar sobre cada objeto del array
-//         // infoCap.forEach(info => {
-//         //     // Verificar si ya existe el arubro_desc en el objeto result
-//         //     if (!result[info.arubro_desc]) {
-//         //         result[info.arubro_desc] = {};
-//         //     }
+        // Iterar sobre cada objeto del array
+        infoCap.forEach(info => {
+            // Verificar si ya existe el arubro_desc en el objeto result
+            if (!result[info.arubro_desc]) {
+                result[info.arubro_desc] = {};
+            }
 
-//         //     // Verificar la condición y asignar el valor correspondiente
-//         //     if (info.condicion === "P") {
-//         //         result[info.arubro_desc].propio = info.has;
-//         //     } else {
-//         //         result[info.arubro_desc].alquilado = info.has;
-//         //     }
-//         // });
-
-//         // return result;
-
-// };
-
-
-const [result, setResult] = useState([]);
-
-const generaData = (infoCap) => {
-    console.log('Entra en generarData')
-
-    //!FILTRO POR CONDICION: PROPIO / ALQUILADO
-
-    const CondP = infoCap.filter(info => info.condicion === "P");
-    const CondA = infoCap.filter(info => info.condicion === "A");
-
-    console.log("condP: ", CondP);
-    console.log("condA: ", CondA);
-
-    //! UNIFICO LOS DATOS POR ARUBRO_DESC
-
-    const uniqueRubros = [...new Set(infoCap.map(item => item.arubro_desc))];
-    console.log("Unique Rubros: ", uniqueRubros);
-
-    let nuevoResultado = [];
-
-    uniqueRubros.forEach((rubro) => {
-        const Propias = CondP.filter(info => info.arubro_desc === rubro)
-        .reduce((acum, item) => acum + item.ahxs_propias, 0);
-        console.log(`Propias ${rubro}: ${Propias}`);
-
-        const Alquiladas = CondA.filter(info => info.arubro_desc === rubro)
-        .reduce((acum, item) => acum + item.ahxs_alquiladas, 0);
-        console.log(`Alquiladas ${rubro}: ${Alquiladas}`);
-
-        nuevoResultado.push({
-            arubro_desc: rubro,
-            ahxs_propias: Propias,
-            ahxs_alquiladas: Alquiladas
+            // Verificar la condición y asignar el valor correspondiente
+            if (info.condicion === "P") {
+                result[info.arubro_desc].propio = info.has;
+            } else {
+                result[info.arubro_desc].alquilado = info.has;
+            }
         });
-    });
 
-    setResult(nuevoResultado);
+        return result;
+
 };
+
+
 
 
 
