@@ -65,7 +65,7 @@ const Capacidad = () => {
 
 
     const [selectedValue, setSelectedValue] = useState(localStorage.getItem("cosechaActiva"));
-    const [tablaCap,setTablaCap]=({});
+    const [tablaCap,setTablaCap]=useState({});
 
     const editarCosecha = () => {
         setIsButtonEditDisabled(true);
