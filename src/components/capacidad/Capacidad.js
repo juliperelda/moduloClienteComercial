@@ -95,16 +95,17 @@ const Capacidad = () => {
 
     const generaData = (infoCap) => {
         console.log('Entra en generarData')
-        let capacidad = [];
-        infoCap.map(item => capacidad.push(item));
-        capacidad.map(([key,value]) => {
-            console.log(key,value);
-            // if (key.condicion === "P"){
-            //     setCondP([...condP, { [key]: value }]);
-            // }
-            // if(key.condicion === "A"){
-            //     setCondA([...condA, { [key]: value }]);
-            // }
+        // let capacidad = [];
+        // infoCap.map(item => capacidad.push(item));
+        
+        infoCap.forEach(([key,value]) => {
+            //console.log(key,value);
+            if (key.condicion === "P"){
+                setCondP([...condP, { [key]: value }]);
+            }
+            if(key.condicion === "A"){
+                setCondA([...condA, { [key]: value }]);
+            }
 
         })
 
