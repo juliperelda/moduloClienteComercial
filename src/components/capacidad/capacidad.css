@@ -183,7 +183,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 
 .ant-btn-default:not(:disabled).btnAddCosecha:focus, .ant-btn-default:not(:disabled).btnAddCosecha:hover{
-  color: transparent !important;
+  box-shadow: none !important;
 }
 
 
