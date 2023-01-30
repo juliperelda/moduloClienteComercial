@@ -95,76 +95,10 @@ const Capacidad = () => {
 
     const generaData = (infoCap) => {
         console.log('Entra en generarData')
-        // let capacidad = [];
-        // infoCap.map(item => capacidad.push(item));
-        const condP = [];
-        const condA = [];
-    
-        // infoCap.map((item) => {
-        //     if (item.condicion === "P"){
-        //         setCondP([...condP, item ]);
-        //     }
-        //     if(item.condicion === "A"){
-        //         setCondA([...condA, item ]);
-        //     }
+        let capacidad = [];
+        infoCap.map(item => capacidad.push(item));
 
-        // })
-
-        infoCap.forEach(([key, value]) => {
-            if (key.condicion === "P"){
-                condP.push({ [key]: value });
-            }
-            if(key.condicion === "A"){
-                condA.push({ [key]: value });
-            }
-
-        })
-
-        console.log("condP: ",condP);
-        console.log("condA: ", condA);
-        console.log("info: ", infoCap);
-
-        // let capacidad = [];
-        // infoCap.map(item => capacidad.push(item));
-        // console.log('capacidad:', capacidad);
-
-        // var arrayData = [];
-        // setprobando('')
-        // setprobando(
-        //     (arrayData = [
-        //         {
-        //             key: 1,
-        //             categoria: "AGRICULTURA",
-        //             propias: prueba.agriculturaPr,
-        //             alquiler: prueba.agriculturaAl,
-        //         },
-        //         {
-        //             key: 2,
-        //             categoria: "GANADERIA",
-        //             propias: prueba.ganaderiaPr,
-        //             alquiler: prueba.ganaderiaAl,
-        //         },
-        //         {
-        //             key: 3,
-        //             categoria: "TAMBO",
-        //             propias: prueba.tamboPr,
-        //             alquiler: prueba.tamboAl,
-        //         },
-        //         {
-        //             key: 4,
-        //             categoria: "MIXTO",
-        //             propias: prueba.mixtoPr,
-        //             alquiler: prueba.mixtoAl,
-        //         },
-        //         // {
-        //         //     key: 5,
-        //         //     categoria: "TOTAL",
-        //         //     propias: propioTotal,
-        //         //     alquiler: alqTotal,
-        //         // },
-        //     ])
-        // );
-        //console.log(arrayData);
+        console.log("info: ", capacidad);
 
     };
 
