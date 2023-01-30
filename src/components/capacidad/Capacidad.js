@@ -99,7 +99,7 @@ const Capacidad = () => {
 
         const CondP = infoCap.filter(info => info.condicion === "P");
         const CondA = infoCap.filter(info => info.condicion === "A");
-        const concat = CondP + CondA;
+        const concat = CondP.concat(CondA);
         setTablaCap(concat)
 
         // //! FRILTRO SEGUN RUBROS
