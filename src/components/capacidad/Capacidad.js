@@ -118,8 +118,8 @@ useEffect(() => {
     setTablaCap(result);
 
     console.log("Tabla Capacidad Info: ", tablaCap);
-    
-}, [result])
+
+}, [idCliente])
 
 
 
