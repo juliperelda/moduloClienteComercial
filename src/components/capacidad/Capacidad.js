@@ -111,6 +111,7 @@ const Capacidad = () => {
             }
         });
 
+        console.log(result)
         return result;
 
 };
