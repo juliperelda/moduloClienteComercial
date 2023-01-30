@@ -65,8 +65,8 @@ const Capacidad = () => {
 
 
     const [selectedValue, setSelectedValue] = useState(localStorage.getItem("cosechaActiva"));
-    // const [condP,setCondP]=([]);
-    // const [condA,setCondA]=([]);
+    const [condP,setCondP]=([]);
+    const [condA,setCondA]=([]);
 
     const editarCosecha = () => {
         setIsButtonEditDisabled(true);
@@ -95,10 +95,11 @@ const Capacidad = () => {
 
     const generaData = (infoCap) => {
         console.log('Entra en generarData')
-        let capacidad = [];
-        infoCap.map(item => capacidad.push(item));
+        setCondP(infoCap.filter(info => info.condicion === "P"));
+        setCondA(infoCap.filter(info => info.condicion === "A"));
 
-        console.log("info: ", capacidad);
+        console.log("condP: ", condP);
+        console.log("condA: ", condA);
 
     };
 
