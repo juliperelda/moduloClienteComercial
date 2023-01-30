@@ -157,7 +157,7 @@ const Capacidad = () => {
     };
 
     useEffect(() => {
-        if (infoCap[0].ahxs_alquiladas.length === 0) {
+        if (infoCap[0].ahxs_alquiladas === 0) {
           setIsButtonEditDisabled(false);
           setIsButtonDisabled(true);
         } else {
