@@ -293,7 +293,7 @@ const Capacidad = () => {
 
                 </Select>
                 <Button
-                    style={{ alignItems: "center" }}
+                    style={{ alignItems: "center", boxShadow:"none !important", outline:"0" }}
                     className="btnEditCosecha"
                     icon={<EditOutlined />}
                     // onClick={() => editarCosecha()}
@@ -301,6 +301,7 @@ const Capacidad = () => {
                     // disabled={isButtonEditDisabled}
                 />
                 <Button
+                    style={{ alignItems: "center", boxShadow:"none !important", outline:"0" }}
                     className="btnAddCosecha"
                     icon={<PlusCircleOutlined />}
                     // onClick={() => {
