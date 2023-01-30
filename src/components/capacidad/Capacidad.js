@@ -127,7 +127,7 @@ const Capacidad = () => {
         console.log("MIXTOP: ", condPMixto);
         console.log("MIXTOA: ", condAMixto);
 
-        //return [CondP, CondA]
+        return [CondP, CondA, condPAgricultura, condAAgricultura, condPGanaderia, condAGanaderia, condPTambo, condATambo, condPMixto, condAMixto] 
 
     };
 
