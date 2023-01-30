@@ -183,6 +183,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .ant-select:not(.ant-select-disabled):not(.ant-select-customize-input):not(.ant-pagination-size-changer):hover .ant-select-selector:hover{
   border-color: #00b33c !important;
+  box-shadow: none !important;
 }
 
 .ant-select:not(.ant-select-disabled):not(.ant-select-customize-input):not(.ant-pagination-size-changer):focus .ant-select-selector:focus{
@@ -194,6 +195,14 @@ input[type=number]::-webkit-outer-spin-button {
   border-color: #00b33c !important;
   box-shadow: none !important;
 }
+
+.ant-btn-default:not(:disabled).btnAddCosecha:focus, .ant-btn-default:not(:disabled).btnAddCosecha:hover {
+  border-color: none !important;
+  color: transparent !important;
+  transition: none;
+}
+
+
 
 .ant-btn .ant-btn-default .btnAddCosecha:focus{
   border-color: none !important;
