@@ -96,11 +96,11 @@ const Capacidad = () => {
     const generaData = (infoCap) => {
         console.log('Entra en generarData')
         infoCap.map(([key,value]) => {
-            if (key.condicion == "P"){
-                setCondP(prevState => [...prevState, { [key]: value }]);
+            if (key.condicion === "P"){
+                setCondP([...condP, { [key]: value }]);
             }
-            if(key.condicion == "A"){
-                setCondA(prevState => [...prevState, { [key]: value }]);
+            if(key.condicion === "A"){
+                setCondA([...condA, { [key]: value }]);
             }
 
         })
