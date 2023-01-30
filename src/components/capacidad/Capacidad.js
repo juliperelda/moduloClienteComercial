@@ -98,19 +98,19 @@ const Capacidad = () => {
         // let capacidad = [];
         // infoCap.map(item => capacidad.push(item));
         
-        infoCap.forEach(([key,value]) => {
-            //console.log(key,value);
-            if (key.condicion === "P"){
-                setCondP([...condP, { [key]: value }]);
+        infoCap.map((item) => {
+            if (item.condicion === "P"){
+                setCondP([...condP, item ]);
             }
-            if(key.condicion === "A"){
-                setCondA([...condA, { [key]: value }]);
+            if(item.condicion === "A"){
+                setCondA([...condA, item ]);
             }
 
         })
 
         console.log("condP: ",condP);
         console.log("condA: ", condA);
+        console.log("info: ", infoCap);
 
         // let capacidad = [];
         // infoCap.map(item => capacidad.push(item));
