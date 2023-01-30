@@ -98,12 +98,13 @@ const Capacidad = () => {
         let capacidad = [];
         infoCap.map(item => capacidad.push(item));
         capacidad.map(([key,value]) => {
-            if (key.condicion === "P"){
-                setCondP([...condP, { [key]: value }]);
-            }
-            if(key.condicion === "A"){
-                setCondA([...condA, { [key]: value }]);
-            }
+            console.log(key,value);
+            // if (key.condicion === "P"){
+            //     setCondP([...condP, { [key]: value }]);
+            // }
+            // if(key.condicion === "A"){
+            //     setCondA([...condA, { [key]: value }]);
+            // }
 
         })
 
