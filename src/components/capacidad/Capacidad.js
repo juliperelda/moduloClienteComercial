@@ -115,8 +115,7 @@ const Capacidad = () => {
 
         capacidad = result;
 
-        setTablaCap(
-            (capacidad = [
+        capacidad = [
                 {
                     key: 1,
                     categoria: "AGRICULTURA",
@@ -147,10 +146,9 @@ const Capacidad = () => {
                 //     propias: capacidad.ahxs_propias,
                 //     alquiler: capacidad.ahxs_alquiladas,
                 // },
-            ])
-        );
+            ];
 
-            console.log(tablaCap);
+            console.log(capacidad);
 
 
         return result;
