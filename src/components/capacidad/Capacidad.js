@@ -17,6 +17,8 @@ const columns = [
         render: (text, record) => (
             <span>
                 {record.categoria === "TOTAL" ? <strong>TOTAL</strong> : text}
+                {record.propias ? <strong>{record.propias}</strong> : text}
+                {record.alquiler ? <strong>{record.alquiler}</strong> : text}
             </span>
         ),
     },
