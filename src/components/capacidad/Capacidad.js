@@ -140,12 +140,12 @@ const Capacidad = () => {
                     propias: result.MIXTO ? result.MIXTO.propio : undefined,
                     alquiler: result.MIXTO ? result.MIXTO.alquilado : undefined,
                 },
-                // {
-                //     key: 5,
-                //     categoria: "TOTAL",
-                //     propias: capacidad.ahxs_propias,
-                //     alquiler: capacidad.ahxs_alquiladas,
-                // },
+                {
+                    key: 5,
+                    categoria: "TOTAL",
+                    propias: infoCap.ahxs_propias,
+                    alquiler: infoCap.ahxs_alquiladas,
+                },
             ];
 
             console.log(capacidad);
