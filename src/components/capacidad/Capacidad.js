@@ -92,8 +92,9 @@ const Capacidad = () => {
     //     generaData();
     // };
 
-    const generaData = (infoCap) => {
-        const result = {};
+    var result = {};
+
+    const generaData = (infoCap) => {       
 
         // Iterar sobre cada objeto del array
         infoCap.forEach(info => {
@@ -110,12 +111,16 @@ const Capacidad = () => {
             }
         });
 
-        setTablaCap(result);
-
-        console.log("Tabla Capacidad Info: ", tablaCap);
-
-        return tablaCap;
+        return result;
 };
+
+useEffect(() => {
+    setTablaCap(result);
+
+    console.log("Tabla Capacidad Info: ", tablaCap);
+    
+}, [result])
+
 
 
     const addCosecha = () => {
