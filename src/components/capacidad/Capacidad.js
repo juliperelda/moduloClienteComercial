@@ -298,7 +298,7 @@ const Capacidad = () => {
                     icon={<EditOutlined />}
                     // onClick={() => editarCosecha()}
                     // onChange={(e) => recuperaCosecha(e)}
-                    disabled={isButtonEditDisabled}
+                    // disabled={isButtonEditDisabled}
                 />
                 <Button
                     className="btnAddCosecha"
