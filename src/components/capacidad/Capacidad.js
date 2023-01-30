@@ -104,14 +104,20 @@ const Capacidad = () => {
     //     generaData();
     // };
 
-    const generaData = () => {
-        // console.log('Entra en generarData')
-        // if (infoCap.length > 0) {
-        //     console.log("infoCap desde Capacidad: ", infoCap);
-        //     console.log("infoCap[0] desde Capacidad: ", infoCap[0].condicion);
-        // }
-        var arrayData = [];
-        setprobando('')
+    const generaData = (infoCap) => {
+        console.log('Entra en generarData')
+        // infoCap.map((item) => {
+        //     console.log("Condicion:",item.condicion);
+        //     console.log("rubro:",item.arubro_desc);
+        //     console.log("cantidad:",item.has);
+        // })
+
+        let capacidad = [];
+        infoCap.map(item => capacidad.push(item));
+        console.log('capacidad:', capacidad);
+
+        // var arrayData = [];
+        // setprobando('')
         // setprobando(
         //     (arrayData = [
         //         {
@@ -146,7 +152,7 @@ const Capacidad = () => {
         //         // },
         //     ])
         // );
-        console.log(arrayData);
+        //console.log(arrayData);
 
     };
 
@@ -252,6 +258,7 @@ const Capacidad = () => {
     if (infoCap.length > 0) {
         console.log("infoCap desde Capacidad: ", infoCap);
         console.log("infoCap[0] desde Capacidad: ", infoCap[0].condicion);
+        generaData(infoCap);
     }
 
     // if (infoRubros.length > 0) {
@@ -260,7 +267,7 @@ const Capacidad = () => {
     // }
 
     if (infoCosechas.length > 0) {
-        localStorage.setItem("cosechaActiva", infoCosechas[0].acos_desc);
+        localStorage.setItem("cosechaActiva",infoCosechas[0].acos_desc);
         // console.log("infoCosechas desde Capacidad: ", infoCosechas);
         // console.log("infoCosechas[0] desde Capacidad: ", infoCosechas[0].acos_desc);
     }
@@ -273,7 +280,6 @@ const Capacidad = () => {
                     className="selectCosecha"
                     style={{ width: '80px' }}
                     onChange={(value) => setSelectedValue(value)}
-                    value={selectedValue}
                     defaultValue={selectedValue}
                 >
                     {infoCosechas.length > 0 && infoCosechas.map((cosecha) => {
