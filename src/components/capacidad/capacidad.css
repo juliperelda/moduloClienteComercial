@@ -190,6 +190,11 @@ input[type=number]::-webkit-outer-spin-button {
   box-shadow: none !important;
 }
 
+.ant-btn .ant-btn-default .btnAddCosecha .css-1amspvc{
+  border-color: none !important;
+  box-shadow: none !important;
+}
+
 .ant-table-wrapper .ant-table-thead >tr>th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before {
   background-color: #fafafa;
   width: 0px;
