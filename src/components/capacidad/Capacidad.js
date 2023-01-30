@@ -95,7 +95,9 @@ const Capacidad = () => {
 
     const generaData = (infoCap) => {
         console.log('Entra en generarData')
-        infoCap.map(([key,value]) => {
+        let capacidad = [];
+        infoCap.map(item => capacidad.push(item));
+        capacidad.map(([key,value]) => {
             if (key.condicion === "P"){
                 setCondP([...condP, { [key]: value }]);
             }
@@ -105,9 +107,12 @@ const Capacidad = () => {
 
         })
 
-        let capacidad = [];
-        infoCap.map(item => capacidad.push(item));
-        console.log('capacidad:', capacidad);
+        console.log("condP: ",condP);
+        console.log("condA: ", condA);
+
+        // let capacidad = [];
+        // infoCap.map(item => capacidad.push(item));
+        // console.log('capacidad:', capacidad);
 
         // var arrayData = [];
         // setprobando('')
