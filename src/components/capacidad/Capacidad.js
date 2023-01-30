@@ -134,7 +134,7 @@ const generaData = (infoCap) => {
     const uniqueRubros = [...new Set(infoCap.map(item => item.arubro_desc))];
     console.log("Unique Rubros: ", uniqueRubros);
 
-    let result = [];
+    let nuevoResultado = [];
 
     uniqueRubros.forEach((rubro) => {
         const Propias = CondP.filter(info => info.arubro_desc === rubro)
@@ -145,14 +145,14 @@ const generaData = (infoCap) => {
         .reduce((acum, item) => acum + item.ahxs_alquiladas, 0);
         console.log(`Alquiladas ${rubro}: ${Alquiladas}`);
 
-        result.push({
+        nuevoResultado.push({
             arubro_desc: rubro,
             ahxs_propias: Propias,
             ahxs_alquiladas: Alquiladas
         });
     });
 
-    setResult(result);
+    setResult(nuevoResultado);
 };
 
 
