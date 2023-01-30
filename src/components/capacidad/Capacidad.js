@@ -252,12 +252,12 @@ const Capacidad = () => {
         // console.log("infoCap[0] desde Capacidad: ", infoCap[0].condicion);
         generaData(infoCap);
 
-        setIsButtonEditDisabled(true);
-        setIsButtonDisabled(false);
-        
-    }else {
         setIsButtonEditDisabled(false);
         setIsButtonDisabled(true);
+        
+    }else {
+        setIsButtonEditDisabled(true);
+        setIsButtonDisabled(false);
     }
 
     // if (infoRubros.length > 0) {
