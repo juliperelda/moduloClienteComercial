@@ -1,3 +1,6 @@
+/* eslint-disable array-callback-return */
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState, useContext } from "react";
 import { Button, Select, Table } from "antd";
 import { EditOutlined, PlusCircleOutlined } from "@ant-design/icons";
@@ -57,13 +60,13 @@ const Capacidad = () => {
         setCosechas,
     } = useContext(GlobalContext);
 
-    const [isData, setIsData] = useState({});
     const [isDataStorage, setIsDataStorage] = useState([]);
     const [isDataTable, setIsDataTable] = useState([]);
-    const [isDataSet, setIsDataSet] = useState({});
+
 
     const [selectedValue, setSelectedValue] = useState(localStorage.getItem("cosechaActiva"));
-    const [probando, setprobando] = useState({});
+    const [condP,setCondP]=([]);
+    const [condA,setCondA]=([]);
 
     const editarCosecha = () => {
         setIsButtonEditDisabled(true);
@@ -92,11 +95,15 @@ const Capacidad = () => {
 
     const generaData = (infoCap) => {
         console.log('Entra en generarData')
-        // infoCap.map((item) => {
-        //     console.log("Condicion:",item.condicion);
-        //     console.log("rubro:",item.arubro_desc);
-        //     console.log("cantidad:",item.has);
-        // })
+        infoCap.map(([key,value]) => {
+            if (key.condicion == "P"){
+                setCondP(prevState => [...prevState, { [key]: value }]);
+            }
+            if(key.condicion == "A"){
+                setCondA(prevState => [...prevState, { [key]: value }]);
+            }
+
+        })
 
         let capacidad = [];
         infoCap.map(item => capacidad.push(item));
@@ -237,13 +244,12 @@ const Capacidad = () => {
             });
             cosechas(idCliente);
             rubros();
-            // setSelectedValue(infoCosechas.length > 0 && infoCosechas[0].acos_desc);
         }
     }, [idCliente, cosecha]);
 
     if (infoCap.length > 0) {
-        console.log("infoCap desde Capacidad: ", infoCap);
-        console.log("infoCap[0] desde Capacidad: ", infoCap[0].condicion);
+        // console.log("infoCap desde Capacidad: ", infoCap);
+        // console.log("infoCap[0] desde Capacidad: ", infoCap[0].condicion);
         generaData(infoCap);
     }
 
