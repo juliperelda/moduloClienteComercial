@@ -57,45 +57,21 @@ const Capacidad = () => {
         setCosechas,
     } = useContext(GlobalContext);
 
-    const [isData, setIsData] = useState({});
-    const [isDataStorage, setIsDataStorage] = useState([]);
     const [isDataTable, setIsDataTable] = useState([]);
-    const [isDataSet, setIsDataSet] = useState({});
+
 
     const [selectedValue, setSelectedValue] = useState(localStorage.getItem("cosechaActiva"));
     const [probando, setprobando] = useState({});
 
     const editarCosecha = () => {
         setIsButtonEditDisabled(true);
-        isDataStorage.forEach(function (data) {
-            if (parseInt(data.cosecha) === parseInt(isCosecha)) {
-                setDataContext(data);
-            }
-        });
+        // isDataStorage.forEach(function (data) {
+        //     if (parseInt(data.cosecha) === parseInt(isCosecha)) {
+        //         setDataContext(data);
+        //     }
+        // });
         setAppStage(1);
     };
-
-    const traeData = () => {
-        if (localStorage.getItem("data")) {
-            setIsDataSet(JSON.parse(localStorage.getItem("data")).objData);
-            setIsDataStorage(JSON.parse(localStorage.getItem("data")).objData);
-        }
-    };
-
-    useEffect(() => {
-        const fetchData = () => {
-            traeData();
-        };
-        fetchData();
-    }, []);
-
-    // useEffect(() => {
-    //     const fetchData = () => {
-    //         // pruebaSaveData()
-    //         infoTabCapacidad()
-    //     }
-    //     fetchData()
-    // }, [])
 
     // const recuperaCosecha = (event) => {
     //     cosechaSelect = event;
@@ -164,8 +140,6 @@ const Capacidad = () => {
         }
         setIsButtonDisabled(false);
     };
-
-    var objData = [];
 
     const handleStage = () => {
         switch (appStage) {
