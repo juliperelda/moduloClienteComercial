@@ -65,7 +65,7 @@ const Capacidad = () => {
 
 
     const [selectedValue, setSelectedValue] = useState(localStorage.getItem("cosechaActiva"));
-    //const [tablaCap,setTablaCap]=useState({});
+    const [tablaCap,setTablaCap]=useState({});
 
     const editarCosecha = () => {
         setIsButtonEditDisabled(true);
@@ -93,6 +93,7 @@ const Capacidad = () => {
     // };
 
     var result = {};
+    let capacidad = [];
 
     const generaData = (infoCap) => {       
 
@@ -111,12 +112,45 @@ const Capacidad = () => {
             }
         });
 
-        console.log(result);
 
-        let tablaCap = [];
-        tablaCap = result;
+        capacidad = result;
 
-        console.log(tablaCap)
+        setTablaCap(
+            (capacidad = [
+                {
+                    key: 1,
+                    categoria: "AGRICULTURA",
+                    propias: capacidad.propio,
+                    alquiler: capacidad.alquilado,
+                },
+                {
+                    key: 2,
+                    categoria: "GANADERIA",
+                    propias: capacidad.propio,
+                    alquiler: capacidad.alquilado,
+                },
+                {
+                    key: 3,
+                    categoria: "TAMBO",
+                    propias: capacidad.propio,
+                    alquiler: capacidad.alquilado,
+                },
+                {
+                    key: 4,
+                    categoria: "MIXTO",
+                    propias: capacidad.propio,
+                    alquiler: capacidad.alquilado,
+                },
+                // {
+                //     key: 5,
+                //     categoria: "TOTAL",
+                //     propias: capacidad.ahxs_propias,
+                //     alquiler: capacidad.ahxs_alquiladas,
+                // },
+            ])
+        );
+
+            console.log(tablaCap);
 
 
         return result;
