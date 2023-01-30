@@ -101,33 +101,34 @@ const Capacidad = () => {
         const CondP = infoCap.filter(info => info.condicion === "P");
         const CondA = infoCap.filter(info => info.condicion === "A");
 
-        //! FRILTRO SEGUN RUBROS
+        // //! FRILTRO SEGUN RUBROS
 
-        const condPAgricultura = condP.filter(info => info.arubro_desc === "AGRICULTURA");
-        const condAAgricultura = condA.filter(info => info.arubro_desc === "AGRICULTURA");
+        // const condPAgricultura = condP.filter(info => info.arubro_desc === "AGRICULTURA");
+        // const condAAgricultura = condA.filter(info => info.arubro_desc === "AGRICULTURA");
         
-        const condPGanaderia = condP.filter(info => info.arubro_desc === "GANADERIA");
-        const condAGanaderia = condA.filter(info => info.arubro_desc === "GANADERIA");
+        // const condPGanaderia = condP.filter(info => info.arubro_desc === "GANADERIA");
+        // const condAGanaderia = condA.filter(info => info.arubro_desc === "GANADERIA");
 
-        const condPTambo = condP.filter(info => info.arubro_desc === "TAMBO");
-        const condATambo = condA.filter(info => info.arubro_desc === "TAMBO");
+        // const condPTambo = condP.filter(info => info.arubro_desc === "TAMBO");
+        // const condATambo = condA.filter(info => info.arubro_desc === "TAMBO");
 
-        const condPMixto = condP.filter(info => info.arubro_desc === "MIXTO");
-        const condAMixto = condA.filter(info => info.arubro_desc === "MIXTO");
+        // const condPMixto = condP.filter(info => info.arubro_desc === "MIXTO");
+        // const condAMixto = condA.filter(info => info.arubro_desc === "MIXTO");
 
-        console.log("condP: ", CondP);
-        console.log("condA: ", CondA);
+         console.log("condP: ", CondP);
+         console.log("condA: ", CondA);
 
-        console.log("AGRICULTURAP: ", condPAgricultura);
-        console.log("AGRICULTURAA: ", condAAgricultura);
-        console.log("GANADERIAP: ", condPGanaderia);
-        console.log("GANADERIAA: ", condAGanaderia);
-        console.log("TAMBOP: ", condPTambo);
-        console.log("TAMBOA: ", condATambo);
-        console.log("MIXTOP: ", condPMixto);
-        console.log("MIXTOA: ", condAMixto);
+        // console.log("AGRICULTURAP: ", condPAgricultura);
+        // console.log("AGRICULTURAA: ", condAAgricultura);
+        // console.log("GANADERIAP: ", condPGanaderia);
+        // console.log("GANADERIAA: ", condAGanaderia);
+        // console.log("TAMBOP: ", condPTambo);
+        // console.log("TAMBOA: ", condATambo);
+        // console.log("MIXTOP: ", condPMixto);
+        // console.log("MIXTOA: ", condAMixto);
 
-        return [CondP, CondA, condPAgricultura, condAAgricultura, condPGanaderia, condAGanaderia, condPTambo, condATambo, condPMixto, condAMixto] 
+        return [CondP, CondA]
+        // return [CondP, CondA, condPAgricultura, condAAgricultura, condPGanaderia, condAGanaderia, condPTambo, condATambo, condPMixto, condAMixto] 
 
     };
 
