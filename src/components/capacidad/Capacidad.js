@@ -17,8 +17,6 @@ const columns = [
         render: (text, record) => (
             <span>
                 {record.categoria === "TOTAL" ? <strong>TOTAL</strong> : text}
-                {record.propias ? <strong>{record.propias}</strong> : text}
-                {record.alquiler ? <strong>{record.alquiler}</strong> : text}
             </span>
         ),
     },
@@ -145,8 +143,8 @@ const Capacidad = () => {
                 {
                     key: 5,
                     categoria: "TOTAL",
-                    propias: infoCap[0].ahxs_propias,
-                    alquiler: infoCap[0].ahxs_alquiladas,
+                    propias: <strong>{infoCap[0].ahxs_propias}</strong>,
+                    alquiler: <strong>{infoCap[0].ahxs_alquiladas}</strong>,
                 },
             ];
 
