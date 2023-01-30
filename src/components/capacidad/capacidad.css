@@ -240,3 +240,7 @@ td {
   flex-direction: row;
   margin: initial;
 }
+
+.btnAddCosecha:focus:not(.focus-visible) {
+  outline: 0;
+}

@@ -143,8 +143,8 @@ const Capacidad = () => {
                 {
                     key: 5,
                     categoria: "TOTAL",
-                    propias: infoCap.ahxs_propias,
-                    alquiler: infoCap.ahxs_alquiladas,
+                    propias: infoCap[0].ahxs_propias,
+                    alquiler: infoCap[0].ahxs_alquiladas,
                 },
             ];
 
@@ -293,7 +293,7 @@ const Capacidad = () => {
 
                 </Select>
                 <Button
-                    style={{ alignItems: "center" }}
+                    style={{ alignItems: "center", outline: "none", boxShadow: "none" }}
                     className="btnEditCosecha"
                     icon={<EditOutlined />}
                     // onClick={() => editarCosecha()}
