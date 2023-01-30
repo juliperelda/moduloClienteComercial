@@ -65,8 +65,8 @@ const Capacidad = () => {
 
 
     const [selectedValue, setSelectedValue] = useState(localStorage.getItem("cosechaActiva"));
-    const [condP,setCondP]=([]);
-    const [condA,setCondA]=([]);
+    // const [condP,setCondP]=([]);
+    // const [condA,setCondA]=([]);
 
     const editarCosecha = () => {
         setIsButtonEditDisabled(true);
@@ -97,13 +97,25 @@ const Capacidad = () => {
         console.log('Entra en generarData')
         // let capacidad = [];
         // infoCap.map(item => capacidad.push(item));
-        
-        infoCap.map((item) => {
-            if (item.condicion === "P"){
-                setCondP([...condP, item ]);
+        const condP = [];
+        const condA = [];
+    
+        // infoCap.map((item) => {
+        //     if (item.condicion === "P"){
+        //         setCondP([...condP, item ]);
+        //     }
+        //     if(item.condicion === "A"){
+        //         setCondA([...condA, item ]);
+        //     }
+
+        // })
+
+        infoCap.forEach(([key, value]) => {
+            if (key.condicion === "P"){
+                condP.push({ [key]: value });
             }
-            if(item.condicion === "A"){
-                setCondA([...condA, item ]);
+            if(key.condicion === "A"){
+                condA.push({ [key]: value });
             }
 
         })
