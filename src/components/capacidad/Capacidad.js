@@ -60,20 +60,11 @@ const Capacidad = () => {
         setCosechas,
     } = useContext(GlobalContext);
 
-    const [isDataStorage, setIsDataStorage] = useState([]);
-    const [isDataTable, setIsDataTable] = useState([]);
-
 
     const [selectedValue, setSelectedValue] = useState(localStorage.getItem("cosechaActiva"));
-    const [tablaCap,setTablaCap]=useState({});
 
     const editarCosecha = () => {
         setIsButtonEditDisabled(true);
-        isDataStorage.forEach(function (data) {
-            if (parseInt(data.cosecha) === parseInt(isCosecha)) {
-                setDataContext(data);
-            }
-        });
         setAppStage(1);
     };
 
@@ -304,9 +295,9 @@ const Capacidad = () => {
                     style={{ alignItems: "center", boxShadow:"none !important", outline:"0", border:"none !important" }}
                     className="btnAddCosecha"
                     icon={<PlusCircleOutlined />}
-                    // onClick={() => {
-                    //     addCosecha();
-                    // }}
+                    onClick={() => {
+                        addCosecha();
+                    }}
                     disabled={isButtonDisabled}
                 />
             </div>
