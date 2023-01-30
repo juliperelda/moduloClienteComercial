@@ -181,6 +181,45 @@ input[type=number]::-webkit-outer-spin-button {
   width: 200px;
 }
 
+
+.ant-btn-default:not(:disabled).btnAddCosecha:focus{
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.ant-btn-default:not(:disabled).btnAddCosecha:active{
+  box-shadow: none !important;
+  border: none !important;
+}
+
+
+.ant-select:not(.ant-select-disabled):not(.ant-select-customize-input):not(.ant-pagination-size-changer):hover .ant-select-selector:hover{
+  border-color: #00b33c !important;
+  box-shadow: none !important;
+}
+
+.ant-select:not(.ant-select-disabled):not(.ant-select-customize-input):not(.ant-pagination-size-changer):focus .ant-select-selector:focus{
+  border-color: #00b33c !important;
+  box-shadow: none !important;
+}
+
+.ant-select:not(.ant-select-disabled):not(.ant-select-customize-input):not(.ant-pagination-size-changer):active .ant-select-selector:active{
+  border-color: #00b33c !important;
+  box-shadow: none !important;
+}
+
+.ant-btn-default:not(:disabled).btnAddCosecha:focus, .ant-btn-default:not(:disabled).btnAddCosecha:focus {
+  box-shadow: none !important;
+  border: none !important;
+}
+
+
+
+.ant-btn .ant-btn-default .btnAddCosecha:focus{
+  border-color: none !important;
+  box-shadow: none !important;
+}
+
 .ant-table-wrapper .ant-table-thead >tr>th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before {
   background-color: #fafafa;
   width: 0px;

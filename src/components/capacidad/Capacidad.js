@@ -60,20 +60,11 @@ const Capacidad = () => {
         setCosechas,
     } = useContext(GlobalContext);
 
-    const [isDataStorage, setIsDataStorage] = useState([]);
-    const [isDataTable, setIsDataTable] = useState([]);
-
 
     const [selectedValue, setSelectedValue] = useState(localStorage.getItem("cosechaActiva"));
-    const [tablaCap,setTablaCap]=useState({});
 
     const editarCosecha = () => {
         setIsButtonEditDisabled(true);
-        isDataStorage.forEach(function (data) {
-            if (parseInt(data.cosecha) === parseInt(isCosecha)) {
-                setDataContext(data);
-            }
-        });
         setAppStage(1);
     };
 
@@ -143,8 +134,8 @@ const Capacidad = () => {
                 {
                     key: 5,
                     categoria: "TOTAL",
-                    propias: infoCap[0].ahxs_propias,
-                    alquiler: infoCap[0].ahxs_alquiladas,
+                    propias: <strong>{infoCap[0].ahxs_propias}</strong>,
+                    alquiler: <strong>{infoCap[0].ahxs_alquiladas}</strong>,
                 },
             ];
 
@@ -293,19 +284,20 @@ const Capacidad = () => {
 
                 </Select>
                 <Button
-                    style={{ alignItems: "center", outline: "none", boxShadow: "none" }}
+                    style={{ alignItems: "center", boxShadow:"none !important", outline:"0", border:"none !important" }}
                     className="btnEditCosecha"
                     icon={<EditOutlined />}
                     // onClick={() => editarCosecha()}
                     // onChange={(e) => recuperaCosecha(e)}
-                    disabled={isButtonEditDisabled}
+                    // disabled={isButtonEditDisabled}
                 />
                 <Button
+                    style={{ alignItems: "center", boxShadow:"none !important", outline:"0", border:"none !important" }}
                     className="btnAddCosecha"
                     icon={<PlusCircleOutlined />}
-                    // onClick={() => {
-                    //     addCosecha();
-                    // }}
+                    onClick={() => {
+                        addCosecha();
+                    }}
                     disabled={isButtonDisabled}
                 />
             </div>
