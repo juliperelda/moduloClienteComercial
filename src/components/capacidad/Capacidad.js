@@ -60,7 +60,7 @@ const Capacidad = () => {
         setCosechas,
     } = useContext(GlobalContext);
 
-
+    const [isHayData, setIsHayData] = useState(false);
     const [selectedValue, setSelectedValue] = useState(localStorage.getItem("cosechaActiva"));
 
     const editarCosecha = () => {
@@ -156,15 +156,7 @@ const Capacidad = () => {
         // setIsButtonDisabled(false);
     };
 
-    useEffect(() => {
-        if (infoCap[0].ahxs_alquiladas === 0) {
-          setIsButtonEditDisabled(false);
-          setIsButtonDisabled(true);
-        } else {
-          setIsButtonEditDisabled(true);
-          setIsButtonDisabled(false);
-        }
-      }, [infoCap]);
+
 
     var objData = [];
 
@@ -259,6 +251,13 @@ const Capacidad = () => {
         // console.log("infoCap desde Capacidad: ", infoCap);
         // console.log("infoCap[0] desde Capacidad: ", infoCap[0].condicion);
         generaData(infoCap);
+
+        setIsButtonEditDisabled(true);
+        setIsButtonDisabled(false);
+        
+    }else {
+        setIsButtonEditDisabled(false);
+        setIsButtonDisabled(true);
     }
 
     // if (infoRubros.length > 0) {
@@ -272,6 +271,16 @@ const Capacidad = () => {
         // console.log("infoCosechas[0] desde Capacidad: ", infoCosechas[0].acos_desc);
     }
 
+
+    // useEffect(() => {
+    //     if (infoCap[0].ahxs_alquiladas === 0) {
+    //       setIsButtonEditDisabled(false);
+    //       setIsButtonDisabled(true);
+    //     } else {
+    //       setIsButtonEditDisabled(true);
+    //       setIsButtonDisabled(false);
+    //     }
+    //   }, [infoCap]);
 
     return (
         <>
