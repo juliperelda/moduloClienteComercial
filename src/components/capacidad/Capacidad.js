@@ -126,19 +126,19 @@ const Capacidad = () => {
                     key: 2,
                     categoria: "GANADERIA",
                     propias: result.GANADERIA ? result.GANADERIA.propio : undefined,
-                    alquiler: result.GANADERIA ? result.GANADERIA.propio : undefined,
+                    alquiler: result.GANADERIA ? result.GANADERIA.alquilado : undefined,
                 },
                 {
                     key: 3,
                     categoria: "TAMBO",
                     propias: result.TAMBO ? result.TAMBO.propio : undefined,
-                    alquiler: result.TAMBO ? result.TAMBO.propio : undefined,
+                    alquiler: result.TAMBO ? result.TAMBO.alquilado : undefined,
                 },
                 {
                     key: 4,
                     categoria: "MIXTO",
                     propias: result.MIXTO ? result.MIXTO.propio : undefined,
-                    alquiler: result.MIXTO ? result.MIXTO.propio : undefined,
+                    alquiler: result.MIXTO ? result.MIXTO.alquilado : undefined,
                 },
                 // {
                 //     key: 5,
@@ -178,7 +178,7 @@ const Capacidad = () => {
                     <Table
                         columns={columns}
                         // dataSource={probando}
-                        dataSource={isDataTable}
+                        dataSource={capacidad}
                         pagination={false}
                     />
                 );
@@ -191,7 +191,7 @@ const Capacidad = () => {
                     <Table
                         columns={columns}
                         // dataSource={probando}
-                        dataSource={isDataTable}
+                        dataSource={capacidad}
                         pagination={false}
                     />
                 );
