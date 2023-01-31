@@ -165,9 +165,10 @@ const Capacidad = () => {
             case 0:
                 return (
                     <Table
+                        // style={{fontsize: "10px !important"}}
                         columns={columns}
-                        // dataSource={capacidad} //Original
-                        dataSource={data} //Para probar
+                        dataSource={capacidad} //Original
+                        // dataSource={data} //Para probar
                         pagination={false}
                     />
                 );
@@ -178,9 +179,10 @@ const Capacidad = () => {
             default:
                 return (
                     <Table
+                        // style={{fontSize: "10px !important"}}
                         columns={columns}
-                        // dataSource={capacidad} //Original
-                        dataSource={data} //Para probar
+                        dataSource={capacidad} //Original
+                        // dataSource={data} //Para probar
                         pagination={false}
                     />
                 );

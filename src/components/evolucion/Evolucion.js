@@ -127,14 +127,55 @@ useEffect(() => {
     }
 }, [infoEvo]);
 
+
+
+
+// const data = [
+//   {
+//     name: 'Page A',
+//     propias: 4000,
+//     alquiladas: 2400,
+//   },
+//   {
+//     name: 'Page B',
+//     propias: 3000,
+//     alquiladas: 1398,
+//   },
+//   {
+//     name: 'Page C',
+//     propias: 2000,
+//     alquiladas: 9800,
+//   },
+//   {
+//     name: 'Page D',
+//     propias: 2780,
+//     alquiladas: 3908,
+//   },
+//   {
+//     name: 'Page E',
+//     propias: 1890,
+//     alquiladas: 4800,
+//   },
+//   {
+//     name: 'Page F',
+//     propias: 2390,
+//     alquiladas: 3800,
+//   },
+//   {
+//     name: 'Page G',
+//     propias: 3490,
+//     alquiladas: 4300,
+//   },
+// ];
+
   return (
     <>
       <ResponsiveContainer className="" width="100%" height={/*400*/250}>
         <BarChart
           width={500}
           height={300}
-          data={dataForChart}
-          // data={infoEvo}
+          data={dataForChart} //ORIGINAL
+          // data={data} // PRUEBA
           margin={{
             top: 20,
             right: 0,
@@ -158,7 +199,7 @@ useEffect(() => {
               dataKey="propias"
               name="Propias"
               stackId="a"
-              barSize={100}
+              barSize={50}
               fill="#a9ff96"
               key={"propias"}
               label={renderCustomBarLabel}
@@ -169,7 +210,7 @@ useEffect(() => {
               dataKey={0}
               name="Propias"
               stackId="a"
-              barSize={100}
+              barSize={50}
               fill="#a9ff96"
               key={"propias"}
               label={renderCustomBarLabel}
@@ -181,7 +222,7 @@ useEffect(() => {
               dataKey="alquiladas"
               name="Alquiladas"
               stackId="a"
-              barSize={100}
+              barSize={50}
               fill="#434348"
               key={"alquiladas"}
               label={renderCustomBarLabel}
@@ -192,7 +233,7 @@ useEffect(() => {
               dataKey={0}
               name="Alquiladas"
               stackId="a"
-              barSize={100}
+              barSize={50}
               fill="#434348"
               key={"alquiladas"}
               label={renderCustomBarLabel}

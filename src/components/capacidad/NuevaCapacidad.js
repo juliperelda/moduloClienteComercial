@@ -299,7 +299,7 @@ export const NuevaCapacidad = () => {
                         <Button
                             className='btnAddCosechaData'
                             onClick={() => salir()}
-                        > Salir
+                        > Cancelar
                         </Button>
 
                     </div>
