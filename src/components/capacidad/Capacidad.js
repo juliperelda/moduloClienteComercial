@@ -86,7 +86,7 @@ const Capacidad = () => {
     var result = {};
     let capacidad = [];
 
-    const generaData = (infoCap) => {       
+    const generaData = (infoCap) => {
 
         // Iterar sobre cada objeto del array
         infoCap.forEach(info => {
@@ -107,44 +107,44 @@ const Capacidad = () => {
         capacidad = result;
 
         capacidad = [
-                {
-                    key: 1,
-                    categoria: "AGRICULTURA",
-                    propias: result.AGRICULTURA ? result.AGRICULTURA.propio : undefined,
-                    alquiler: result.AGRICULTURA ? result.AGRICULTURA.alquilado : undefined,
-                },
-                {
-                    key: 2,
-                    categoria: "GANADERIA",
-                    propias: result.GANADERIA ? result.GANADERIA.propio : undefined,
-                    alquiler: result.GANADERIA ? result.GANADERIA.alquilado : undefined,
-                },
-                {
-                    key: 3,
-                    categoria: "TAMBO",
-                    propias: result.TAMBO ? result.TAMBO.propio : undefined,
-                    alquiler: result.TAMBO ? result.TAMBO.alquilado : undefined,
-                },
-                {
-                    key: 4,
-                    categoria: "MIXTO",
-                    propias: result.MIXTO ? result.MIXTO.propio : undefined,
-                    alquiler: result.MIXTO ? result.MIXTO.alquilado : undefined,
-                },
-                {
-                    key: 5,
-                    categoria: "TOTAL",
-                    propias: <strong>{infoCap[0].ahxs_propias}</strong>,
-                    alquiler: <strong>{infoCap[0].ahxs_alquiladas}</strong>,
-                },
-            ];
+            {
+                key: 1,
+                categoria: "AGRICULTURA",
+                propias: result.AGRICULTURA ? result.AGRICULTURA.propio : undefined,
+                alquiler: result.AGRICULTURA ? result.AGRICULTURA.alquilado : undefined,
+            },
+            {
+                key: 2,
+                categoria: "GANADERIA",
+                propias: result.GANADERIA ? result.GANADERIA.propio : undefined,
+                alquiler: result.GANADERIA ? result.GANADERIA.alquilado : undefined,
+            },
+            {
+                key: 3,
+                categoria: "TAMBO",
+                propias: result.TAMBO ? result.TAMBO.propio : undefined,
+                alquiler: result.TAMBO ? result.TAMBO.alquilado : undefined,
+            },
+            {
+                key: 4,
+                categoria: "MIXTO",
+                propias: result.MIXTO ? result.MIXTO.propio : undefined,
+                alquiler: result.MIXTO ? result.MIXTO.alquilado : undefined,
+            },
+            {
+                key: 5,
+                categoria: "TOTAL",
+                propias: <strong>{infoCap[0].ahxs_propias}</strong>,
+                alquiler: <strong>{infoCap[0].ahxs_alquiladas}</strong>,
+            },
+        ];
 
-            console.log(capacidad);
+        console.log(capacidad);
 
 
         return result;
 
-};
+    };
 
 
     const addCosecha = (infoCap) => {
@@ -166,8 +166,8 @@ const Capacidad = () => {
                 return (
                     <Table
                         columns={columns}
-                        // dataSource={probando}
-                        dataSource={capacidad}
+                        // dataSource={capacidad} //Original
+                        dataSource={data} //Para probar
                         pagination={false}
                     />
                 );
@@ -179,8 +179,8 @@ const Capacidad = () => {
                 return (
                     <Table
                         columns={columns}
-                        // dataSource={probando}
-                        dataSource={capacidad}
+                        // dataSource={capacidad} //Original
+                        dataSource={data} //Para probar
                         pagination={false}
                     />
                 );
@@ -254,8 +254,8 @@ const Capacidad = () => {
 
         setIsButtonEditDisabled(false);
         setIsButtonDisabled(true);
-        
-    }else {
+
+    } else {
         setIsButtonEditDisabled(true);
         setIsButtonDisabled(false);
     }
@@ -266,7 +266,7 @@ const Capacidad = () => {
     // }
 
     if (infoCosechas.length > 0) {
-        localStorage.setItem("cosechaActiva",infoCosechas[0].acos_desc);
+        localStorage.setItem("cosechaActiva", infoCosechas[0].acos_desc);
         // console.log("infoCosechas desde Capacidad: ", infoCosechas);
         // console.log("infoCosechas[0] desde Capacidad: ", infoCosechas[0].acos_desc);
     }
@@ -281,6 +281,43 @@ const Capacidad = () => {
     //       setIsButtonDisabled(false);
     //     }
     //   }, [infoCap]);
+
+
+
+    /*-----------PARA PROBAR--------------*/
+    const data = [
+        {
+            key: '1',
+            categoria: 'AGRICULTURA',
+            propias: 200,
+            alquiler: 300,
+        },
+        {
+            key: '2',
+            categoria: 'GANADERIA',
+            propias: 300,
+            alquiler: 200,
+        },
+        {
+            key: '3',
+            categoria: 'TAMBO',
+            propias: 250,
+            alquiler: 400,
+        },
+        {
+            key: '4',
+            categoria: 'MIXTO',
+            propias: 250,
+            alquiler: 200,
+        },
+        {
+            key: '5',
+            categoria: 'TOTAL',
+            propias: 1000,
+            alquiler: 1100,
+        },
+    ];
+    /*------------------------------------*/
 
     return (
         <>
@@ -299,7 +336,7 @@ const Capacidad = () => {
 
                 </Select>
                 <Button
-                    style={{ alignItems: "center", boxShadow:"none !important", outline:"0", border:"none !important" }}
+                    style={{ alignItems: "center", boxShadow: "none !important", outline: "0", border: "none !important" }}
                     className="btnEditCosecha"
                     icon={<EditOutlined />}
                     onClick={() => editarCosecha()}
@@ -307,9 +344,9 @@ const Capacidad = () => {
                     disabled={isButtonEditDisabled}
                 />
                 <Button
-                    style={{ alignItems: "center", boxShadow:"none !important", outline:"0", border:"none !important" }}
+                    style={{ alignItems: "center", boxShadow: "none !important", outline: "0", border: "none !important" }}
                     className="btnAddCosecha"
-                    icon={<PlusCircleOutlined />}
+                    icon={<PlusCircleOutlined style={{"--antd-wave-shadow-color": "transparent !important"}}/>}
                     onClick={() => {
                         addCosecha(infoCap);
                     }}

@@ -13,7 +13,8 @@ html {
    flex-direction: row;
    /* width: 1024px; */
    width: 100%;
-   height: 400px;
+   /* height: 400px; */
+   height: 350px !important; 
 }
 .cardTable {
    min-width: 200px;
@@ -69,3 +70,10 @@ html {
    font-size: 14px;
 }
 
+
+
+/*-------TAMAÑO DE LAS CARD-------*/
+.ant-card-body {
+   height: 350px !important; 
+}
+/*------------------*/

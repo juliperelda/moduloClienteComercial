@@ -117,13 +117,13 @@ export const NuevaCapacidad = () => {
                                     </Form.Item>
 
                                 </td>
-                                <td className="celdaInput">
+                                <td className="celdaInputAlquiladas">
 
                                     <Form.Item
                                         name="inputAgriculturaA"
                                     >
                                         <Input
-                                            className="inputTable"
+                                            className="inputTableAlqui"
                                             type="number"
                                             placeholder="0"
                                             name='agriculturaA'
@@ -138,7 +138,7 @@ export const NuevaCapacidad = () => {
                         </thead>
                         <thead>
                             <tr>
-                                <td className="celdaRubro">GANADERÍA</td>
+                                <td className="celdaRubro">GANADERIA</td>
                                 <td className="celdaInput">
 
                                     <Form.Item
@@ -156,7 +156,7 @@ export const NuevaCapacidad = () => {
                                     </Form.Item>
 
                                 </td>
-                                <td className="celdaInput">
+                                <td className="celdaInputAlquiladas">
 
                                     <Form.Item
                                         name="inputGanaderiaA"
@@ -195,7 +195,7 @@ export const NuevaCapacidad = () => {
                                     </Form.Item>
 
                                 </td>
-                                <td className="celdaInput">
+                                <td className="celdaInputAlquiladas">
 
                                     <Form.Item
                                         name="inputTamboA"
@@ -234,7 +234,7 @@ export const NuevaCapacidad = () => {
                                     </Form.Item>
 
                                 </td>
-                                <td className="celdaInput">
+                                <td className="celdaInputAlquiladas">
 
                                     <Form.Item
                                         name="inputMixtoA"
@@ -273,7 +273,7 @@ export const NuevaCapacidad = () => {
                                     </Form.Item>
 
                                 </td>
-                                <td className="celdaInput">
+                                <td className="celdaInputAlquiladas">
 
                                     <Form.Item
                                         name="inputAlquiladas"

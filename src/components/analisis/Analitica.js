@@ -9,11 +9,11 @@ const Analitica = () => {
   return (
     <>
       <div className="divContainer">
-        <Card className="cardGrafico" style={{ width: "50%" }}>
+        <Card className="cardGrafico" style={{ width: "50%", height: "350px" }}>
           <h1 className="titulos">EVOLUCIÓN PRODUCTIVA</h1>
           <Evolucion />
         </Card>
-        <Card className="cardTable" style={{ width: "50%" }}>
+        <Card className="cardTable" style={{ width: "50%", height: "350px" }}>
           <h1 className="titulos" style={{ marginBottom: "11px" }}>
             CAPACIDAD PRODUCTIVA
           </h1>
