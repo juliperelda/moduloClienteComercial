@@ -123,7 +123,7 @@ export const NuevaCapacidad = () => {
                                         name="inputAgriculturaA"
                                     >
                                         <Input
-                                            className="inputTableAlqui"
+                                            className="inputTable"
                                             type="number"
                                             placeholder="0"
                                             name='agriculturaA'

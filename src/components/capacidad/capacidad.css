@@ -168,7 +168,7 @@ input[type=number]::-webkit-outer-spin-button {
   border-bottom: 1px solid rgba(5, 5, 5, 0.06);
   background:#fafafa ;
   /* padding: 16px; */
-  padding: 8px !important;
+  padding: 4px !important;
 
   /* border-left: 1px solid rgba(5, 5, 5, 0.06); */
 }
@@ -178,14 +178,14 @@ input[type=number]::-webkit-outer-spin-button {
   border-bottom: 1px solid rgba(5, 5, 5, 0.06);
   background:#fafafa ;
   /* padding: 16px; */
-  padding: 8px !important;
+  padding: 4px !important;
   width: 200px;
 }
 
 .celdaInput {
   margin: 0px;
   /* padding: 16px; */
-  padding: 0px 8px 0px !important;
+  padding: 0px 2px 0px !important;
   /* padding: 0px 15px 0px !important; */ /*Como estaba antes*/
   border-bottom: 1px solid rgba(5, 5, 5, 0.06);
   text-align: start;
@@ -193,7 +193,7 @@ input[type=number]::-webkit-outer-spin-button {
 .celdaInputAlquiladas{
   margin: 0px;
   /* padding: 16px; */
-  padding: 0px 8px 0px 93px !important;
+  padding: 0px 2px 0px 93px !important;
   /* padding: 0px 8px 0px 67.98px !important; */
   /* padding: 0px 15px 0px !important; */ /*Como estaba antes*/
   border-bottom: 1px solid rgba(5, 5, 5, 0.06);
@@ -202,7 +202,7 @@ input[type=number]::-webkit-outer-spin-button {
 .celdaRubro{
   margin: 0px;
   /* padding: 16px; */
-  padding: 0px 8px 0px !important;
+  padding: 0px 2px 0px !important;
   /* padding: 0px 15px 0px !important; */ /*Como estaba antes*/
   border-bottom: 1px solid rgba(5, 5, 5, 0.06);
   text-align: start;
@@ -276,6 +276,7 @@ td {
   align-self: center;
   align-content: center;
   justify-content: center; */
+  
 }
 
 .inputTable{
@@ -287,6 +288,7 @@ td {
   margin-right:20px !important ; 
   /* margin-top; */
   /* width: 65px; */
+  height: 25px !important;
 } 
 .inputTableAlquiladas{
   border-width: 1px;
@@ -328,17 +330,20 @@ td {
 
 /*TABLA: probando y margin sacar padding*/
 .ant-table-cell{
-  padding: 8px !important;
+  padding: 5px !important;
 }
 
 .ant-form-item {
-  margin-bottom: 6px !important;
+  margin-bottom: 0px !important;
 }
 
 .ant-form-item-control-input-content{
   width: 63.02px !important;
 }
 /*----------------------*/
+/* .ant-input .inputTable{
+
+} */
 
 
 

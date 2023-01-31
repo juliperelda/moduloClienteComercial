@@ -129,7 +129,7 @@ useEffect(() => {
 
   return (
     <>
-      <ResponsiveContainer className="" width="100%" height={/*400*/300}>
+      <ResponsiveContainer className="" width="100%" height={/*400*/250}>
         <BarChart
           width={500}
           height={300}

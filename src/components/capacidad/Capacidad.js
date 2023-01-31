@@ -166,8 +166,8 @@ const Capacidad = () => {
                 return (
                     <Table
                         columns={columns}
-                        dataSource={capacidad} //Original
-                        // dataSource={data} //Para probar
+                        // dataSource={capacidad} //Original
+                        dataSource={data} //Para probar
                         pagination={false}
                     />
                 );
@@ -179,8 +179,8 @@ const Capacidad = () => {
                 return (
                     <Table
                         columns={columns}
-                        dataSource={capacidad} //Original
-                        // dataSource={data} //Para probar
+                        // dataSource={capacidad} //Original
+                        dataSource={data} //Para probar
                         pagination={false}
                     />
                 );
