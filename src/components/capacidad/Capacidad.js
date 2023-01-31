@@ -269,6 +269,7 @@ const Capacidad = () => {
 
     if (infoCosechas.length > 0) {
         localStorage.setItem("cosechaActiva", infoCosechas[0].acos_desc);
+        localStorage.setItem("idCosecha", infoCosechas[0].acos_id);
         // console.log("infoCosechas desde Capacidad: ", infoCosechas);
         // console.log("infoCosechas[0] desde Capacidad: ", infoCosechas[0].acos_desc);
     }
