@@ -152,8 +152,8 @@ const Capacidad = () => {
                 // total: result.TAMBO ? result.TAMBO.propio + result.TAMBO.alquilado : undefined,
                 total: (
                     <>
-                        {result.TAMBO ? result.TAMBO.propio + result.TAMBO.alquilado : undefined}
-                        ({(result.TAMBO ? (result.TAMBO.propio + result.TAMBO.alquilado) : undefined) / (infoCap[0].ahxs_propias + infoCap[0].ahxs_alquiladas) * 100}%)
+                        {result.TAMBO ? parseInt(result.TAMBO.propio) + parseInt(result.TAMBO.alquilado) : undefined}
+                        ({(result.TAMBO ? (parseInt(result.TAMBO.propio) + parseInt(result.TAMBO.alquilado)) : undefined) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100}%)
                     </>
                 )
             },
