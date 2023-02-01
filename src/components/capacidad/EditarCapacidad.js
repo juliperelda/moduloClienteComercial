@@ -152,7 +152,7 @@ export const EditarCapacidad = () => {
                                         placeholder="0"
                                         name='agricultura'
                                         style={{ 'textAlign': 'right' }}
-                                        defaultValue={infoEdit.AGRICULTURA.propias}
+                                        // defaultValue={infoEdit.AGRICULTURA.propias}
                                         onChange={(e) => handleInputChangeEdit(e)}
                                     />
                                 </Form.Item>
@@ -169,7 +169,7 @@ export const EditarCapacidad = () => {
                                         placeholder="0"
                                         name='agriculturaA'
                                         style={{ 'textAlign': 'right' }}
-                                        defaultValue={infoEdit.AGRICULTURA.alquiladas}
+                                        // defaultValue={infoEdit.AGRICULTURA.alquiladas}
                                         onChange={(e) => handleInputChangeEdit(e)}
                                     />
                                 </Form.Item>
@@ -191,7 +191,7 @@ export const EditarCapacidad = () => {
                                         placeholder="0"
                                         name='ganaderia'
                                         style={{ 'textAlign': 'right' }}
-                                        defaultValue={infoEdit.GANADERIA.propias}
+                                        // defaultValue={infoEdit.GANADERIA.propias}
                                         onChange={(e) => handleInputChangeEdit(e)}
                                     />
                                 </Form.Item>
@@ -208,7 +208,7 @@ export const EditarCapacidad = () => {
                                         placeholder="0"
                                         name='ganaderiaA'
                                         style={{ 'textAlign': 'right' }}
-                                        defaultValue={infoEdit.GANADERIA.alquiladas}
+                                        // defaultValue={infoEdit.GANADERIA.alquiladas}
                                         onChange={(e) => handleInputChangeEdit(e)}
                                     />
                                 </Form.Item>
@@ -230,7 +230,7 @@ export const EditarCapacidad = () => {
                                         placeholder="0"
                                         name='tambo'
                                         style={{ 'textAlign': 'right' }}
-                                        defaultValue={infoEdit.TAMBO.propias}
+                                        // defaultValue={infoEdit.TAMBO.propias}
                                         onChange={(e) => handleInputChangeEdit(e)}
                                     />
                                 </Form.Item>
@@ -247,7 +247,7 @@ export const EditarCapacidad = () => {
                                         placeholder="0"
                                         name='tamboA'
                                         style={{ 'textAlign': 'right' }}
-                                        defaultValue={infoEdit.TAMBO.alquiladas}
+                                        // defaultValue={infoEdit.TAMBO.alquiladas}
                                         onChange={(e) => handleInputChangeEdit(e)}
                                     />
                                 </Form.Item>
@@ -269,7 +269,7 @@ export const EditarCapacidad = () => {
                                         placeholder="0"
                                         name='mixto'
                                         style={{ 'textAlign': 'right' }}
-                                        defaultValue={infoEdit.MIXTO.propias}
+                                        // defaultValue={infoEdit.MIXTO.propias}
                                         onChange={(e) => handleInputChangeEdit(e)}
                                     />
                                 </Form.Item>
@@ -286,7 +286,7 @@ export const EditarCapacidad = () => {
                                         placeholder="0"
                                         name='mixtoA'
                                         style={{ 'textAlign': 'right' }}
-                                        defaultValue={infoEdit.MIXTO.alquiladas}
+                                        // defaultValue={infoEdit.MIXTO.alquiladas}
                                         onChange={(e) => handleInputChangeEdit(e)}
                                     />
                                 </Form.Item>
@@ -307,7 +307,7 @@ export const EditarCapacidad = () => {
                                         placeholder="0"
                                         name='propias'
                                         style={{ 'textAlign': 'right' }}
-                                        defaultValue={infoCap.ahxs_propias}
+                                        // defaultValue={infoCap.ahxs_propias}
                                         onChange={handleInputChangeEdit}
                                     />
                                 </Form.Item>
@@ -324,7 +324,7 @@ export const EditarCapacidad = () => {
                                         placeholder="0"
                                         name='alquiladas'
                                         style={{ 'textAlign': 'right' }}
-                                        defaultValue={infoCap.ahxs_alquiladas}
+                                        // defaultValue={infoCap.ahxs_alquiladas}
                                         onChange={(e) => handleInputChangeEdit(e)}
                                     />
                                 </Form.Item>
