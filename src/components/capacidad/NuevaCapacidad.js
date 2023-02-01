@@ -108,8 +108,9 @@ export const NuevaCapacidad = () => {
         }).then(function (response) {
             response.json().then((resp) => {
                 const data = resp;
-                const objetoData = JSON.parse(data);
-                console.log("Nueva capacidad: ", objetoData)
+                console.log(data);
+                // const objetoData = JSON.parse(data);
+                // console.log("Nueva capacidad: ", objetoData)
             });
         });
     }
