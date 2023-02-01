@@ -106,7 +106,7 @@ export const NuevaCapacidad = () => {
             method: "POST",
             body: data,
         }).then(function (response) {
-            response.text().then((resp) => {
+            response.json().then((resp) => {
                 const data = resp;
                 const objetoData = JSON.parse(data);
                 console.log("Nueva capacidad: ", objetoData)
