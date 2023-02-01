@@ -76,20 +76,6 @@ const Capacidad = () => {
         setAppStage(1);
     };
 
-    // useEffect(() => {
-    //     const fetchData = () => {
-    //         // pruebaSaveData()
-    //         infoTabCapacidad()
-    //     }
-    //     fetchData()
-    // }, [])
-
-    // const recuperaCosecha = (event) => {
-    //     cosechaSelect = event;
-    //     setIsCosecha(cosechaSelect);
-
-    //     generaData();
-    // };
 
     var result = {};
     let capacidad = [];
@@ -192,11 +178,6 @@ const Capacidad = () => {
 
     const addCosecha = (infoCap) => {
         setAppStage(2);
-        // if (infoCap.length <= 0) {
-        //     setIsButtonDisabled(true);
-        //     return;
-        // }
-        // setIsButtonDisabled(false);
     };
 
 
