@@ -223,11 +223,11 @@ const Capacidad = () => {
     }
 
 
-    // * FUNCION QUE TRAE LOS DATOS PARA LLENAR TABLA CAPACIDAD PRODUCTIVA INICIAL
+   
     var cosecha = parseInt(selectedValue);
-    // console.log("variable cosecha: ", cosecha)
 
-    //* EJECUTA LAS FUNCIONES QUE TRAE LA INFO
+
+    //* EJECUTA LAS FUNCIONES QUE TRAE LA INFO y TRAE LOS DATOS PARA LLENAR TABLA CAPACIDAD PRODUCTIVA INICIAL
     useEffect(() => {
         if (idCliente) {
             //infoTabCapacidad(idCliente, cosecha);
@@ -269,7 +269,8 @@ const Capacidad = () => {
 
     if (infoCosechas.length > 0) {
         localStorage.setItem("cosechaActiva", infoCosechas[0].acos_desc);
-        // console.log("infoCosechas desde Capacidad: ", infoCosechas);
+        localStorage.setItem("idCosecha", infoCosechas[0].acos_id);
+        console.log("infoCosechas desde Capacidad: ", infoCosechas);
         // console.log("infoCosechas[0] desde Capacidad: ", infoCosechas[0].acos_desc);
     }
 

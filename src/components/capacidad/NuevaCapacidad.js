@@ -79,6 +79,22 @@ export const NuevaCapacidad = () => {
         })
     }
 
+       //* FUNCION QUE CARGA LOS DATOS DE UNA NUEVA COSECHA
+       function newCap(idCliente) {
+        const data = new FormData();
+        data.append("idC", idCliente);
+        fetch("../com_newCapacidad.php", {
+            method: "POST",
+            body: data,
+        }).then(function (response) {
+            response.text().then((resp) => {
+                const data = resp;
+                const objetoData = JSON.parse(data);
+                console.log("Nueva capacidad: ", objetoData)
+            });
+        });
+    }
+
     const salir = () => {
         setIsButtonDisabled(false);
         setDataContext(null)
