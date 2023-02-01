@@ -8,7 +8,7 @@ export const EditarCapacidad = () => {
     var objData = []
 
     //! UseContext
-    const { dataContext, setDataContext, isCosecha, setIsCosecha, appStage, setAppStage, isButtonEditDisabled, setIsButtonEditDisabled } = useContext(GlobalContext)
+    const { infoCap, dataContext, setDataContext, isCosecha, setIsCosecha, appStage, setAppStage, isButtonEditDisabled, setIsButtonEditDisabled } = useContext(GlobalContext)
 
     //! UseState
     const [isActiveModal, setIsActiveModal] = useState(false); //Es por si utilizo el modal para el mensaje de que se paso de cantidad en los rubros
@@ -81,6 +81,41 @@ export const EditarCapacidad = () => {
         console.log(dataContext)
 
     }
+
+
+    //* FUNCION QUE CARGA LOS DATOS DE UNA NUEVA COSECHA
+    function editCap(cli, isData) {
+        const data = new FormData();
+        data.append("idC", cli);
+        data.append("idCos", isData['cosecha']);
+        data.append("cantAP", isData['agricultura']);
+        data.append("cantAA", isData['agriculturaA']);
+        data.append("cantGP", isData['ganaderia']);
+        data.append("cantGA", isData['ganaderiaA']);
+        data.append("cantTP", isData['tambo']);
+        data.append("cantTA", isData['tamboA']);
+        data.append("cantMP", isData['mixto']);
+        data.append("cantMA", isData['mixtoA']);
+        data.append("totalP", isData['propias']);
+        data.append("totalA", isData['alquiladas']);
+        fetch("../com_newCapacidad.php", {
+            method: "POST",
+            body: data,
+        }).then(function (response) {
+            response.text().then((resp) => {
+                const data = resp;
+                console.log(data);
+                // const objetoData = JSON.parse(data);
+                // console.log("Nueva capacidad: ", objetoData)
+            });
+        });
+    }
+
+
+
+
+
+
 
     const salir = () => {
         setIsButtonEditDisabled(false)
