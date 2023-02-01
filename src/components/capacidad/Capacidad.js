@@ -170,7 +170,7 @@ const Capacidad = () => {
                 key: 5,
                 categoria: (
                     <>
-                        <strong>TOTAL   </strong>
+                        <strong>TOTAL </strong>
                         <InfoCircleOutlined
                             title="El total puede diferir porque no es sumatoria del desglose por Rubro."
                             style={{ color: "#00b33c" }}
@@ -179,7 +179,7 @@ const Capacidad = () => {
                 ),
                 propias: <strong>{infoCap[0].ahxs_propias}</strong>,
                 alquiler: <strong>{infoCap[0].ahxs_alquiladas}</strong>,
-                total: infoCap[0].ahxs_propias + infoCap[0].ahxs_alquiladas
+                total: <strong>{parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)}</strong>
 
             },
         ];
