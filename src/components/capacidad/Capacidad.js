@@ -114,6 +114,9 @@ const Capacidad = () => {
 
         capacidad = result;
 
+        var totalAgricultura = result.AGRICULTURA.propio + result.AGRICULTURA.alquilado
+
+
         capacidad = [
             {
                 key: 1,
@@ -123,8 +126,8 @@ const Capacidad = () => {
                 // total: result.AGRICULTURA ? result.AGRICULTURA.propio + result.AGRICULTURA.alquilado : undefined,
                 total: (
                     <>
-                        {result.AGRICULTURA ? (result.AGRICULTURA.propio + result.AGRICULTURA.alquilado) : undefined}
-                        ({(result.AGRICULTURA ? (result.AGRICULTURA.propio + result.AGRICULTURA.alquilado) / (infoCap[0].ahxs_propias + infoCap[0].ahxs_alquiladas) * 100: undefined) }%)
+                        {totalAgricultura}
+                        ({totalAgricultura / (infoCap[0].ahxs_propias + infoCap[0].ahxs_alquiladas) * 100 }%)
                     </>
                 )
             },
@@ -136,7 +139,7 @@ const Capacidad = () => {
                 // total: result.GANADERIA ? result.GANADERIA.propio + result.GANADERIA.alquilado : undefined,
                 total: (
                     <>
-                        {result.GANADERIA ? (result.GANADERIA.propio + result.GANADERIA.alquilado) : undefined}
+                        {result.GANADERIA ? (result.GANADERIA[1] + result.GANADERIA[2]) : undefined}
                         ({(result.GANADERIA ? (result.GANADERIA.propio + result.GANADERIA.alquilado) : undefined) / (infoCap[0].ahxs_propias + infoCap[0].ahxs_alquiladas) * 100}%)
                     </>
                 )
