@@ -112,6 +112,11 @@ const Capacidad = () => {
                 categoria: "AGRICULTURA",
                 propias: result.AGRICULTURA ? result.AGRICULTURA.propio : undefined,
                 alquiler: result.AGRICULTURA ? result.AGRICULTURA.alquilado : undefined,
+                total:result.AGRICULTURA ? (result.AGRICULTURA.propio ? (
+                    result.AGRICULTURA.alquilado ? (
+                        result.AGRICULTURA.propio + result.AGRICULTURA.alquilado
+                    ): undefined) : undefined
+                )  : undefined,
             },
             {
                 key: 2,
