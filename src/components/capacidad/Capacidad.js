@@ -113,59 +113,55 @@ const Capacidad = () => {
 
 
         capacidad = result;
-
-        var totalAgricultura
         
         capacidad = [
             {
                 key: 1,
                 categoria: "AGRICULTURA",
-                propias: result.AGRICULTURA ? result.AGRICULTURA.propio : undefined,
-                alquiler: result.AGRICULTURA ? result.AGRICULTURA.alquilado : undefined,
-                // total: result.AGRICULTURA ? result.AGRICULTURA.propio + result.AGRICULTURA.alquilado : undefined,
-                totalAgricultura : result.AGRICULTURA.propio + result.AGRICULTURA.alquilado,
+                propias: result.AGRICULTURA ? result.AGRICULTURA.propio : 0,
+                alquiler: result.AGRICULTURA ? result.AGRICULTURA.alquilado : 0,
                 total: (
                     <>
-                        {totalAgricultura ? totalAgricultura : undefined}
-                        ({totalAgricultura / (infoCap[0].ahxs_propias + infoCap[0].ahxs_alquiladas) * 100 }%)
+                        {result.AGRICULTURA ? parseInt(result.AGRICULTURA.propio) + parseInt(result.AGRICULTURA.alquilado) : 0} {' '}
+                        ({((result.AGRICULTURA ? (parseInt(result.AGRICULTURA.propio) + parseInt(result.AGRICULTURA.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)}%)
                     </>
                 )
             },
             {
                 key: 2,
                 categoria: "GANADERIA",
-                propias: result.GANADERIA ? result.GANADERIA.propio : undefined,
-                alquiler: result.GANADERIA ? result.GANADERIA.alquilado : undefined,
-                // total: result.GANADERIA ? result.GANADERIA.propio + result.GANADERIA.alquilado : undefined,
+                propias: result.GANADERIA ? result.GANADERIA.propio : 0,
+                alquiler: result.GANADERIA ? result.GANADERIA.alquilado : 0,
+                // total: result.GANADERIA ? result.GANADERIA.propio + result.GANADERIA.alquilado : 0,
                 total: (
                     <>
-                        {capacidad.GANADERIA ? (capacidad.GANADERIA[1] + capacidad.GANADERIA[2]) : undefined}
-                        ({(result.GANADERIA ? (result.GANADERIA.propio + result.GANADERIA.alquilado) : undefined) / (infoCap[0].ahxs_propias + infoCap[0].ahxs_alquiladas) * 100}%)
+                        {result.GANADERIA ? parseInt(result.GANADERIA.propio) + parseInt(result.GANADERIA.alquilado) : 0} {' '}
+                        ({((result.GANADERIA ? (parseInt(result.GANADERIA.propio) + parseInt(result.GANADERIA.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)}%)
                     </>
                 )
             },
             {
                 key: 3,
                 categoria: "TAMBO",
-                propias: result.TAMBO ? result.TAMBO.propio : undefined,
-                alquiler: result.TAMBO ? result.TAMBO.alquilado : undefined,
-                // total: result.TAMBO ? result.TAMBO.propio + result.TAMBO.alquilado : undefined,
+                propias: result.TAMBO ? result.TAMBO.propio : 0,
+                alquiler: result.TAMBO ? result.TAMBO.alquilado : 0,
+                // total: result.TAMBO ? result.TAMBO.propio + result.TAMBO.alquilado : 0,
                 total: (
                     <>
-                        {result.TAMBO ? parseInt(result.TAMBO.propio) + parseInt(result.TAMBO.alquilado) : undefined}
-                        ({(result.TAMBO ? (parseInt(result.TAMBO.propio) + parseInt(result.TAMBO.alquilado)) : undefined) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100}%)
+                        {result.TAMBO ? parseInt(result.TAMBO.propio) + parseInt(result.TAMBO.alquilado) : 0} {' '}
+                        ({((result.TAMBO ? (parseInt(result.TAMBO.propio) + parseInt(result.TAMBO.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)}%)
                     </>
                 )
             },
             {
                 key: 4,
                 categoria: "MIXTO",
-                propias: result.MIXTO ? result.MIXTO.propio : undefined,
-                alquiler: result.MIXTO ? result.MIXTO.alquilado : undefined,
+                propias: result.MIXTO ? result.MIXTO.propio : 0,
+                alquiler: result.MIXTO ? result.MIXTO.alquilado : 0,
                 total: (
                     <>
-                        {result.MIXTO ? result.MIXTO.propio + result.MIXTO.alquilado : undefined}
-                        ({(result.MIXTO ? (result.MIXTO.propio + result.MIXTO.alquilado) : undefined) / (infoCap[0].ahxs_propias + infoCap[0].ahxs_alquiladas) * 100}%)
+                        {result.MIXTO ? parseInt(result.MIXTO.propio) + parseInt(result.MIXTO.alquilado) : 0} {' '}
+                        ({((result.MIXTO ? (parseInt(result.MIXTO.propio) + parseInt(result.MIXTO.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)}%)
                     </>
                 )
                 
