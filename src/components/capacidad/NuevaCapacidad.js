@@ -61,6 +61,11 @@ export const NuevaCapacidad = () => {
 
                 localStorage.setItem('data', JSON.stringify({ objData }))
                 setAppStage(0)
+
+                let cli = localStorage.getItem('cliente');
+
+                newCap(cli,isData);
+
             } else {
                 alert("El total de Has. de Rubros supera a las Has. Propias en general")
                 setIsActiveModal(true)
@@ -83,9 +88,9 @@ export const NuevaCapacidad = () => {
     console.log(isData);
 
     //* FUNCION QUE CARGA LOS DATOS DE UNA NUEVA COSECHA
-    function newCap(idCliente, isData) {
+    function newCap(cli, isData) {
         const data = new FormData();
-        data.append("idC", idCliente);
+        data.append("idC", cli);
         data.append("idCos", isData[4]);
         data.append("cantAP", isData[1]);
         data.append("cantAA", isData[2]);
