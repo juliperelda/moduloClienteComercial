@@ -287,40 +287,42 @@ const Capacidad = () => {
 
 
     /*-----------PARA PROBAR--------------*/
-    const data = [
-        {
-            key: '1',
-            categoria: 'AGRICULTURA',
-            propias: 200,
-            alquiler: 300,
-        },
-        {
-            key: '2',
-            categoria: 'GANADERIA',
-            propias: 300,
-            alquiler: 200,
-        },
-        {
-            key: '3',
-            categoria: 'TAMBO',
-            propias: 250,
-            alquiler: 400,
-        },
-        {
-            key: '4',
-            categoria: 'MIXTO',
-            propias: 250,
-            alquiler: 200,
-        },
-        {
-            key: '5',
-            categoria: 'TOTAL',
-            propias: 1000,
-            alquiler: 1100,
-        },
-    ];
+    // const data = [
+    //     {
+    //         key: '1',
+    //         categoria: 'AGRICULTURA',
+    //         propias: 200,
+    //         alquiler: 300,
+    //     },
+    //     {
+    //         key: '2',
+    //         categoria: 'GANADERIA',
+    //         propias: 300,
+    //         alquiler: 200,
+    //     },
+    //     {
+    //         key: '3',
+    //         categoria: 'TAMBO',
+    //         propias: 250,
+    //         alquiler: 400,
+    //     },
+    //     {
+    //         key: '4',
+    //         categoria: 'MIXTO',
+    //         propias: 250,
+    //         alquiler: 200,
+    //     },
+    //     {
+    //         key: '5',
+    //         categoria: 'TOTAL',
+    //         propias: 1000,
+    //         alquiler: 1100,
+    //     },
+    // ];
     /*------------------------------------*/
-
+    // const setSelect = () => {
+    //     localStorage.setItem("cosechaActiva", infoCosechas.acos_desc)
+    // }
     return (
         <>
             <div className="divDropdown">
