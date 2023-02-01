@@ -114,9 +114,8 @@ const Capacidad = () => {
 
         capacidad = result;
 
-        var totalAgricultura = result.AGRICULTURA.propio + result.AGRICULTURA.alquilado
-
-
+        var totalAgricultura
+        
         capacidad = [
             {
                 key: 1,
@@ -124,9 +123,10 @@ const Capacidad = () => {
                 propias: result.AGRICULTURA ? result.AGRICULTURA.propio : undefined,
                 alquiler: result.AGRICULTURA ? result.AGRICULTURA.alquilado : undefined,
                 // total: result.AGRICULTURA ? result.AGRICULTURA.propio + result.AGRICULTURA.alquilado : undefined,
+                totalAgricultura : result.AGRICULTURA.propio + result.AGRICULTURA.alquilado,
                 total: (
                     <>
-                        {totalAgricultura}
+                        {totalAgricultura ? totalAgricultura : undefined}
                         ({totalAgricultura / (infoCap[0].ahxs_propias + infoCap[0].ahxs_alquiladas) * 100 }%)
                     </>
                 )
