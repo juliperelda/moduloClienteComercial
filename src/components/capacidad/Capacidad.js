@@ -123,8 +123,8 @@ const Capacidad = () => {
                 // total: result.AGRICULTURA ? result.AGRICULTURA.propio + result.AGRICULTURA.alquilado : undefined,
                 total: (
                     <>
-                        {result.MIXTO ? result.MIXTO.propio + result.MIXTO.alquilado : undefined}
-                        ({(result.MIXTO ? result.MIXTO.propio + result.MIXTO.alquilado : undefined) / (infoCap[0].ahxs_propias + infoCap[0].ahxs_alquiladas) * 100}%)
+                        {result.AGRICULTURA ? (result.AGRICULTURA.propio + result.AGRICULTURA.alquilado) : undefined}
+                        ({(result.AGRICULTURA ? (result.AGRICULTURA.propio + result.AGRICULTURA.alquilado) / (infoCap[0].ahxs_propias + infoCap[0].ahxs_alquiladas) * 100: undefined) }%)
                     </>
                 )
             },
@@ -136,8 +136,8 @@ const Capacidad = () => {
                 // total: result.GANADERIA ? result.GANADERIA.propio + result.GANADERIA.alquilado : undefined,
                 total: (
                     <>
-                        {result.MIXTO ? result.MIXTO.propio + result.MIXTO.alquilado : undefined}
-                        ({(result.MIXTO ? result.MIXTO.propio + result.MIXTO.alquilado : undefined) / (infoCap[0].ahxs_propias + infoCap[0].ahxs_alquiladas) * 100}%)
+                        {result.GANADERIA ? (result.GANADERIA.propio + result.GANADERIA.alquilado) : undefined}
+                        ({(result.GANADERIA ? (result.GANADERIA.propio + result.GANADERIA.alquilado) : undefined) / (infoCap[0].ahxs_propias + infoCap[0].ahxs_alquiladas) * 100}%)
                     </>
                 )
             },
@@ -149,8 +149,8 @@ const Capacidad = () => {
                 // total: result.TAMBO ? result.TAMBO.propio + result.TAMBO.alquilado : undefined,
                 total: (
                     <>
-                        {result.MIXTO ? result.MIXTO.propio + result.MIXTO.alquilado : undefined}
-                        ({(result.MIXTO ? result.MIXTO.propio + result.MIXTO.alquilado : undefined) / (infoCap[0].ahxs_propias + infoCap[0].ahxs_alquiladas) * 100}%)
+                        {result.TAMBO ? result.TAMBO.propio + result.TAMBO.alquilado : undefined}
+                        ({(result.TAMBO ? (result.TAMBO.propio + result.TAMBO.alquilado) : undefined) / (infoCap[0].ahxs_propias + infoCap[0].ahxs_alquiladas) * 100}%)
                     </>
                 )
             },
@@ -162,7 +162,7 @@ const Capacidad = () => {
                 total: (
                     <>
                         {result.MIXTO ? result.MIXTO.propio + result.MIXTO.alquilado : undefined}
-                        ({(result.MIXTO ? result.MIXTO.propio + result.MIXTO.alquilado : undefined) / (infoCap[0].ahxs_propias + infoCap[0].ahxs_alquiladas) * 100}%)
+                        ({(result.MIXTO ? (result.MIXTO.propio + result.MIXTO.alquilado) : undefined) / (infoCap[0].ahxs_propias + infoCap[0].ahxs_alquiladas) * 100}%)
                     </>
                 )
                 
@@ -171,7 +171,7 @@ const Capacidad = () => {
                 key: 5,
                 categoria: (
                     <>
-                        <strong>TOTAL </strong>
+                        <strong>TOTAL   </strong>
                         <InfoCircleOutlined
                             title="El total puede diferir porque no es sumatoria del desglose por Rubro."
                             style={{ color: "#00b33c" }}
