@@ -393,12 +393,12 @@ const Capacidad = () => {
                     onChange={(value) => setSelectedValue(value)}
                     defaultValue={selectedValue}
                 >
-                    <Select.Option value="2223">2223</Select.Option>
-                    {/* {infoCosechas.length > 0 && infoCosechas.map((cosecha) => {
+                    {/* <Select.Option value="2223">2223</Select.Option> */}
+                    {infoCosechas.length > 0 && infoCosechas.map((cosecha) => {
                         return (
                             <Select.Option key={cosecha.acos_desc} value={cosecha.acos_desc}>{cosecha.acos_desc}</Select.Option>
                         )
-                    })} */}
+                    })}
 
                 </Select>
                 <Button

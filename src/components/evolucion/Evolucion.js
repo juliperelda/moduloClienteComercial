@@ -130,43 +130,43 @@ useEffect(() => {
 
 
 
-const data = [
-  {
-    name: 'Page A',
-    propias: 4000,
-    alquiladas: 2400,
-  },
-  {
-    name: 'Page B',
-    propias: 3000,
-    alquiladas: 1398,
-  },
-  {
-    name: 'Page C',
-    propias: 2000,
-    alquiladas: 9800,
-  },
-  {
-    name: 'Page D',
-    propias: 2780,
-    alquiladas: 3908,
-  },
-  {
-    name: 'Page E',
-    propias: 1890,
-    alquiladas: 4800,
-  },
-  {
-    name: 'Page F',
-    propias: 2390,
-    alquiladas: 3800,
-  },
-  {
-    name: 'Page G',
-    propias: 3490,
-    alquiladas: 4300,
-  },
-];
+// const data = [
+//   {
+//     name: 'Page A',
+//     propias: 4000,
+//     alquiladas: 2400,
+//   },
+//   {
+//     name: 'Page B',
+//     propias: 3000,
+//     alquiladas: 1398,
+//   },
+//   {
+//     name: 'Page C',
+//     propias: 2000,
+//     alquiladas: 9800,
+//   },
+//   {
+//     name: 'Page D',
+//     propias: 2780,
+//     alquiladas: 3908,
+//   },
+//   {
+//     name: 'Page E',
+//     propias: 1890,
+//     alquiladas: 4800,
+//   },
+//   {
+//     name: 'Page F',
+//     propias: 2390,
+//     alquiladas: 3800,
+//   },
+//   {
+//     name: 'Page G',
+//     propias: 3490,
+//     alquiladas: 4300,
+//   },
+// ];
 
   return (
     <>
@@ -174,8 +174,8 @@ const data = [
         <BarChart
           width={500}
           height={300}
-          // data={dataForChart} //ORIGINAL
-          data={data} // PRUEBA
+          data={dataForChart} //ORIGINAL
+          // data={data} // PRUEBA
           margin={{
             top: 20,
             right: 0,
