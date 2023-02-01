@@ -74,13 +74,16 @@ export const NuevaCapacidad = () => {
 
         setIsData({ //Crea el objeto de lo que escribo en los campos
             ...isData,
-            cosecha: isCosecha ? isCosecha : null,
+            cosecha: localStorage.getItem('idCosecha') ? localStorage.getItem('idCosecha') : null,
             [event.target.name]: event.target.value
         })
     }
 
-       //* FUNCION QUE CARGA LOS DATOS DE UNA NUEVA COSECHA
-       function newCap(idCliente) {
+
+    console.log(isData);
+
+    //* FUNCION QUE CARGA LOS DATOS DE UNA NUEVA COSECHA
+    function newCap(idCliente) {
         const data = new FormData();
         data.append("idC", idCliente);
         fetch("../com_newCapacidad.php", {
