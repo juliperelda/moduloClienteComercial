@@ -61,6 +61,11 @@ export const NuevaCapacidad = () => {
 
                 localStorage.setItem('data', JSON.stringify({ objData }))
                 setAppStage(0)
+
+                let cli = localStorage.getItem('cliente');
+
+                newCap(cli,isData);
+
             } else {
                 alert("El total de Has. de Rubros supera a las Has. Propias en general")
                 setIsActiveModal(true)
@@ -80,31 +85,32 @@ export const NuevaCapacidad = () => {
     }
 
 
-    console.log(isData);
+    //console.log(isData);
 
     //* FUNCION QUE CARGA LOS DATOS DE UNA NUEVA COSECHA
-    function newCap(idCliente, isData) {
+    function newCap(cli, isData) {
         const data = new FormData();
-        data.append("idC", idCliente);
-        data.append("idCos", isData[4]);
-        data.append("cantAP", isData[1]);
-        data.append("cantAA", isData[2]);
-        data.append("cantGP", isData[5]);
-        data.append("cantGA", isData[6]);
-        data.append("cantTP", isData[10]);
-        data.append("cantTA", isData[11]);
-        data.append("cantMP", isData[7]);
-        data.append("cantMA", isData[8]);
-        data.append("totalP", isData[9]);
-        data.append("totalA", isData[3]);
+        data.append("idC", cli);
+        data.append("idCos", isData['cosecha']);
+        data.append("cantAP", isData['agricultura']);
+        data.append("cantAA", isData['agriculturaA']);
+        data.append("cantGP", isData['ganaderia']);
+        data.append("cantGA", isData['ganaderiaA']);
+        data.append("cantTP", isData['tambo']);
+        data.append("cantTA", isData['tamboA']);
+        data.append("cantMP", isData['mixto']);
+        data.append("cantMA", isData['mixtoA']);
+        data.append("totalP", isData['propias']);
+        data.append("totalA", isData['alquiladas']);
         fetch("../com_newCapacidad.php", {
             method: "POST",
             body: data,
         }).then(function (response) {
             response.text().then((resp) => {
                 const data = resp;
-                const objetoData = JSON.parse(data);
-                console.log("Nueva capacidad: ", objetoData)
+                console.log(data);
+                // const objetoData = JSON.parse(data);
+                // console.log("Nueva capacidad: ", objetoData)
             });
         });
     }
