@@ -91,17 +91,17 @@ export const NuevaCapacidad = () => {
     function newCap(cli, isData) {
         const data = new FormData();
         data.append("idC", cli);
-        data.append("idCos", isData[4]);
-        data.append("cantAP", isData[1]);
-        data.append("cantAA", isData[2]);
-        data.append("cantGP", isData[5]);
-        data.append("cantGA", isData[6]);
-        data.append("cantTP", isData[10]);
-        data.append("cantTA", isData[11]);
-        data.append("cantMP", isData[7]);
-        data.append("cantMA", isData[8]);
-        data.append("totalP", isData[9]);
-        data.append("totalA", isData[3]);
+        data.append("idCos", isData['cosecha']);
+        data.append("cantAP", isData['agricultura']);
+        data.append("cantAA", isData['agriculturaA']);
+        data.append("cantGP", isData['ganaderia']);
+        data.append("cantGA", isData['ganaderiaA']);
+        data.append("cantTP", isData['tambo']);
+        data.append("cantTA", isData['tamboA']);
+        data.append("cantMP", isData['mixto']);
+        data.append("cantMA", isData['mixtoA']);
+        data.append("totalP", isData['propias']);
+        data.append("totalA", isData['alquiladas']);
         fetch("../com_newCapacidad.php", {
             method: "POST",
             body: data,
