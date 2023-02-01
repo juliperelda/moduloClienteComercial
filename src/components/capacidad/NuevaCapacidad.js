@@ -85,7 +85,7 @@ export const NuevaCapacidad = () => {
     }
 
 
-    console.log(isData);
+    //console.log(isData);
 
     //* FUNCION QUE CARGA LOS DATOS DE UNA NUEVA COSECHA
     function newCap(cli, isData) {
