@@ -66,6 +66,8 @@ const Capacidad = () => {
         setInfoCap,
         infoCosechas,
         setCosechas,
+        infoEdit, 
+        setInfoEdit,
     } = useContext(GlobalContext);
 
     const [isHayData, setIsHayData] = useState(false);
@@ -113,7 +115,7 @@ const Capacidad = () => {
 
 
         capacidad = result;
-        
+        setInfoEdit(result);
         capacidad = [
             {
                 key: 1,
