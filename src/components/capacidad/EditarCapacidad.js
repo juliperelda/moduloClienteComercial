@@ -98,7 +98,7 @@ export const EditarCapacidad = () => {
         data.append("cantMA", isData['mixtoA']);
         data.append("totalP", isData['propias']);
         data.append("totalA", isData['alquiladas']);
-        fetch("../com_newCapacidad.php", {
+        fetch("../com_editCapacidad.php", {
             method: "POST",
             body: data,
         }).then(function (response) {
