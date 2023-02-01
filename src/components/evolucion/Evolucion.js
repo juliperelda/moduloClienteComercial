@@ -100,10 +100,10 @@ useEffect(() => {
     }
 }, [idCliente]);
 
-if (infoEvo.length > 0) {
-    console.log("infoEvo desde Evolucion: ",infoEvo);
-    console.log("infoEvo[0] desde Evolucion: ",infoEvo[0].acos_desc);                
-}    
+// if (infoEvo.length > 0) {
+//     console.log("infoEvo desde Evolucion: ",infoEvo);
+//     console.log("infoEvo[0] desde Evolucion: ",infoEvo[0].acos_desc);                
+// }    
 
 // const dataForChart = infoEvo.map(item => {
 //   return {

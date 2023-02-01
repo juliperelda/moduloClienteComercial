@@ -3,7 +3,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState, useContext } from "react";
 import { Button, Select, Table } from "antd";
-import { EditOutlined, PlusCircleOutlined } from "@ant-design/icons";
+import { EditOutlined, InfoCircleOutlined, PlusCircleOutlined } from "@ant-design/icons";
 import { GlobalContext } from "../../context/GlobalContext";
 import "./capacidad.css";
 import { EditarCapacidad } from "./EditarCapacidad";
@@ -32,6 +32,14 @@ const columns = [
         title: <span style={{ color: "#00b33c" }}>ALQUILER</span>,
         dataIndex: "alquiler",
         key: "alquiler",
+        editable: true,
+        width: "30%",
+        align: "right",
+    },
+    {
+        title: <span style={{ color: "#00b33c" }}>TOTAL</span>,
+        dataIndex: "total",
+        key: "total",
         editable: true,
         width: "30%",
         align: "right",
@@ -105,41 +113,76 @@ const Capacidad = () => {
 
 
         capacidad = result;
-
+        
         capacidad = [
             {
                 key: 1,
                 categoria: "AGRICULTURA",
-                propias: result.AGRICULTURA ? result.AGRICULTURA.propio : undefined,
-                alquiler: result.AGRICULTURA ? result.AGRICULTURA.alquilado : undefined,
+                propias: result.AGRICULTURA ? result.AGRICULTURA.propio : 0,
+                alquiler: result.AGRICULTURA ? result.AGRICULTURA.alquilado : 0,
+                total: (
+                    <>
+                        {result.AGRICULTURA ? parseInt(result.AGRICULTURA.propio) + parseInt(result.AGRICULTURA.alquilado) : 0} {' '}
+                        ({((result.AGRICULTURA ? (parseInt(result.AGRICULTURA.propio) + parseInt(result.AGRICULTURA.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)}%)
+                    </>
+                )
             },
             {
                 key: 2,
                 categoria: "GANADERIA",
-                propias: result.GANADERIA ? result.GANADERIA.propio : undefined,
-                alquiler: result.GANADERIA ? result.GANADERIA.alquilado : undefined,
+                propias: result.GANADERIA ? result.GANADERIA.propio : 0,
+                alquiler: result.GANADERIA ? result.GANADERIA.alquilado : 0,
+                total: (
+                    <>
+                        {result.GANADERIA ? parseInt(result.GANADERIA.propio) + parseInt(result.GANADERIA.alquilado) : 0} {' '}
+                        ({((result.GANADERIA ? (parseInt(result.GANADERIA.propio) + parseInt(result.GANADERIA.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)}%)
+                    </>
+                )
             },
             {
                 key: 3,
                 categoria: "TAMBO",
-                propias: result.TAMBO ? result.TAMBO.propio : undefined,
-                alquiler: result.TAMBO ? result.TAMBO.alquilado : undefined,
+                propias: result.TAMBO ? result.TAMBO.propio : 0,
+                alquiler: result.TAMBO ? result.TAMBO.alquilado : 0,
+                total: (
+                    <>
+                        {result.TAMBO ? parseInt(result.TAMBO.propio) + parseInt(result.TAMBO.alquilado) : 0} {' '}
+                        ({((result.TAMBO ? (parseInt(result.TAMBO.propio) + parseInt(result.TAMBO.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)}%)
+                    </>
+                )
             },
             {
                 key: 4,
                 categoria: "MIXTO",
-                propias: result.MIXTO ? result.MIXTO.propio : undefined,
-                alquiler: result.MIXTO ? result.MIXTO.alquilado : undefined,
+                propias: result.MIXTO ? result.MIXTO.propio : 0,
+                alquiler: result.MIXTO ? result.MIXTO.alquilado : 0,
+                total: (
+                    <>
+                        {result.MIXTO ? parseInt(result.MIXTO.propio) + parseInt(result.MIXTO.alquilado) : 0} {' '}
+                        ({((result.MIXTO ? (parseInt(result.MIXTO.propio) + parseInt(result.MIXTO.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)}%)
+                    </>
+                )
+                
             },
             {
                 key: 5,
-                categoria: "TOTAL",
+                categoria: (
+                    <>
+                        <strong>TOTAL </strong>
+                        <InfoCircleOutlined
+                            title="El total puede diferir porque no es sumatoria del desglose por Rubro."
+                            style={{ color: "#00b33c" }}
+                        />
+                    </>
+                ),
                 propias: <strong>{infoCap[0].ahxs_propias}</strong>,
                 alquiler: <strong>{infoCap[0].ahxs_alquiladas}</strong>,
+                total: <strong>{parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)}</strong>
+
             },
         ];
 
-        console.log(capacidad);
+        // console.log(capacidad);
 
 
         return result;
@@ -223,7 +266,7 @@ const Capacidad = () => {
     }
 
 
-   
+
     var cosecha = parseInt(selectedValue);
 
 
@@ -275,53 +318,6 @@ const Capacidad = () => {
     }
 
 
-    // useEffect(() => {
-    //     if (infoCap[0].ahxs_alquiladas === 0) {
-    //       setIsButtonEditDisabled(false);
-    //       setIsButtonDisabled(true);
-    //     } else {
-    //       setIsButtonEditDisabled(true);
-    //       setIsButtonDisabled(false);
-    //     }
-    //   }, [infoCap]);
-
-
-
-    /*-----------PARA PROBAR--------------*/
-    const data = [
-        {
-            key: '1',
-            categoria: 'AGRICULTURA',
-            propias: 200,
-            alquiler: 300,
-        },
-        {
-            key: '2',
-            categoria: 'GANADERIA',
-            propias: 300,
-            alquiler: 200,
-        },
-        {
-            key: '3',
-            categoria: 'TAMBO',
-            propias: 250,
-            alquiler: 400,
-        },
-        {
-            key: '4',
-            categoria: 'MIXTO',
-            propias: 250,
-            alquiler: 200,
-        },
-        {
-            key: '5',
-            categoria: 'TOTAL',
-            propias: 1000,
-            alquiler: 1100,
-        },
-    ];
-    /*------------------------------------*/
-
     return (
         <>
             <div className="divDropdown">
@@ -349,7 +345,7 @@ const Capacidad = () => {
                 <Button
                     style={{ alignItems: "center", boxShadow: "none !important", outline: "0", border: "none !important" }}
                     className="btnAddCosecha"
-                    icon={<PlusCircleOutlined style={{"--antd-wave-shadow-color": "transparent !important"}}/>}
+                    icon={<PlusCircleOutlined style={{ "--antd-wave-shadow-color": "transparent !important" }} />}
                     onClick={() => {
                         addCosecha(infoCap);
                     }}
