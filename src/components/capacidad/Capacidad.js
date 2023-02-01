@@ -223,11 +223,11 @@ const Capacidad = () => {
     }
 
 
-    // * FUNCION QUE TRAE LOS DATOS PARA LLENAR TABLA CAPACIDAD PRODUCTIVA INICIAL
+   
     var cosecha = parseInt(selectedValue);
-    // console.log("variable cosecha: ", cosecha)
 
-    //* EJECUTA LAS FUNCIONES QUE TRAE LA INFO
+
+    //* EJECUTA LAS FUNCIONES QUE TRAE LA INFO y TRAE LOS DATOS PARA LLENAR TABLA CAPACIDAD PRODUCTIVA INICIAL
     useEffect(() => {
         if (idCliente) {
             //infoTabCapacidad(idCliente, cosecha);
