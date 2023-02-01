@@ -139,7 +139,7 @@ const Capacidad = () => {
                 // total: result.GANADERIA ? result.GANADERIA.propio + result.GANADERIA.alquilado : undefined,
                 total: (
                     <>
-                        {result.GANADERIA ? (capacidad[2].propias + capacidad[2].alquiler) : undefined}
+                        {capacidad.GANADERIA ? (capacidad.GANADERIA[1] + capacidad.GANADERIA[2]) : undefined}
                         ({(result.GANADERIA ? (result.GANADERIA.propio + result.GANADERIA.alquilado) : undefined) / (infoCap[0].ahxs_propias + infoCap[0].ahxs_alquiladas) * 100}%)
                     </>
                 )
