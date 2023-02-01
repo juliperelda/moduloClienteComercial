@@ -132,7 +132,6 @@ const Capacidad = () => {
                 categoria: "GANADERIA",
                 propias: result.GANADERIA ? result.GANADERIA.propio : 0,
                 alquiler: result.GANADERIA ? result.GANADERIA.alquilado : 0,
-                // total: result.GANADERIA ? result.GANADERIA.propio + result.GANADERIA.alquilado : 0,
                 total: (
                     <>
                         {result.GANADERIA ? parseInt(result.GANADERIA.propio) + parseInt(result.GANADERIA.alquilado) : 0} {' '}
@@ -145,7 +144,6 @@ const Capacidad = () => {
                 categoria: "TAMBO",
                 propias: result.TAMBO ? result.TAMBO.propio : 0,
                 alquiler: result.TAMBO ? result.TAMBO.alquilado : 0,
-                // total: result.TAMBO ? result.TAMBO.propio + result.TAMBO.alquilado : 0,
                 total: (
                     <>
                         {result.TAMBO ? parseInt(result.TAMBO.propio) + parseInt(result.TAMBO.alquilado) : 0} {' '}
@@ -184,7 +182,7 @@ const Capacidad = () => {
             },
         ];
 
-        console.log(capacidad);
+        // console.log(capacidad);
 
 
         return result;
@@ -320,69 +318,6 @@ const Capacidad = () => {
     }
 
 
-    // useEffect(() => {
-    //     if (infoCap[0].ahxs_alquiladas === 0) {
-    //       setIsButtonEditDisabled(false);
-    //       setIsButtonDisabled(true);
-    //     } else {
-    //       setIsButtonEditDisabled(true);
-    //       setIsButtonDisabled(false);
-    //     }
-    //   }, [infoCap]);
-
-
-
-    /*-----------PARA PROBAR--------------*/
-    const data = [
-        {
-            key: '1',
-            categoria: 'AGRICULTURA',
-            propias: 200,
-            alquiler: 300,
-            total: 500
-        },
-        {
-            key: '2',
-            categoria: 'GANADERIA',
-            propias: 300,
-            alquiler: 200,
-            total: 500
-        },
-        {
-            key: '3',
-            categoria: 'TAMBO',
-            propias: 250,
-            alquiler: 400,
-            total: 650 
-        },
-        {
-            key: '4',
-            categoria: 'MIXTO',
-            propias: 250,
-            alquiler: 200,
-            total:450
-        },
-        {
-            key: '5',
-            categoria: (
-                <>
-                    <strong>TOTAL </strong>
-                    <InfoCircleOutlined
-                        title="El total puede diferir porque no es sumatoria del desglose por Rubro."
-                        style={{ color: "#00b33c" }}
-                    />
-                </>
-            ),
-            propias: 1000,
-            alquiler: 1100,
-            total: 2100
-
-        },
-    ];
-    /*------------------------------------*/
-    // const setSelect = () => {
-    //     localStorage.setItem("cosechaActiva", infoCosechas.acos_desc)
-    // }
     return (
         <>
             <div className="divDropdown">
@@ -392,7 +327,6 @@ const Capacidad = () => {
                     onChange={(value) => setSelectedValue(value)}
                     defaultValue={selectedValue}
                 >
-                    {/* <Select.Option value="2223">2223</Select.Option> */}
                     {infoCosechas.length > 0 && infoCosechas.map((cosecha) => {
                         return (
                             <Select.Option key={cosecha.acos_desc} value={cosecha.acos_desc}>{cosecha.acos_desc}</Select.Option>
