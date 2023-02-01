@@ -3,7 +3,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState, useContext } from "react";
 import { Button, Select, Table } from "antd";
-import { EditOutlined, PlusCircleOutlined } from "@ant-design/icons";
+import { EditOutlined, InfoCircleOutlined, PlusCircleOutlined } from "@ant-design/icons";
 import { GlobalContext } from "../../context/GlobalContext";
 import "./capacidad.css";
 import { EditarCapacidad } from "./EditarCapacidad";
@@ -32,6 +32,14 @@ const columns = [
         title: <span style={{ color: "#00b33c" }}>ALQUILER</span>,
         dataIndex: "alquiler",
         key: "alquiler",
+        editable: true,
+        width: "30%",
+        align: "right",
+    },
+    {
+        title: <span style={{ color: "#00b33c" }}>TOTAL</span>,
+        dataIndex: "total",
+        key: "total",
         editable: true,
         width: "30%",
         align: "right",
@@ -112,30 +120,68 @@ const Capacidad = () => {
                 categoria: "AGRICULTURA",
                 propias: result.AGRICULTURA ? result.AGRICULTURA.propio : undefined,
                 alquiler: result.AGRICULTURA ? result.AGRICULTURA.alquilado : undefined,
+                // total: result.AGRICULTURA ? result.AGRICULTURA.propio + result.AGRICULTURA.alquilado : undefined,
+                total: (
+                    <>
+                        {result.MIXTO ? result.MIXTO.propio + result.MIXTO.alquilado : undefined}
+                        ({(result.MIXTO ? result.MIXTO.propio + result.MIXTO.alquilado : undefined) / (infoCap[0].ahxs_propias + infoCap[0].ahxs_alquiladas) * 100}%)
+                    </>
+                )
             },
             {
                 key: 2,
                 categoria: "GANADERIA",
                 propias: result.GANADERIA ? result.GANADERIA.propio : undefined,
                 alquiler: result.GANADERIA ? result.GANADERIA.alquilado : undefined,
+                // total: result.GANADERIA ? result.GANADERIA.propio + result.GANADERIA.alquilado : undefined,
+                total: (
+                    <>
+                        {result.MIXTO ? result.MIXTO.propio + result.MIXTO.alquilado : undefined}
+                        ({(result.MIXTO ? result.MIXTO.propio + result.MIXTO.alquilado : undefined) / (infoCap[0].ahxs_propias + infoCap[0].ahxs_alquiladas) * 100}%)
+                    </>
+                )
             },
             {
                 key: 3,
                 categoria: "TAMBO",
                 propias: result.TAMBO ? result.TAMBO.propio : undefined,
                 alquiler: result.TAMBO ? result.TAMBO.alquilado : undefined,
+                // total: result.TAMBO ? result.TAMBO.propio + result.TAMBO.alquilado : undefined,
+                total: (
+                    <>
+                        {result.MIXTO ? result.MIXTO.propio + result.MIXTO.alquilado : undefined}
+                        ({(result.MIXTO ? result.MIXTO.propio + result.MIXTO.alquilado : undefined) / (infoCap[0].ahxs_propias + infoCap[0].ahxs_alquiladas) * 100}%)
+                    </>
+                )
             },
             {
                 key: 4,
                 categoria: "MIXTO",
                 propias: result.MIXTO ? result.MIXTO.propio : undefined,
                 alquiler: result.MIXTO ? result.MIXTO.alquilado : undefined,
+                total: (
+                    <>
+                        {result.MIXTO ? result.MIXTO.propio + result.MIXTO.alquilado : undefined}
+                        ({(result.MIXTO ? result.MIXTO.propio + result.MIXTO.alquilado : undefined) / (infoCap[0].ahxs_propias + infoCap[0].ahxs_alquiladas) * 100}%)
+                    </>
+                )
+                
             },
             {
                 key: 5,
-                categoria: "TOTAL",
+                categoria: (
+                    <>
+                        <strong>TOTAL </strong>
+                        <InfoCircleOutlined
+                            title="El total puede diferir porque no es sumatoria del desglose por Rubro."
+                            style={{ color: "#00b33c" }}
+                        />
+                    </>
+                ),
                 propias: <strong>{infoCap[0].ahxs_propias}</strong>,
                 alquiler: <strong>{infoCap[0].ahxs_alquiladas}</strong>,
+                total: infoCap[0].ahxs_propias + infoCap[0].ahxs_alquiladas
+
             },
         ];
 
@@ -223,7 +269,7 @@ const Capacidad = () => {
     }
 
 
-   
+
     var cosecha = parseInt(selectedValue);
 
 
@@ -288,38 +334,52 @@ const Capacidad = () => {
 
 
     /*-----------PARA PROBAR--------------*/
-    // const data = [
-    //     {
-    //         key: '1',
-    //         categoria: 'AGRICULTURA',
-    //         propias: 200,
-    //         alquiler: 300,
-    //     },
-    //     {
-    //         key: '2',
-    //         categoria: 'GANADERIA',
-    //         propias: 300,
-    //         alquiler: 200,
-    //     },
-    //     {
-    //         key: '3',
-    //         categoria: 'TAMBO',
-    //         propias: 250,
-    //         alquiler: 400,
-    //     },
-    //     {
-    //         key: '4',
-    //         categoria: 'MIXTO',
-    //         propias: 250,
-    //         alquiler: 200,
-    //     },
-    //     {
-    //         key: '5',
-    //         categoria: 'TOTAL',
-    //         propias: 1000,
-    //         alquiler: 1100,
-    //     },
-    // ];
+    const data = [
+        {
+            key: '1',
+            categoria: 'AGRICULTURA',
+            propias: 200,
+            alquiler: 300,
+            total: 500
+        },
+        {
+            key: '2',
+            categoria: 'GANADERIA',
+            propias: 300,
+            alquiler: 200,
+            total: 500
+        },
+        {
+            key: '3',
+            categoria: 'TAMBO',
+            propias: 250,
+            alquiler: 400,
+            total: 650 
+        },
+        {
+            key: '4',
+            categoria: 'MIXTO',
+            propias: 250,
+            alquiler: 200,
+            total:450
+        },
+        {
+            key: '5',
+            categoria: (
+                <>
+                    <strong>TOTAL </strong>
+                    <InfoCircleOutlined
+                        title="El total puede diferir porque no es sumatoria del desglose por Rubro."
+                        style={{ color: "#00b33c" }}
+                    />
+                </>
+            ),
+            propias: 1000,
+            alquiler: 1100,
+            total: 2100
+
+        },
+    ];
     /*------------------------------------*/
     // const setSelect = () => {
     //     localStorage.setItem("cosechaActiva", infoCosechas.acos_desc)
@@ -333,11 +393,12 @@ const Capacidad = () => {
                     onChange={(value) => setSelectedValue(value)}
                     defaultValue={selectedValue}
                 >
-                    {infoCosechas.length > 0 && infoCosechas.map((cosecha) => {
+                    <Select.Option value="2223">2223</Select.Option>
+                    {/* {infoCosechas.length > 0 && infoCosechas.map((cosecha) => {
                         return (
                             <Select.Option key={cosecha.acos_desc} value={cosecha.acos_desc}>{cosecha.acos_desc}</Select.Option>
                         )
-                    })}
+                    })} */}
 
                 </Select>
                 <Button
@@ -351,7 +412,7 @@ const Capacidad = () => {
                 <Button
                     style={{ alignItems: "center", boxShadow: "none !important", outline: "0", border: "none !important" }}
                     className="btnAddCosecha"
-                    icon={<PlusCircleOutlined style={{"--antd-wave-shadow-color": "transparent !important"}}/>}
+                    icon={<PlusCircleOutlined style={{ "--antd-wave-shadow-color": "transparent !important" }} />}
                     onClick={() => {
                         addCosecha(infoCap);
                     }}

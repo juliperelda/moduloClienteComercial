@@ -62,10 +62,14 @@ export const EditarCapacidad = () => {
             ]
 
             localStorage.setItem('data', JSON.stringify({ objData }))
-
             setAppStage(0)
 
+            let cli = localStorage.getItem('cliente');
+
+            editCap(cli,dataContext);
+
         } else {
+            alert("El total de Has. de Rubros supera a las Has. Propias en general")
             setIsActiveModal(true)
         }
 
@@ -84,21 +88,21 @@ export const EditarCapacidad = () => {
 
 
     //* FUNCION QUE CARGA LOS DATOS DE UNA NUEVA COSECHA
-    function editCap(cli, isData) {
+    function editCap(cli, dataContext) {
         const data = new FormData();
         data.append("idC", cli);
-        data.append("idCos", isData['cosecha']);
-        data.append("cantAP", isData['agricultura']);
-        data.append("cantAA", isData['agriculturaA']);
-        data.append("cantGP", isData['ganaderia']);
-        data.append("cantGA", isData['ganaderiaA']);
-        data.append("cantTP", isData['tambo']);
-        data.append("cantTA", isData['tamboA']);
-        data.append("cantMP", isData['mixto']);
-        data.append("cantMA", isData['mixtoA']);
-        data.append("totalP", isData['propias']);
-        data.append("totalA", isData['alquiladas']);
-        fetch("../com_newCapacidad.php", {
+        data.append("idCos", dataContext['cosecha']);
+        data.append("cantAP", dataContext['agricultura']);
+        data.append("cantAA", dataContext['agriculturaA']);
+        data.append("cantGP", dataContext['ganaderia']);
+        data.append("cantGA", dataContext['ganaderiaA']);
+        data.append("cantTP", dataContext['tambo']);
+        data.append("cantTA", dataContext['tamboA']);
+        data.append("cantMP", dataContext['mixto']);
+        data.append("cantMA", dataContext['mixtoA']);
+        data.append("totalP", dataContext['propias']);
+        data.append("totalA", dataContext['alquiladas']);
+        fetch("../com_editCapacidad.php", {
             method: "POST",
             body: data,
         }).then(function (response) {

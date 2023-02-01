@@ -16,6 +16,9 @@ export const NuevaCapacidad = () => {
     const [isActiveModal, setIsActiveModal] = useState(false);
     const [isDataSet, setIsDataSet] = useState({});
 
+    
+    
+    //! Funciones
     const traeData = () => {
         if (localStorage.getItem("data")) {
             setIsDataSet(JSON.parse(localStorage.getItem("data")).objData)
@@ -28,9 +31,7 @@ export const NuevaCapacidad = () => {
         }
         fetchData()
     }, [])
-
-
-    //! Funciones
+    
     const handleOk = () => {
 
         let inputPropias = document.getElementById("inputPropias").value;
