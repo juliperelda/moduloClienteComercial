@@ -2,7 +2,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState, useContext } from "react";
-import { Button, Select, Table } from "antd";
+import { Button, Select, Space, Table, Tooltip } from "antd";
 import { EditOutlined, InfoCircleOutlined, PlusCircleOutlined } from "@ant-design/icons";
 import { GlobalContext } from "../../context/GlobalContext";
 import "./capacidad.css";
@@ -66,7 +66,7 @@ const Capacidad = () => {
         setInfoCap,
         infoCosechas,
         setCosechas,
-        update, 
+        update,
         setUpdate
     } = useContext(GlobalContext);
 
@@ -101,13 +101,13 @@ const Capacidad = () => {
 
 
         capacidad = result;
-        
+
         capacidad = [
             {
                 key: 1,
                 categoria: "AGRICULTURA",
-                propias: result.AGRICULTURA ? Math.trunc(Math.trunc(result.AGRICULTURA.propio)) : 0,
-                alquiler: result.AGRICULTURA ? Math.trunc(Math.trunc(result.AGRICULTURA.alquilado)) : 0,
+                propias: result.AGRICULTURA ? Math.trunc(result.AGRICULTURA.propio) : 0,
+                alquiler: result.AGRICULTURA ? Math.trunc(result.AGRICULTURA.alquilado) : 0,
                 total: (
                     <>
                         {result.AGRICULTURA ? parseInt(result.AGRICULTURA.propio) + parseInt(result.AGRICULTURA.alquilado) : 0} {' '}
@@ -150,7 +150,7 @@ const Capacidad = () => {
                         ({((result.MIXTO ? (parseInt(result.MIXTO.propio) + parseInt(result.MIXTO.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)}%)
                     </>
                 )
-                
+
             },
             {
                 key: 5,
@@ -179,6 +179,22 @@ const Capacidad = () => {
     const addCosecha = () => {
         setAppStage(2);
     };
+
+
+    // const data = [
+    //     {
+    //       key: '1',
+    //       propias: 100,
+    //       alquilas: 150,
+    //       total: 250
+    //     },
+    //     {
+    //       key: '2',
+    //       propias: 100,
+    //       alquilas: 150,
+    //       total: 250
+    //     },
+    //   ];
 
 
     const handleStage = () => {
@@ -265,7 +281,7 @@ const Capacidad = () => {
             cosechas(idCliente);
             rubros();
         }
-    }, [idCliente, cosecha, update ]);
+    }, [idCliente, cosecha, update]);
 
     if (infoCap.length > 0) {
         // console.log("infoCap desde Capacidad: ", infoCap);
@@ -294,9 +310,9 @@ const Capacidad = () => {
 
 
     // useEffect(() => {
-      
+
     // }, [])
-    
+
 
 
     return (
@@ -305,7 +321,7 @@ const Capacidad = () => {
                 <Select
                     className="selectCosecha"
                     style={{ width: '80px' }}
-                    onChange={(value) => {setSelectedValue(value); localStorage.setItem("idCosechaSelec", value)}}
+                    onChange={(value) => { setSelectedValue(value); localStorage.setItem("idCosechaSelec", value) }}
                     defaultValue={selectedValue}
                 >
                     {infoCosechas.length > 0 && infoCosechas.map((cosecha) => {
