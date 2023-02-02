@@ -161,7 +161,7 @@ export const EditarCapacidad = () => {
                     placeholder="0"
                     name="agricultura"
                     style={{ textAlign: "right" }}
-                    defaultValue={infoEdit[0].has}
+                    defaultValue={Math.trunc(infoEdit[0].has)}
                     onChange={(e) => handleInputChangeEdit(e)}
                   />
                 </Form.Item>
@@ -174,7 +174,7 @@ export const EditarCapacidad = () => {
                     placeholder="0"
                     name="agriculturaA"
                     style={{ textAlign: "right" }}
-                    defaultValue={infoEdit[1].has}
+                    defaultValue={Math.trunc(infoEdit[1].has)}
                     onChange={(e) => handleInputChangeEdit(e)}
                   />
                 </Form.Item>
@@ -192,7 +192,7 @@ export const EditarCapacidad = () => {
                     placeholder="0"
                     name="ganaderia"
                     style={{ textAlign: "right" }}
-                    defaultValue={infoEdit[2].has}
+                    defaultValue={Math.trunc(infoEdit[2].has)}
                     onChange={(e) => handleInputChangeEdit(e)}
                   />
                 </Form.Item>
@@ -205,7 +205,7 @@ export const EditarCapacidad = () => {
                     placeholder="0"
                     name="ganaderiaA"
                     style={{ textAlign: "right" }}
-                    defaultValue={infoEdit[3].has}
+                    defaultValue={Math.trunc(infoEdit[3].has)}
                     onChange={(e) => handleInputChangeEdit(e)}
                   />
                 </Form.Item>
@@ -223,7 +223,7 @@ export const EditarCapacidad = () => {
                     placeholder="0"
                     name="tambo"
                     style={{ textAlign: "right" }}
-                    defaultValue={infoEdit[4].has}
+                    defaultValue={Math.trunc(infoEdit[4].has)}
                     onChange={(e) => handleInputChangeEdit(e)}
                   />
                 </Form.Item>
@@ -236,7 +236,7 @@ export const EditarCapacidad = () => {
                     placeholder="0"
                     name="tamboA"
                     style={{ textAlign: "right" }}
-                    defaultValue={infoEdit[5].has}
+                    defaultValue={Math.trunc(infoEdit[5].has)}
                     onChange={(e) => handleInputChangeEdit(e)}
                   />
                 </Form.Item>
@@ -254,7 +254,7 @@ export const EditarCapacidad = () => {
                     placeholder="0"
                     name="mixto"
                     style={{ textAlign: "right" }}
-                    defaultValue={infoEdit[6].has}
+                    defaultValue={Math.trunc(infoEdit[6].has)}
                     onChange={(e) => handleInputChangeEdit(e)}
                   />
                 </Form.Item>
@@ -267,7 +267,7 @@ export const EditarCapacidad = () => {
                     placeholder="0"
                     name="mixtoA"
                     style={{ textAlign: "right" }}
-                    defaultValue={infoEdit[7].has}
+                    defaultValue={Math.trunc(infoEdit[7].has)}
                     onChange={(e) => handleInputChangeEdit(e)}
                   />
                 </Form.Item>
@@ -287,7 +287,7 @@ export const EditarCapacidad = () => {
                     placeholder="0"
                     name="propias"
                     style={{ textAlign: "right" }}
-                    defaultValue={infoEdit[0].ahxs_propias}
+                    defaultValue={Math.trunc(infoEdit[0].ahxs_propias)}
                     onChange={handleInputChangeEdit}
                   />
                 </Form.Item>
@@ -300,7 +300,7 @@ export const EditarCapacidad = () => {
                     placeholder="0"
                     name="alquiladas"
                     style={{ textAlign: "right" }}
-                    defaultValue={infoEdit[0].ahxs_alquiladas}
+                    defaultValue={Math.trunc(infoEdit[0].ahxs_alquiladas)}
                     onChange={(e) => handleInputChangeEdit(e)}
                   />
                 </Form.Item>
