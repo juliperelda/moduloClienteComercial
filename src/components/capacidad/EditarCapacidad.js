@@ -336,7 +336,7 @@ export const EditarCapacidad = () => {
             <div className='contBotones'>
                 <Button
                     className='btnAddCosechaData'
-                    onClick={() => salir()}
+                    //onClick={() => salir()}
                 > Salir
                 </Button>
 
@@ -347,7 +347,7 @@ export const EditarCapacidad = () => {
                 </Button>
             </div>
 
-            {
+            {/* {
                 isActiveModal ?
                     (
                         // <Modal title="" open={isActiveModal} onCancel={cerrar} footer={null} centered >
@@ -356,7 +356,7 @@ export const EditarCapacidad = () => {
                         // </Modal>
                     )
                     : ('')
-            }
+            } */}
 
         </>
     )
