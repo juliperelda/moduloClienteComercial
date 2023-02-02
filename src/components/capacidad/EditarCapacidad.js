@@ -43,7 +43,7 @@ export const EditarCapacidad = () => {
   }, [])
   
   console.log(dataContext);
-  
+
   //! UseState
   const [isActiveModal, setIsActiveModal] = useState(false); //Es por si utilizo el modal para el mensaje de que se paso de cantidad en los rubros
   // const [isDataSet, setIsDataSet] = useState({});
@@ -183,7 +183,7 @@ export const EditarCapacidad = () => {
                     placeholder="0"
                     name="agricultura"
                     style={{ textAlign: "right" }}
-                    //defaultValue={Math.trunc(infoEdit[0].has)}
+                    defaultValue={Math.trunc(infoEdit[0].has)}
                     value={Math.trunc(infoEdit[0].has)}
                     onChange={(value) => handleInputChangeEdit(value)}
                   />
@@ -197,7 +197,7 @@ export const EditarCapacidad = () => {
                     placeholder="0"
                     name="agriculturaA"
                     style={{ textAlign: "right" }}
-                    //defaultValue={Math.trunc(infoEdit[1].has)}
+                    defaultValue={Math.trunc(infoEdit[1].has)}
                     value={Math.trunc(infoEdit[1].has)}
                     onChange={(value) => handleInputChangeEdit(value)}
                   />
@@ -216,7 +216,7 @@ export const EditarCapacidad = () => {
                     placeholder="0"
                     name="ganaderia"
                     style={{ textAlign: "right" }}
-                    //defaultValue={Math.trunc(infoEdit[2].has)}
+                    defaultValue={Math.trunc(infoEdit[2].has)}
                     value={Math.trunc(infoEdit[2].has)}
                     onChange={(value) => handleInputChangeEdit(value)}
                   />
@@ -230,7 +230,7 @@ export const EditarCapacidad = () => {
                     placeholder="0"
                     name="ganaderiaA"
                     style={{ textAlign: "right" }}
-                    //defaultValue={Math.trunc(infoEdit[3].has)}
+                    defaultValue={Math.trunc(infoEdit[3].has)}
                     value={Math.trunc(infoEdit[3].has)}
                     onChange={(value) => handleInputChangeEdit(value)}
                   />
@@ -249,7 +249,7 @@ export const EditarCapacidad = () => {
                     placeholder="0"
                     name="tambo"
                     style={{ textAlign: "right" }}
-                    //defaultValue={Math.trunc(infoEdit[4].has)}
+                    defaultValue={Math.trunc(infoEdit[4].has)}
                     value={Math.trunc(infoEdit[4].has)}
                     onChange={(value) => handleInputChangeEdit(value)}
                   />
@@ -263,7 +263,7 @@ export const EditarCapacidad = () => {
                     placeholder="0"
                     name="tamboA"
                     style={{ textAlign: "right" }}
-                    //defaultValue={Math.trunc(infoEdit[5].has)}
+                    defaultValue={Math.trunc(infoEdit[5].has)}
                     value={Math.trunc(infoEdit[5].has)}
                     onChange={(value) => handleInputChangeEdit(value)}
                   />
@@ -282,7 +282,7 @@ export const EditarCapacidad = () => {
                     placeholder="0"
                     name="mixto"
                     style={{ textAlign: "right" }}
-                    //defaultValue={Math.trunc(infoEdit[6].has)}
+                    defaultValue={Math.trunc(infoEdit[6].has)}
                     value={Math.trunc(infoEdit[6].has)}
                     onChange={(value) => handleInputChangeEdit(value)}
                   />
@@ -296,7 +296,7 @@ export const EditarCapacidad = () => {
                     placeholder="0"
                     name="mixtoA"
                     style={{ textAlign: "right" }}
-                    //defaultValue={Math.trunc(infoEdit[7].has)}
+                    defaultValue={Math.trunc(infoEdit[7].has)}
                     value={Math.trunc(infoEdit[7].has)}
                     onChange={(value) => handleInputChangeEdit(value)}
                   />
@@ -317,7 +317,7 @@ export const EditarCapacidad = () => {
                     placeholder="0"
                     name="propias"
                     style={{ textAlign: "right" }}
-                    //defaultValue={Math.trunc(infoEdit[0].ahxs_propias)}
+                    defaultValue={Math.trunc(infoEdit[0].ahxs_propias)}
                     value={Math.trunc(infoEdit[0].ahxs_propias)}
                     onChange={(value) => handleInputChangeEdit(value)}
                   />
@@ -331,7 +331,7 @@ export const EditarCapacidad = () => {
                     placeholder="0"
                     name="alquiladas"
                     style={{ textAlign: "right" }}
-                    //defaultValue={Math.trunc(infoEdit[0].ahxs_alquiladas)}
+                    defaultValue={Math.trunc(infoEdit[0].ahxs_alquiladas)}
                     value={Math.trunc(infoEdit[0].ahxs_alquiladas)}
                     onChange={(value) => handleInputChangeEdit(value)}
                   />
