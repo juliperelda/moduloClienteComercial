@@ -1,5 +1,5 @@
-import { Button, Form, Input } from 'antd'
-import React, { useContext, useState } from 'react'
+import { Button, Card, Form, Input } from 'antd'
+import React, { useContext, useEffect, useState } from 'react'
 import { GlobalContext } from '../../context/GlobalContext'
 import './capacidad.css';
 
@@ -21,12 +21,12 @@ export const EditarCapacidad = () => {
         }
     }
 
-    // useEffect(() => {
-    //     const fetchData = () => {
-    //         traeData()
-    //     }
-    //     fetchData()
-    // }, [])
+    useEffect(() => {
+        const fetchData = () => {
+            traeData()
+        }
+        fetchData()
+    }, [])
 
     const handEdit = () => {
         let inputPropias = document.getElementById("inputPropias").value;
@@ -152,7 +152,7 @@ export const EditarCapacidad = () => {
                                         placeholder="0"
                                         name='agricultura'
                                         style={{ 'textAlign': 'right' }}
-                                        //defaultValue={dataContext.agricultura}
+                                        defaultValue={dataContext.agricultura}
                                         onChange={(e) => handleInputChangeEdit(e)}
                                     />
                                 </Form.Item>
@@ -169,7 +169,7 @@ export const EditarCapacidad = () => {
                                         placeholder="0"
                                         name='agriculturaA'
                                         style={{ 'textAlign': 'right' }}
-                                        //defaultValue={dataContext.agriculturaA}
+                                        defaultValue={dataContext.agriculturaA}
                                         onChange={(e) => handleInputChangeEdit(e)}
                                     />
                                 </Form.Item>
@@ -191,7 +191,7 @@ export const EditarCapacidad = () => {
                                         placeholder="0"
                                         name='ganaderia'
                                         style={{ 'textAlign': 'right' }}
-                                        // defaultValue={dataContext.ganaderia}
+                                        defaultValue={dataContext.ganaderia}
                                         onChange={(e) => handleInputChangeEdit(e)}
                                     />
                                 </Form.Item>
@@ -208,7 +208,7 @@ export const EditarCapacidad = () => {
                                         placeholder="0"
                                         name='ganaderiaA'
                                         style={{ 'textAlign': 'right' }}
-                                        // defaultValue={dataContext.ganaderiaA}
+                                        defaultValue={dataContext.ganaderiaA}
                                         onChange={(e) => handleInputChangeEdit(e)}
                                     />
                                 </Form.Item>
@@ -230,7 +230,8 @@ export const EditarCapacidad = () => {
                                         placeholder="0"
                                         name='tambo'
                                         style={{ 'textAlign': 'right' }}
-                                        // onChange={(e) => handleInputChangeEdit(e)}
+                                        defaultValue={dataContext.tambo}
+                                        onChange={(e) => handleInputChangeEdit(e)}
                                     />
                                 </Form.Item>
 
@@ -246,7 +247,7 @@ export const EditarCapacidad = () => {
                                         placeholder="0"
                                         name='tamboA'
                                         style={{ 'textAlign': 'right' }}
-                                        // defaultValue={dataContext.tamboA}
+                                        defaultValue={dataContext.tamboA}
                                         onChange={(e) => handleInputChangeEdit(e)}
                                     />
                                 </Form.Item>
@@ -268,7 +269,7 @@ export const EditarCapacidad = () => {
                                         placeholder="0"
                                         name='mixto'
                                         style={{ 'textAlign': 'right' }}
-                                        // defaultValue={dataContext.mixto}
+                                        defaultValue={dataContext.mixto}
                                         onChange={(e) => handleInputChangeEdit(e)}
                                     />
                                 </Form.Item>
@@ -285,7 +286,7 @@ export const EditarCapacidad = () => {
                                         placeholder="0"
                                         name='mixtoA'
                                         style={{ 'textAlign': 'right' }}
-                                        // defaultValue={dataContext.mixtoA}
+                                        defaultValue={dataContext.mixtoA}
                                         onChange={(e) => handleInputChangeEdit(e)}
                                     />
                                 </Form.Item>
@@ -306,7 +307,7 @@ export const EditarCapacidad = () => {
                                         placeholder="0"
                                         name='propias'
                                         style={{ 'textAlign': 'right' }}
-                                        // defaultValue={dataContext.propias}
+                                        defaultValue={dataContext.propias}
                                         onChange={handleInputChangeEdit}
                                     />
                                 </Form.Item>
@@ -323,7 +324,7 @@ export const EditarCapacidad = () => {
                                         placeholder="0"
                                         name='alquiladas'
                                         style={{ 'textAlign': 'right' }}
-                                        // defaultValue={dataContext.alquiladas}
+                                        defaultValue={dataContext.alquiladas}
                                         onChange={(e) => handleInputChangeEdit(e)}
                                     />
                                 </Form.Item>
