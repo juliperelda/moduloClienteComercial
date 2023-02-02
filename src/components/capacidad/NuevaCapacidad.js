@@ -80,7 +80,7 @@ export const NuevaCapacidad = () => {
 
         setIsData({ //Crea el objeto de lo que escribo en los campos
             ...isData,
-            cosecha: localStorage.getItem('idCosecha') ? localStorage.getItem('idCosecha') : null,
+            cosecha: localStorage.getItem('idCosechaSelec') ? localStorage.getItem('idCosechaSelec') : null,
             [event.target.name]: event.target.value
         })
     }
