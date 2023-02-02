@@ -100,9 +100,9 @@ export const EditarCapacidad = () => {
 
           let cli = localStorage.getItem("cliente");
 
-          //editCap(cli, dataContext);
+          editCap(cli, dataContext);
 
-          //setUpdate(!update);
+          setUpdate(!update);
 
         } else {
           alert("El total de Has. de Rubros supera a las Has. Propias en general");
