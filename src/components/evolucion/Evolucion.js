@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 import React, { useContext, useEffect, useState } from "react";
 import {
@@ -94,7 +95,7 @@ const Evolucion = () => {
     if (idCliente) {
       InfoGrafEvol(idCliente);
     }
-  }, [idCliente]);
+  }, [idCliente, update]);
 
 
   const [dataForChart, setDataForChart] = useState([]);
@@ -111,7 +112,7 @@ const Evolucion = () => {
         })
       );
     }
-  }, [infoEvo, update]);
+  }, [infoEvo]);
 
 
 
