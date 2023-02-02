@@ -1,5 +1,5 @@
-import { Button, Card, Form, Input } from 'antd'
-import React, { useContext, useEffect, useState } from 'react'
+import { Button, Form, Input } from 'antd'
+import React, { useContext, useState } from 'react'
 import { GlobalContext } from '../../context/GlobalContext'
 import './capacidad.css';
 

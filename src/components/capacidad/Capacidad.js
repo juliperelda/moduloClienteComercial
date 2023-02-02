@@ -73,10 +73,7 @@ const Capacidad = () => {
     const [isHayData, setIsHayData] = useState(false);
     const [selectedValue, setSelectedValue] = useState(localStorage.getItem("cosechaActiva"));
 
-    const editarCosecha = () => {
-        //setIsButtonEditDisabled(true);
-        setAppStage(1);
-    };
+    
 
 
     var result = {};
@@ -178,8 +175,12 @@ const Capacidad = () => {
     };
 
 
-    const addCosecha = (infoCap) => {
+    const addCosecha = () => {
         setAppStage(2);
+    };
+    const editarCosecha = () => {
+        setIsButtonEditDisabled(true);
+        setAppStage(1);
     };
 
 
@@ -319,8 +320,8 @@ const Capacidad = () => {
                     style={{ alignItems: "center", boxShadow: "none !important", outline: "0", border: "none !important" }}
                     className="btnEditCosecha"
                     icon={<EditOutlined />}
-                    onClick={() => editarCosecha(infoCap)}
-                    //onClick={() => console.log(infoCap)}
+                    //onClick={() => editarCosecha()}
+                    onClick={() => console.log(infoCap)}
                     // onChange={(e) => recuperaCosecha(e)}
                     disabled={isButtonEditDisabled}
                 />
@@ -329,7 +330,7 @@ const Capacidad = () => {
                     className="btnAddCosecha"
                     icon={<PlusCircleOutlined style={{ "--antd-wave-shadow-color": "transparent !important" }} />}
                     onClick={() => {
-                        addCosecha(infoCap);
+                        addCosecha();
                     }}
                     disabled={isButtonDisabled}
                 />
