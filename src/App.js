@@ -4,7 +4,17 @@ import { GlobalContext } from "./context/GlobalContext";
 import Analitica from './components/analisis/Analitica';
 
 function App() {
-  const [dataContext, setDataContext] = useState();
+  const [dataContext, setDataContext] = useState({
+    agricultura: "",
+      agriculturaA: "",
+      ganaderia: "",
+      ganaderiaA: "",
+      tambo: "",
+      tamboA: "",
+      mixto: "",
+      mixtoA: "",
+      cosecha: ""
+  });
   const [isCosecha, setIsCosecha] = useState();
   const [appStage, setAppStage] = useState();
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);

@@ -2,7 +2,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState, useContext } from "react";
-import { Button, Select, Space, Table, Tooltip } from "antd";
+import { Button, Popover, Select, Space, Table, Tooltip } from "antd";
 import { EditOutlined, InfoCircleOutlined, PlusCircleOutlined } from "@ant-design/icons";
 import { GlobalContext } from "../../context/GlobalContext";
 import "./capacidad.css";
@@ -66,8 +66,9 @@ const Capacidad = () => {
         setInfoCap,
         infoCosechas,
         setCosechas,
-        update,
-        setUpdate
+        update, 
+        setUpdate,
+        setInfoEdit
     } = useContext(GlobalContext);
 
     const [isHayData, setIsHayData] = useState(false);
@@ -84,6 +85,7 @@ const Capacidad = () => {
 
     const generaData = (infoCap) => {
 
+        setInfoEdit(infoCap);
         // Iterar sobre cada objeto del array
         infoCap.forEach(info => {
             // Verificar si ya existe el arubro_desc en el objeto result

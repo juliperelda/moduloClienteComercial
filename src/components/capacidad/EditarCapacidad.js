@@ -4,6 +4,7 @@ import { GlobalContext } from "../../context/GlobalContext";
 import "./capacidad.css";
 
 export const EditarCapacidad = () => {
+  
   var objData = [];
 
   //! UseContext
@@ -18,84 +19,107 @@ export const EditarCapacidad = () => {
     isButtonEditDisabled,
     setIsButtonEditDisabled,
     infoEdit,
-    setInfoEdit,
     update, 
     setUpdate
   } = useContext(GlobalContext);
 
-  //! UseState
-  const [isActiveModal, setIsActiveModal] = useState(false); //Es por si utilizo el modal para el mensaje de que se paso de cantidad en los rubros
-  const [isDataSet, setIsDataSet] = useState({});
 
-  //! Funciones
-  const traeData = () => {
-    if (localStorage.getItem("data")) {
-      setIsDataSet(JSON.parse(localStorage.getItem("data")).objData);
-    }
-  };
+  console.log(infoEdit);
+    
+  console.log(dataContext);
 
   useEffect(() => {
-    const fetchData = () => {
-      traeData();
-    };
-    fetchData();
-  }, []);
+    setDataContext({
+      agricultura: Math.trunc(infoEdit[0].has),
+      agriculturaA: Math.trunc(infoEdit[1].has),
+      ganaderia: Math.trunc(infoEdit[2].has),
+      ganaderiaA: Math.trunc(infoEdit[3].has),
+      tambo: Math.trunc(infoEdit[4].has),
+      tamboA: Math.trunc(infoEdit[5].has),
+      mixto: Math.trunc(infoEdit[6].has),
+      mixtoA: Math.trunc(infoEdit[7].has),
+      cosecha: localStorage.getItem("idCosechaSelec") ? localStorage.getItem("idCosechaSelec") : null,
+    });
+  }, [])
+  
+  console.log(dataContext);
 
-  const handEdit = () => {
-    let inputPropias = document.getElementById("inputPropias").value;
-    let inputAgricultura = document.getElementById("inputAgricultura").value;
-    let inputGanaderia = document.getElementById("inputGanaderia").value;
-    let inputTambo = document.getElementById("inputTambo").value;
-    let inputMixto = document.getElementById("inputMixto").value;
-    let totalPropias =
-      parseInt(inputAgricultura) +
-      parseInt(inputGanaderia) +
-      parseInt(inputTambo) +
-      parseInt(inputMixto);
+  //! UseState
+  const [isActiveModal, setIsActiveModal] = useState(false); //Es por si utilizo el modal para el mensaje de que se paso de cantidad en los rubros
+  // const [isDataSet, setIsDataSet] = useState({});
 
-    let inputAlquiladas = document.getElementById("inputAlquiladas").value;
-    let inputAgriculturaA = document.getElementById("inputAgriculturaA").value;
-    let inputGanaderiaA = document.getElementById("inputGanaderiaA").value;
-    let inputTamboA = document.getElementById("inputTamboA").value;
-    let inputMixtoA = document.getElementById("inputMixtoA").value;
-    let totalAlquiladas =
-      parseInt(inputAgriculturaA) +
-      parseInt(inputGanaderiaA) +
-      parseInt(inputTamboA) +
-      parseInt(inputMixtoA);
+  // //! Funciones
+  // const traeData = () => {
+  //   if (localStorage.getItem("data")) {
+  //     setIsDataSet(JSON.parse(localStorage.getItem("data")).objData);
+  //   }
+  // };
 
-    if ((totalPropias <= inputPropias) & (totalAlquiladas <= inputAlquiladas)) {
-      isDataSet.forEach(function (data) {
-        if (parseInt(data.cosecha) !== parseInt(isCosecha)) {
-          objData = [...objData, data];
+  // useEffect(() => {
+  //   const fetchData = () => {
+  //     traeData();
+  //   };
+  //   fetchData();
+  // }, []);
+
+    const handEdit = () => {
+        let inputPropias = document.getElementById("inputPropias").value;
+        let inputAgricultura = document.getElementById("inputAgricultura").value;
+        let inputGanaderia = document.getElementById("inputGanaderia").value;
+        let inputTambo = document.getElementById("inputTambo").value;
+        let inputMixto = document.getElementById("inputMixto").value;
+        let totalPropias =
+        parseInt(inputAgricultura) +
+        parseInt(inputGanaderia) +
+        parseInt(inputTambo) +
+        parseInt(inputMixto);
+
+        let inputAlquiladas = document.getElementById("inputAlquiladas").value;
+        let inputAgriculturaA = document.getElementById("inputAgriculturaA").value;
+        let inputGanaderiaA = document.getElementById("inputGanaderiaA").value;
+        let inputTamboA = document.getElementById("inputTamboA").value;
+        let inputMixtoA = document.getElementById("inputMixtoA").value;
+        let totalAlquiladas =
+        parseInt(inputAgriculturaA) +
+        parseInt(inputGanaderiaA) +
+        parseInt(inputTamboA) +
+        parseInt(inputMixtoA);
+
+
+
+        if ((totalPropias <= inputPropias) & (totalAlquiladas <= inputAlquiladas)) {
+        
+          console.log("entre if de handEdit");
+
+          objData = [...objData, dataContext];
+
+          console.log("objData: ", objData, "dataContext: ", dataContext);
+
+          localStorage.setItem("data", JSON.stringify({ objData }));
+          setAppStage(0);
+
+          let cli = localStorage.getItem("cliente");
+
+          //editCap(cli, dataContext);
+
+          //setUpdate(!update);
+
+        } else {
+          alert("El total de Has. de Rubros supera a las Has. Propias en general");
+          setIsActiveModal(true);
         }
-      });
-
-      objData = [...objData, dataContext];
-
-      localStorage.setItem("data", JSON.stringify({ objData }));
-      setAppStage(0);
-
-      let cli = localStorage.getItem("cliente");
-
-      editCap(cli, dataContext);
-
-      setUpdate(!update);
-
-    } else {
-      alert("El total de Has. de Rubros supera a las Has. Propias en general");
-      setIsActiveModal(true);
-    }
   };
 
   const handleInputChangeEdit = (event) => {
-    setDataContext({
-      //Crea el objeto de lo que escribo en los campos
-      ...dataContext,
-      cosecha: isCosecha ? isCosecha : null,
-      [event.target.name]: event.target.value,
-    });
-    console.log(dataContext);
+    if (dataContext[event.target.name] !== event.target.value) {
+      setDataContext({
+        //Crea el objeto de lo que escribo en los campos
+        ...dataContext,
+        cosecha: localStorage.getItem("idCosechaSelec") ? localStorage.getItem("idCosechaSelec") : null,
+        [event.target.name]: event.target.value,
+      });
+      
+    }
   };
 
   //* FUNCION QUE CARGA LOS DATOS DE UNA NUEVA COSECHA
@@ -159,8 +183,9 @@ export const EditarCapacidad = () => {
                     placeholder="0"
                     name="agricultura"
                     style={{ textAlign: "right" }}
-                    // defaultValue={infoEdit.AGRICULTURA.propias}
-                    onChange={(e) => handleInputChangeEdit(e)}
+                    defaultValue={Math.trunc(infoEdit[0].has)}
+                    value={Math.trunc(infoEdit[0].has)}
+                    onChange={(value) => handleInputChangeEdit(value)}
                   />
                 </Form.Item>
               </td>
@@ -172,8 +197,9 @@ export const EditarCapacidad = () => {
                     placeholder="0"
                     name="agriculturaA"
                     style={{ textAlign: "right" }}
-                    // defaultValue={infoEdit.AGRICULTURA.alquiladas}
-                    onChange={(e) => handleInputChangeEdit(e)}
+                    defaultValue={Math.trunc(infoEdit[1].has)}
+                    value={Math.trunc(infoEdit[1].has)}
+                    onChange={(value) => handleInputChangeEdit(value)}
                   />
                 </Form.Item>
               </td>
@@ -190,8 +216,9 @@ export const EditarCapacidad = () => {
                     placeholder="0"
                     name="ganaderia"
                     style={{ textAlign: "right" }}
-                    // defaultValue={infoEdit.GANADERIA.propias}
-                    onChange={(e) => handleInputChangeEdit(e)}
+                    defaultValue={Math.trunc(infoEdit[2].has)}
+                    value={Math.trunc(infoEdit[2].has)}
+                    onChange={(value) => handleInputChangeEdit(value)}
                   />
                 </Form.Item>
               </td>
@@ -203,8 +230,9 @@ export const EditarCapacidad = () => {
                     placeholder="0"
                     name="ganaderiaA"
                     style={{ textAlign: "right" }}
-                    // defaultValue={infoEdit.GANADERIA.alquiladas}
-                    onChange={(e) => handleInputChangeEdit(e)}
+                    defaultValue={Math.trunc(infoEdit[3].has)}
+                    value={Math.trunc(infoEdit[3].has)}
+                    onChange={(value) => handleInputChangeEdit(value)}
                   />
                 </Form.Item>
               </td>
@@ -221,8 +249,9 @@ export const EditarCapacidad = () => {
                     placeholder="0"
                     name="tambo"
                     style={{ textAlign: "right" }}
-                    // defaultValue={infoEdit.TAMBO.propias}
-                    onChange={(e) => handleInputChangeEdit(e)}
+                    defaultValue={Math.trunc(infoEdit[4].has)}
+                    value={Math.trunc(infoEdit[4].has)}
+                    onChange={(value) => handleInputChangeEdit(value)}
                   />
                 </Form.Item>
               </td>
@@ -234,8 +263,9 @@ export const EditarCapacidad = () => {
                     placeholder="0"
                     name="tamboA"
                     style={{ textAlign: "right" }}
-                    // defaultValue={infoEdit.TAMBO.alquiladas}
-                    onChange={(e) => handleInputChangeEdit(e)}
+                    defaultValue={Math.trunc(infoEdit[5].has)}
+                    value={Math.trunc(infoEdit[5].has)}
+                    onChange={(value) => handleInputChangeEdit(value)}
                   />
                 </Form.Item>
               </td>
@@ -252,8 +282,9 @@ export const EditarCapacidad = () => {
                     placeholder="0"
                     name="mixto"
                     style={{ textAlign: "right" }}
-                    // defaultValue={infoEdit.MIXTO.propias}
-                    onChange={(e) => handleInputChangeEdit(e)}
+                    defaultValue={Math.trunc(infoEdit[6].has)}
+                    value={Math.trunc(infoEdit[6].has)}
+                    onChange={(value) => handleInputChangeEdit(value)}
                   />
                 </Form.Item>
               </td>
@@ -265,8 +296,9 @@ export const EditarCapacidad = () => {
                     placeholder="0"
                     name="mixtoA"
                     style={{ textAlign: "right" }}
-                    // defaultValue={infoEdit.MIXTO.alquiladas}
-                    onChange={(e) => handleInputChangeEdit(e)}
+                    defaultValue={Math.trunc(infoEdit[7].has)}
+                    value={Math.trunc(infoEdit[7].has)}
+                    onChange={(value) => handleInputChangeEdit(value)}
                   />
                 </Form.Item>
               </td>
@@ -285,8 +317,9 @@ export const EditarCapacidad = () => {
                     placeholder="0"
                     name="propias"
                     style={{ textAlign: "right" }}
-                    // defaultValue={infoCap.ahxs_propias}
-                    onChange={handleInputChangeEdit}
+                    defaultValue={Math.trunc(infoEdit[0].ahxs_propias)}
+                    value={Math.trunc(infoEdit[0].ahxs_propias)}
+                    onChange={(value) => handleInputChangeEdit(value)}
                   />
                 </Form.Item>
               </td>
@@ -298,8 +331,9 @@ export const EditarCapacidad = () => {
                     placeholder="0"
                     name="alquiladas"
                     style={{ textAlign: "right" }}
-                    // defaultValue={infoCap.ahxs_alquiladas}
-                    onChange={(e) => handleInputChangeEdit(e)}
+                    defaultValue={Math.trunc(infoEdit[0].ahxs_alquiladas)}
+                    value={Math.trunc(infoEdit[0].ahxs_alquiladas)}
+                    onChange={(value) => handleInputChangeEdit(value)}
                   />
                 </Form.Item>
               </td>
@@ -310,7 +344,7 @@ export const EditarCapacidad = () => {
       <div className="contBotones">
         <Button className="btnAddCosechaData" onClick={() => salir()}>
           {" "}
-          Salir
+          Cancelar
         </Button>
 
         <Button className="btnAddCosechaData" onClick={() => handEdit()}>
