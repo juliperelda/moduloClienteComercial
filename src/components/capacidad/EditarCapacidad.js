@@ -103,12 +103,15 @@ export const EditarCapacidad = () => {
   };
 
   const handleInputChangeEdit = (event) => {
-    setDataContext({
-      //Crea el objeto de lo que escribo en los campos
-      ...dataContext,
-      //cosecha: localStorage.getItem("idCosechaSelec") ? localStorage.getItem("idCosechaSelec") : null,
-      [event.target.name]: event.target.value,
-    });
+    if (dataContext[event.target.name] !== event.target.value) {
+      setDataContext({
+        //Crea el objeto de lo que escribo en los campos
+        ...dataContext,
+        cosecha: localStorage.getItem("idCosechaSelec") ? localStorage.getItem("idCosechaSelec") : null,
+        [event.target.name]: event.target.value,
+      });
+      
+    }
   };
 
   //* FUNCION QUE CARGA LOS DATOS DE UNA NUEVA COSECHA
