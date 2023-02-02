@@ -321,8 +321,8 @@ const Capacidad = () => {
                     style={{ alignItems: "center", boxShadow: "none !important", outline: "0", border: "none !important" }}
                     className="btnEditCosecha"
                     icon={<EditOutlined />}
-                    // onClick={() => editarCosecha()}
-                    onClick={() => console.log(infoCap)}
+                    onClick={() => editarCosecha()}
+                    //onClick={() => console.log(infoCap)}
                     // onChange={(e) => recuperaCosecha(e)}
                     disabled={isButtonEditDisabled}
                 />
