@@ -68,7 +68,7 @@ export const NuevaCapacidad = () => {
                 newCap(cli,isData);
 
             } else {
-                // alert("El total de Has. de Rubros supera a las Has. Propias en general")
+                alert("El total de Has. de Rubros supera a las Has. Propias en general")
                 setIsActiveModal(true)
             }
         } else {

@@ -21,12 +21,12 @@ export const EditarCapacidad = () => {
         }
     }
 
-    // useEffect(() => {
-    //     const fetchData = () => {
-    //         traeData()
-    //     }
-    //     fetchData()
-    // }, [])
+    useEffect(() => {
+        const fetchData = () => {
+            traeData()
+        }
+        fetchData()
+    }, [])
 
     const handEdit = () => {
         let inputPropias = document.getElementById("inputPropias").value;
@@ -69,7 +69,7 @@ export const EditarCapacidad = () => {
             editCap(cli,dataContext);
 
         } else {
-            // alert("El total de Has. de Rubros supera a las Has. Propias en general")
+            alert("El total de Has. de Rubros supera a las Has. Propias en general")
             setIsActiveModal(true)
         }
 
