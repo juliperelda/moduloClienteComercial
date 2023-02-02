@@ -87,7 +87,7 @@ export const EditarCapacidad = () => {
     }
 
 
-    //* FUNCION QUE CARGA LOS DATOS DE UNA NUEVA COSECHA
+    //* FUNCION QUE ACTUALIZA LOS DATOS DE UNA COSECHA
     function editCap(cli, dataContext) {
         const data = new FormData();
         data.append("idC", cli);
