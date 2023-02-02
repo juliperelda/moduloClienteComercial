@@ -25,7 +25,11 @@ export const EditarCapacidad = () => {
 
 
   console.log(infoEdit);
-  setDataContext({
+    
+  console.log(dataContext);
+
+  useEffect(() => {
+    setDataContext({
       agricultura: Math.trunc(infoEdit[0].has),
       agriculturaA: Math.trunc(infoEdit[1].has),
       ganaderia: Math.trunc(infoEdit[2].has),
@@ -36,9 +40,10 @@ export const EditarCapacidad = () => {
       mixtoA: Math.trunc(infoEdit[7].has),
       cosecha: localStorage.getItem("idCosechaSelec") ? localStorage.getItem("idCosechaSelec") : null,
     });
-
-    console.log(dataContext);
-
+  }, [])
+  
+  console.log(dataContext);
+  
   //! UseState
   const [isActiveModal, setIsActiveModal] = useState(false); //Es por si utilizo el modal para el mensaje de que se paso de cantidad en los rubros
   // const [isDataSet, setIsDataSet] = useState({});
