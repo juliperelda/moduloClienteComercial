@@ -66,14 +66,20 @@ export const EditarCapacidad = () => {
       parseInt(inputTamboA) +
       parseInt(inputMixtoA);
 
+
+
     if ((totalPropias <= inputPropias) & (totalAlquiladas <= inputAlquiladas)) {
-      isDataSet.forEach(function (data) {
-        if (parseInt(data.cosecha) !== parseInt(isCosecha)) {
-          objData = [...objData, data];
-        }
-      });
+    //   isDataSet.forEach(function (data) {
+    //     if (parseInt(data.cosecha) !== parseInt(isCosecha)) {
+    //       objData = [...objData, data];
+    //     }
+    //   });
+      
+      console.log("entre if de handEdit");
 
       objData = [...objData, dataContext];
+
+      console.log("objData: ", objData, "dataContext: ", dataContext);
 
       localStorage.setItem("data", JSON.stringify({ objData }));
       setAppStage(0);
