@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useContext, useEffect, useState } from "react";
 import {
   BarChart,
@@ -12,16 +13,11 @@ import {
 import { GlobalContext } from "../../context/GlobalContext";
 
 const Evolucion = () => {
-  const { idCliente, infoEvo, setInfoEvo } = useContext(GlobalContext);
+  const { idCliente, infoEvo, setInfoEvo, update, setUpdate } = useContext(GlobalContext);
 
   const [isDataStorage, setIsDataStorage] = useState([]);
 
   const [sortedData, setSortedData] = useState([]);
-
-  const [dale, setDale] = useState({
-    propias: '',
-    alquiladas:''
-  });
 
 
   useEffect(() => {
@@ -83,94 +79,45 @@ const Evolucion = () => {
     const data = new FormData();
     data.append("idC", idCliente);
     fetch("../com_graEvolucionData.php", {
-    method: "POST",
-    body: data,
+      method: "POST",
+      body: data,
     }).then(function (response) {
-        response.text().then((resp) => {
-            const data = resp;
-            var objetoData = JSON.parse(data);
-            setInfoEvo(objetoData);            
-        });
+      response.text().then((resp) => {
+        const data = resp;
+        var objetoData = JSON.parse(data);
+        setInfoEvo(objetoData);
+      });
     });
-}
+  }
 
-useEffect(() => {
+  useEffect(() => {
     if (idCliente) {
-        InfoGrafEvol(idCliente);
+      InfoGrafEvol(idCliente);
     }
-}, [idCliente]);
+  }, [idCliente]);
 
-// if (infoEvo.length > 0) {
-//     console.log("infoEvo desde Evolucion: ",infoEvo);
-//     console.log("infoEvo[0] desde Evolucion: ",infoEvo[0].acos_desc);                
-// }    
 
-// const dataForChart = infoEvo.map(item => {
-//   return {
-//       cosecha: item.acos_desc,
-//       propias: item.ahxs_propias,
-//       alquiladas: item.ahxs_alquiladas
-//   }
-// });
+  const [dataForChart, setDataForChart] = useState([]);
 
-const [dataForChart, setDataForChart] = useState([]);
-
-useEffect(() => {
+  useEffect(() => {
     if (infoEvo.length > 0) {
-        setDataForChart(infoEvo.map(item => {
-            return {
-                cosecha: item.acos_desc,
-                propias: item.ahxs_propias,
-                alquiladas: item.ahxs_alquiladas
-            }
-        }));
+      setDataForChart(
+        infoEvo.map((item) => {
+          return {
+            cosecha: item.acos_desc,
+            propias: item.ahxs_propias,
+            alquiladas: item.ahxs_alquiladas,
+          };
+        })
+      );
     }
-}, [infoEvo]);
+  }, [infoEvo]);
 
 
-
-
-// const data = [
-//   {
-//     name: 'Page A',
-//     propias: 4000,
-//     alquiladas: 2400,
-//   },
-//   {
-//     name: 'Page B',
-//     propias: 3000,
-//     alquiladas: 1398,
-//   },
-//   {
-//     name: 'Page C',
-//     propias: 2000,
-//     alquiladas: 9800,
-//   },
-//   {
-//     name: 'Page D',
-//     propias: 2780,
-//     alquiladas: 3908,
-//   },
-//   {
-//     name: 'Page E',
-//     propias: 1890,
-//     alquiladas: 4800,
-//   },
-//   {
-//     name: 'Page F',
-//     propias: 2390,
-//     alquiladas: 3800,
-//   },
-//   {
-//     name: 'Page G',
-//     propias: 3490,
-//     alquiladas: 4300,
-//   },
-// ];
 
   return (
     <>
-      <ResponsiveContainer className="" width="100%" height={/*400*/250}>
+      <ResponsiveContainer className="" width="100%" height={/*400*/ 250}>
         <BarChart
           width={500}
           height={300}

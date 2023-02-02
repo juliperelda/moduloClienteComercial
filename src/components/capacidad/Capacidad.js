@@ -66,8 +66,8 @@ const Capacidad = () => {
         setInfoCap,
         infoCosechas,
         setCosechas,
-        infoEdit, 
-        setInfoEdit,
+        update, 
+        setUpdate
     } = useContext(GlobalContext);
 
     const [isHayData, setIsHayData] = useState(false);
@@ -78,20 +78,6 @@ const Capacidad = () => {
         setAppStage(1);
     };
 
-    // useEffect(() => {
-    //     const fetchData = () => {
-    //         // pruebaSaveData()
-    //         infoTabCapacidad()
-    //     }
-    //     fetchData()
-    // }, [])
-
-    // const recuperaCosecha = (event) => {
-    //     cosechaSelect = event;
-    //     setIsCosecha(cosechaSelect);
-
-    //     generaData();
-    // };
 
     var result = {};
     let capacidad = [];
@@ -115,13 +101,13 @@ const Capacidad = () => {
 
 
         capacidad = result;
-        setInfoEdit(result);
+        
         capacidad = [
             {
                 key: 1,
                 categoria: "AGRICULTURA",
-                propias: result.AGRICULTURA ? Math.trunc(result.AGRICULTURA.propio) : 0,
-                alquiler: result.AGRICULTURA ? Math.trunc(result.AGRICULTURA.alquilado) : 0,
+                propias: result.AGRICULTURA ? Math.trunc(Math.trunc(result.AGRICULTURA.propio)) : 0,
+                alquiler: result.AGRICULTURA ? Math.trunc(Math.trunc(result.AGRICULTURA.alquilado)) : 0,
                 total: (
                     <>
                         {result.AGRICULTURA ? parseInt(result.AGRICULTURA.propio) + parseInt(result.AGRICULTURA.alquilado) : 0} {' '}
@@ -177,8 +163,8 @@ const Capacidad = () => {
                         />
                     </>
                 ),
-                propias: <strong>{parseInt(infoCap[0].ahxs_propias)}</strong>,
-                alquiler: <strong>{parseInt(infoCap[0].ahxs_alquiladas)}</strong>,
+                propias: <strong>{Math.trunc(infoCap[0].ahxs_propias)}</strong>,
+                alquiler: <strong>{Math.trunc(infoCap[0].ahxs_alquiladas)}</strong>,
                 total: <strong>{parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)}</strong>
 
             },
@@ -189,11 +175,11 @@ const Capacidad = () => {
 
     };
 
-    const addCosecha = (infoCap) => {
+
+    const addCosecha = () => {
         setAppStage(2);
     };
 
-    var objData = [];
 
     const handleStage = () => {
         switch (appStage) {
@@ -279,7 +265,7 @@ const Capacidad = () => {
             cosechas(idCliente);
             rubros();
         }
-    }, [idCliente, cosecha]);
+    }, [idCliente, cosecha, update ]);
 
     if (infoCap.length > 0) {
         // console.log("infoCap desde Capacidad: ", infoCap);
@@ -306,13 +292,20 @@ const Capacidad = () => {
         // console.log("infoCosechas[0] desde Capacidad: ", infoCosechas[0].acos_desc);
     }
 
+
+    // useEffect(() => {
+      
+    // }, [])
+    
+
+
     return (
         <>
             <div className="divDropdown">
                 <Select
                     className="selectCosecha"
                     style={{ width: '80px' }}
-                    onChange={(value) => setSelectedValue(value)}
+                    onChange={(value) => {setSelectedValue(value); localStorage.setItem("idCosechaSelec", value)}}
                     defaultValue={selectedValue}
                 >
                     {infoCosechas.length > 0 && infoCosechas.map((cosecha) => {
@@ -327,7 +320,6 @@ const Capacidad = () => {
                     className="btnEditCosecha"
                     icon={<EditOutlined />}
                     onClick={() => editarCosecha()}
-                    // onClick={() => console.log(infoCap)}
                     // onChange={(e) => recuperaCosecha(e)}
                     disabled={isButtonEditDisabled}
                 />
@@ -336,7 +328,7 @@ const Capacidad = () => {
                     className="btnAddCosecha"
                     icon={<PlusCircleOutlined style={{ "--antd-wave-shadow-color": "transparent !important" }} />}
                     onClick={() => {
-                        addCosecha(infoCap);
+                        addCosecha();
                     }}
                     disabled={isButtonDisabled}
                 />

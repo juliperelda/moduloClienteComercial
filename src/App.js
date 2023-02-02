@@ -20,6 +20,7 @@ function App() {
   const [infoCap, setInfoCap]=useState({});
   const [infoCosechas, setCosechas]=useState({});
   const [infoEdit, setInfoEdit]=useState({});
+  const [update, setUpdate] = useState(false);
 
   return (
     <GlobalContext.Provider value={{
@@ -34,6 +35,7 @@ function App() {
       idCliente, setIdCliente,
       infoCosechas,setCosechas,
       infoEdit, setInfoEdit,
+      update, setUpdate
     }}>
       
       <Analitica/>
