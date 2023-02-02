@@ -101,7 +101,7 @@ const Capacidad = () => {
 
 
         capacidad = result;
-        setInfoEdit(result);
+        //setInfoEdit(result);
         capacidad = [
             {
                 key: 1,
@@ -322,7 +322,7 @@ const Capacidad = () => {
                     className="btnEditCosecha"
                     icon={<EditOutlined />}
                     // onClick={() => editarCosecha()}
-                    onClick={() => console.log(infoCap)}
+                    //onClick={() => console.log(infoCap)}
                     // onChange={(e) => recuperaCosecha(e)}
                     disabled={isButtonEditDisabled}
                 />

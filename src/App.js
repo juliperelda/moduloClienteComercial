@@ -33,7 +33,7 @@ function App() {
       infoCap, setInfoCap,
       idCliente, setIdCliente,
       infoCosechas,setCosechas,
-      infoEdit, setInfoEdit,
+      infoEdit, setInfoEdit
     }}>
       
       <Analitica/>
