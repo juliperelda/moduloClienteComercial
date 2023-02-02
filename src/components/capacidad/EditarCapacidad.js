@@ -5,14 +5,14 @@ import './capacidad.css';
 
 export const EditarCapacidad = () => {
 
-    var objData = []
+    // var objData = []
 
-    //! UseContext
-    const { infoCap, dataContext, setDataContext, isCosecha, setIsCosecha, appStage, setAppStage, isButtonEditDisabled, setIsButtonEditDisabled, infoEdit, setInfoEdit } = useContext(GlobalContext)
+    // //! UseContext
+    // const { infoCap, dataContext, setDataContext, isCosecha, setIsCosecha, appStage, setAppStage, isButtonEditDisabled, setIsButtonEditDisabled, infoEdit, setInfoEdit } = useContext(GlobalContext)
 
     //! UseState
-    const [isActiveModal, setIsActiveModal] = useState(false); //Es por si utilizo el modal para el mensaje de que se paso de cantidad en los rubros
-    const [isDataSet, setIsDataSet] = useState({});
+    // const [isActiveModal, setIsActiveModal] = useState(false); //Es por si utilizo el modal para el mensaje de que se paso de cantidad en los rubros
+    // const [isDataSet, setIsDataSet] = useState({});
 
     // //! Funciones
     // const traeData = () => {
@@ -88,32 +88,32 @@ export const EditarCapacidad = () => {
 
 
     //* FUNCION QUE ACTUALIZA LOS DATOS DE UNA COSECHA
-    function editCap(cli, dataContext) {
-        const data = new FormData();
-        data.append("idC", cli);
-        data.append("idCos", dataContext['cosecha']);
-        data.append("cantAP", dataContext['agricultura']);
-        data.append("cantAA", dataContext['agriculturaA']);
-        data.append("cantGP", dataContext['ganaderia']);
-        data.append("cantGA", dataContext['ganaderiaA']);
-        data.append("cantTP", dataContext['tambo']);
-        data.append("cantTA", dataContext['tamboA']);
-        data.append("cantMP", dataContext['mixto']);
-        data.append("cantMA", dataContext['mixtoA']);
-        data.append("totalP", dataContext['propias']);
-        data.append("totalA", dataContext['alquiladas']);
-        fetch("../com_editCapacidad.php", {
-            method: "POST",
-            body: data,
-        }).then(function (response) {
-            response.text().then((resp) => {
-                const data = resp;
-                console.log(data);
-                // const objetoData = JSON.parse(data);
-                // console.log("Nueva capacidad: ", objetoData)
-            });
-        });
-    }
+    // function editCap(cli, dataContext) {
+    //     const data = new FormData();
+    //     data.append("idC", cli);
+    //     data.append("idCos", dataContext['cosecha']);
+    //     data.append("cantAP", dataContext['agricultura']);
+    //     data.append("cantAA", dataContext['agriculturaA']);
+    //     data.append("cantGP", dataContext['ganaderia']);
+    //     data.append("cantGA", dataContext['ganaderiaA']);
+    //     data.append("cantTP", dataContext['tambo']);
+    //     data.append("cantTA", dataContext['tamboA']);
+    //     data.append("cantMP", dataContext['mixto']);
+    //     data.append("cantMA", dataContext['mixtoA']);
+    //     data.append("totalP", dataContext['propias']);
+    //     data.append("totalA", dataContext['alquiladas']);
+    //     fetch("../com_editCapacidad.php", {
+    //         method: "POST",
+    //         body: data,
+    //     }).then(function (response) {
+    //         response.text().then((resp) => {
+    //             const data = resp;
+    //             console.log(data);
+    //             // const objetoData = JSON.parse(data);
+    //             // console.log("Nueva capacidad: ", objetoData)
+    //         });
+    //     });
+    // }
 
 
 
@@ -121,11 +121,11 @@ export const EditarCapacidad = () => {
 
 
 
-    const salir = () => {
-        setIsButtonEditDisabled(false)
-        setDataContext(null)
-        setAppStage(0)
-    }
+    // const salir = () => {
+    //     setIsButtonEditDisabled(false)
+    //     setDataContext(null)
+    //     setAppStage(0)
+    // }
 
     return (
         <>

@@ -191,10 +191,8 @@ const Capacidad = () => {
             case 0:
                 return (
                     <Table
-                        // style={{fontsize: "10px !important"}}
                         columns={columns}
                         dataSource={capacidad} //Original
-                        // dataSource={data} //Para probar
                         pagination={false}
                     />
                 );
