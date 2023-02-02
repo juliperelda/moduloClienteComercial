@@ -111,7 +111,7 @@ const Evolucion = () => {
         })
       );
     }
-  }, [infoEvo]);
+  }, [infoEvo, update]);
 
 
 
