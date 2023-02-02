@@ -38,6 +38,8 @@ export const EditarCapacidad = () => {
       tamboA: Math.trunc(infoEdit[5].has),
       mixto: Math.trunc(infoEdit[6].has),
       mixtoA: Math.trunc(infoEdit[7].has),
+      propias: Math.trunc(infoEdit[0].ahxs_propias),
+      alquiladas: Math.trunc(infoEdit[0].ahxs_alquiladas),
       cosecha: localStorage.getItem("idCosechaSelec") ? localStorage.getItem("idCosechaSelec") : null,
     });
   }, [])
@@ -100,9 +102,9 @@ export const EditarCapacidad = () => {
 
           let cli = localStorage.getItem("cliente");
 
-          //editCap(cli, dataContext);
+          editCap(cli, dataContext);
 
-          //setUpdate(!update);
+          setUpdate(!update);
 
         } else {
           alert("El total de Has. de Rubros supera a las Has. Propias en general");
@@ -116,7 +118,7 @@ export const EditarCapacidad = () => {
         //Crea el objeto de lo que escribo en los campos
         ...dataContext,
         cosecha: localStorage.getItem("idCosechaSelec") ? localStorage.getItem("idCosechaSelec") : null,
-        [event.target.name]: event.target.value,
+        [event.target.name]: parseInt(event.target.value),
       });
       
     }
