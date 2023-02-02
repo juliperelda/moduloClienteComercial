@@ -43,57 +43,52 @@ export const EditarCapacidad = () => {
     fetchData();
   }, []);
 
-  const handEdit = () => {
-    let inputPropias = document.getElementById("inputPropias").value;
-    let inputAgricultura = document.getElementById("inputAgricultura").value;
-    let inputGanaderia = document.getElementById("inputGanaderia").value;
-    let inputTambo = document.getElementById("inputTambo").value;
-    let inputMixto = document.getElementById("inputMixto").value;
-    let totalPropias =
-      parseInt(inputAgricultura) +
-      parseInt(inputGanaderia) +
-      parseInt(inputTambo) +
-      parseInt(inputMixto);
+    const handEdit = () => {
+        let inputPropias = document.getElementById("inputPropias").value;
+        let inputAgricultura = document.getElementById("inputAgricultura").value;
+        let inputGanaderia = document.getElementById("inputGanaderia").value;
+        let inputTambo = document.getElementById("inputTambo").value;
+        let inputMixto = document.getElementById("inputMixto").value;
+        let totalPropias =
+        parseInt(inputAgricultura) +
+        parseInt(inputGanaderia) +
+        parseInt(inputTambo) +
+        parseInt(inputMixto);
 
-    let inputAlquiladas = document.getElementById("inputAlquiladas").value;
-    let inputAgriculturaA = document.getElementById("inputAgriculturaA").value;
-    let inputGanaderiaA = document.getElementById("inputGanaderiaA").value;
-    let inputTamboA = document.getElementById("inputTamboA").value;
-    let inputMixtoA = document.getElementById("inputMixtoA").value;
-    let totalAlquiladas =
-      parseInt(inputAgriculturaA) +
-      parseInt(inputGanaderiaA) +
-      parseInt(inputTamboA) +
-      parseInt(inputMixtoA);
+        let inputAlquiladas = document.getElementById("inputAlquiladas").value;
+        let inputAgriculturaA = document.getElementById("inputAgriculturaA").value;
+        let inputGanaderiaA = document.getElementById("inputGanaderiaA").value;
+        let inputTamboA = document.getElementById("inputTamboA").value;
+        let inputMixtoA = document.getElementById("inputMixtoA").value;
+        let totalAlquiladas =
+        parseInt(inputAgriculturaA) +
+        parseInt(inputGanaderiaA) +
+        parseInt(inputTamboA) +
+        parseInt(inputMixtoA);
 
 
 
-    if ((totalPropias <= inputPropias) & (totalAlquiladas <= inputAlquiladas)) {
-    //   isDataSet.forEach(function (data) {
-    //     if (parseInt(data.cosecha) !== parseInt(isCosecha)) {
-    //       objData = [...objData, data];
-    //     }
-    //   });
-      
-      console.log("entre if de handEdit");
+        if ((totalPropias <= inputPropias) & (totalAlquiladas <= inputAlquiladas)) {
+        
+        console.log("entre if de handEdit");
 
-      objData = [...objData, dataContext];
+        objData = [...objData, dataContext];
 
-      console.log("objData: ", objData, "dataContext: ", dataContext);
+        console.log("objData: ", objData, "dataContext: ", dataContext);
 
-      localStorage.setItem("data", JSON.stringify({ objData }));
-      setAppStage(0);
+        localStorage.setItem("data", JSON.stringify({ objData }));
+        setAppStage(0);
 
-      let cli = localStorage.getItem("cliente");
+        let cli = localStorage.getItem("cliente");
 
-      editCap(cli, dataContext);
+        editCap(cli, dataContext);
 
-      setUpdate(!update);
+        setUpdate(!update);
 
-    } else {
-      alert("El total de Has. de Rubros supera a las Has. Propias en general");
-      setIsActiveModal(true);
-    }
+        } else {
+        alert("El total de Has. de Rubros supera a las Has. Propias en general");
+        setIsActiveModal(true);
+        }
   };
 
   const handleInputChangeEdit = (event) => {
