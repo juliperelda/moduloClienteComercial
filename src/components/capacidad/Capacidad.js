@@ -177,8 +177,8 @@ const Capacidad = () => {
                         />
                     </>
                 ),
-                propias: <strong>{infoCap[0].ahxs_propias}</strong>,
-                alquiler: <strong>{infoCap[0].ahxs_alquiladas}</strong>,
+                propias: <strong>{parseInt(infoCap[0].ahxs_propias)}</strong>,
+                alquiler: <strong>{parseInt(infoCap[0].ahxs_alquiladas)}</strong>,
                 total: <strong>{parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)}</strong>
 
             },
@@ -340,8 +340,8 @@ const Capacidad = () => {
                     style={{ alignItems: "center", boxShadow: "none !important", outline: "0", border: "none !important" }}
                     className="btnEditCosecha"
                     icon={<EditOutlined />}
-                    // onClick={() => editarCosecha()}
-                    onClick={() => console.log(infoCap)}
+                    onClick={() => editarCosecha()}
+                    // onClick={() => console.log(infoCap)}
                     // onChange={(e) => recuperaCosecha(e)}
                     disabled={isButtonEditDisabled}
                 />
