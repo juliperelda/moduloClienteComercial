@@ -44,22 +44,22 @@ export const EditarCapacidad = () => {
   }, []);
 
     const handEdit = () => {
-        let inputPropias = document.getElementById("inputPropias").defaultvalue;
-        let inputAgricultura = document.getElementById("inputAgricultura").defaultvalue;
-        let inputGanaderia = document.getElementById("inputGanaderia").defaultValue;
-        let inputTambo = document.getElementById("inputTambo").defaultValue;
-        let inputMixto = document.getElementById("inputMixto").defaultValue;
+        let inputPropias = document.getElementById("inputPropias").value;
+        let inputAgricultura = document.getElementById("inputAgricultura").value;
+        let inputGanaderia = document.getElementById("inputGanaderia").value;
+        let inputTambo = document.getElementById("inputTambo").value;
+        let inputMixto = document.getElementById("inputMixto").value;
         let totalPropias =
         parseInt(inputAgricultura) +
         parseInt(inputGanaderia) +
         parseInt(inputTambo) +
         parseInt(inputMixto);
 
-        let inputAlquiladas = document.getElementById("inputAlquiladas").defaultValue;
-        let inputAgriculturaA = document.getElementById("inputAgriculturaA").defaultValue;
-        let inputGanaderiaA = document.getElementById("inputGanaderiaA").defaultValue;
-        let inputTamboA = document.getElementById("inputTamboA").defaultValue;
-        let inputMixtoA = document.getElementById("inputMixtoA").defaultValue;
+        let inputAlquiladas = document.getElementById("inputAlquiladas").value;
+        let inputAgriculturaA = document.getElementById("inputAgriculturaA").value;
+        let inputGanaderiaA = document.getElementById("inputGanaderiaA").value;
+        let inputTamboA = document.getElementById("inputTamboA").value;
+        let inputMixtoA = document.getElementById("inputMixtoA").value;
         let totalAlquiladas =
         parseInt(inputAgriculturaA) +
         parseInt(inputGanaderiaA) +
@@ -86,8 +86,8 @@ export const EditarCapacidad = () => {
           //setUpdate(!update);
 
         } else {
-        alert("El total de Has. de Rubros supera a las Has. Propias en general");
-        setIsActiveModal(true);
+          alert("El total de Has. de Rubros supera a las Has. Propias en general");
+          setIsActiveModal(true);
         }
   };
 
@@ -98,7 +98,6 @@ export const EditarCapacidad = () => {
       cosecha: localStorage.getItem("idCosechaSelec") ? localStorage.getItem("idCosechaSelec") : null,
       [event.target.name]: event.target.value,
     });
-    console.log(dataContext);
   };
 
   //* FUNCION QUE CARGA LOS DATOS DE UNA NUEVA COSECHA
@@ -163,7 +162,8 @@ export const EditarCapacidad = () => {
                     name="agricultura"
                     style={{ textAlign: "right" }}
                     defaultValue={Math.trunc(infoEdit[0].has)}
-                    onChange={(e) => handleInputChangeEdit(e)}
+                    value={Math.trunc(infoEdit[0].has)}
+                    onChange={(value) => handleInputChangeEdit(value)}
                   />
                 </Form.Item>
               </td>
@@ -176,7 +176,8 @@ export const EditarCapacidad = () => {
                     name="agriculturaA"
                     style={{ textAlign: "right" }}
                     defaultValue={Math.trunc(infoEdit[1].has)}
-                    onChange={(e) => handleInputChangeEdit(e)}
+                    value={Math.trunc(infoEdit[1].has)}
+                    onChange={(value) => handleInputChangeEdit(value)}
                   />
                 </Form.Item>
               </td>
@@ -194,7 +195,8 @@ export const EditarCapacidad = () => {
                     name="ganaderia"
                     style={{ textAlign: "right" }}
                     defaultValue={Math.trunc(infoEdit[2].has)}
-                    onChange={(e) => handleInputChangeEdit(e)}
+                    value={Math.trunc(infoEdit[2].has)}
+                    onChange={(value) => handleInputChangeEdit(value)}
                   />
                 </Form.Item>
               </td>
@@ -207,7 +209,8 @@ export const EditarCapacidad = () => {
                     name="ganaderiaA"
                     style={{ textAlign: "right" }}
                     defaultValue={Math.trunc(infoEdit[3].has)}
-                    onChange={(e) => handleInputChangeEdit(e)}
+                    value={Math.trunc(infoEdit[3].has)}
+                    onChange={(value) => handleInputChangeEdit(value)}
                   />
                 </Form.Item>
               </td>
@@ -225,7 +228,8 @@ export const EditarCapacidad = () => {
                     name="tambo"
                     style={{ textAlign: "right" }}
                     defaultValue={Math.trunc(infoEdit[4].has)}
-                    onChange={(e) => handleInputChangeEdit(e)}
+                    value={Math.trunc(infoEdit[4].has)}
+                    onChange={(value) => handleInputChangeEdit(value)}
                   />
                 </Form.Item>
               </td>
@@ -238,7 +242,8 @@ export const EditarCapacidad = () => {
                     name="tamboA"
                     style={{ textAlign: "right" }}
                     defaultValue={Math.trunc(infoEdit[5].has)}
-                    onChange={(e) => handleInputChangeEdit(e)}
+                    value={Math.trunc(infoEdit[5].has)}
+                    onChange={(value) => handleInputChangeEdit(value)}
                   />
                 </Form.Item>
               </td>
@@ -256,7 +261,8 @@ export const EditarCapacidad = () => {
                     name="mixto"
                     style={{ textAlign: "right" }}
                     defaultValue={Math.trunc(infoEdit[6].has)}
-                    onChange={(e) => handleInputChangeEdit(e)}
+                    value={Math.trunc(infoEdit[6].has)}
+                    onChange={(value) => handleInputChangeEdit(value)}
                   />
                 </Form.Item>
               </td>
@@ -269,7 +275,8 @@ export const EditarCapacidad = () => {
                     name="mixtoA"
                     style={{ textAlign: "right" }}
                     defaultValue={Math.trunc(infoEdit[7].has)}
-                    onChange={(e) => handleInputChangeEdit(e)}
+                    value={Math.trunc(infoEdit[7].has)}
+                    onChange={(value) => handleInputChangeEdit(value)}
                   />
                 </Form.Item>
               </td>
@@ -289,7 +296,8 @@ export const EditarCapacidad = () => {
                     name="propias"
                     style={{ textAlign: "right" }}
                     defaultValue={Math.trunc(infoEdit[0].ahxs_propias)}
-                    onChange={handleInputChangeEdit}
+                    value={Math.trunc(infoEdit[0].ahxs_propias)}
+                    onChange={(value) => handleInputChangeEdit(value)}
                   />
                 </Form.Item>
               </td>
@@ -302,7 +310,8 @@ export const EditarCapacidad = () => {
                     name="alquiladas"
                     style={{ textAlign: "right" }}
                     defaultValue={Math.trunc(infoEdit[0].ahxs_alquiladas)}
-                    onChange={(e) => handleInputChangeEdit(e)}
+                    value={Math.trunc(infoEdit[0].ahxs_alquiladas)}
+                    onChange={(value) => handleInputChangeEdit(value)}
                   />
                 </Form.Item>
               </td>
