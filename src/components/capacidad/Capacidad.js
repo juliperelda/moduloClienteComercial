@@ -76,20 +76,6 @@ const Capacidad = () => {
         setAppStage(1);
     };
 
-    // useEffect(() => {
-    //     const fetchData = () => {
-    //         // pruebaSaveData()
-    //         infoTabCapacidad()
-    //     }
-    //     fetchData()
-    // }, [])
-
-    // const recuperaCosecha = (event) => {
-    //     cosechaSelect = event;
-    //     setIsCosecha(cosechaSelect);
-
-    //     generaData();
-    // };
 
     var result = {};
     let capacidad = [];
@@ -110,6 +96,9 @@ const Capacidad = () => {
                 result[info.arubro_desc].alquilado = info.has;
             }
         });
+
+
+        localStorage.setItem("idCosechaSelec", infoCap.acos_id);
 
 
         capacidad = result;
@@ -190,18 +179,10 @@ const Capacidad = () => {
     };
 
 
-    const addCosecha = (infoCap) => {
+    const addCosecha = () => {
         setAppStage(2);
-        // if (infoCap.length <= 0) {
-        //     setIsButtonDisabled(true);
-        //     return;
-        // }
-        // setIsButtonDisabled(false);
     };
 
-
-
-    var objData = [];
 
     const handleStage = () => {
         switch (appStage) {
@@ -347,7 +328,7 @@ const Capacidad = () => {
                     className="btnAddCosecha"
                     icon={<PlusCircleOutlined style={{ "--antd-wave-shadow-color": "transparent !important" }} />}
                     onClick={() => {
-                        addCosecha(infoCap);
+                        addCosecha();
                     }}
                     disabled={isButtonDisabled}
                 />
