@@ -28,63 +28,63 @@ export const EditarCapacidad = () => {
     //     fetchData()
     // }, [])
 
-    const handEdit = () => {
-        let inputPropias = document.getElementById("inputPropias").value;
-        let inputAgricultura = document.getElementById("inputAgricultura").value;
-        let inputGanaderia = document.getElementById("inputGanaderia").value;
-        let inputTambo = document.getElementById("inputTambo").value;
-        let inputMixto = document.getElementById("inputMixto").value;
-        let totalPropias = parseInt(inputAgricultura) + parseInt(inputGanaderia) + parseInt(inputTambo) + parseInt(inputMixto)
+    // const handEdit = () => {
+    //     let inputPropias = document.getElementById("inputPropias").value;
+    //     let inputAgricultura = document.getElementById("inputAgricultura").value;
+    //     let inputGanaderia = document.getElementById("inputGanaderia").value;
+    //     let inputTambo = document.getElementById("inputTambo").value;
+    //     let inputMixto = document.getElementById("inputMixto").value;
+    //     let totalPropias = parseInt(inputAgricultura) + parseInt(inputGanaderia) + parseInt(inputTambo) + parseInt(inputMixto)
 
-        let inputAlquiladas = document.getElementById("inputAlquiladas").value;
-        let inputAgriculturaA = document.getElementById("inputAgriculturaA").value;
-        let inputGanaderiaA = document.getElementById("inputGanaderiaA").value;
-        let inputTamboA = document.getElementById("inputTamboA").value;
-        let inputMixtoA = document.getElementById("inputMixtoA").value;
-        let totalAlquiladas = parseInt(inputAgriculturaA) + parseInt(inputGanaderiaA) + parseInt(inputTamboA) + parseInt(inputMixtoA)
+    //     let inputAlquiladas = document.getElementById("inputAlquiladas").value;
+    //     let inputAgriculturaA = document.getElementById("inputAgriculturaA").value;
+    //     let inputGanaderiaA = document.getElementById("inputGanaderiaA").value;
+    //     let inputTamboA = document.getElementById("inputTamboA").value;
+    //     let inputMixtoA = document.getElementById("inputMixtoA").value;
+    //     let totalAlquiladas = parseInt(inputAgriculturaA) + parseInt(inputGanaderiaA) + parseInt(inputTamboA) + parseInt(inputMixtoA)
 
-        if (totalPropias <= inputPropias & totalAlquiladas <= inputAlquiladas) {
-            isDataSet.forEach(function (data) {
+    //     if (totalPropias <= inputPropias & totalAlquiladas <= inputAlquiladas) {
+    //         isDataSet.forEach(function (data) {
 
-                if (parseInt(data.cosecha) !== parseInt(isCosecha)) {
+    //             if (parseInt(data.cosecha) !== parseInt(isCosecha)) {
 
-                    objData = [
-                        ...objData,
-                        data
-                    ]
+    //                 objData = [
+    //                     ...objData,
+    //                     data
+    //                 ]
 
-                }
-            })
+    //             }
+    //         })
 
-            objData = [
-                ...objData,
-                dataContext
-            ]
+    //         objData = [
+    //             ...objData,
+    //             dataContext
+    //         ]
 
-            localStorage.setItem('data', JSON.stringify({ objData }))
-            setAppStage(0)
+    //         localStorage.setItem('data', JSON.stringify({ objData }))
+    //         setAppStage(0)
 
-            let cli = localStorage.getItem('cliente');
+    //         let cli = localStorage.getItem('cliente');
 
-            editCap(cli,dataContext);
+    //         editCap(cli,dataContext);
 
-        } else {
-            alert("El total de Has. de Rubros supera a las Has. Propias en general")
-            setIsActiveModal(true)
-        }
+    //     } else {
+    //         alert("El total de Has. de Rubros supera a las Has. Propias en general")
+    //         setIsActiveModal(true)
+    //     }
 
-    }
+    // }
 
-    const handleInputChangeEdit = (event) => {
+    // const handleInputChangeEdit = (event) => {
 
-        setDataContext({ //Crea el objeto de lo que escribo en los campos
-            ...dataContext,
-            cosecha: isCosecha ? isCosecha : null,
-            [event.target.name]: event.target.value
-        })
-        console.log(dataContext)
+    //     setDataContext({ //Crea el objeto de lo que escribo en los campos
+    //         ...dataContext,
+    //         cosecha: isCosecha ? isCosecha : null,
+    //         [event.target.name]: event.target.value
+    //     })
+    //     console.log(dataContext)
 
-    }
+    // }
 
 
     //* FUNCION QUE ACTUALIZA LOS DATOS DE UNA COSECHA
@@ -153,7 +153,7 @@ export const EditarCapacidad = () => {
                                         name='agricultura'
                                         style={{ 'textAlign': 'right' }}
                                         // defaultValue={infoEdit.AGRICULTURA.propias}
-                                        onChange={(e) => handleInputChangeEdit(e)}
+                                        //onChange={(e) => handleInputChangeEdit(e)}
                                     />
                                 </Form.Item>
 
@@ -170,7 +170,7 @@ export const EditarCapacidad = () => {
                                         name='agriculturaA'
                                         style={{ 'textAlign': 'right' }}
                                         // defaultValue={infoEdit.AGRICULTURA.alquiladas}
-                                        onChange={(e) => handleInputChangeEdit(e)}
+                                        //onChange={(e) => handleInputChangeEdit(e)}
                                     />
                                 </Form.Item>
 
@@ -192,7 +192,7 @@ export const EditarCapacidad = () => {
                                         name='ganaderia'
                                         style={{ 'textAlign': 'right' }}
                                         // defaultValue={infoEdit.GANADERIA.propias}
-                                        onChange={(e) => handleInputChangeEdit(e)}
+                                        //onChange={(e) => handleInputChangeEdit(e)}
                                     />
                                 </Form.Item>
 
@@ -209,7 +209,7 @@ export const EditarCapacidad = () => {
                                         name='ganaderiaA'
                                         style={{ 'textAlign': 'right' }}
                                         // defaultValue={infoEdit.GANADERIA.alquiladas}
-                                        onChange={(e) => handleInputChangeEdit(e)}
+                                        //onChange={(e) => handleInputChangeEdit(e)}
                                     />
                                 </Form.Item>
 
@@ -231,7 +231,7 @@ export const EditarCapacidad = () => {
                                         name='tambo'
                                         style={{ 'textAlign': 'right' }}
                                         // defaultValue={infoEdit.TAMBO.propias}
-                                        onChange={(e) => handleInputChangeEdit(e)}
+                                        //onChange={(e) => handleInputChangeEdit(e)}
                                     />
                                 </Form.Item>
 
@@ -248,7 +248,7 @@ export const EditarCapacidad = () => {
                                         name='tamboA'
                                         style={{ 'textAlign': 'right' }}
                                         // defaultValue={infoEdit.TAMBO.alquiladas}
-                                        onChange={(e) => handleInputChangeEdit(e)}
+                                        //onChange={(e) => handleInputChangeEdit(e)}
                                     />
                                 </Form.Item>
 
@@ -270,7 +270,7 @@ export const EditarCapacidad = () => {
                                         name='mixto'
                                         style={{ 'textAlign': 'right' }}
                                         // defaultValue={infoEdit.MIXTO.propias}
-                                        onChange={(e) => handleInputChangeEdit(e)}
+                                        //onChange={(e) => handleInputChangeEdit(e)}
                                     />
                                 </Form.Item>
 
@@ -287,7 +287,7 @@ export const EditarCapacidad = () => {
                                         name='mixtoA'
                                         style={{ 'textAlign': 'right' }}
                                         // defaultValue={infoEdit.MIXTO.alquiladas}
-                                        onChange={(e) => handleInputChangeEdit(e)}
+                                        //onChange={(e) => handleInputChangeEdit(e)}
                                     />
                                 </Form.Item>
                             </td>
@@ -308,7 +308,7 @@ export const EditarCapacidad = () => {
                                         name='propias'
                                         style={{ 'textAlign': 'right' }}
                                         // defaultValue={infoCap.ahxs_propias}
-                                        onChange={handleInputChangeEdit}
+                                        // onChange={handleInputChangeEdit}
                                     />
                                 </Form.Item>
 
@@ -325,7 +325,7 @@ export const EditarCapacidad = () => {
                                         name='alquiladas'
                                         style={{ 'textAlign': 'right' }}
                                         // defaultValue={infoCap.ahxs_alquiladas}
-                                        onChange={(e) => handleInputChangeEdit(e)}
+                                        //onChange={(e) => handleInputChangeEdit(e)}
                                     />
                                 </Form.Item>
                             </td>
@@ -342,7 +342,7 @@ export const EditarCapacidad = () => {
 
                 <Button
                     className='btnAddCosechaData'
-                    onClick={() => handEdit()}
+                    // onClick={() => handEdit()}
                 > Actualizar
                 </Button>
             </div>
