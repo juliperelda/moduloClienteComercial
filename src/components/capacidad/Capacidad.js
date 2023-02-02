@@ -66,8 +66,6 @@ const Capacidad = () => {
         setInfoCap,
         infoCosechas,
         setCosechas,
-        infoEdit, 
-        setInfoEdit,
     } = useContext(GlobalContext);
 
     const [isHayData, setIsHayData] = useState(false);
@@ -78,6 +76,20 @@ const Capacidad = () => {
         setAppStage(1);
     };
 
+    // useEffect(() => {
+    //     const fetchData = () => {
+    //         // pruebaSaveData()
+    //         infoTabCapacidad()
+    //     }
+    //     fetchData()
+    // }, [])
+
+    // const recuperaCosecha = (event) => {
+    //     cosechaSelect = event;
+    //     setIsCosecha(cosechaSelect);
+
+    //     generaData();
+    // };
 
     var result = {};
     let capacidad = [];
@@ -101,7 +113,7 @@ const Capacidad = () => {
 
 
         capacidad = result;
-        //setInfoEdit(result);
+        
         capacidad = [
             {
                 key: 1,
@@ -180,6 +192,11 @@ const Capacidad = () => {
 
     const addCosecha = (infoCap) => {
         setAppStage(2);
+        // if (infoCap.length <= 0) {
+        //     setIsButtonDisabled(true);
+        //     return;
+        // }
+        // setIsButtonDisabled(false);
     };
 
 
@@ -321,8 +338,7 @@ const Capacidad = () => {
                     style={{ alignItems: "center", boxShadow: "none !important", outline: "0", border: "none !important" }}
                     className="btnEditCosecha"
                     icon={<EditOutlined />}
-                    // onClick={() => editarCosecha()}
-                    //onClick={() => console.log(infoCap)}
+                    onClick={() => editarCosecha()}
                     // onChange={(e) => recuperaCosecha(e)}
                     disabled={isButtonEditDisabled}
                 />

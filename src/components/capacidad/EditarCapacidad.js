@@ -8,7 +8,7 @@ export const EditarCapacidad = () => {
     var objData = []
 
     //! UseContext
-    const { infoCap, dataContext, setDataContext, isCosecha, setIsCosecha, appStage, setAppStage, isButtonEditDisabled, setIsButtonEditDisabled } = useContext(GlobalContext)
+    const { infoCap, dataContext, setDataContext, isCosecha, setIsCosecha, appStage, setAppStage, isButtonEditDisabled, setIsButtonEditDisabled, infoEdit, setInfoEdit } = useContext(GlobalContext)
 
     //! UseState
     const [isActiveModal, setIsActiveModal] = useState(false); //Es por si utilizo el modal para el mensaje de que se paso de cantidad en los rubros
@@ -152,7 +152,7 @@ export const EditarCapacidad = () => {
                                         placeholder="0"
                                         name='agricultura'
                                         style={{ 'textAlign': 'right' }}
-                                        defaultValue={dataContext.agricultura}
+                                        // defaultValue={infoEdit.AGRICULTURA.propias}
                                         onChange={(e) => handleInputChangeEdit(e)}
                                     />
                                 </Form.Item>
@@ -169,7 +169,7 @@ export const EditarCapacidad = () => {
                                         placeholder="0"
                                         name='agriculturaA'
                                         style={{ 'textAlign': 'right' }}
-                                        defaultValue={dataContext.agriculturaA}
+                                        // defaultValue={infoEdit.AGRICULTURA.alquiladas}
                                         onChange={(e) => handleInputChangeEdit(e)}
                                     />
                                 </Form.Item>
@@ -191,7 +191,7 @@ export const EditarCapacidad = () => {
                                         placeholder="0"
                                         name='ganaderia'
                                         style={{ 'textAlign': 'right' }}
-                                        defaultValue={dataContext.ganaderia}
+                                        // defaultValue={infoEdit.GANADERIA.propias}
                                         onChange={(e) => handleInputChangeEdit(e)}
                                     />
                                 </Form.Item>
@@ -208,7 +208,7 @@ export const EditarCapacidad = () => {
                                         placeholder="0"
                                         name='ganaderiaA'
                                         style={{ 'textAlign': 'right' }}
-                                        defaultValue={dataContext.ganaderiaA}
+                                        // defaultValue={infoEdit.GANADERIA.alquiladas}
                                         onChange={(e) => handleInputChangeEdit(e)}
                                     />
                                 </Form.Item>
@@ -230,7 +230,7 @@ export const EditarCapacidad = () => {
                                         placeholder="0"
                                         name='tambo'
                                         style={{ 'textAlign': 'right' }}
-                                        defaultValue={dataContext.tambo}
+                                        // defaultValue={infoEdit.TAMBO.propias}
                                         onChange={(e) => handleInputChangeEdit(e)}
                                     />
                                 </Form.Item>
@@ -247,7 +247,7 @@ export const EditarCapacidad = () => {
                                         placeholder="0"
                                         name='tamboA'
                                         style={{ 'textAlign': 'right' }}
-                                        defaultValue={dataContext.tamboA}
+                                        // defaultValue={infoEdit.TAMBO.alquiladas}
                                         onChange={(e) => handleInputChangeEdit(e)}
                                     />
                                 </Form.Item>
@@ -269,7 +269,7 @@ export const EditarCapacidad = () => {
                                         placeholder="0"
                                         name='mixto'
                                         style={{ 'textAlign': 'right' }}
-                                        defaultValue={dataContext.mixto}
+                                        // defaultValue={infoEdit.MIXTO.propias}
                                         onChange={(e) => handleInputChangeEdit(e)}
                                     />
                                 </Form.Item>
@@ -286,7 +286,7 @@ export const EditarCapacidad = () => {
                                         placeholder="0"
                                         name='mixtoA'
                                         style={{ 'textAlign': 'right' }}
-                                        defaultValue={dataContext.mixtoA}
+                                        // defaultValue={infoEdit.MIXTO.alquiladas}
                                         onChange={(e) => handleInputChangeEdit(e)}
                                     />
                                 </Form.Item>
@@ -307,7 +307,7 @@ export const EditarCapacidad = () => {
                                         placeholder="0"
                                         name='propias'
                                         style={{ 'textAlign': 'right' }}
-                                        defaultValue={dataContext.propias}
+                                        // defaultValue={infoCap.ahxs_propias}
                                         onChange={handleInputChangeEdit}
                                     />
                                 </Form.Item>
@@ -324,7 +324,7 @@ export const EditarCapacidad = () => {
                                         placeholder="0"
                                         name='alquiladas'
                                         style={{ 'textAlign': 'right' }}
-                                        defaultValue={dataContext.alquiladas}
+                                        // defaultValue={infoCap.ahxs_alquiladas}
                                         onChange={(e) => handleInputChangeEdit(e)}
                                     />
                                 </Form.Item>
