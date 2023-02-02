@@ -98,9 +98,6 @@ const Capacidad = () => {
         });
 
 
-        localStorage.setItem("idCosechaSelec", infoCap.acos_id);
-
-
         capacidad = result;
         
         capacidad = [
@@ -305,7 +302,7 @@ const Capacidad = () => {
                 <Select
                     className="selectCosecha"
                     style={{ width: '80px' }}
-                    onChange={(value) => setSelectedValue(value)}
+                    onChange={(value) => {setSelectedValue(value); localStorage.setItem("idCosechaSelec", infoCap.acos_id)}}
                     defaultValue={selectedValue}
                 >
                     {infoCosechas.length > 0 && infoCosechas.map((cosecha) => {
