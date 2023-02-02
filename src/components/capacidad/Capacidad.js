@@ -74,7 +74,7 @@ const Capacidad = () => {
     const [selectedValue, setSelectedValue] = useState(localStorage.getItem("cosechaActiva"));
 
     const editarCosecha = () => {
-        setIsButtonEditDisabled(true);
+        //setIsButtonEditDisabled(true);
         setAppStage(1);
     };
 
@@ -319,7 +319,7 @@ const Capacidad = () => {
                     style={{ alignItems: "center", boxShadow: "none !important", outline: "0", border: "none !important" }}
                     className="btnEditCosecha"
                     icon={<EditOutlined />}
-                    onClick={() => editarCosecha()}
+                    onClick={() => editarCosecha(infoCap)}
                     //onClick={() => console.log(infoCap)}
                     // onChange={(e) => recuperaCosecha(e)}
                     disabled={isButtonEditDisabled}

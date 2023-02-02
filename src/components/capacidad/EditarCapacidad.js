@@ -5,21 +5,21 @@ import './capacidad.css';
 
 export const EditarCapacidad = () => {
 
-    // var objData = []
+    var objData = []
 
-    // //! UseContext
-    // const { infoCap, dataContext, setDataContext, isCosecha, setIsCosecha, appStage, setAppStage, isButtonEditDisabled, setIsButtonEditDisabled, infoEdit, setInfoEdit } = useContext(GlobalContext)
+    //! UseContext
+    const { infoCap, dataContext, setDataContext, isCosecha, setIsCosecha, appStage, setAppStage, isButtonEditDisabled, setIsButtonEditDisabled } = useContext(GlobalContext)
 
     //! UseState
-    // const [isActiveModal, setIsActiveModal] = useState(false); //Es por si utilizo el modal para el mensaje de que se paso de cantidad en los rubros
-    // const [isDataSet, setIsDataSet] = useState({});
+    const [isActiveModal, setIsActiveModal] = useState(false); //Es por si utilizo el modal para el mensaje de que se paso de cantidad en los rubros
+    const [isDataSet, setIsDataSet] = useState({});
 
-    // //! Funciones
-    // const traeData = () => {
-    //     if (localStorage.getItem("data")) {
-    //         setIsDataSet(JSON.parse(localStorage.getItem("data")).objData)
-    //     }
-    // }
+    //! Funciones
+    const traeData = () => {
+        if (localStorage.getItem("data")) {
+            setIsDataSet(JSON.parse(localStorage.getItem("data")).objData)
+        }
+    }
 
     // useEffect(() => {
     //     const fetchData = () => {
@@ -28,104 +28,104 @@ export const EditarCapacidad = () => {
     //     fetchData()
     // }, [])
 
-    // const handEdit = () => {
-    //     let inputPropias = document.getElementById("inputPropias").value;
-    //     let inputAgricultura = document.getElementById("inputAgricultura").value;
-    //     let inputGanaderia = document.getElementById("inputGanaderia").value;
-    //     let inputTambo = document.getElementById("inputTambo").value;
-    //     let inputMixto = document.getElementById("inputMixto").value;
-    //     let totalPropias = parseInt(inputAgricultura) + parseInt(inputGanaderia) + parseInt(inputTambo) + parseInt(inputMixto)
+    const handEdit = () => {
+        let inputPropias = document.getElementById("inputPropias").value;
+        let inputAgricultura = document.getElementById("inputAgricultura").value;
+        let inputGanaderia = document.getElementById("inputGanaderia").value;
+        let inputTambo = document.getElementById("inputTambo").value;
+        let inputMixto = document.getElementById("inputMixto").value;
+        let totalPropias = parseInt(inputAgricultura) + parseInt(inputGanaderia) + parseInt(inputTambo) + parseInt(inputMixto)
 
-    //     let inputAlquiladas = document.getElementById("inputAlquiladas").value;
-    //     let inputAgriculturaA = document.getElementById("inputAgriculturaA").value;
-    //     let inputGanaderiaA = document.getElementById("inputGanaderiaA").value;
-    //     let inputTamboA = document.getElementById("inputTamboA").value;
-    //     let inputMixtoA = document.getElementById("inputMixtoA").value;
-    //     let totalAlquiladas = parseInt(inputAgriculturaA) + parseInt(inputGanaderiaA) + parseInt(inputTamboA) + parseInt(inputMixtoA)
+        let inputAlquiladas = document.getElementById("inputAlquiladas").value;
+        let inputAgriculturaA = document.getElementById("inputAgriculturaA").value;
+        let inputGanaderiaA = document.getElementById("inputGanaderiaA").value;
+        let inputTamboA = document.getElementById("inputTamboA").value;
+        let inputMixtoA = document.getElementById("inputMixtoA").value;
+        let totalAlquiladas = parseInt(inputAgriculturaA) + parseInt(inputGanaderiaA) + parseInt(inputTamboA) + parseInt(inputMixtoA)
 
-    //     if (totalPropias <= inputPropias & totalAlquiladas <= inputAlquiladas) {
-    //         isDataSet.forEach(function (data) {
+        if (totalPropias <= inputPropias & totalAlquiladas <= inputAlquiladas) {
+            isDataSet.forEach(function (data) {
 
-    //             if (parseInt(data.cosecha) !== parseInt(isCosecha)) {
+                if (parseInt(data.cosecha) !== parseInt(isCosecha)) {
 
-    //                 objData = [
-    //                     ...objData,
-    //                     data
-    //                 ]
+                    objData = [
+                        ...objData,
+                        data
+                    ]
 
-    //             }
-    //         })
+                }
+            })
 
-    //         objData = [
-    //             ...objData,
-    //             dataContext
-    //         ]
+            objData = [
+                ...objData,
+                dataContext
+            ]
 
-    //         localStorage.setItem('data', JSON.stringify({ objData }))
-    //         setAppStage(0)
+            localStorage.setItem('data', JSON.stringify({ objData }))
+            setAppStage(0)
 
-    //         let cli = localStorage.getItem('cliente');
+            let cli = localStorage.getItem('cliente');
 
-    //         editCap(cli,dataContext);
+            editCap(cli,dataContext);
 
-    //     } else {
-    //         alert("El total de Has. de Rubros supera a las Has. Propias en general")
-    //         setIsActiveModal(true)
-    //     }
+        } else {
+            alert("El total de Has. de Rubros supera a las Has. Propias en general")
+            setIsActiveModal(true)
+        }
 
-    // }
+    }
 
-    // const handleInputChangeEdit = (event) => {
+    const handleInputChangeEdit = (event) => {
 
-    //     setDataContext({ //Crea el objeto de lo que escribo en los campos
-    //         ...dataContext,
-    //         cosecha: isCosecha ? isCosecha : null,
-    //         [event.target.name]: event.target.value
-    //     })
-    //     console.log(dataContext)
+        setDataContext({ //Crea el objeto de lo que escribo en los campos
+            ...dataContext,
+            cosecha: isCosecha ? isCosecha : null,
+            [event.target.name]: event.target.value
+        })
+        console.log(dataContext)
 
-    // }
-
-
-    //* FUNCION QUE ACTUALIZA LOS DATOS DE UNA COSECHA
-    // function editCap(cli, dataContext) {
-    //     const data = new FormData();
-    //     data.append("idC", cli);
-    //     data.append("idCos", dataContext['cosecha']);
-    //     data.append("cantAP", dataContext['agricultura']);
-    //     data.append("cantAA", dataContext['agriculturaA']);
-    //     data.append("cantGP", dataContext['ganaderia']);
-    //     data.append("cantGA", dataContext['ganaderiaA']);
-    //     data.append("cantTP", dataContext['tambo']);
-    //     data.append("cantTA", dataContext['tamboA']);
-    //     data.append("cantMP", dataContext['mixto']);
-    //     data.append("cantMA", dataContext['mixtoA']);
-    //     data.append("totalP", dataContext['propias']);
-    //     data.append("totalA", dataContext['alquiladas']);
-    //     fetch("../com_editCapacidad.php", {
-    //         method: "POST",
-    //         body: data,
-    //     }).then(function (response) {
-    //         response.text().then((resp) => {
-    //             const data = resp;
-    //             console.log(data);
-    //             // const objetoData = JSON.parse(data);
-    //             // console.log("Nueva capacidad: ", objetoData)
-    //         });
-    //     });
-    // }
+    }
 
 
+    //* FUNCION QUE CARGA LOS DATOS DE UNA NUEVA COSECHA
+    function editCap(cli, dataContext) {
+        const data = new FormData();
+        data.append("idC", cli);
+        data.append("idCos", dataContext['cosecha']);
+        data.append("cantAP", dataContext['agricultura']);
+        data.append("cantAA", dataContext['agriculturaA']);
+        data.append("cantGP", dataContext['ganaderia']);
+        data.append("cantGA", dataContext['ganaderiaA']);
+        data.append("cantTP", dataContext['tambo']);
+        data.append("cantTA", dataContext['tamboA']);
+        data.append("cantMP", dataContext['mixto']);
+        data.append("cantMA", dataContext['mixtoA']);
+        data.append("totalP", dataContext['propias']);
+        data.append("totalA", dataContext['alquiladas']);
+        fetch("../com_editCapacidad.php", {
+            method: "POST",
+            body: data,
+        }).then(function (response) {
+            response.text().then((resp) => {
+                const data = resp;
+                console.log(data);
+                // const objetoData = JSON.parse(data);
+                // console.log("Nueva capacidad: ", objetoData)
+            });
+        });
+    }
 
 
 
 
 
-    // const salir = () => {
-    //     setIsButtonEditDisabled(false)
-    //     setDataContext(null)
-    //     setAppStage(0)
-    // }
+
+
+    const salir = () => {
+        setIsButtonEditDisabled(false)
+        setDataContext(null)
+        setAppStage(0)
+    }
 
     return (
         <>
@@ -152,8 +152,8 @@ export const EditarCapacidad = () => {
                                         placeholder="0"
                                         name='agricultura'
                                         style={{ 'textAlign': 'right' }}
-                                        // defaultValue={infoEdit.AGRICULTURA.propias}
-                                        //onChange={(e) => handleInputChangeEdit(e)}
+                                        //defaultValue={dataContext.agricultura}
+                                        onChange={(e) => handleInputChangeEdit(e)}
                                     />
                                 </Form.Item>
 
@@ -169,8 +169,8 @@ export const EditarCapacidad = () => {
                                         placeholder="0"
                                         name='agriculturaA'
                                         style={{ 'textAlign': 'right' }}
-                                        // defaultValue={infoEdit.AGRICULTURA.alquiladas}
-                                        //onChange={(e) => handleInputChangeEdit(e)}
+                                        //defaultValue={dataContext.agriculturaA}
+                                        onChange={(e) => handleInputChangeEdit(e)}
                                     />
                                 </Form.Item>
 
@@ -191,8 +191,8 @@ export const EditarCapacidad = () => {
                                         placeholder="0"
                                         name='ganaderia'
                                         style={{ 'textAlign': 'right' }}
-                                        // defaultValue={infoEdit.GANADERIA.propias}
-                                        //onChange={(e) => handleInputChangeEdit(e)}
+                                        // defaultValue={dataContext.ganaderia}
+                                        onChange={(e) => handleInputChangeEdit(e)}
                                     />
                                 </Form.Item>
 
@@ -208,8 +208,8 @@ export const EditarCapacidad = () => {
                                         placeholder="0"
                                         name='ganaderiaA'
                                         style={{ 'textAlign': 'right' }}
-                                        // defaultValue={infoEdit.GANADERIA.alquiladas}
-                                        //onChange={(e) => handleInputChangeEdit(e)}
+                                        // defaultValue={dataContext.ganaderiaA}
+                                        onChange={(e) => handleInputChangeEdit(e)}
                                     />
                                 </Form.Item>
 
@@ -230,8 +230,7 @@ export const EditarCapacidad = () => {
                                         placeholder="0"
                                         name='tambo'
                                         style={{ 'textAlign': 'right' }}
-                                        // defaultValue={infoEdit.TAMBO.propias}
-                                        //onChange={(e) => handleInputChangeEdit(e)}
+                                        // onChange={(e) => handleInputChangeEdit(e)}
                                     />
                                 </Form.Item>
 
@@ -247,8 +246,8 @@ export const EditarCapacidad = () => {
                                         placeholder="0"
                                         name='tamboA'
                                         style={{ 'textAlign': 'right' }}
-                                        // defaultValue={infoEdit.TAMBO.alquiladas}
-                                        //onChange={(e) => handleInputChangeEdit(e)}
+                                        // defaultValue={dataContext.tamboA}
+                                        onChange={(e) => handleInputChangeEdit(e)}
                                     />
                                 </Form.Item>
 
@@ -269,8 +268,8 @@ export const EditarCapacidad = () => {
                                         placeholder="0"
                                         name='mixto'
                                         style={{ 'textAlign': 'right' }}
-                                        // defaultValue={infoEdit.MIXTO.propias}
-                                        //onChange={(e) => handleInputChangeEdit(e)}
+                                        // defaultValue={dataContext.mixto}
+                                        onChange={(e) => handleInputChangeEdit(e)}
                                     />
                                 </Form.Item>
 
@@ -286,8 +285,8 @@ export const EditarCapacidad = () => {
                                         placeholder="0"
                                         name='mixtoA'
                                         style={{ 'textAlign': 'right' }}
-                                        // defaultValue={infoEdit.MIXTO.alquiladas}
-                                        //onChange={(e) => handleInputChangeEdit(e)}
+                                        // defaultValue={dataContext.mixtoA}
+                                        onChange={(e) => handleInputChangeEdit(e)}
                                     />
                                 </Form.Item>
                             </td>
@@ -307,8 +306,8 @@ export const EditarCapacidad = () => {
                                         placeholder="0"
                                         name='propias'
                                         style={{ 'textAlign': 'right' }}
-                                        // defaultValue={infoCap.ahxs_propias}
-                                        // onChange={handleInputChangeEdit}
+                                        // defaultValue={dataContext.propias}
+                                        onChange={handleInputChangeEdit}
                                     />
                                 </Form.Item>
 
@@ -324,8 +323,8 @@ export const EditarCapacidad = () => {
                                         placeholder="0"
                                         name='alquiladas'
                                         style={{ 'textAlign': 'right' }}
-                                        // defaultValue={infoCap.ahxs_alquiladas}
-                                        //onChange={(e) => handleInputChangeEdit(e)}
+                                        // defaultValue={dataContext.alquiladas}
+                                        onChange={(e) => handleInputChangeEdit(e)}
                                     />
                                 </Form.Item>
                             </td>
@@ -336,18 +335,18 @@ export const EditarCapacidad = () => {
             <div className='contBotones'>
                 <Button
                     className='btnAddCosechaData'
-                    //onClick={() => salir()}
+                    onClick={() => salir()}
                 > Salir
                 </Button>
 
                 <Button
                     className='btnAddCosechaData'
-                    // onClick={() => handEdit()}
+                    onClick={() => handEdit()}
                 > Actualizar
                 </Button>
             </div>
 
-            {/* {
+            {
                 isActiveModal ?
                     (
                         // <Modal title="" open={isActiveModal} onCancel={cerrar} footer={null} centered >
@@ -356,7 +355,7 @@ export const EditarCapacidad = () => {
                         // </Modal>
                     )
                     : ('')
-            } */}
+            }
 
         </>
     )
