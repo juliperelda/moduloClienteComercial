@@ -70,20 +70,20 @@ export const EditarCapacidad = () => {
 
         if ((totalPropias <= inputPropias) & (totalAlquiladas <= inputAlquiladas)) {
         
-        console.log("entre if de handEdit");
+          console.log("entre if de handEdit");
 
-        objData = [...objData, dataContext];
+          objData = [...objData, dataContext];
 
-        console.log("objData: ", objData, "dataContext: ", dataContext);
+          console.log("objData: ", objData, "dataContext: ", dataContext);
 
-        localStorage.setItem("data", JSON.stringify({ objData }));
-        setAppStage(0);
+          localStorage.setItem("data", JSON.stringify({ objData }));
+          setAppStage(0);
 
-        let cli = localStorage.getItem("cliente");
+          let cli = localStorage.getItem("cliente");
 
-        editCap(cli, dataContext);
+          //editCap(cli, dataContext);
 
-        setUpdate(!update);
+          //setUpdate(!update);
 
         } else {
         alert("El total de Has. de Rubros supera a las Has. Propias en general");
@@ -162,7 +162,7 @@ export const EditarCapacidad = () => {
                     placeholder="0"
                     name="agricultura"
                     style={{ textAlign: "right" }}
-                    defaultValue={Math.trunc(infoEdit[0].has)}
+                    value={Math.trunc(infoEdit[0].has)}
                     onChange={(e) => handleInputChangeEdit(e)}
                   />
                 </Form.Item>
@@ -175,7 +175,7 @@ export const EditarCapacidad = () => {
                     placeholder="0"
                     name="agriculturaA"
                     style={{ textAlign: "right" }}
-                    defaultValue={Math.trunc(infoEdit[1].has)}
+                    value={Math.trunc(infoEdit[1].has)}
                     onChange={(e) => handleInputChangeEdit(e)}
                   />
                 </Form.Item>
@@ -193,7 +193,7 @@ export const EditarCapacidad = () => {
                     placeholder="0"
                     name="ganaderia"
                     style={{ textAlign: "right" }}
-                    defaultValue={Math.trunc(infoEdit[2].has)}
+                    value={Math.trunc(infoEdit[2].has)}
                     onChange={(e) => handleInputChangeEdit(e)}
                   />
                 </Form.Item>
@@ -206,7 +206,7 @@ export const EditarCapacidad = () => {
                     placeholder="0"
                     name="ganaderiaA"
                     style={{ textAlign: "right" }}
-                    defaultValue={Math.trunc(infoEdit[3].has)}
+                    value={Math.trunc(infoEdit[3].has)}
                     onChange={(e) => handleInputChangeEdit(e)}
                   />
                 </Form.Item>
@@ -224,7 +224,7 @@ export const EditarCapacidad = () => {
                     placeholder="0"
                     name="tambo"
                     style={{ textAlign: "right" }}
-                    defaultValue={Math.trunc(infoEdit[4].has)}
+                    value={Math.trunc(infoEdit[4].has)}
                     onChange={(e) => handleInputChangeEdit(e)}
                   />
                 </Form.Item>
@@ -237,7 +237,7 @@ export const EditarCapacidad = () => {
                     placeholder="0"
                     name="tamboA"
                     style={{ textAlign: "right" }}
-                    defaultValue={Math.trunc(infoEdit[5].has)}
+                    value={Math.trunc(infoEdit[5].has)}
                     onChange={(e) => handleInputChangeEdit(e)}
                   />
                 </Form.Item>
@@ -255,7 +255,7 @@ export const EditarCapacidad = () => {
                     placeholder="0"
                     name="mixto"
                     style={{ textAlign: "right" }}
-                    defaultValue={Math.trunc(infoEdit[6].has)}
+                    value={Math.trunc(infoEdit[6].has)}
                     onChange={(e) => handleInputChangeEdit(e)}
                   />
                 </Form.Item>
@@ -268,7 +268,7 @@ export const EditarCapacidad = () => {
                     placeholder="0"
                     name="mixtoA"
                     style={{ textAlign: "right" }}
-                    defaultValue={Math.trunc(infoEdit[7].has)}
+                    value={Math.trunc(infoEdit[7].has)}
                     onChange={(e) => handleInputChangeEdit(e)}
                   />
                 </Form.Item>
@@ -288,7 +288,7 @@ export const EditarCapacidad = () => {
                     placeholder="0"
                     name="propias"
                     style={{ textAlign: "right" }}
-                    defaultValue={Math.trunc(infoEdit[0].ahxs_propias)}
+                    value={Math.trunc(infoEdit[0].ahxs_propias)}
                     onChange={handleInputChangeEdit}
                   />
                 </Form.Item>
@@ -301,7 +301,7 @@ export const EditarCapacidad = () => {
                     placeholder="0"
                     name="alquiladas"
                     style={{ textAlign: "right" }}
-                    defaultValue={Math.trunc(infoEdit[0].ahxs_alquiladas)}
+                    value={Math.trunc(infoEdit[0].ahxs_alquiladas)}
                     onChange={(e) => handleInputChangeEdit(e)}
                   />
                 </Form.Item>
@@ -313,7 +313,7 @@ export const EditarCapacidad = () => {
       <div className="contBotones">
         <Button className="btnAddCosechaData" onClick={() => salir()}>
           {" "}
-          Salir
+          Cancelar
         </Button>
 
         <Button className="btnAddCosechaData" onClick={() => handEdit()}>
