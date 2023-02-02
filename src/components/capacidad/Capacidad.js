@@ -120,8 +120,8 @@ const Capacidad = () => {
             {
                 key: 1,
                 categoria: "AGRICULTURA",
-                propias: result.AGRICULTURA ? result.AGRICULTURA.propio : 0,
-                alquiler: result.AGRICULTURA ? result.AGRICULTURA.alquilado : 0,
+                propias: result.AGRICULTURA ? parseInt(result.AGRICULTURA.propio) : 0,
+                alquiler: result.AGRICULTURA ? parseInt(result.AGRICULTURA.alquilado) : 0,
                 total: (
                     <>
                         {result.AGRICULTURA ? parseInt(result.AGRICULTURA.propio) + parseInt(result.AGRICULTURA.alquilado) : 0} {' '}
@@ -132,8 +132,8 @@ const Capacidad = () => {
             {
                 key: 2,
                 categoria: "GANADERIA",
-                propias: result.GANADERIA ? result.GANADERIA.propio : 0,
-                alquiler: result.GANADERIA ? result.GANADERIA.alquilado : 0,
+                propias: result.GANADERIA ? parseInt(result.GANADERIA.propio) : 0,
+                alquiler: result.GANADERIA ? parseInt(result.GANADERIA.alquilado) : 0,
                 total: (
                     <>
                         {result.GANADERIA ? parseInt(result.GANADERIA.propio) + parseInt(result.GANADERIA.alquilado) : 0} {' '}
@@ -144,8 +144,8 @@ const Capacidad = () => {
             {
                 key: 3,
                 categoria: "TAMBO",
-                propias: result.TAMBO ? result.TAMBO.propio : 0,
-                alquiler: result.TAMBO ? result.TAMBO.alquilado : 0,
+                propias: result.TAMBO ? parseInt(result.TAMBO.propio) : 0,
+                alquiler: result.TAMBO ? parseInt(result.TAMBO.alquilado) : 0,
                 total: (
                     <>
                         {result.TAMBO ? parseInt(result.TAMBO.propio) + parseInt(result.TAMBO.alquilado) : 0} {' '}
@@ -156,8 +156,8 @@ const Capacidad = () => {
             {
                 key: 4,
                 categoria: "MIXTO",
-                propias: result.MIXTO ? result.MIXTO.propio : 0,
-                alquiler: result.MIXTO ? result.MIXTO.alquilado : 0,
+                propias: result.MIXTO ? parseInt(result.MIXTO.propio) : 0,
+                alquiler: result.MIXTO ? parseInt(result.MIXTO.alquilado) : 0,
                 total: (
                     <>
                         {result.MIXTO ? parseInt(result.MIXTO.propio) + parseInt(result.MIXTO.alquilado) : 0} {' '}
@@ -177,31 +177,21 @@ const Capacidad = () => {
                         />
                     </>
                 ),
-                propias: <strong>{infoCap[0].ahxs_propias}</strong>,
-                alquiler: <strong>{infoCap[0].ahxs_alquiladas}</strong>,
+                propias: <strong>{parseInt(infoCap[0].ahxs_propias)}</strong>,
+                alquiler: <strong>{parseInt(infoCap[0].ahxs_alquiladas)}</strong>,
                 total: <strong>{parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)}</strong>
 
             },
         ];
 
         // console.log(capacidad);
-
-
         return result;
 
     };
 
-
     const addCosecha = (infoCap) => {
         setAppStage(2);
-        // if (infoCap.length <= 0) {
-        //     setIsButtonDisabled(true);
-        //     return;
-        // }
-        // setIsButtonDisabled(false);
     };
-
-
 
     var objData = [];
 
@@ -233,9 +223,6 @@ const Capacidad = () => {
                 );
         }
     };
-
-
-
 
     //* FUNCION QUE TRAE LOS DATOS DE TABLA RUBROS
     function rubros() {
@@ -319,7 +306,6 @@ const Capacidad = () => {
         // console.log("infoCosechas[0] desde Capacidad: ", infoCosechas[0].acos_desc);
     }
 
-
     return (
         <>
             <div className="divDropdown">
@@ -340,8 +326,8 @@ const Capacidad = () => {
                     style={{ alignItems: "center", boxShadow: "none !important", outline: "0", border: "none !important" }}
                     className="btnEditCosecha"
                     icon={<EditOutlined />}
-                    // onClick={() => editarCosecha()}
-                    onClick={() => console.log(infoCap)}
+                    onClick={() => editarCosecha()}
+                    // onClick={() => console.log(infoCap)}
                     // onChange={(e) => recuperaCosecha(e)}
                     disabled={isButtonEditDisabled}
                 />
