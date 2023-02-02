@@ -116,7 +116,7 @@ export const EditarCapacidad = () => {
         //Crea el objeto de lo que escribo en los campos
         ...dataContext,
         cosecha: localStorage.getItem("idCosechaSelec") ? localStorage.getItem("idCosechaSelec") : null,
-        [event.target.name]: event.target.value,
+        [event.target.name]: parseInt(event.target.value),
       });
       
     }
