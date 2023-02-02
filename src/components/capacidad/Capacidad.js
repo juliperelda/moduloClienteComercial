@@ -67,7 +67,8 @@ const Capacidad = () => {
         infoCosechas,
         setCosechas,
         update, 
-        setUpdate
+        setUpdate,
+        setInfoEdit
     } = useContext(GlobalContext);
 
     const [isHayData, setIsHayData] = useState(false);
@@ -84,6 +85,7 @@ const Capacidad = () => {
 
     const generaData = (infoCap) => {
 
+        setInfoEdit(infoCap);
         // Iterar sobre cada objeto del array
         infoCap.forEach(info => {
             // Verificar si ya existe el arubro_desc en el objeto result
