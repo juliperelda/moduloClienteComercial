@@ -44,22 +44,22 @@ export const EditarCapacidad = () => {
   }, []);
 
     const handEdit = () => {
-        let inputPropias = document.getElementById("inputPropias").value;
-        let inputAgricultura = document.getElementById("inputAgricultura").value;
-        let inputGanaderia = document.getElementById("inputGanaderia").value;
-        let inputTambo = document.getElementById("inputTambo").value;
-        let inputMixto = document.getElementById("inputMixto").value;
+        let inputPropias = document.getElementById("inputPropias").defaultvalue;
+        let inputAgricultura = document.getElementById("inputAgricultura").defaultvalue;
+        let inputGanaderia = document.getElementById("inputGanaderia").defaultValue;
+        let inputTambo = document.getElementById("inputTambo").defaultValue;
+        let inputMixto = document.getElementById("inputMixto").defaultValue;
         let totalPropias =
         parseInt(inputAgricultura) +
         parseInt(inputGanaderia) +
         parseInt(inputTambo) +
         parseInt(inputMixto);
 
-        let inputAlquiladas = document.getElementById("inputAlquiladas").value;
-        let inputAgriculturaA = document.getElementById("inputAgriculturaA").value;
-        let inputGanaderiaA = document.getElementById("inputGanaderiaA").value;
-        let inputTamboA = document.getElementById("inputTamboA").value;
-        let inputMixtoA = document.getElementById("inputMixtoA").value;
+        let inputAlquiladas = document.getElementById("inputAlquiladas").defaultValue;
+        let inputAgriculturaA = document.getElementById("inputAgriculturaA").defaultValue;
+        let inputGanaderiaA = document.getElementById("inputGanaderiaA").defaultValue;
+        let inputTamboA = document.getElementById("inputTamboA").defaultValue;
+        let inputMixtoA = document.getElementById("inputMixtoA").defaultValue;
         let totalAlquiladas =
         parseInt(inputAgriculturaA) +
         parseInt(inputGanaderiaA) +
@@ -162,7 +162,7 @@ export const EditarCapacidad = () => {
                     placeholder="0"
                     name="agricultura"
                     style={{ textAlign: "right" }}
-                    value={Math.trunc(infoEdit[0].has)}
+                    defaultValue={Math.trunc(infoEdit[0].has)}
                     onChange={(e) => handleInputChangeEdit(e)}
                   />
                 </Form.Item>
@@ -175,7 +175,7 @@ export const EditarCapacidad = () => {
                     placeholder="0"
                     name="agriculturaA"
                     style={{ textAlign: "right" }}
-                    value={Math.trunc(infoEdit[1].has)}
+                    defaultValue={Math.trunc(infoEdit[1].has)}
                     onChange={(e) => handleInputChangeEdit(e)}
                   />
                 </Form.Item>
@@ -193,7 +193,7 @@ export const EditarCapacidad = () => {
                     placeholder="0"
                     name="ganaderia"
                     style={{ textAlign: "right" }}
-                    value={Math.trunc(infoEdit[2].has)}
+                    defaultValue={Math.trunc(infoEdit[2].has)}
                     onChange={(e) => handleInputChangeEdit(e)}
                   />
                 </Form.Item>
@@ -206,7 +206,7 @@ export const EditarCapacidad = () => {
                     placeholder="0"
                     name="ganaderiaA"
                     style={{ textAlign: "right" }}
-                    value={Math.trunc(infoEdit[3].has)}
+                    defaultValue={Math.trunc(infoEdit[3].has)}
                     onChange={(e) => handleInputChangeEdit(e)}
                   />
                 </Form.Item>
@@ -224,7 +224,7 @@ export const EditarCapacidad = () => {
                     placeholder="0"
                     name="tambo"
                     style={{ textAlign: "right" }}
-                    value={Math.trunc(infoEdit[4].has)}
+                    defaultValue={Math.trunc(infoEdit[4].has)}
                     onChange={(e) => handleInputChangeEdit(e)}
                   />
                 </Form.Item>
@@ -237,7 +237,7 @@ export const EditarCapacidad = () => {
                     placeholder="0"
                     name="tamboA"
                     style={{ textAlign: "right" }}
-                    value={Math.trunc(infoEdit[5].has)}
+                    defaultValue={Math.trunc(infoEdit[5].has)}
                     onChange={(e) => handleInputChangeEdit(e)}
                   />
                 </Form.Item>
@@ -255,7 +255,7 @@ export const EditarCapacidad = () => {
                     placeholder="0"
                     name="mixto"
                     style={{ textAlign: "right" }}
-                    value={Math.trunc(infoEdit[6].has)}
+                    defaultValue={Math.trunc(infoEdit[6].has)}
                     onChange={(e) => handleInputChangeEdit(e)}
                   />
                 </Form.Item>
@@ -268,7 +268,7 @@ export const EditarCapacidad = () => {
                     placeholder="0"
                     name="mixtoA"
                     style={{ textAlign: "right" }}
-                    value={Math.trunc(infoEdit[7].has)}
+                    defaultValue={Math.trunc(infoEdit[7].has)}
                     onChange={(e) => handleInputChangeEdit(e)}
                   />
                 </Form.Item>
@@ -288,7 +288,7 @@ export const EditarCapacidad = () => {
                     placeholder="0"
                     name="propias"
                     style={{ textAlign: "right" }}
-                    value={Math.trunc(infoEdit[0].ahxs_propias)}
+                    defaultValue={Math.trunc(infoEdit[0].ahxs_propias)}
                     onChange={handleInputChangeEdit}
                   />
                 </Form.Item>
@@ -301,7 +301,7 @@ export const EditarCapacidad = () => {
                     placeholder="0"
                     name="alquiladas"
                     style={{ textAlign: "right" }}
-                    value={Math.trunc(infoEdit[0].ahxs_alquiladas)}
+                    defaultValue={Math.trunc(infoEdit[0].ahxs_alquiladas)}
                     onChange={(e) => handleInputChangeEdit(e)}
                   />
                 </Form.Item>
