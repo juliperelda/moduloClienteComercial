@@ -4,6 +4,7 @@ import { GlobalContext } from "../../context/GlobalContext";
 import "./capacidad.css";
 
 export const EditarCapacidad = () => {
+  
   var objData = [];
 
   //! UseContext
@@ -36,23 +37,25 @@ export const EditarCapacidad = () => {
       cosecha: localStorage.getItem("idCosechaSelec") ? localStorage.getItem("idCosechaSelec") : null,
     });
 
+    console.log(dataContext);
+
   //! UseState
   const [isActiveModal, setIsActiveModal] = useState(false); //Es por si utilizo el modal para el mensaje de que se paso de cantidad en los rubros
-  const [isDataSet, setIsDataSet] = useState({});
+  // const [isDataSet, setIsDataSet] = useState({});
 
-  //! Funciones
-  const traeData = () => {
-    if (localStorage.getItem("data")) {
-      setIsDataSet(JSON.parse(localStorage.getItem("data")).objData);
-    }
-  };
+  // //! Funciones
+  // const traeData = () => {
+  //   if (localStorage.getItem("data")) {
+  //     setIsDataSet(JSON.parse(localStorage.getItem("data")).objData);
+  //   }
+  // };
 
-  useEffect(() => {
-    const fetchData = () => {
-      traeData();
-    };
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   const fetchData = () => {
+  //     traeData();
+  //   };
+  //   fetchData();
+  // }, []);
 
     const handEdit = () => {
         let inputPropias = document.getElementById("inputPropias").value;
