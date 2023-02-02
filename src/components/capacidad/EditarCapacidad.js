@@ -25,17 +25,17 @@ export const EditarCapacidad = () => {
 
 
   console.log(infoEdit);
-  setDataContext({
-      agricultura: Math.trunc(infoEdit[0].has),
-      agriculturaA: Math.trunc(infoEdit[1].has),
-      ganaderia: Math.trunc(infoEdit[2].has),
-      ganaderiaA: Math.trunc(infoEdit[3].has),
-      tambo: Math.trunc(infoEdit[4].has),
-      tamboA: Math.trunc(infoEdit[5].has),
-      mixto: Math.trunc(infoEdit[6].has),
-      mixtoA: Math.trunc(infoEdit[7].has),
-      cosecha: localStorage.getItem("idCosechaSelec") ? localStorage.getItem("idCosechaSelec") : null,
-    });
+  // setDataContext({
+  //     agricultura: Math.trunc(infoEdit[0].has),
+  //     agriculturaA: Math.trunc(infoEdit[1].has),
+  //     ganaderia: Math.trunc(infoEdit[2].has),
+  //     ganaderiaA: Math.trunc(infoEdit[3].has),
+  //     tambo: Math.trunc(infoEdit[4].has),
+  //     tamboA: Math.trunc(infoEdit[5].has),
+  //     mixto: Math.trunc(infoEdit[6].has),
+  //     mixtoA: Math.trunc(infoEdit[7].has),
+  //     cosecha: localStorage.getItem("idCosechaSelec") ? localStorage.getItem("idCosechaSelec") : null,
+  //   });
 
     console.log(dataContext);
 
