@@ -66,6 +66,8 @@ const Capacidad = () => {
         setInfoCap,
         infoCosechas,
         setCosechas,
+        update, 
+        setUpdate
     } = useContext(GlobalContext);
 
     const [isHayData, setIsHayData] = useState(false);
@@ -268,7 +270,7 @@ const Capacidad = () => {
             cosechas(idCliente);
             rubros();
         }
-    }, [idCliente, cosecha]);
+    }, [idCliente, cosecha, update ]);
 
     if (infoCap.length > 0) {
         // console.log("infoCap desde Capacidad: ", infoCap);
@@ -294,6 +296,12 @@ const Capacidad = () => {
         // console.log("infoCosechas desde Capacidad: ", infoCosechas);
         // console.log("infoCosechas[0] desde Capacidad: ", infoCosechas[0].acos_desc);
     }
+
+
+    // useEffect(() => {
+      
+    // }, [])
+    
 
 
     return (
