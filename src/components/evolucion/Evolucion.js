@@ -144,10 +144,10 @@ const Evolucion = () => {
               if (active) {
                 return (
                   <div className="custom-tooltip">
-                    <p className="label">{`Cosecha: ${label}`}</p>
-                    <p className="label">{`Propias: ${payload[0].value}`}</p>
+                    <p className="label">{`Cosecha:`}</p>
+                    {/* <p className="label">{`Propias: ${payload[0].value}`}</p>
                     <p className="label">{`Alquiladas: ${payload[1].value}`}</p>
-                    <p className="label">{`Total: ${payload[0].value + payload[1].value}`}</p>
+                    <p className="label">{`Total: ${payload[0].value + payload[1].value}`}</p> */}
                   </div>
                 );
               }
