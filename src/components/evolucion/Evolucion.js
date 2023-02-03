@@ -104,11 +104,13 @@ const Evolucion = () => {
     if (infoEvo.length > 0) {
       setDataForChart(
         infoEvo.map((item) => {
+          var suma = (item.ahxs_propias + item.ahxs_alquiladas);
+          console.log(suma);
           return {
             cosecha: item.acos_desc,
             propias: item.ahxs_propias,
             alquiladas: item.ahxs_alquiladas,
-            total: (item.ahxs_propias + item.ahxs_alquiladas),
+            total: suma,
           };
         })
       );
@@ -137,15 +139,7 @@ const Evolucion = () => {
           <YAxis
             label={{ value: "Has.", angle: -90, position: "insideLeft" }}
           />
-          <Tooltip 
-            content={(props) => (
-              <div>
-                <p>Propias: {props.payload[0].value}</p>
-                <p>Alquiladas: {props.payload[1].value}</p>
-                <p>Total: {props.payload[0].value + props.payload[1].value}</p>
-              </div>
-            )}
-          />
+          <Tooltip />
           <Legend
             iconType="circle"
             onClick={(x) => handleLegendClick(x)}
