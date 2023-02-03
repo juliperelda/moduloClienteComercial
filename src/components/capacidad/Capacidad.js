@@ -334,7 +334,7 @@ const Capacidad = () => {
 
     useEffect(() => {
         setIsPrueba(capacidad)
-    }, [cosecha])
+    }, [selectedValue])
     
 
 
