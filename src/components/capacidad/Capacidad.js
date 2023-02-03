@@ -81,12 +81,14 @@ const Capacidad = () => {
         isSelectEditDisabled,
         setIsSelectEditDisabled,
         isValorPorcentaje,
-        setIsValorPorcentaje
+        setIsValorPorcentaje,
+        isPrueba,
+        setIsPrueba
     } = useContext(GlobalContext);
 
     const [isHayData, setIsHayData] = useState(false);
     const [selectedValue, setSelectedValue] = useState(localStorage.getItem("cosechaActiva"));
-    const [isPrueba, setIsPrueba] = useState(false);
+    // const [isPrueba, setIsPrueba] = useState(false);
 
     const editarCosecha = () => {
         setIsButtonEditDisabled(true);
@@ -183,7 +185,7 @@ const Capacidad = () => {
 
             },
         ];
-        // setIsPrueba(result)
+        setIsPrueba(result)
         // console.log(capacidad);
         return result;
 

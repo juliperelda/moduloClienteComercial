@@ -32,6 +32,7 @@ function App() {
   const [infoCosechas, setCosechas]=useState({});
   const [infoEdit, setInfoEdit]=useState({});
   const [update, setUpdate] = useState(false);
+  const [isPrueba, setIsPrueba] = useState(false);
   const [isValorPorcentaje, setIsValorPorcentaje] = useState({
       porcentajeAgricultura: {name: '', porcentaje: null},
       porcentajeGanaderia: {name: '', porcentaje: null},
@@ -55,6 +56,7 @@ function App() {
       update, setUpdate,
       isSelectEditDisabled, setIsSelectEditDisabled,
       isValorPorcentaje, setIsValorPorcentaje,
+      isPrueba, setIsPrueba,
     }}>
       
       <Analitica/>

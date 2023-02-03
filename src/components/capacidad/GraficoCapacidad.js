@@ -12,15 +12,18 @@ export const GraficoCapacidad = () => {
         infoCap, 
         setInfoCap,
         isValorPorcentaje, 
-        setIsValorPorcentaje
+        setIsValorPorcentaje,
+        isPrueba, 
+        setIsPrueba
     } = useContext(GlobalContext);
-    console.log("Desde GraficoCapacidad: ", infoCap)
-    const [isPruebaPorcentaje, setIsPruebaPorcentaje] = useState({
-        porcentajeAgricultura: {name: '', porcentaje: null},
-        porcentajeGanaderia: {name: '', porcentaje: null},
-        porcentajeTambo: {name: '', porcentaje: null},
-        porcentajeMixto: {name: '', porcentaje: null},
-    });
+    console.log("Desde GraficoCapacidad infoCap: ", infoCap)
+    console.log("Desde GraficoCapacidad isPrueba: ", isPrueba)
+    // const [isPruebaPorcentaje, setIsPruebaPorcentaje] = useState({
+    //     porcentajeAgricultura: {name: "agriculturaPorcentaje", porcentaje: null},
+    //     porcentajeGanaderia: {name: "ganaderiaPorcentaje", porcentaje: (((isPrueba[0].result.GANADERIA ? (parseInt(result.GANADERIA.propio) + parseInt(result.GANADERIA.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0))},
+    //     porcentajeTambo: {name: "tamboPorcentaje", porcentaje: null},
+    //     porcentajeMixto: {name: "mixtoPorcentaje", porcentaje: null},
+    // });
 
     const data = [
         { name: 'Group A', value: 400 },
