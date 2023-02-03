@@ -115,6 +115,14 @@ const Evolucion = () => {
   }, [infoEvo]);
 
 
+  const [tooltipData, setTooltipData] = useState({ active: false, payload: [] });
+
+  const handleTooltip = (active, payload) => {
+    setTimeout(() => {
+      setTooltipData({ active, payload });
+    }, 1000);
+  };
+
 
   return (
     <>
@@ -137,20 +145,21 @@ const Evolucion = () => {
             label={{ value: "Has.", angle: -90, position: "insideLeft" }}
           />
           <Tooltip
-          cursor={{ fill: "transparent" }}
-          content={({ active, payload, label }) => {
-            if (active) {
-              return (
-                <div className="custom-tooltip">
-                  <p className="label">{`Cosecha: ${dataForChart.acos_desc}`}</p>
-                  <p className="label">{`Propias: ${dataForChart.ahxs_propias}`}</p>
-                  <p className="label">{`Alquiladas: ${dataForChart.item.ahxs_alquiladas}`}</p>
-                  {/* <p className="label">{`Total: ${payload[0].value + payload[1].value}`}</p> */}
-                </div>
-              );
-            }
-            return null;
-          }}
+            cursor={{ fill: "transparent" }}
+            content={({ active, payload, label }) => {
+              if (tooltipData.active) {
+                return (
+                  <div className="custom-tooltip">
+                    <p className="label">{`Cosecha: ${dataForChart.acos_desc}`}</p>
+                    <p className="label">{`Propias: ${dataForChart.ahxs_propias}`}</p>
+                    <p className="label">{`Alquiladas: ${dataForChart.item.ahxs_alquiladas}`}</p>
+                  </div>
+                );
+              }
+              return null;
+            }}
+            onActive={handleTooltip}
+            onHide={() => setTooltipData({ active: false, payload: [] })}
           />
           <Legend
             iconType="circle"
