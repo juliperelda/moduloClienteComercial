@@ -115,6 +115,12 @@ const Evolucion = () => {
   }, [infoEvo]);
 
   const getIntroOfPage = (valor0, valor1) => {
+    if(valor0 === "" || valor0 === "undefined"){
+      valor0 = 0;
+    }
+    if(valor1 === "" || valor1 === "undefined"){
+      valor1 = 0;
+    }
     var suma = Math.trunc(valor0) + Math.trunc(valor1);
       return suma;
   };
@@ -126,6 +132,26 @@ const Evolucion = () => {
           <p className="label" style={{color:"grey", fontWeight:"500"}}>{`Cosecha: ${label}`}</p>
           <p className="propias" style={{color:"#a3ef95",fontWeight:"500"}}>{`Propias: ${Math.trunc(payload[0].value)}`}</p>
           <p className="alquiladas" style={{color:"#434348",fontWeight:"500"}}>{`Alquiladas: ${Math.trunc(payload[1].value)}`}</p>
+          <p className="total" style={{color:"grey",fontWeight:"500"}}>{"Total: " + getIntroOfPage(payload[0].value,payload[1].value)}</p>
+        </div>
+      );
+    }
+    if (active && payload && payload.length && payload[0].value === undefined && payload[1].value !== undefined) {
+      return (
+        <div className="custom-tooltip" style={{border:"3px solid grey", backgroundColor:"#FFFF", padding:"10px", borderRadius:"4px"}}>
+          <p className="label" style={{color:"grey", fontWeight:"500"}}>{`Cosecha: ${label}`}</p>
+          {/* <p className="propias" style={{color:"#a3ef95",fontWeight:"500"}}>{`Propias: ${Math.trunc(payload[0].value)}`}</p> */}
+          <p className="alquiladas" style={{color:"#434348",fontWeight:"500"}}>{`Alquiladas: ${Math.trunc(payload[1].value)}`}</p>
+          <p className="total" style={{color:"grey",fontWeight:"500"}}>{"Total: " + getIntroOfPage(payload[0].value,payload[1].value)}</p>
+        </div>
+      );
+    }
+    if (active && payload && payload.length && payload[0].value !== undefined && payload[1].value === undefined) {
+      return (
+        <div className="custom-tooltip" style={{border:"3px solid grey", backgroundColor:"#FFFF", padding:"10px", borderRadius:"4px"}}>
+          <p className="label" style={{color:"grey", fontWeight:"500"}}>{`Cosecha: ${label}`}</p>
+          <p className="propias" style={{color:"#a3ef95",fontWeight:"500"}}>{`Propias: ${Math.trunc(payload[0].value)}`}</p>
+          {/* <p className="alquiladas" style={{color:"#434348",fontWeight:"500"}}>{`Alquiladas: ${Math.trunc(payload[1].value)}`}</p> */}
           <p className="total" style={{color:"grey",fontWeight:"500"}}>{"Total: " + getIntroOfPage(payload[0].value,payload[1].value)}</p>
         </div>
       );
