@@ -99,6 +99,7 @@ const Capacidad = () => {
 
     var result = {};
     let capacidad = [];
+    
 
     const generaData = (infoCap) => {
 
@@ -185,12 +186,11 @@ const Capacidad = () => {
 
             },
         ];
-        setIsPrueba(result)
         // console.log(capacidad);
         return result;
-
+        
     };
-
+    
 
 
 
@@ -305,7 +305,7 @@ const Capacidad = () => {
             cosechas(idCliente);
             rubros();
         }
-    }, [idCliente, cosecha, update, isPrueba]);
+    }, [idCliente, cosecha, update]);
 
     if (infoCap.length > 0) {
         // console.log("infoCap desde Capacidad: ", infoCap);
@@ -331,6 +331,11 @@ const Capacidad = () => {
         // console.log("infoCosechas desde Capacidad: ", infoCosechas);
         // console.log("infoCosechas[0] desde Capacidad: ", infoCosechas[0].acos_desc);
     }
+
+    useEffect(() => {
+        setIsPrueba(capacidad)
+    }, [cosecha])
+    
 
 
     return (
