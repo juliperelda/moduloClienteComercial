@@ -1,5 +1,5 @@
 import { Tooltip } from 'antd';
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Cell, Pie, PieChart } from 'recharts';
 import { GlobalContext } from '../../context/GlobalContext';
 
@@ -16,8 +16,12 @@ export const GraficoCapacidad = () => {
         isPrueba, 
         setIsPrueba
     } = useContext(GlobalContext);
-    console.log("Desde GraficoCapacidad infoCap: ", infoCap)
-    console.log("Desde GraficoCapacidad isPrueba: ", isPrueba)
+    useEffect(() => {
+      console.log("Desde GraficoCapacidad infoCap: ", infoCap)
+      console.log("Desde GraficoCapacidad isPrueba: ", isPrueba)
+
+    }, [])
+    
     // const [isPruebaPorcentaje, setIsPruebaPorcentaje] = useState({
     //     porcentajeAgricultura: {name: "agriculturaPorcentaje", porcentaje: null},
     //     porcentajeGanaderia: {name: "ganaderiaPorcentaje", porcentaje: (((isPrueba[0].result.GANADERIA ? (parseInt(result.GANADERIA.propio) + parseInt(result.GANADERIA.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0))},
