@@ -188,16 +188,7 @@ const Capacidad = () => {
 
     };
 
-    useEffect(() => {
-        setIsValorPorcentaje({
-            porcentajeAgricultura: { name: "agricultura", porcentaje: (((capacidad.AGRICULTURA ? (parseInt(capacidad.AGRICULTURA.propio) + parseInt(capacidad.AGRICULTURA.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)) },
-            porcentajeGanaderia: { name: "ganaderia", porcentaje: (((capacidad.GANADERIA ? (parseInt(capacidad.GANADERIA.propio) + parseInt(capacidad.GANADERIA.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)) },
-            porcentajeTambo: { name: "tambo", porcentaje: (((capacidad.TAMBO ? (parseInt(capacidad.TAMBO.propio) + parseInt(capacidad.TAMBO.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)) },
-            porcentajeMixto: { name: "mixto", porcentaje: (((capacidad.MIXTO ? (parseInt(capacidad.MIXTO.propio) + parseInt(capacidad.MIXTO.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)) },
-        });
 
-        console.log("Desde capacidad: ", isValorPorcentaje)
-    }, [])
 
 
 
@@ -342,6 +333,18 @@ const Capacidad = () => {
     // useEffect(() => {
 
     // }, [])
+
+
+    useEffect((infoCap) => {
+        setIsValorPorcentaje({
+            porcentajeAgricultura: { name: "agricultura", porcentaje: (((capacidad.AGRICULTURA ? (parseInt(capacidad.AGRICULTURA.propio) + parseInt(capacidad.AGRICULTURA.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)) },
+            porcentajeGanaderia: { name: "ganaderia", porcentaje: (((capacidad.GANADERIA ? (parseInt(capacidad.GANADERIA.propio) + parseInt(capacidad.GANADERIA.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)) },
+            porcentajeTambo: { name: "tambo", porcentaje: (((capacidad.TAMBO ? (parseInt(capacidad.TAMBO.propio) + parseInt(capacidad.TAMBO.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)) },
+            porcentajeMixto: { name: "mixto", porcentaje: (((capacidad.MIXTO ? (parseInt(capacidad.MIXTO.propio) + parseInt(capacidad.MIXTO.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)) },
+        });
+
+        console.log("Desde capacidad: ", isValorPorcentaje)
+    }, [])
 
 
 
