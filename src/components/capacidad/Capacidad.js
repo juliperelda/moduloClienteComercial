@@ -313,7 +313,7 @@ const Capacidad = () => {
                     className="selectCosecha"
                     style={{ width: '80px' }}
                     onChange={(value) => {setSelectedValue(value); localStorage.setItem("idCosechaSelec", value)}}
-                    defaultValue={localStorage.getItem("cosechaActiva")}
+                    defaultValue={selectedValue}
                 >
                     {infoCosechas.length > 0 && infoCosechas.map((cosecha) => {
                         return (
