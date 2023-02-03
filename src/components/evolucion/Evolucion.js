@@ -104,7 +104,7 @@ const Evolucion = () => {
     if (infoEvo.length > 0) {
       setDataForChart(
         infoEvo.map((item) => {
-          var suma = (item.ahxs_propias + item.ahxs_alquiladas);
+          var suma = Math.trunc(item.ahxs_propias) + Math.trunc(item.ahxs_alquiladas);
           console.log(suma);
           return {
             cosecha: item.acos_desc,
