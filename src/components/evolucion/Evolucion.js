@@ -126,6 +126,7 @@ const Evolucion = () => {
   };
 
   const CustomTooltip = ({ active, payload, label }) => {
+    //PAARA VER AMBAS BARRAS
     if (active && payload && payload.length && isValorPropias === true && isValorAlquiladas === true) {
       return (
         <div className="custom-tooltip" style={{border:"3px solid grey", backgroundColor:"#FFFF", padding:"10px", borderRadius:"4px"}}>
@@ -136,6 +137,7 @@ const Evolucion = () => {
         </div>
       );
     }
+    //PARA VER SOLO ALQUILADAS
     if (active && payload && payload.length && isValorAlquiladas === true && isValorPropias === false) {
       return (
         <div className="custom-tooltip" style={{border:"3px solid grey", backgroundColor:"#FFFF", padding:"10px", borderRadius:"4px"}}>
@@ -144,6 +146,7 @@ const Evolucion = () => {
         </div>
       );
     }
+    //PARA VER SOLO PROPIAS
     if (active && payload && payload.length && isValorPropias === true && isValorAlquiladas === false) {
       return (
         <div className="custom-tooltip" style={{border:"3px solid grey", backgroundColor:"#FFFF", padding:"10px", borderRadius:"4px"}}>
