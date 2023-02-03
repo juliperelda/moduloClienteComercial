@@ -129,7 +129,7 @@ const Evolucion = () => {
           <p className="label">{`Cosecha: ${label}`}</p>
           <p className="propias" style={{color:"#a3ef95"}}>{`Propias: ${payload[0].value}`}</p>
           <p className="alquiladas" style={{color:"#434348"}}>{`Alquiladas: ${payload[1].value}`}</p>
-          <p className="total" style={{color:"grey"}}>{"Total: ", getIntroOfPage(payload[0].value,payload[1].value)}</p>
+          <p className="total" style={{color:"grey"}}>{"Total: " + getIntroOfPage(payload[0].value,payload[1].value)}</p>
           {/* <p className="total" style={{color:"grey"}}>{getIntroOfPage(label)}</p> */}
         </div>
       );
