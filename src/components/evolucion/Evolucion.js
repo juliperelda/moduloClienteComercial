@@ -1,5 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable no-unused-vars */
 import React, { useContext, useEffect, useState } from "react";
 import {
   BarChart,
@@ -139,20 +137,20 @@ const Evolucion = () => {
             label={{ value: "Has.", angle: -90, position: "insideLeft" }}
           />
           <Tooltip
-          // cursor={{ fill: "transparent" }}
-          // content={({ active, payload, label }) => {
-          //   if (active) {
-          //     return (
-          //       <div className="custom-tooltip">
-          //         <p className="label">{`Cosecha: ${label}`}</p>
-          //         <p className="label">{`Propias: ${payload[0].value}`}</p>
-          //         <p className="label">{`Alquiladas: ${payload[1].value}`}</p>
-          //         <p className="label">{`Total: ${payload[0].value + payload[1].value}`}</p>
-          //       </div>
-          //     );
-          //   }
-          //   return null;
-          // }}
+          cursor={{ fill: "transparent" }}
+          content={({ active, payload, label }) => {
+            if (active) {
+              return (
+                <div className="custom-tooltip">
+                  <p className="label">{`Cosecha: ${dataForChart.acos_desc}`}</p>
+                  <p className="label">{`Propias: ${dataForChart.ahxs_propias}`}</p>
+                  <p className="label">{`Alquiladas: ${dataForChart.item.ahxs_alquiladas}`}</p>
+                  {/* <p className="label">{`Total: ${payload[0].value + payload[1].value}`}</p> */}
+                </div>
+              );
+            }
+            return null;
+          }}
           />
           <Legend
             iconType="circle"
@@ -205,19 +203,6 @@ const Evolucion = () => {
               isAnimationActive={true}
             />
           )}
-          <Bar
-            dataKey="total"
-            name="Total"
-            stackId="a"
-            barSize={50}
-            fill="#E0ECFF"
-            key={"total"}
-            // label={renderCustomBarLabel}
-            // visible={false}
-            visibility={false}
-            // hide={true}
-            isAnimationActive={true}
-          />
         </BarChart>
       </ResponsiveContainer>
     </>
