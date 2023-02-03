@@ -136,7 +136,7 @@ const Evolucion = () => {
         </div>
       );
     }
-    if (active && payload && payload.length && isValorPropias === false && isValorAlquiladas === true) {
+    if (active && payload && payload.length && isValorAlquiladas === true && isValorPropias === false) {
       return (
         <div className="custom-tooltip" style={{border:"3px solid grey", backgroundColor:"#FFFF", padding:"10px", borderRadius:"4px"}}>
           <p className="label" style={{color:"grey", fontWeight:"500"}}>{`Cosecha: ${label}`}</p>
