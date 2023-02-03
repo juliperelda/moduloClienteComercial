@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable no-unused-vars */
 import React, { useContext, useEffect, useState } from "react";
 import {
   BarChart,
@@ -12,7 +14,7 @@ import {
 import { GlobalContext } from "../../context/GlobalContext";
 
 const Evolucion = () => {
-  const { idCliente, infoEvo, setInfoEvo, update, setUpdate } = useContext(GlobalContext);
+  const { idCliente, infoEvo, setInfoEvo, update } = useContext(GlobalContext);
 
   const [isDataStorage, setIsDataStorage] = useState([]);
 
@@ -125,7 +127,6 @@ const Evolucion = () => {
           <p className="propias" style={{color:"#a3ef95",fontWeight:"500"}}>{`Propias: ${Math.trunc(payload[0].value)}`}</p>
           <p className="alquiladas" style={{color:"#434348",fontWeight:"500"}}>{`Alquiladas: ${Math.trunc(payload[1].value)}`}</p>
           <p className="total" style={{color:"grey",fontWeight:"500"}}>{"Total: " + getIntroOfPage(payload[0].value,payload[1].value)}</p>
-          {/* <p className="total" style={{color:"grey"}}>{getIntroOfPage(label)}</p> */}
         </div>
       );
     }
@@ -142,7 +143,6 @@ const Evolucion = () => {
           width={500}
           height={300}
           data={dataForChart} //ORIGINAL
-          // data={data} // PRUEBA
           margin={{
             top: 20,
             right: 0,
@@ -171,7 +171,6 @@ const Evolucion = () => {
               barSize={50}
               fill="#a9ff96"
               key={"propias"}
-              //label={renderCustomBarLabel}
               isAnimationActive={true}
             />
           ) : (
@@ -182,7 +181,6 @@ const Evolucion = () => {
               barSize={50}
               fill="#a9ff96"
               key={"propias"}
-              //label={renderCustomBarLabel}
               isAnimationActive={true}
             />
           )}
@@ -194,7 +192,6 @@ const Evolucion = () => {
               barSize={50}
               fill="#434348"
               key={"alquiladas"}
-              //label={renderCustomBarLabel}
               isAnimationActive={true}
             />
           ) : (
@@ -205,7 +202,6 @@ const Evolucion = () => {
               barSize={50}
               fill="#434348"
               key={"alquiladas"}
-              //label={renderCustomBarLabel}
               isAnimationActive={true}
             />
           )}
