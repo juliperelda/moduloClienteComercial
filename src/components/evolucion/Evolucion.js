@@ -115,14 +115,6 @@ const Evolucion = () => {
   }, [infoEvo]);
 
 
-  const [tooltipData, setTooltipData] = useState({ active: false, payload: [] });
-
-  const handleTooltip = (active, payload) => {
-    setTimeout(() => {
-      setTooltipData({ active, payload });
-    }, 1000);
-  };
-
 
   return (
     <>
@@ -145,21 +137,7 @@ const Evolucion = () => {
             label={{ value: "Has.", angle: -90, position: "insideLeft" }}
           />
           <Tooltip
-            cursor={{ fill: "transparent" }}
-            content={({ active, payload, label }) => {
-              if (tooltipData.active) {
-                return (
-                  <div className="custom-tooltip">
-                    <p className="label">{`Cosecha: ${dataForChart.acos_desc}`}</p>
-                    <p className="label">{`Propias: ${dataForChart.ahxs_propias}`}</p>
-                    <p className="label">{`Alquiladas: ${dataForChart.item.ahxs_alquiladas}`}</p>
-                  </div>
-                );
-              }
-              return null;
-            }}
-            onActive={handleTooltip}
-            onHide={() => setTooltipData({ active: false, payload: [] })}
+            contentStyle={{ color: "#000000" }}
           />
           <Legend
             iconType="circle"
@@ -212,6 +190,19 @@ const Evolucion = () => {
               isAnimationActive={true}
             />
           )}
+          <Bar
+            dataKey="total"
+            name="Total"
+            stackId="a"
+            barSize={50}
+            fill="#FFFFFF"
+            key={"total"}
+            // label={renderCustomBarLabel}
+            // visible={false}
+            visibility={false}
+            // hide={true}
+            isAnimationActive={true}
+          />
         </BarChart>
       </ResponsiveContainer>
     </>
