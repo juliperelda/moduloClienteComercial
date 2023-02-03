@@ -26,7 +26,7 @@ const columns = [
         dataIndex: "propias",
         key: "propias",
         editable: true,
-        width: "30%",
+        width: "20%",
         align: "right",
     },
     {
@@ -34,7 +34,7 @@ const columns = [
         dataIndex: "alquiler",
         key: "alquiler",
         editable: true,
-        width: "30%",
+        width: "20%",
         align: "right",
     },
     {
@@ -42,7 +42,7 @@ const columns = [
         dataIndex: "total",
         key: "total",
         editable: true,
-        width: "30%",
+        width: "20%",
         align: "right",
     },
     {
@@ -50,7 +50,7 @@ const columns = [
         dataIndex: "porcentaje",
         key: "porcentaje",
         editable: true,
-        width: "30%",
+        width: "20%",
         align: "right",
     },
 ];
