@@ -68,7 +68,9 @@ const Capacidad = () => {
         setCosechas,
         update, 
         setUpdate,
-        setInfoEdit
+        setInfoEdit,
+        isSelectEditDisabled, 
+        setIsSelectEditDisabled,
     } = useContext(GlobalContext);
 
     const [isHayData, setIsHayData] = useState(false);
@@ -76,6 +78,7 @@ const Capacidad = () => {
 
     const editarCosecha = () => {
         setIsButtonEditDisabled(true);
+        setIsSelectEditDisabled(!isSelectEditDisabled)
         setAppStage(1);
     };
 
@@ -325,6 +328,7 @@ const Capacidad = () => {
                     style={{ width: '80px' }}
                     onChange={(value) => { setSelectedValue(value); localStorage.setItem("idCosechaSelec", value) }}
                     defaultValue={selectedValue}
+                    disabled={isSelectEditDisabled}
                 >
                     {infoCosechas.length > 0 && infoCosechas.map((cosecha) => {
                         return (

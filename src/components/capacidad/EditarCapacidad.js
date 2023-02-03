@@ -20,7 +20,9 @@ export const EditarCapacidad = () => {
     setIsButtonEditDisabled,
     infoEdit,
     update, 
-    setUpdate
+    setUpdate,
+    isSelectEditDisabled, 
+    setIsSelectEditDisabled,
   } = useContext(GlobalContext);
 
 
@@ -105,6 +107,7 @@ export const EditarCapacidad = () => {
           editCap(cli, dataContext);
 
           setUpdate(!update);
+          setIsSelectEditDisabled(!isSelectEditDisabled);
 
         } else {
           alert("El total de Has. de Rubros supera a las Has. Propias en general");
@@ -157,6 +160,7 @@ export const EditarCapacidad = () => {
     setDataContext(null);
     setUpdate(!update);
     setAppStage(0);
+    setIsSelectEditDisabled(!isSelectEditDisabled);
   };
 
   return (

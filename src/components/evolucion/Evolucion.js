@@ -108,6 +108,7 @@ const Evolucion = () => {
             cosecha: item.acos_desc,
             propias: item.ahxs_propias,
             alquiladas: item.ahxs_alquiladas,
+            total: item.ahxs_propias + item.ahxs_alquiladas,
           };
         })
       );

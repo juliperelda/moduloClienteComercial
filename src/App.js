@@ -19,6 +19,7 @@ function App() {
   const [appStage, setAppStage] = useState();
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
   const [isButtonEditDisabled, setIsButtonEditDisabled] = useState(true);
+  const [isSelectEditDisabled, setIsSelectEditDisabled] = useState(false);
 
   //* Id de cliente que se obtine desde local storage
   const idC = localStorage.getItem("cliente");
@@ -45,7 +46,8 @@ function App() {
       idCliente, setIdCliente,
       infoCosechas,setCosechas,
       infoEdit, setInfoEdit,
-      update, setUpdate
+      update, setUpdate,
+      isSelectEditDisabled, setIsSelectEditDisabled,
     }}>
       
       <Analitica/>
