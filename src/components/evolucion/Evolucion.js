@@ -109,7 +109,7 @@ const Evolucion = () => {
             cosecha: item.acos_desc,
             propias: item.ahxs_propias,
             alquiladas: item.ahxs_alquiladas,
-            total: total,
+            total: item.ahxs_alquiladas,
           };
         })
       );
@@ -139,20 +139,20 @@ const Evolucion = () => {
             label={{ value: "Has.", angle: -90, position: "insideLeft" }}
           />
           <Tooltip
-            cursor={{ fill: "transparent" }}
-            content={({ active, payload, label }) => {
-              if (active) {
-                return (
-                  <div className="custom-tooltip">
-                    <p className="label">{`Cosecha:`}</p>
-                    {/* <p className="label">{`Propias: ${payload[0].value}`}</p>
-                    <p className="label">{`Alquiladas: ${payload[1].value}`}</p>
-                    <p className="label">{`Total: ${payload[0].value + payload[1].value}`}</p> */}
-                  </div>
-                );
-              }
-              return null;
-            }}
+            // cursor={{ fill: "transparent" }}
+            // content={({ active, payload, label }) => {
+            //   if (active) {
+            //     return (
+            //       <div className="custom-tooltip">
+            //         <p className="label">{`Cosecha: ${label}`}</p>
+            //         <p className="label">{`Propias: ${payload[0].value}`}</p>
+            //         <p className="label">{`Alquiladas: ${payload[1].value}`}</p>
+            //         <p className="label">{`Total: ${payload[0].value + payload[1].value}`}</p>
+            //       </div>
+            //     );
+            //   }
+            //   return null;
+            // }}
           />
           <Legend
             iconType="circle"
