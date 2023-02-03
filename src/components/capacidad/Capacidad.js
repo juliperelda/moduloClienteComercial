@@ -3,11 +3,12 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState, useContext } from "react";
 import { Button, Popover, Select, Space, Table, Tooltip } from "antd";
-import { EditOutlined, InfoCircleOutlined, PlusCircleOutlined } from "@ant-design/icons";
+import { EditOutlined, InfoCircleOutlined, PieChartOutlined, PlusCircleOutlined } from "@ant-design/icons";
 import { GlobalContext } from "../../context/GlobalContext";
 import "./capacidad.css";
 import { EditarCapacidad } from "./EditarCapacidad";
 import { NuevaCapacidad } from "./NuevaCapacidad";
+import { GraficoCapacidad } from "./GraficoCapacidad";
 
 const columns = [
     {
@@ -44,6 +45,14 @@ const columns = [
         width: "30%",
         align: "right",
     },
+    {
+        title: <span style={{ color: "#00b33c" }}>(%)</span>,
+        dataIndex: "porcentaje",
+        key: "porcentaje",
+        editable: true,
+        width: "30%",
+        align: "right",
+    },
 ];
 
 const Capacidad = () => {
@@ -66,11 +75,13 @@ const Capacidad = () => {
         setInfoCap,
         infoCosechas,
         setCosechas,
-        update, 
+        update,
         setUpdate,
         setInfoEdit,
-        isSelectEditDisabled, 
+        isSelectEditDisabled,
         setIsSelectEditDisabled,
+        isValorPorcentaje, 
+        setIsValorPorcentaje
     } = useContext(GlobalContext);
 
     const [isHayData, setIsHayData] = useState(false);
@@ -106,55 +117,60 @@ const Capacidad = () => {
 
 
         capacidad = result;
+            setIsValorPorcentaje({
+                porcentajeAgricultura: {name: "agricultura", porcentaje: (((result.AGRICULTURA ? (parseInt(result.AGRICULTURA.propio) + parseInt(result.AGRICULTURA.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0))},
+                porcentajeGanaderia: {name: "ganaderia", porcentaje: (((result.GANADERIA ? (parseInt(result.GANADERIA.propio) + parseInt(result.GANADERIA.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0))},
+                porcentajeTambo: {name: "tambo", porcentaje: (((result.TAMBO ? (parseInt(result.TAMBO.propio) + parseInt(result.TAMBO.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0))},
+                porcentajeMixto: {name: "mixto", porcentaje: (((result.MIXTO ? (parseInt(result.MIXTO.propio) + parseInt(result.MIXTO.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0))},
+            });
+
+            console.log("Desde capacidad: ",isValorPorcentaje)
 
         capacidad = [
+            // {
+            //     key: 1,
+            //     categoria: "AGRICULTURA",
+            //     propias: result.AGRICULTURA ? Math.trunc(result.AGRICULTURA.propio) : 0,
+            //     alquiler: result.AGRICULTURA ? Math.trunc(result.AGRICULTURA.alquilado) : 0,
+            //     total: (
+            //         <>
+            //             {result.AGRICULTURA ? parseInt(result.AGRICULTURA.propio) + parseInt(result.AGRICULTURA.alquilado) : 0} 
+            //             {' '}
+            //             ({((result.AGRICULTURA ? (parseInt(result.AGRICULTURA.propio) + parseInt(result.AGRICULTURA.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)}%)
+            //         </>
+            //     ),
+            // },
             {
                 key: 1,
                 categoria: "AGRICULTURA",
                 propias: result.AGRICULTURA ? Math.trunc(result.AGRICULTURA.propio) : 0,
                 alquiler: result.AGRICULTURA ? Math.trunc(result.AGRICULTURA.alquilado) : 0,
-                total: (
-                    <>
-                        {result.AGRICULTURA ? parseInt(result.AGRICULTURA.propio) + parseInt(result.AGRICULTURA.alquilado) : 0} {' '}
-                        ({((result.AGRICULTURA ? (parseInt(result.AGRICULTURA.propio) + parseInt(result.AGRICULTURA.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)}%)
-                    </>
-                )
+                total: result.AGRICULTURA ? parseInt(result.AGRICULTURA.propio) + parseInt(result.AGRICULTURA.alquilado) : 0,
+                porcentaje: (((result.AGRICULTURA ? (parseInt(result.AGRICULTURA.propio) + parseInt(result.AGRICULTURA.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)) + '%'
             },
             {
                 key: 2,
                 categoria: "GANADERIA",
                 propias: result.GANADERIA ? Math.trunc(result.GANADERIA.propio) : 0,
                 alquiler: result.GANADERIA ? Math.trunc(result.GANADERIA.alquilado) : 0,
-                total: (
-                    <>
-                        {result.GANADERIA ? parseInt(result.GANADERIA.propio) + parseInt(result.GANADERIA.alquilado) : 0} {' '}
-                        ({((result.GANADERIA ? (parseInt(result.GANADERIA.propio) + parseInt(result.GANADERIA.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)}%)
-                    </>
-                )
+                total: result.GANADERIA ? parseInt(result.GANADERIA.propio) + parseInt(result.GANADERIA.alquilado) : 0,
+                porcentaje: (((result.GANADERIA ? (parseInt(result.GANADERIA.propio) + parseInt(result.GANADERIA.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)) + '%'
             },
             {
                 key: 3,
                 categoria: "TAMBO",
                 propias: result.TAMBO ? Math.trunc(result.TAMBO.propio) : 0,
                 alquiler: result.TAMBO ? Math.trunc(result.TAMBO.alquilado) : 0,
-                total: (
-                    <>
-                        {result.TAMBO ? parseInt(result.TAMBO.propio) + parseInt(result.TAMBO.alquilado) : 0} {' '}
-                        ({((result.TAMBO ? (parseInt(result.TAMBO.propio) + parseInt(result.TAMBO.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)}%)
-                    </>
-                )
+                total: result.TAMBO ? parseInt(result.TAMBO.propio) + parseInt(result.TAMBO.alquilado) : 0,
+                porcentaje: (((result.TAMBO ? (parseInt(result.TAMBO.propio) + parseInt(result.TAMBO.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)) + '%'
             },
             {
                 key: 4,
                 categoria: "MIXTO",
                 propias: result.MIXTO ? Math.trunc(result.MIXTO.propio) : 0,
                 alquiler: result.MIXTO ? Math.trunc(result.MIXTO.alquilado) : 0,
-                total: (
-                    <>
-                        {result.MIXTO ? parseInt(result.MIXTO.propio) + parseInt(result.MIXTO.alquilado) : 0} {' '}
-                        ({((result.MIXTO ? (parseInt(result.MIXTO.propio) + parseInt(result.MIXTO.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)}%)
-                    </>
-                )
+                total: result.MIXTO ? parseInt(result.MIXTO.propio) + parseInt(result.MIXTO.alquilado) : 0,
+                porcentaje: (((result.MIXTO ? (parseInt(result.MIXTO.propio) + parseInt(result.MIXTO.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)) + '%'
 
             },
             {
@@ -185,6 +201,9 @@ const Capacidad = () => {
         setAppStage(2);
     };
 
+    const verGrafico = () => {
+        setAppStage(3);
+    }
 
     // const data = [
     //     {
@@ -218,6 +237,8 @@ const Capacidad = () => {
                 return <EditarCapacidad />;
             case 2:
                 return <NuevaCapacidad />;
+            case 3:
+                return <GraficoCapacidad />;
             default:
                 return (
                     <Table
@@ -323,9 +344,12 @@ const Capacidad = () => {
     return (
         <>
             <div className="divDropdown">
+                <h1 className="titulos" style={{ marginBottom: "11px" }}>
+                    CAPACIDAD PRODUCTIVA
+                </h1>
                 <Select
                     className="selectCosecha"
-                    style={{ width: '80px' }}
+                    style={{ width: '80px', marginLeft: "30px", marginTop: "-8px" }}
                     onChange={(value) => { setSelectedValue(value); localStorage.setItem("idCosechaSelec", value) }}
                     defaultValue={selectedValue}
                     disabled={isSelectEditDisabled}
@@ -338,7 +362,7 @@ const Capacidad = () => {
 
                 </Select>
                 <Button
-                    style={{ alignItems: "center", boxShadow: "none !important", outline: "0", border: "none !important" }}
+                    style={{ alignItems: "center", boxShadow: "none !important", outline: "0", border: "none !important", marginTop: "-8px" }}
                     className="btnEditCosecha"
                     icon={<EditOutlined />}
                     onClick={() => editarCosecha()}
@@ -346,7 +370,17 @@ const Capacidad = () => {
                     disabled={isButtonEditDisabled}
                 />
                 <Button
-                    style={{ alignItems: "center", boxShadow: "none !important", outline: "0", border: "none !important" }}
+                    style={{ boxShadow: "none !important", outline: "0", border: "none !important", marginTop: "-8px" }}
+                    className="btnAddCosecha"
+                    icon={<PieChartOutlined  style={{ "--antd-wave-shadow-color": "transparent !important" }} />}
+                    onClick={() => {
+                        verGrafico();
+                    }}
+                    disabled={isButtonDisabled}
+                >
+                </Button>
+                <Button
+                    style={{ alignItems: "center", boxShadow: "none !important", outline: "0", border: "none !important", marginTop: "-8px" }}
                     className="btnAddCosecha"
                     icon={<PlusCircleOutlined style={{ "--antd-wave-shadow-color": "transparent !important" }} />}
                     onClick={() => {

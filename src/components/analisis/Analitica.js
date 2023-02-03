@@ -14,9 +14,6 @@ const Analitica = () => {
           <Evolucion />
         </Card>
         <Card className="cardTable" style={{ width: "50%", height: "300px" }}>
-          <h1 className="titulos" style={{ marginBottom: "11px" }}>
-            CAPACIDAD PRODUCTIVA
-          </h1>
           <Capacidad />
         </Card>
       </div>

@@ -346,6 +346,10 @@ td {
   font-size: 13px !important;
 }
 
+.ant-select-arrow{
+  margin-top: -8px !important; 
+
+}
 
 /* .ant-btn-default-focused .ant-btn-default-selector,
 .ant-btn-default-selector:focus,
