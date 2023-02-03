@@ -108,6 +108,7 @@ const Evolucion = () => {
             cosecha: item.acos_desc,
             propias: item.ahxs_propias,
             alquiladas: item.ahxs_alquiladas,
+            total: item.ahxs_propias + item.ahxs_alquiladas,
           };
         })
       );
@@ -150,7 +151,7 @@ const Evolucion = () => {
               barSize={50}
               fill="#a9ff96"
               key={"propias"}
-              label={renderCustomBarLabel}
+              //label={renderCustomBarLabel}
               isAnimationActive={true}
             />
           ) : (
@@ -161,7 +162,7 @@ const Evolucion = () => {
               barSize={50}
               fill="#a9ff96"
               key={"propias"}
-              label={renderCustomBarLabel}
+              //label={renderCustomBarLabel}
               isAnimationActive={true}
             />
           )}
@@ -173,7 +174,7 @@ const Evolucion = () => {
               barSize={50}
               fill="#434348"
               key={"alquiladas"}
-              label={renderCustomBarLabel}
+              //label={renderCustomBarLabel}
               isAnimationActive={true}
             />
           ) : (
@@ -184,7 +185,7 @@ const Evolucion = () => {
               barSize={50}
               fill="#434348"
               key={"alquiladas"}
-              label={renderCustomBarLabel}
+              //label={renderCustomBarLabel}
               isAnimationActive={true}
             />
           )}
