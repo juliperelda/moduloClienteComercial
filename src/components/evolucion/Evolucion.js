@@ -110,7 +110,7 @@ const Evolucion = () => {
             cosecha: item.acos_desc,
             propias: item.ahxs_propias,
             alquiladas: item.ahxs_alquiladas,
-            total: suma,
+            total: Math.trunc(item.ahxs_propias) + Math.trunc(item.ahxs_alquiladas),
           };
         })
       );
