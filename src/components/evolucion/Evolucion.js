@@ -139,20 +139,20 @@ const Evolucion = () => {
             label={{ value: "Has.", angle: -90, position: "insideLeft" }}
           />
           <Tooltip
-            // cursor={{ fill: "transparent" }}
-            // content={({ active, payload, label }) => {
-            //   if (active) {
-            //     return (
-            //       <div className="custom-tooltip">
-            //         <p className="label">{`Cosecha: ${label}`}</p>
-            //         <p className="label">{`Propias: ${payload[0].value}`}</p>
-            //         <p className="label">{`Alquiladas: ${payload[1].value}`}</p>
-            //         <p className="label">{`Total: ${payload[0].value + payload[1].value}`}</p>
-            //       </div>
-            //     );
-            //   }
-            //   return null;
-            // }}
+          // cursor={{ fill: "transparent" }}
+          // content={({ active, payload, label }) => {
+          //   if (active) {
+          //     return (
+          //       <div className="custom-tooltip">
+          //         <p className="label">{`Cosecha: ${label}`}</p>
+          //         <p className="label">{`Propias: ${payload[0].value}`}</p>
+          //         <p className="label">{`Alquiladas: ${payload[1].value}`}</p>
+          //         <p className="label">{`Total: ${payload[0].value + payload[1].value}`}</p>
+          //       </div>
+          //     );
+          //   }
+          //   return null;
+          // }}
           />
           <Legend
             iconType="circle"
@@ -205,6 +205,17 @@ const Evolucion = () => {
               isAnimationActive={true}
             />
           )}
+          <Bar
+            dataKey="total"
+            name="Total"
+            stackId="a"
+            barSize={50}
+            fill="#a9ff96"
+            key={"total"}
+            // label={renderCustomBarLabel}
+            visible={false}
+            isAnimationActive={true}
+          />
         </BarChart>
       </ResponsiveContainer>
     </>
