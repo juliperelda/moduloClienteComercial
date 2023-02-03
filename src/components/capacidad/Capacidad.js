@@ -334,7 +334,6 @@ const Capacidad = () => {
 
     // }, [])
 
-
     useEffect((infoCap) => {
         setIsValorPorcentaje({
             porcentajeAgricultura: { name: "agricultura", porcentaje: (((capacidad.AGRICULTURA ? (parseInt(capacidad.AGRICULTURA.propio) + parseInt(capacidad.AGRICULTURA.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)) },
@@ -344,7 +343,7 @@ const Capacidad = () => {
         });
 
         console.log("Desde capacidad: ", isValorPorcentaje)
-    }, [])
+    }, [selectedValue])
 
 
 
