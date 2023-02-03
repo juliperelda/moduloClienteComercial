@@ -120,7 +120,7 @@ const Evolucion = () => {
   };
 
   const CustomTooltip = ({ active, payload, label }) => {
-    if (active && payload && payload.length) {
+    if (active && payload && payload.length && payload[0].value !== undefined && payload[1].value !== undefined) {
       return (
         <div className="custom-tooltip" style={{border:"3px solid grey", backgroundColor:"#FFFF", padding:"10px", borderRadius:"4px"}}>
           <p className="label" style={{color:"grey", fontWeight:"500"}}>{`Cosecha: ${label}`}</p>
