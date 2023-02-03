@@ -16,6 +16,8 @@ export const GraficoCapacidad = () => {
         isPrueba, 
         setIsPrueba
     } = useContext(GlobalContext);
+
+    
     useEffect(() => {
       console.log("Desde GraficoCapacidad infoCap: ", infoCap)
       console.log("Desde GraficoCapacidad isPrueba: ", isPrueba)
