@@ -1,4 +1,6 @@
-import { Button, Card, Form, Input } from "antd";
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable no-unused-vars */
+import { Button,Form, Input } from "antd";
 import React, { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "../../context/GlobalContext";
 import "./capacidad.css";
@@ -50,21 +52,7 @@ export const EditarCapacidad = () => {
 
   //! UseState
   const [isActiveModal, setIsActiveModal] = useState(false); //Es por si utilizo el modal para el mensaje de que se paso de cantidad en los rubros
-  // const [isDataSet, setIsDataSet] = useState({});
 
-  // //! Funciones
-  // const traeData = () => {
-  //   if (localStorage.getItem("data")) {
-  //     setIsDataSet(JSON.parse(localStorage.getItem("data")).objData);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   const fetchData = () => {
-  //     traeData();
-  //   };
-  //   fetchData();
-  // }, []);
 
     const handEdit = () => {
         let inputPropias = document.getElementById("inputPropias").value;
@@ -360,13 +348,10 @@ export const EditarCapacidad = () => {
       </div>
 
       {isActiveModal ? (
-        // <Modal title="" open={isActiveModal} onCancel={cerrar} footer={null} centered >
-        // <h2>VALOR INCORRECTO</h2>
         <p style={{ color: "red" }}>
           Revise la cantidad de Has. Total con las Has. de los Rubros
         </p>
       ) : (
-        // </Modal>
         ""
       )}
     </>
