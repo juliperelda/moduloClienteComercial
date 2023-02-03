@@ -9,10 +9,13 @@ export const GraficoCapacidad = () => {
     const {
         appStage,
         setAppStage,
+        infoCap, 
+        setInfoCap,
         isValorPorcentaje, 
         setIsValorPorcentaje
     } = useContext(GlobalContext);
-    console.log("Desde GraficoCapacidad: ", isValorPorcentaje)
+    console.log("Desde GraficoCapacidad: ", infoCap)
+
 
     const data = [
         { name: 'Group A', value: 400 },

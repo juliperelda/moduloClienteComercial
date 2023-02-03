@@ -183,7 +183,7 @@ const Capacidad = () => {
 
             },
         ];
-        setIsPrueba(result)
+        // setIsPrueba(result)
         // console.log(capacidad);
         return result;
 
@@ -335,34 +335,34 @@ const Capacidad = () => {
 
     // }, [])
 
-    useEffect(() => {
-        // console.log("Prueba11: ", (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100)
-        console.log("Prueba22: ",((result.AGRICULTURA ? (parseInt(result.AGRICULTURA.propio) + parseInt(result.AGRICULTURA.alquilado)) : 0)))
-        console.log(isPrueba)
-        console.log(infoCap)
-        // setIsValorPorcentaje({
-        //     porcentajeAgricultura: { name: "agricultura", porcentaje: (((capacidad.AGRICULTURA ? (parseInt(capacidad.AGRICULTURA.propio) + parseInt(capacidad.AGRICULTURA.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)) },
-        //     porcentajeGanaderia: { name: "ganaderia", porcentaje: (((capacidad.GANADERIA ? (parseInt(capacidad.GANADERIA.propio) + parseInt(capacidad.GANADERIA.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)) },
-        //     porcentajeTambo: { name: "tambo", porcentaje: (((capacidad.TAMBO ? (parseInt(capacidad.TAMBO.propio) + parseInt(capacidad.TAMBO.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)) },
-        //     porcentajeMixto: { name: "mixto", porcentaje: (((capacidad.MIXTO ? (parseInt(capacidad.MIXTO.propio) + parseInt(capacidad.MIXTO.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)) },
-        // });
+    // useEffect(() => {
+    //     // console.log("Prueba11: ", (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100)
+    //     console.log("Prueba22: ",((result.AGRICULTURA ? (parseInt(result.AGRICULTURA.propio) + parseInt(result.AGRICULTURA.alquilado)) : 0)))
+    //     console.log(isPrueba)
+    //     console.log(infoCap)
+    //     // setIsValorPorcentaje({
+    //     //     porcentajeAgricultura: { name: "agricultura", porcentaje: (((capacidad.AGRICULTURA ? (parseInt(capacidad.AGRICULTURA.propio) + parseInt(capacidad.AGRICULTURA.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)) },
+    //     //     porcentajeGanaderia: { name: "ganaderia", porcentaje: (((capacidad.GANADERIA ? (parseInt(capacidad.GANADERIA.propio) + parseInt(capacidad.GANADERIA.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)) },
+    //     //     porcentajeTambo: { name: "tambo", porcentaje: (((capacidad.TAMBO ? (parseInt(capacidad.TAMBO.propio) + parseInt(capacidad.TAMBO.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)) },
+    //     //     porcentajeMixto: { name: "mixto", porcentaje: (((capacidad.MIXTO ? (parseInt(capacidad.MIXTO.propio) + parseInt(capacidad.MIXTO.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)) },
+    //     // });
 
-        console.log("Desde capacidad: ", isValorPorcentaje)
-    }, [selectedValue])
+    //     console.log("Desde capacidad: ", isValorPorcentaje)
+    // }, [selectedValue])
 
-    useEffect(() => {
-        // console.log("Prueba1: ", (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100)
-        console.log("Prueba2: ",((result.AGRICULTURA ? (parseInt(result.AGRICULTURA.propio) + parseInt(result.AGRICULTURA.alquilado)) : 0)))
-        console.log(isPrueba)
-        // setIsValorPorcentaje({
-        //     porcentajeAgricultura: { name: "agricultura", porcentaje: (((capacidad.AGRICULTURA ? (parseInt(capacidad.AGRICULTURA.propio) + parseInt(capacidad.AGRICULTURA.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)) },
-        //     porcentajeGanaderia: { name: "ganaderia", porcentaje: (((capacidad.GANADERIA ? (parseInt(capacidad.GANADERIA.propio) + parseInt(capacidad.GANADERIA.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)) },
-        //     porcentajeTambo: { name: "tambo", porcentaje: (((capacidad.TAMBO ? (parseInt(capacidad.TAMBO.propio) + parseInt(capacidad.TAMBO.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)) },
-        //     porcentajeMixto: { name: "mixto", porcentaje: (((capacidad.MIXTO ? (parseInt(capacidad.MIXTO.propio) + parseInt(capacidad.MIXTO.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)) },
-        // });
+    // useEffect(() => {
+    //     // console.log("Prueba1: ", (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100)
+    //     console.log("Prueba2: ",((result.AGRICULTURA ? (parseInt(result.AGRICULTURA.propio) + parseInt(result.AGRICULTURA.alquilado)) : 0)))
+    //     console.log(isPrueba)
+    //     // setIsValorPorcentaje({
+    //     //     porcentajeAgricultura: { name: "agricultura", porcentaje: (((capacidad.AGRICULTURA ? (parseInt(capacidad.AGRICULTURA.propio) + parseInt(capacidad.AGRICULTURA.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)) },
+    //     //     porcentajeGanaderia: { name: "ganaderia", porcentaje: (((capacidad.GANADERIA ? (parseInt(capacidad.GANADERIA.propio) + parseInt(capacidad.GANADERIA.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)) },
+    //     //     porcentajeTambo: { name: "tambo", porcentaje: (((capacidad.TAMBO ? (parseInt(capacidad.TAMBO.propio) + parseInt(capacidad.TAMBO.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)) },
+    //     //     porcentajeMixto: { name: "mixto", porcentaje: (((capacidad.MIXTO ? (parseInt(capacidad.MIXTO.propio) + parseInt(capacidad.MIXTO.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)) },
+    //     // });
 
-        console.log("Desde capacidad: ", isValorPorcentaje)
-    }, [])
+    //     console.log("Desde capacidad: ", isValorPorcentaje)
+    // }, [])
 
 
 
