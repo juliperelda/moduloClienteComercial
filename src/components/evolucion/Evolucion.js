@@ -150,7 +150,7 @@ const Evolucion = () => {
               barSize={50}
               fill="#a9ff96"
               key={"propias"}
-              label={renderCustomBarLabel}
+              // label={renderCustomBarLabel}
               isAnimationActive={true}
             />
           ) : (
