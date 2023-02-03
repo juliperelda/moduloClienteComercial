@@ -123,11 +123,11 @@ const Evolucion = () => {
   const CustomTooltip = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
       return (
-        <div className="custom-tooltip" style={{border:"3px solid rgba(0, 0, 0, 0.88)", backgroundColor:"#FFFF", padding:"10px"}}>
-          <p className="label" style={{fontWeight:"600"}}>{`Cosecha: ${label}`}</p>
-          <p className="propias" style={{color:"#a3ef95",fontWeight:"600"}}>{`Propias: ${payload[0].value}`}</p>
-          <p className="alquiladas" style={{color:"#434348",fontWeight:"600"}}>{`Alquiladas: ${payload[1].value}`}</p>
-          <p className="total" style={{color:"grey",fontWeight:"600"}}>{"Total: " + getIntroOfPage(payload[0].value,payload[1].value)}</p>
+        <div className="custom-tooltip" style={{border:"3px solid grey", backgroundColor:"#FFFF", padding:"10px"}}>
+          <p className="label" style={{fontWeight:"500"}}>{`Cosecha: ${label}`}</p>
+          <p className="propias" style={{color:"#a3ef95",fontWeight:"500"}}>{`Propias: ${payload[0].value}`}</p>
+          <p className="alquiladas" style={{color:"#434348",fontWeight:"500"}}>{`Alquiladas: ${payload[1].value}`}</p>
+          <p className="total" style={{color:"grey",fontWeight:"500"}}>{"Total: " + getIntroOfPage(payload[0].value,payload[1].value)}</p>
           {/* <p className="total" style={{color:"grey"}}>{getIntroOfPage(label)}</p> */}
         </div>
       );
