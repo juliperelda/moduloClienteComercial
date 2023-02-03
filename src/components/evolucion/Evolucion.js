@@ -118,14 +118,14 @@ const Evolucion = () => {
   }, [infoEvo]);
 
   const getIntroOfPage = (valor0, valor1) => {
-    var suma = valor0 + valor1;
+    var suma = Math.trunc(valor0) + Math.trunc(valor1);
       return suma;
   };
 
   const CustomTooltip = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
       return (
-        <div className="custom-tooltip" style={{border:"1px solid #fafafa", backgroundColor:"#FFFF"}}>
+        <div className="custom-tooltip" style={{border:"1px solid #fafafa", backgroundColor:"#FFFF", padding:"10px"}}>
           <p className="label">{`Cosecha: ${label}`}</p>
           <p className="propias" style={{color:"#a3ef95"}}>{`Propias: ${payload[0].value}`}</p>
           <p className="alquiladas" style={{color:"#434348"}}>{`Alquiladas: ${payload[1].value}`}</p>
