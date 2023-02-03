@@ -119,19 +119,19 @@ const Evolucion = () => {
 
   const getIntroOfPage = (label) => {
     if (label === '1819') {
-      return "1819";
+      return "Total: 1819";
     }
     if (label === '1920') {
-      return "1920";
+      return "Total: 1920";
     }
     if (label === '2021') {
-      return "2021";
+      return "Total: 2021";
     }
     if (label === '2122') {
-      return '2122';
+      return 'Total: 2122';
     }
     if (label === '2223') {
-      return '2223';
+      return 'Total: 2223';
     }
     return '';
   };
@@ -140,11 +140,11 @@ const Evolucion = () => {
     if (active && payload && payload.length) {
       return (
         <div className="custom-tooltip">
+          <p className="label">{`Cosecha: ${label}`}</p>
           <p className="propias">{`Propias: ${payload[0].value}`}</p>
           <p className="alquiladas">{`Alquiladas: ${payload[1].value}`}</p>
-          <p className="total">{`Total: ${label}`}</p>
-          {/* <p className="intro">{getIntroOfPage(label)}</p>
-          <p className="desc">Anything you want can be displayed here.</p> */}
+          <p className="intro">{getIntroOfPage(label)}</p>
+          <p className="desc">Anything you want can be displayed here.</p>
         </div>
       );
     }
