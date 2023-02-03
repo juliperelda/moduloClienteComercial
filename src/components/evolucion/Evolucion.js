@@ -126,7 +126,7 @@ const Evolucion = () => {
   };
 
   const CustomTooltip = ({ active, payload, label }) => {
-    if (active && payload && payload.length && payload[0].value !== undefined && payload[1].value !== undefined) {
+    if (active && payload && payload.length && isValorPropias === true && isValorAlquiladas === true) {
       return (
         <div className="custom-tooltip" style={{border:"3px solid grey", backgroundColor:"#FFFF", padding:"10px", borderRadius:"4px"}}>
           <p className="label" style={{color:"grey", fontWeight:"500"}}>{`Cosecha: ${label}`}</p>
@@ -136,23 +136,23 @@ const Evolucion = () => {
         </div>
       );
     }
-    if (active && payload && payload.length && payload[0].value === undefined && payload[1].value !== undefined) {
+    if (active && payload && payload.length && isValorPropias === false && isValorAlquiladas === true) {
       return (
         <div className="custom-tooltip" style={{border:"3px solid grey", backgroundColor:"#FFFF", padding:"10px", borderRadius:"4px"}}>
           <p className="label" style={{color:"grey", fontWeight:"500"}}>{`Cosecha: ${label}`}</p>
           {/* <p className="propias" style={{color:"#a3ef95",fontWeight:"500"}}>{`Propias: ${Math.trunc(payload[0].value)}`}</p> */}
           <p className="alquiladas" style={{color:"#434348",fontWeight:"500"}}>{`Alquiladas: ${Math.trunc(payload[1].value)}`}</p>
-          <p className="total" style={{color:"grey",fontWeight:"500"}}>{"Total: " + getIntroOfPage(payload[0].value,payload[1].value)}</p>
+          {/* <p className="total" style={{color:"grey",fontWeight:"500"}}>{"Total: " + getIntroOfPage(payload[0].value,payload[1].value)}</p> */}
         </div>
       );
     }
-    if (active && payload && payload.length && payload[0].value !== undefined && payload[1].value === undefined) {
+    if (active && payload && payload.length && isValorPropias === true && isValorAlquiladas === false) {
       return (
         <div className="custom-tooltip" style={{border:"3px solid grey", backgroundColor:"#FFFF", padding:"10px", borderRadius:"4px"}}>
           <p className="label" style={{color:"grey", fontWeight:"500"}}>{`Cosecha: ${label}`}</p>
           <p className="propias" style={{color:"#a3ef95",fontWeight:"500"}}>{`Propias: ${Math.trunc(payload[0].value)}`}</p>
           {/* <p className="alquiladas" style={{color:"#434348",fontWeight:"500"}}>{`Alquiladas: ${Math.trunc(payload[1].value)}`}</p> */}
-          <p className="total" style={{color:"grey",fontWeight:"500"}}>{"Total: " + getIntroOfPage(payload[0].value,payload[1].value)}</p>
+          {/* <p className="total" style={{color:"grey",fontWeight:"500"}}>{"Total: " + getIntroOfPage(payload[0].value,payload[1].value)}</p> */}
         </div>
       );
     }
