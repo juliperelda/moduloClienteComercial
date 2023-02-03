@@ -117,6 +117,39 @@ const Evolucion = () => {
     }
   }, [infoEvo]);
 
+  const getIntroOfPage = (label) => {
+    if (label === '1819') {
+      return "1819";
+    }
+    if (label === '1920') {
+      return "1920";
+    }
+    if (label === '2021') {
+      return "2021";
+    }
+    if (label === '2122') {
+      return '2122';
+    }
+    if (label === '2223') {
+      return '2223';
+    }
+    return '';
+  };
+
+  const CustomTooltip = ({ active, payload, label }) => {
+    if (active && payload && payload.length) {
+      return (
+        <div className="custom-tooltip">
+          <p className="label">{`${label} : ${payload[0].value}`}</p>
+          <p className="intro">{getIntroOfPage(label)}</p>
+          <p className="desc">Anything you want can be displayed here.</p>
+        </div>
+      );
+    }
+  
+    return null;
+  };
+
 
 
   return (
@@ -139,7 +172,9 @@ const Evolucion = () => {
           <YAxis
             label={{ value: "Has.", angle: -90, position: "insideLeft" }}
           />
-          <Tooltip />
+          <Tooltip 
+          content={CustomTooltip}
+          />
           <Legend
             iconType="circle"
             onClick={(x) => handleLegendClick(x)}
