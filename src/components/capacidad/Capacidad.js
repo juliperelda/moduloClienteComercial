@@ -334,8 +334,8 @@ const Capacidad = () => {
 
     // }, [])
 
-    useEffect((infoCap) => {
-        console.log("Prueba11: ", (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100)
+    useEffect(() => {
+        // console.log("Prueba11: ", (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100)
         console.log("Prueba22: ",((capacidad.AGRICULTURA ? (parseInt(capacidad.AGRICULTURA.propio) + parseInt(capacidad.AGRICULTURA.alquilado)) : 0)))
         // setIsValorPorcentaje({
         //     porcentajeAgricultura: { name: "agricultura", porcentaje: (((capacidad.AGRICULTURA ? (parseInt(capacidad.AGRICULTURA.propio) + parseInt(capacidad.AGRICULTURA.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)) },
@@ -347,8 +347,8 @@ const Capacidad = () => {
         console.log("Desde capacidad: ", isValorPorcentaje)
     }, [selectedValue])
 
-    useEffect((infoCap) => {
-        console.log("Prueba1: ", (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100)
+    useEffect(() => {
+        // console.log("Prueba1: ", (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100)
         console.log("Prueba2: ",((capacidad.AGRICULTURA ? (parseInt(capacidad.AGRICULTURA.propio) + parseInt(capacidad.AGRICULTURA.alquilado)) : 0)))
         // setIsValorPorcentaje({
         //     porcentajeAgricultura: { name: "agricultura", porcentaje: (((capacidad.AGRICULTURA ? (parseInt(capacidad.AGRICULTURA.propio) + parseInt(capacidad.AGRICULTURA.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)) },
