@@ -401,7 +401,7 @@ const Capacidad = () => {
                     onClick={() => {
                         verGrafico();
                     }}
-                    disabled={isButtonDisabled}
+                    // disabled={isButtonDisabled}
                 >
                 </Button>
                 <Button
