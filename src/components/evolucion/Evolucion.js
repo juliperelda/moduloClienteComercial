@@ -210,12 +210,12 @@ const Evolucion = () => {
             name="Total"
             stackId="a"
             barSize={50}
-            fill="#a9ff96"
+            fill="#E0ECFF"
             key={"total"}
             // label={renderCustomBarLabel}
             // visible={false}
             visibility={false}
-            hide={true}
+            // hide={true}
             isAnimationActive={true}
           />
         </BarChart>
