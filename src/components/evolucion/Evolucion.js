@@ -102,17 +102,39 @@ const Evolucion = () => {
     if (infoEvo.length > 0) {
       setDataForChart(
         infoEvo.map((item) => {
-          var total = parseInt(item.ahxs_propias) + parseInt(item.ahxs_alquiladas);
+          var suma = Math.trunc(item.ahxs_propias) + Math.trunc(item.ahxs_alquiladas);
+          console.log(suma);
           return {
             cosecha: item.acos_desc,
             propias: item.ahxs_propias,
             alquiladas: item.ahxs_alquiladas,
-            total: total,
+            total: Math.trunc(item.ahxs_propias) + Math.trunc(item.ahxs_alquiladas),
           };
         })
       );
     }
   }, [infoEvo]);
+
+  const getIntroOfPage = (valor0, valor1) => {
+    var suma = Math.trunc(valor0) + Math.trunc(valor1);
+      return suma;
+  };
+
+  const CustomTooltip = ({ active, payload, label }) => {
+    if (active && payload && payload.length) {
+      return (
+        <div className="custom-tooltip" style={{border:"1px solid #fafafa", backgroundColor:"#FFFF", padding:"10px"}}>
+          <p className="label" style={{fontWeight:"600"}}>{`Cosecha: ${label}`}</p>
+          <p className="propias" style={{color:"#a3ef95",fontWeight:"600"}}>{`Propias: ${payload[0].value}`}</p>
+          <p className="alquiladas" style={{color:"#434348",fontWeight:"600"}}>{`Alquiladas: ${payload[1].value}`}</p>
+          <p className="total" style={{color:"grey",fontWeight:"600"}}>{"Total: " + getIntroOfPage(payload[0].value,payload[1].value)}</p>
+          {/* <p className="total" style={{color:"grey"}}>{getIntroOfPage(label)}</p> */}
+        </div>
+      );
+    }
+  
+    return null;
+  };
 
 
 
@@ -136,8 +158,8 @@ const Evolucion = () => {
           <YAxis
             label={{ value: "Has.", angle: -90, position: "insideLeft" }}
           />
-          <Tooltip
-            contentStyle={{ color: "#000000" }}
+          <Tooltip 
+          content={CustomTooltip}
           />
           <Legend
             iconType="circle"
@@ -152,7 +174,7 @@ const Evolucion = () => {
               barSize={50}
               fill="#a9ff96"
               key={"propias"}
-              // label={renderCustomBarLabel}
+              //label={renderCustomBarLabel}
               isAnimationActive={true}
             />
           ) : (
@@ -163,7 +185,7 @@ const Evolucion = () => {
               barSize={50}
               fill="#a9ff96"
               key={"propias"}
-              // label={renderCustomBarLabel}
+              //label={renderCustomBarLabel}
               isAnimationActive={true}
             />
           )}
@@ -175,7 +197,7 @@ const Evolucion = () => {
               barSize={50}
               fill="#434348"
               key={"alquiladas"}
-              // label={renderCustomBarLabel}
+              //label={renderCustomBarLabel}
               isAnimationActive={true}
             />
           ) : (
@@ -186,7 +208,7 @@ const Evolucion = () => {
               barSize={50}
               fill="#434348"
               key={"alquiladas"}
-              // label={renderCustomBarLabel}
+              //label={renderCustomBarLabel}
               isAnimationActive={true}
             />
           )}
