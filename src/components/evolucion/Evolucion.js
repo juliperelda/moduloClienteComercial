@@ -139,12 +139,11 @@ const Evolucion = () => {
   const CustomTooltip = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
       return (
-        <div className="custom-tooltip">
+        <div className="custom-tooltip" style={{border:"1px solid #fafafa", backgroundColor:"#FFFF"}}>
           <p className="label">{`Cosecha: ${label}`}</p>
-          <p className="propias">{`Propias: ${payload[0].value}`}</p>
-          <p className="alquiladas">{`Alquiladas: ${payload[1].value}`}</p>
-          <p className="intro">{getIntroOfPage(label)}</p>
-          <p className="desc">Anything you want can be displayed here.</p>
+          <p className="propias" style={{color:"#a3ef95"}}>{`Propias: ${payload[0].value}`}</p>
+          <p className="alquiladas" style={{color:"#434348"}}>{`Alquiladas: ${payload[1].value}`}</p>
+          <p className="total" style={{color:"grey"}}>{getIntroOfPage(label)}</p>
         </div>
       );
     }
