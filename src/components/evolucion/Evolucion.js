@@ -213,7 +213,8 @@ const Evolucion = () => {
             fill="#a9ff96"
             key={"total"}
             // label={renderCustomBarLabel}
-            visible={false}
+            visibility={true}
+            hide={true}
             isAnimationActive={true}
           />
         </BarChart>
