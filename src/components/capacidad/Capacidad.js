@@ -80,7 +80,7 @@ const Capacidad = () => {
         setInfoEdit,
         isSelectEditDisabled,
         setIsSelectEditDisabled,
-        isValorPorcentaje, 
+        isValorPorcentaje,
         setIsValorPorcentaje
     } = useContext(GlobalContext);
 
@@ -117,14 +117,6 @@ const Capacidad = () => {
 
 
         capacidad = result;
-            setIsValorPorcentaje({
-                porcentajeAgricultura: {name: "agricultura", porcentaje: (((result.AGRICULTURA ? (parseInt(result.AGRICULTURA.propio) + parseInt(result.AGRICULTURA.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0))},
-                porcentajeGanaderia: {name: "ganaderia", porcentaje: (((result.GANADERIA ? (parseInt(result.GANADERIA.propio) + parseInt(result.GANADERIA.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0))},
-                porcentajeTambo: {name: "tambo", porcentaje: (((result.TAMBO ? (parseInt(result.TAMBO.propio) + parseInt(result.TAMBO.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0))},
-                porcentajeMixto: {name: "mixto", porcentaje: (((result.MIXTO ? (parseInt(result.MIXTO.propio) + parseInt(result.MIXTO.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0))},
-            });
-
-            console.log("Desde capacidad: ",isValorPorcentaje)
 
         capacidad = [
             // {
@@ -195,6 +187,18 @@ const Capacidad = () => {
         return result;
 
     };
+
+    useEffect(() => {
+        setIsValorPorcentaje({
+            porcentajeAgricultura: { name: "agricultura", porcentaje: (((capacidad.AGRICULTURA ? (parseInt(capacidad.AGRICULTURA.propio) + parseInt(capacidad.AGRICULTURA.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)) },
+            porcentajeGanaderia: { name: "ganaderia", porcentaje: (((capacidad.GANADERIA ? (parseInt(capacidad.GANADERIA.propio) + parseInt(capacidad.GANADERIA.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)) },
+            porcentajeTambo: { name: "tambo", porcentaje: (((capacidad.TAMBO ? (parseInt(capacidad.TAMBO.propio) + parseInt(capacidad.TAMBO.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)) },
+            porcentajeMixto: { name: "mixto", porcentaje: (((capacidad.MIXTO ? (parseInt(capacidad.MIXTO.propio) + parseInt(capacidad.MIXTO.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)) },
+        });
+
+        console.log("Desde capacidad: ", isValorPorcentaje)
+    }, [])
+
 
 
     const addCosecha = () => {
@@ -372,7 +376,7 @@ const Capacidad = () => {
                 <Button
                     style={{ boxShadow: "none !important", outline: "0", border: "none !important", marginTop: "-8px" }}
                     className="btnAddCosecha"
-                    icon={<PieChartOutlined  style={{ "--antd-wave-shadow-color": "transparent !important" }} />}
+                    icon={<PieChartOutlined style={{ "--antd-wave-shadow-color": "transparent !important" }} />}
                     onClick={() => {
                         verGrafico();
                     }}
