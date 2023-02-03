@@ -99,16 +99,17 @@ const Evolucion = () => {
 
 
   const [dataForChart, setDataForChart] = useState([]);
-
+  
   useEffect(() => {
     if (infoEvo.length > 0) {
       setDataForChart(
         infoEvo.map((item) => {
+          var total = parseInt(item.ahxs_propias) + parseInt(item.ahxs_alquiladas);
           return {
             cosecha: item.acos_desc,
             propias: item.ahxs_propias,
             alquiladas: item.ahxs_alquiladas,
-            total: parseInt(item.ahxs_propias) + parseInt(item.ahxs_alquiladas),
+            total: total,
           };
         })
       );
@@ -133,7 +134,7 @@ const Evolucion = () => {
           }}
         >
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="cosecha" />
+          <XAxis name="Cosecha" dataKey="cosecha" />
           <YAxis
             label={{ value: "Has.", angle: -90, position: "insideLeft" }}
           />
