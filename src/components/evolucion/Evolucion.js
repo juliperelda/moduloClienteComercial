@@ -115,10 +115,10 @@ const Evolucion = () => {
   }, [infoEvo]);
 
   const getIntroOfPage = (valor0, valor1) => {
-    if(valor0 === "" || valor0 === "undefined"){
+    if(valor0 === "" || valor0 === "undefined"|| valor0 === null || valor0 === 0){
       valor0 = 0;
     }
-    if(valor1 === "" || valor1 === "undefined"){
+    if(valor1 === "" || valor1 === "undefined" || valor1 === null || valor1 === 0){
       valor1 = 0;
     }
     var suma = Math.trunc(valor0) + Math.trunc(valor1);
