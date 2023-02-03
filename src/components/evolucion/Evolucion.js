@@ -117,24 +117,24 @@ const Evolucion = () => {
     }
   }, [infoEvo]);
 
-  const getIntroOfPage = (label) => {
-    if (label === '1819') {
-      return "Total: 1819";
-    }
-    if (label === '1920') {
-      return "Total: 1920";
-    }
-    if (label === '2021') {
-      return "Total: 2021";
-    }
-    if (label === '2122') {
-      return 'Total: 2122';
-    }
-    if (label === '2223') {
-      return 'Total: 2223';
-    }
-    return '';
-  };
+  // const getIntroOfPage = (label) => {
+  //   if (label === '1819') {
+  //     return "Total: 1819";
+  //   }
+  //   if (label === '1920') {
+  //     return "Total: 1920";
+  //   }
+  //   if (label === '2021') {
+  //     return "Total: 2021";
+  //   }
+  //   if (label === '2122') {
+  //     return 'Total: 2122';
+  //   }
+  //   if (label === '2223') {
+  //     return 'Total: 2223';
+  //   }
+  //   return '';
+  // };
 
   const CustomTooltip = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
@@ -143,7 +143,8 @@ const Evolucion = () => {
           <p className="label">{`Cosecha: ${label}`}</p>
           <p className="propias" style={{color:"#a3ef95"}}>{`Propias: ${payload[0].value}`}</p>
           <p className="alquiladas" style={{color:"#434348"}}>{`Alquiladas: ${payload[1].value}`}</p>
-          <p className="total" style={{color:"grey"}}>{getIntroOfPage(label)}</p>
+          <p className="total" style={{color:"grey"}}>{getIntroOfPage(payload[0].value,payload[1].value)}</p>
+          {/* <p className="total" style={{color:"grey"}}>{getIntroOfPage(label)}</p> */}
         </div>
       );
     }
