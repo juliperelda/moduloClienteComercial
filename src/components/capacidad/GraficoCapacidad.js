@@ -1,5 +1,6 @@
 import { Tooltip, Empty } from 'antd';
 import { Cell, Legend, Pie, PieChart } from 'recharts';
+import './capacidad.css'
 
 
 export const GraficoCapacidad = ({porcentajes}) => {
@@ -24,8 +25,8 @@ export const GraficoCapacidad = ({porcentajes}) => {
   return (
     <>
       <div style={{display:"flex", justifyContent:"center", alignItems:"center", padding:"10px"}}>
-          <PieChart width={300} height={200} margin={{ top: 10, left: 50 }}>
-            <Legend iconType="circle"/>
+          <PieChart width={300} height={200} margin={{left: 50 }}>
+            <Legend id='legend' iconType="circle"/>
             <Pie
               Style={{marginBottom:"10px !important"}}
               data={data}
