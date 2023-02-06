@@ -21,7 +21,8 @@ export const GraficoCapacidad = ({porcentajes}) => {
 
   return (
     <>
-      <PieChart width={500} height={250} margin={{ top: 13, left: 120 }}>
+    <div style={{display:"flex", justifyContent:"center", alignItems:"center"}}>
+      <PieChart width={500} height={250} margin={{ top: 13, left: 50 }} padding={{top:10, left:10, bottom:10, right:10}}>
           <Pie
             data={data}
             cx={100}
@@ -39,6 +40,8 @@ export const GraficoCapacidad = ({porcentajes}) => {
             ))}
           </Pie>
         </PieChart>
+
+    </div>
     </>
   )
 }
