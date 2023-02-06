@@ -1,6 +1,7 @@
 import { Tooltip } from 'antd';
 import { useState } from 'react';
-import { Cell, Pie, PieChart } from 'recharts';
+import { Cell, Label, Pie, PieChart } from 'recharts';
+
 
 export const GraficoCapacidad = ({porcentajes}) => {
 
@@ -38,6 +39,7 @@ export const GraficoCapacidad = ({porcentajes}) => {
             {data ? data.map((entry, index) => (
               <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
             )) : "No hay datos para graficar"}
+            <Label value={entry => `${entry.name}: ${entry.value}%`} position="center" />
           </Pie>
         </PieChart>
 
