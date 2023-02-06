@@ -3,7 +3,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState, useContext } from "react";
 import { Button, Popover, Select, Space, Table, Tooltip } from "antd";
-import { EditOutlined, InfoCircleOutlined, PieChartOutlined, PlusCircleOutlined } from "@ant-design/icons";
+import { EditOutlined, InfoCircleOutlined, PieChartOutlined, PlusCircleOutlined, TableOutlined } from "@ant-design/icons";
 import { GlobalContext } from "../../context/GlobalContext";
 import "./capacidad.css";
 import { EditarCapacidad } from "./EditarCapacidad";
@@ -83,7 +83,9 @@ const Capacidad = () => {
         isValorPorcentaje,
         setIsValorPorcentaje,
         isPrueba,
-        setIsPrueba
+        setIsPrueba,
+        iconTable,
+        setIconTable,
     } = useContext(GlobalContext);
 
     const [isHayData, setIsHayData] = useState(false);
@@ -99,7 +101,7 @@ const Capacidad = () => {
 
     var result = {};
     let capacidad = [];
-    
+
 
     const generaData = (infoCap) => {
 
@@ -188,9 +190,9 @@ const Capacidad = () => {
         ];
         // console.log(capacidad);
         return result;
-        
+
     };
-    
+
 
 
 
@@ -200,7 +202,12 @@ const Capacidad = () => {
     };
 
     const verGrafico = () => {
-        setAppStage(3);
+        setIconTable(!iconTable);
+        if (iconTable === true) {
+            setAppStage(3)
+        } else {
+            setAppStage(0)
+        }
     }
 
     // const data = [
@@ -335,56 +342,67 @@ const Capacidad = () => {
     useEffect(() => {
         setIsPrueba(capacidad)
     }, [selectedValue])
-    
+
 
 
     return (
         <>
             <div className="divDropdown">
-                <h1 className="titulos" style={{ marginBottom: "11px" }}>
-                    CAPACIDAD PRODUCTIVA
-                </h1>
-                <Select
-                    className="selectCosecha"
-                    style={{ width: '80px', marginLeft: "30px", marginTop: "-8px" }}
-                    onChange={(value) => { setSelectedValue(value); localStorage.setItem("idCosechaSelec", value) }}
-                    defaultValue={selectedValue}
-                    disabled={isSelectEditDisabled}
-                >
-                    {infoCosechas.length > 0 && infoCosechas.map((cosecha) => {
-                        return (
-                            <Select.Option key={cosecha.acos_desc} value={cosecha.acos_desc}>{cosecha.acos_desc}</Select.Option>
-                        )
-                    })}
+                <div className="divTitle">
+                    <h1 className="titulos" style={{ marginBottom: "11px" }}>
+                        CAPACIDAD PRODUCTIVA
+                    </h1>
+                </div>
+                <div className="divSelectAndEdit">
+                    <div className="divSelect">
+                        <Select
+                            className="selectCosecha"
+                            style={{ width: '80px', /*marginLeft: "30px", marginTop: "-8px"*/ }}
+                            onChange={(value) => { setSelectedValue(value); localStorage.setItem("idCosechaSelec", value) }}
+                            defaultValue={selectedValue}
+                            disabled={isSelectEditDisabled}
+                        >
+                            {infoCosechas.length > 0 && infoCosechas.map((cosecha) => {
+                                return (
+                                    <Select.Option key={cosecha.acos_desc} value={cosecha.acos_desc}>{cosecha.acos_desc}</Select.Option>
+                                )
+                            })}
 
-                </Select>
-                <Button
-                    style={{ alignItems: "center", boxShadow: "none !important", outline: "0", border: "none !important", marginTop: "-8px" }}
-                    className="btnEditCosecha"
-                    icon={<EditOutlined />}
-                    onClick={() => editarCosecha()}
-                    // onChange={(e) => recuperaCosecha(e)}
-                    disabled={isButtonEditDisabled}
-                />
-                <Button
-                    style={{ boxShadow: "none !important", outline: "0", border: "none !important", marginTop: "-8px" }}
-                    className="btnAddCosecha"
-                    icon={<PieChartOutlined style={{ "--antd-wave-shadow-color": "transparent !important" }} />}
-                    onClick={() => {
-                        verGrafico();
-                    }}
+                        </Select>
+                    </div>
+                    <Button
+                        style={{ alignItems: "center", boxShadow: "none !important", outline: "0", border: "none !important", marginTop: "-8px" }}
+                        className="btnEditCosecha"
+                        icon={<EditOutlined />}
+                        onClick={() => editarCosecha()}
+                        // onChange={(e) => recuperaCosecha(e)}
+                        disabled={isButtonEditDisabled}
+                    />
+                </div>
+                <div className="divBotonera">
+                    <Button
+                        style={{ boxShadow: "none !important", outline: "0", border: "none !important", marginTop: "-8px" }}
+                        className="btnGraficoCosecha"
+                        icon={!iconTable
+                            ? <PieChartOutlined style={{ "--antd-wave-shadow-color": "transparent !important" }} />
+                            : <TableOutlined style={{ "--antd-wave-shadow-color": "transparent !important" }} />}
+                        onClick={() => {
+                            verGrafico();
+                        }}
                     // disabled={isButtonDisabled}
-                >
-                </Button>
-                <Button
-                    style={{ alignItems: "center", boxShadow: "none !important", outline: "0", border: "none !important", marginTop: "-8px" }}
-                    className="btnAddCosecha"
-                    icon={<PlusCircleOutlined style={{ "--antd-wave-shadow-color": "transparent !important" }} />}
-                    onClick={() => {
-                        addCosecha();
-                    }}
-                    disabled={isButtonDisabled}
-                />
+                    >
+                    </Button>
+                    <Button
+                        style={{ alignItems: "center", boxShadow: "none !important", outline: "0", border: "none !important", marginTop: "-8px" }}
+                        className="btnAddCosecha"
+                        icon={<PlusCircleOutlined style={{ "--antd-wave-shadow-color": "transparent !important" }} />}
+                        onClick={() => {
+                            addCosecha();
+                        }}
+                        disabled={isButtonDisabled}
+                    // <TableOutlined />
+                    />
+                </div>
             </div>
 
             {<>{handleStage()}</>}

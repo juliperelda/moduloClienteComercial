@@ -11,10 +11,12 @@ export const GraficoCapacidad = () => {
         setAppStage,
         infoCap, 
         setInfoCap,
+        iconTable,
+        setIconTable,
         isValorPorcentaje, 
         setIsValorPorcentaje,
         isPrueba, 
-        setIsPrueba
+        setIsPrueba,
     } = useContext(GlobalContext);
 
     
