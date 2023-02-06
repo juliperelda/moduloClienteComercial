@@ -27,12 +27,12 @@ export const GraficoCapacidad = ({porcentajes}) => {
           <PieChart width={300} height={200} margin={{ top: 10, left: 50 }}>
             <Legend iconType="circle"/>
             <Pie
-              Style={{marginTop:"10px !important"}}
+              Style={{marginBottom:"10px !important"}}
               data={data}
               cx={100}
               cy={100}
-              innerRadius={60}
-              outerRadius={80}
+              innerRadius={40}
+              outerRadius={60}
               fill="#8884d8"
               paddingAngle={5}
               dataKey="value"
