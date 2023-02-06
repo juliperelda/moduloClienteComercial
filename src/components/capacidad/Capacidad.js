@@ -88,12 +88,7 @@ const Capacidad = () => {
 
     const [isHayData, setIsHayData] = useState(false);
     const [selectedValue, setSelectedValue] = useState(localStorage.getItem("cosechaActiva"));
-    const [porcentajes, setPorcentajes] = useState({
-        porcentajeAgricultura: {name: '', porcentaje: null},
-        porcentajeGanaderia: {name: '', porcentaje: null},
-        porcentajeTambo: {name: '', porcentaje: null},
-        porcentajeMixto: {name: '', porcentaje: null},
-    });
+    const [porcentajes, setPorcentajes] = useState({});
     // const [isPrueba, setIsPrueba] = useState(false);
 
     const editarCosecha = () => {
@@ -128,7 +123,7 @@ const Capacidad = () => {
 
         capacidad = result;
 
-        //setPorcentajes();
+        setPorcentajes(capacidad);
 
         capacidad = [
             // {
@@ -194,7 +189,7 @@ const Capacidad = () => {
 
             },
         ];
-        console.log(" para porcentajes: ", capacidad);
+        console.log(" para porcentajes: ", porcentajes);
         return result;
         
     };
