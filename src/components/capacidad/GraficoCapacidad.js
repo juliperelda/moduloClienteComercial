@@ -1,3 +1,4 @@
+import { UpCircleOutlined } from '@ant-design/icons';
 import { Tooltip } from 'antd';
 import { useState } from 'react';
 import { Cell, Label, Pie, PieChart } from 'recharts';
@@ -10,11 +11,8 @@ export const GraficoCapacidad = ({porcentajes}) => {
   if (!porcentajes || !Array.isArray(porcentajes) || porcentajes.length === 0) {
     return <p>No hay datos</p>;
   }
-
-  
   
   console.log(porcentajes[0].porcentaje);
-
 
 
     const data = [
@@ -49,7 +47,6 @@ export const GraficoCapacidad = ({porcentajes}) => {
               <Label value={(entry) => `${entry.name}: ${entry.value}%`} position="center" />
             </Pie>
         </PieChart>
-
       </div>
 
     ): <p>No hay datos</p>}
