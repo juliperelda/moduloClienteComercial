@@ -28,7 +28,7 @@ export const GraficoCapacidad = ({porcentajes}) => {
 
   return (
     <>
-    <PieChart width={800} height={400}>
+    <PieChart width={400} height={200}>
         <Pie
           data={data}
           cx={120}
