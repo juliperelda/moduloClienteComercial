@@ -112,8 +112,8 @@ input[type=number]::-webkit-outer-spin-button {
 
 .divTitle{
   display: flex;
-  width: 60%;
-  /* margin-right: -80px; */
+  width: 35%;
+  /* margin-right: -10px; */
 
 }
 .divSelectAndEdit{
@@ -148,10 +148,21 @@ input[type=number]::-webkit-outer-spin-button {
   display: flex;
   justify-content:flex-end;
 
-  width: 100%;
+  /* width: 100%; */
 }
 .btnGraficoCosecha{
   /* margin-left: auto; */
+  /* margin-left: 10px; */
+  border: none;
+  font-size: 18px !important;
+  color: #00b33c;
+  background-color: transparent;
+}
+
+.btnAddCosecha {
+  /* display: flex;
+  flex-direction: row; */
+  margin-left: auto;
   border: none;
   font-size: 18px !important;
   color: #00b33c;

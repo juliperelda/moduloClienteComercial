@@ -88,9 +88,7 @@ const Capacidad = () => {
         setIconTable,
     } = useContext(GlobalContext);
 
-    const [isHayData, setIsHayData] = useState(false);
     const [selectedValue, setSelectedValue] = useState(localStorage.getItem("cosechaActiva"));
-    // const [isPrueba, setIsPrueba] = useState(false);
 
     const editarCosecha = () => {
         setIsButtonEditDisabled(true);
@@ -188,12 +186,10 @@ const Capacidad = () => {
 
             },
         ];
-        // console.log(capacidad);
+
         return result;
 
     };
-
-
 
 
 
@@ -209,21 +205,6 @@ const Capacidad = () => {
             setAppStage(0)
         }
     }
-
-    // const data = [
-    //     {
-    //       key: '1',
-    //       propias: 100,
-    //       alquilas: 150,
-    //       total: 250
-    //     },
-    //     {
-    //       key: '2',
-    //       propias: 100,
-    //       alquilas: 150,
-    //       total: 250
-    //     },
-    //   ];
 
 
     const handleStage = () => {
@@ -243,7 +224,7 @@ const Capacidad = () => {
             case 2:
                 return <NuevaCapacidad />;
             case 3:
-                return <GraficoCapacidad />;
+                return <GraficoCapacidad porcentajes={capacidad}/>;
             default:
                 return (
                     <Table
@@ -338,11 +319,7 @@ const Capacidad = () => {
         // console.log("infoCosechas desde Capacidad: ", infoCosechas);
         // console.log("infoCosechas[0] desde Capacidad: ", infoCosechas[0].acos_desc);
     }
-
-    useEffect(() => {
-        setIsPrueba(capacidad)
-    }, [selectedValue])
-
+    
 
 
     return (
