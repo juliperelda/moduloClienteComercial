@@ -3,8 +3,10 @@ import { useState } from 'react';
 import { Cell, Pie, PieChart } from 'recharts';
 
 export const GraficoCapacidad = ({porcentajes}) => {
-  
+
   console.log(porcentajes);
+  
+  console.log(porcentajes[0].porcentaje);
 
 
 
