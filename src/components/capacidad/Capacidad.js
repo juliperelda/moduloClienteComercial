@@ -123,7 +123,7 @@ const Capacidad = () => {
 
         capacidad = result;
 
-        setPorcentajes(result);
+        setPorcentajes(infoCap);
 
         capacidad = [
             // {
