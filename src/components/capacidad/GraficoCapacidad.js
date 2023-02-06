@@ -20,15 +20,14 @@ export const GraficoCapacidad = ({porcentajes}) => {
         { name: 'Tambo', value: parseInt(porcentajes[2].porcentaje) },
         { name: 'Mixto', value: parseInt(porcentajes[3].porcentaje) },
       ];
-      const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
+      const COLORS = ['#00C49F','#0088FE','#FFBB28', '#FF8042'];
 
   return (
     <>
       <div style={{display:"flex", justifyContent:"center", alignItems:"center", padding:"10px"}}>
-          <PieChart width={300} height={200} margin={{left: 50 }}>
-            <Legend id='legend' iconType="circle"/>
+          <PieChart width={300} height={250} margin={{left: 50 }}>
+            <Legend iconType="circle" margin={{top:50}}/>
             <Pie
-              Style={{marginBottom:"10px !important"}}
               data={data}
               cx={100}
               cy={100}
