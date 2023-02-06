@@ -28,25 +28,24 @@ export const GraficoCapacidad = ({porcentajes}) => {
 
   return (
     <>
-    <PieChart width={400} height={400} style={{border:"2px solid red", marginTop:"-5px", marginLeft:"10px"}}>
-        <Pie
-          style={{border:"2px solid green", marginTop:"-5px", marginLeft:"10px"}}
-          data={data}
-          cx={120}
-          cy={200}
-          innerRadius={60}
-          outerRadius={80}
-          fill="#8884d8"
-          paddingAngle={5}
-          dataKey="value"
-          label
-        >
-        <Tooltip />
-          {data.map((entry, index) => (
-            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-          ))}
-        </Pie>
-      </PieChart>
+      <PieChart width={400} height={400} argin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
+          <Pie
+            data={data}
+            cx={120}
+            cy={200}
+            innerRadius={60}
+            outerRadius={80}
+            fill="#8884d8"
+            paddingAngle={5}
+            dataKey="value"
+            label
+          >
+          <Tooltip />
+            {data.map((entry, index) => (
+              <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+            ))}
+          </Pie>
+        </PieChart>
     </>
   )
 }
