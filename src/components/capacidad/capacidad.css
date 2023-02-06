@@ -111,9 +111,10 @@ input[type=number]::-webkit-outer-spin-button {
   color: #ffffff;
 }
 
-.recharts-legend-wrapper{
-  margin-left: -28px;
+.recharts-layer .recharts-pie .pie{
+ margin-left: 50px !important;
 }
+
 
 .divDropdown {
   /* background-color: #f2f0f1; */
