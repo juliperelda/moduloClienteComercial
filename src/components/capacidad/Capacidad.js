@@ -3,7 +3,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState, useContext } from "react";
 import { Button, Popover, Select, Space, Table, Tooltip } from "antd";
-import { EditOutlined, InfoCircleOutlined, PieChartOutlined, PlusCircleOutlined } from "@ant-design/icons";
+import { EditOutlined, InfoCircleOutlined, PieChartOutlined, PlusCircleOutlined, TableOutlined } from "@ant-design/icons";
 import { GlobalContext } from "../../context/GlobalContext";
 import "./capacidad.css";
 import { EditarCapacidad } from "./EditarCapacidad";
@@ -83,7 +83,9 @@ const Capacidad = () => {
         isValorPorcentaje,
         setIsValorPorcentaje,
         isPrueba,
-        setIsPrueba
+        setIsPrueba,
+        iconTable,
+        setIconTable,
     } = useContext(GlobalContext);
 
     const [selectedValue, setSelectedValue] = useState(localStorage.getItem("cosechaActiva"));
@@ -97,7 +99,7 @@ const Capacidad = () => {
 
     var result = {};
     let capacidad = [];
-    
+
 
     const generaData = (infoCap) => {
 
@@ -180,15 +182,17 @@ const Capacidad = () => {
                 ),
                 propias: <strong>{Math.trunc(infoCap[0].ahxs_propias)}</strong>,
                 alquiler: <strong>{Math.trunc(infoCap[0].ahxs_alquiladas)}</strong>,
-                total: <strong>{parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)}</strong>
+                total: <strong>{parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)}</strong>,
+                porcentaje: (((parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)) + '%'
+
 
             },
         ];
 
         return result;
-        
+
     };
-    
+
 
 
     const addCosecha = () => {
@@ -196,7 +200,13 @@ const Capacidad = () => {
     };
 
     const verGrafico = () => {
-        setAppStage(3);
+        if (iconTable === false) {
+            setAppStage(3)
+            setIconTable(!iconTable);
+        } else {
+            setAppStage(0)
+            setIconTable(!iconTable);
+        }
     }
 
 
@@ -217,7 +227,7 @@ const Capacidad = () => {
             case 2:
                 return <NuevaCapacidad />;
             case 3:
-                return <GraficoCapacidad porcentajes={capacidad}/>;
+                return <GraficoCapacidad porcentajes={capacidad} />;
             default:
                 return (
                     <Table
@@ -312,56 +322,91 @@ const Capacidad = () => {
         // console.log("infoCosechas desde Capacidad: ", infoCosechas);
         // console.log("infoCosechas[0] desde Capacidad: ", infoCosechas[0].acos_desc);
     }
-    
+
 
 
     return (
         <>
             <div className="divDropdown">
-                <h1 className="titulos" style={{ marginBottom: "11px" }}>
-                    CAPACIDAD PRODUCTIVA
-                </h1>
-                <Select
-                    className="selectCosecha"
-                    style={{ width: '80px', marginLeft: "30px", marginTop: "-8px" }}
-                    onChange={(value) => { setSelectedValue(value); localStorage.setItem("idCosechaSelec", value) }}
-                    defaultValue={selectedValue}
-                    disabled={isSelectEditDisabled}
-                >
-                    {infoCosechas.length > 0 && infoCosechas.map((cosecha) => {
-                        return (
-                            <Select.Option key={cosecha.acos_desc} value={cosecha.acos_desc}>{cosecha.acos_desc}</Select.Option>
-                        )
-                    })}
+                <div className="divTitle">
+                    <h1 className="titulos" style={{ marginBottom: "11px" }}>
+                        CAPACIDAD PRODUCTIVA
+                    </h1>
+                </div>
+                <div className="divSelectAndEdit">
+                    <div className="divSelect">
+                        <Select
+                            className="selectCosecha"
+                            style={{ width: '80px', /*marginLeft: "30px", marginTop: "-8px"*/ }}
+                            onChange={(value) => { setSelectedValue(value); localStorage.setItem("idCosechaSelec", value) }}
+                            defaultValue={selectedValue}
+                            disabled={isSelectEditDisabled}
+                        >
+                            {infoCosechas.length > 0 && infoCosechas.map((cosecha) => {
+                                return (
+                                    <Select.Option key={cosecha.acos_desc} value={cosecha.acos_desc}>{cosecha.acos_desc}</Select.Option>
+                                )
+                            })}
 
-                </Select>
-                <Button
-                    style={{ alignItems: "center", boxShadow: "none !important", outline: "0", border: "none !important", marginTop: "-8px" }}
-                    className="btnEditCosecha"
-                    icon={<EditOutlined />}
-                    onClick={() => editarCosecha()}
-                    // onChange={(e) => recuperaCosecha(e)}
-                    disabled={isButtonEditDisabled}
-                />
-                <Button
-                    style={{ boxShadow: "none !important", outline: "0", border: "none !important", marginTop: "-8px" }}
-                    className="btnAddCosecha"
-                    icon={<PieChartOutlined style={{ "--antd-wave-shadow-color": "transparent !important" }} />}
-                    onClick={() => {
-                        verGrafico();
-                    }}
+                        </Select>
+                    </div>
+                    <Button
+                        style={{ alignItems: "center", boxShadow: "none !important", outline: "0", border: "none !important", marginTop: "-8px" }}
+                        className="btnEditCosecha"
+                        icon={<EditOutlined />}
+                        onClick={() => editarCosecha()}
+                        // onChange={(e) => recuperaCosecha(e)}
+                        disabled={isButtonEditDisabled}
+                    />
+                </div>
+                <div className="divBotonera">
+                    {
+                        !iconTable
+                            ?
+                            <Button
+                                style={{ boxShadow: "none !important", outline: "0", border: "none !important", marginTop: "-8px" }}
+                                className="btnGraficoCosecha"
+                                icon={<PieChartOutlined style={{ "--antd-wave-shadow-color": "transparent !important" }} />}
+                                onClick={() => {
+                                    verGrafico();
+                                }}
+                            // disabled={isButtonDisabled}
+                            />
+                            // </Button>
+                            :
+                            <Button
+                                style={{ boxShadow: "none !important", outline: "0", border: "none !important", marginTop: "-8px" }}
+                                className="btnGraficoCosecha"
+                                icon={<TableOutlined style={{ "--antd-wave-shadow-color": "transparent !important" }} />}
+                                onClick={() => {
+                                    verGrafico();
+                                }}
+                            // disabled={isButtonDisabled}
+                            />
+                    }
+                    {/* <Button
+                        style={{ boxShadow: "none !important", outline: "0", border: "none !important", marginTop: "-8px" }}
+                        className="btnGraficoCosecha"
+                        icon={!iconTable
+                            ? <PieChartOutlined style={{ "--antd-wave-shadow-color": "transparent !important" }} />
+                            : <TableOutlined style={{ "--antd-wave-shadow-color": "transparent !important" }} />}
+                        onClick={() => {
+                            verGrafico();
+                        }}
                     // disabled={isButtonDisabled}
-                >
-                </Button>
-                <Button
-                    style={{ alignItems: "center", boxShadow: "none !important", outline: "0", border: "none !important", marginTop: "-8px" }}
-                    className="btnAddCosecha"
-                    icon={<PlusCircleOutlined style={{ "--antd-wave-shadow-color": "transparent !important" }} />}
-                    onClick={() => {
-                        addCosecha();
-                    }}
-                    disabled={isButtonDisabled}
-                />
+                    >
+                    </Button> */}
+                    <Button
+                        style={{ alignItems: "center", boxShadow: "none !important", outline: "0", border: "none !important", marginTop: "-8px" }}
+                        className="btnAddCosecha"
+                        icon={<PlusCircleOutlined style={{ "--antd-wave-shadow-color": "transparent !important" }} />}
+                        onClick={() => {
+                            addCosecha();
+                        }}
+                        disabled={isButtonDisabled}
+                    // <TableOutlined />
+                    />
+                </div>
             </div>
 
             {<>{handleStage()}</>}

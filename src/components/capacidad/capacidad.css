@@ -33,13 +33,6 @@ input[type=number]::-webkit-outer-spin-button {
     transition: none;
 }
 
-.ant-btn-default.btnAddCosecha{
-    box-shadow: none;
-    margin-top: 2px;
-    margin-right: 2px;
-    transition: none !important;
-}
-
 .ant-btn-default:not(:disabled).btnAddCosechaData:hover {
     color: #ffffff;
     border-color: #8fd14a;
@@ -117,6 +110,22 @@ input[type=number]::-webkit-outer-spin-button {
   flex-direction: column;
 }
 
+.divTitle{
+  display: flex;
+  width: 100%;
+  /* margin-right: -10px; */
+
+}
+.divSelectAndEdit{
+  display: flex;
+  justify-content:flex-start;
+
+  width: 100%;
+}
+.divSelect{
+  margin-top: -10px;
+}
+
 .btnEditCosecha {
   /* display: flex;
   flex-direction: row; */
@@ -134,19 +143,52 @@ input[type=number]::-webkit-outer-spin-button {
   background-color: #ffffff !important;
 }
 
+
+.divBotonera {
+  display: flex;
+  justify-content:flex-end;
+
+  /* width: 100%; */
+}
+.btnGraficoCosecha{
+  /* margin-left: auto; */
+  /* margin-left: 10px; */
+  border: none;
+  font-size: 18px !important;
+  color: #00b33c;
+  background-color: transparent;
+}
+
 .btnAddCosecha {
   /* display: flex;
   flex-direction: row; */
   margin-left: auto;
   border: none;
   font-size: 18px !important;
-  /* font-size: 18px !important; */
   color: #00b33c;
-  background-color: transparent;  
+  background-color: transparent; 
+  /* margin-right: -240px */
+}
 
-  --antd-wave-shadow-size: 0.5;
+.ant-btn-default.btnAddCosecha{
+  box-shadow: none;
+  margin-top: 2px;
+  /* margin-right: 2px; */
+  transition: none !important;
+}
+.btnAddCosecha {
+  /* display: flex;
+  flex-direction: row; */
+  /* margin-left: auto; */
+  border: none;
+  font-size: 18px !important;
+  color: #00b33c;
+  background-color: transparent; 
+  margin-right: -2px;
+  /* --antd-wave-shadow-size: 0.5; */
   
 }
+
 .btnAddCosecha:active:hover {
   background: none !important;
   border-color: #ffffff !important;
@@ -347,7 +389,12 @@ td {
 }
 
 .ant-select-arrow{
-  margin-top: -8px !important; 
+  /* margin-top: -8px !important;  */
+
+  /* position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%); */
 
 }
 
