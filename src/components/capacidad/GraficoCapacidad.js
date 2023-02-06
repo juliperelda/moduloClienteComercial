@@ -52,7 +52,7 @@ export const GraficoCapacidad = ({porcentajes}) => {
 
       </div>
 
-    ): <div><Empty image={Empty.PRESENTED_IMAGE_SIMPLE} /></div>}
+    ): <div><Empty/></div>}
     </>
   )
 }
