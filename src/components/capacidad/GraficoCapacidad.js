@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Cell, Pie, PieChart } from 'recharts';
 import { GlobalContext } from '../../context/GlobalContext';
 
-export const GraficoCapacidad = () => {
+export const GraficoCapacidad = ({porcentajes}) => {
 
 
     const {
@@ -30,6 +30,9 @@ export const GraficoCapacidad = () => {
     //     porcentajeTambo: {name: "tamboPorcentaje", porcentaje: null},
     //     porcentajeMixto: {name: "mixtoPorcentaje", porcentaje: null},
     // });
+
+
+    console.log(porcentajes);
 
     const data = [
         { name: 'Group A', value: 400 },

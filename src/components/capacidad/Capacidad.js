@@ -188,15 +188,12 @@ const Capacidad = () => {
             },
         ];
 
-        setPorcentajes(capacidad);
-        console.log(" para porcentajes dentro de la funcion: ", porcentajes);
+        // setPorcentajes(result);
+        // console.log(" para porcentajes dentro de la funcion: ", porcentajes);
         return result;
         
     };
     
-
-    setPorcentajes(capacidad);
-    console.log(" para porcentajes fuera de la funcion: ", porcentajes);
 
 
     const addCosecha = () => {
@@ -225,7 +222,7 @@ const Capacidad = () => {
             case 2:
                 return <NuevaCapacidad />;
             case 3:
-                return <GraficoCapacidad />;
+                return <GraficoCapacidad porcentajes={capacidad}/>;
             default:
                 return (
                     <Table
