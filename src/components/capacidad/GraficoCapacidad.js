@@ -24,7 +24,7 @@ export const GraficoCapacidad = ({porcentajes}) => {
     <div style={{display:"flex", justifyContent:"center", alignItems:"center", padding:"10px"}}>
       <PieChart width={300} height={250} margin={{ top: 13, left: 50 }}>
           <Pie
-            data={data ? data : null}
+            data={data ? data : "No hay datos para graficar"}
             cx={100}
             cy={100}
             innerRadius={60}
@@ -35,9 +35,9 @@ export const GraficoCapacidad = ({porcentajes}) => {
             label
           >
           <Tooltip />
-            {data.map((entry, index) => (
+            {data ? data.map((entry, index) => (
               <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-            ))}
+            )) : "No hay datos para graficar"}
           </Pie>
         </PieChart>
 
