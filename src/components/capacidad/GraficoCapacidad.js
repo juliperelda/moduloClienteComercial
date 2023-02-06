@@ -5,6 +5,12 @@ import { Cell, Pie, PieChart } from 'recharts';
 export const GraficoCapacidad = ({porcentajes}) => {
 
   console.log(porcentajes);
+
+  if (!porcentajes || !Array.isArray(porcentajes) || porcentajes.length === 0) {
+    return <p>No hay datos</p>;
+  }
+
+  
   
   console.log(porcentajes[0].porcentaje);
 
@@ -18,12 +24,11 @@ export const GraficoCapacidad = ({porcentajes}) => {
       ];
       const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
-
   return (
     <>
     {data && data.length > 0 ? (
       <div style={{display:"flex", justifyContent:"center", alignItems:"center", padding:"10px"}}>
-        <PieChart width={300} height={250} margin={{ top: 13, left: 50 }}>
+          <PieChart width={300} height={250} margin={{ top: 13, left: 50 }}>
             <Pie
               data={data}
               cx={100}
@@ -35,12 +40,13 @@ export const GraficoCapacidad = ({porcentajes}) => {
               dataKey="value"
               label
             >
-            <Tooltip />
+              <Tooltip />
               {data.map((entry, index) => (
+                
                 <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
               ))}
             </Pie>
-          </PieChart>
+        </PieChart>
 
       </div>
 
