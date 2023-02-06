@@ -26,7 +26,7 @@ export const GraficoCapacidad = ({porcentajes}) => {
     <>
       <div style={{display:"flex", justifyContent:"center", alignItems:"center", padding:"10px"}}>
           <PieChart width={300} height={250} margin={{ top: 10, left: 50 }}>
-            <Legend style={{marginTop:"10px"}}/>
+            <Legend wrapperStyle={{marginTop:"10px !important"}}/>
             <Pie
               data={data}
               cx={100}
