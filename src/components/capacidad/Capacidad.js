@@ -198,11 +198,12 @@ const Capacidad = () => {
     };
 
     const verGrafico = () => {
-        setIconTable(!iconTable);
-        if (iconTable === true) {
+        if (iconTable === false) {
             setAppStage(3)
+            setIconTable(!iconTable);
         } else {
             setAppStage(0)
+            setIconTable(!iconTable);
         }
     }
 
@@ -224,7 +225,7 @@ const Capacidad = () => {
             case 2:
                 return <NuevaCapacidad />;
             case 3:
-                return <GraficoCapacidad porcentajes={capacidad}/>;
+                return <GraficoCapacidad porcentajes={capacidad} />;
             default:
                 return (
                     <Table
@@ -319,7 +320,7 @@ const Capacidad = () => {
         // console.log("infoCosechas desde Capacidad: ", infoCosechas);
         // console.log("infoCosechas[0] desde Capacidad: ", infoCosechas[0].acos_desc);
     }
-    
+
 
 
     return (
@@ -357,7 +358,31 @@ const Capacidad = () => {
                     />
                 </div>
                 <div className="divBotonera">
-                    <Button
+                    {
+                        !iconTable
+                            ?
+                            <Button
+                                style={{ boxShadow: "none !important", outline: "0", border: "none !important", marginTop: "-8px" }}
+                                className="btnGraficoCosecha"
+                                icon={<PieChartOutlined style={{ "--antd-wave-shadow-color": "transparent !important" }} />}
+                                onClick={() => {
+                                    verGrafico();
+                                }}
+                            // disabled={isButtonDisabled}
+                            />
+                            // </Button>
+                            :
+                            <Button
+                                style={{ boxShadow: "none !important", outline: "0", border: "none !important", marginTop: "-8px" }}
+                                className="btnGraficoCosecha"
+                                icon={<TableOutlined style={{ "--antd-wave-shadow-color": "transparent !important" }} />}
+                                onClick={() => {
+                                    verGrafico();
+                                }}
+                            // disabled={isButtonDisabled}
+                            />
+                    }
+                    {/* <Button
                         style={{ boxShadow: "none !important", outline: "0", border: "none !important", marginTop: "-8px" }}
                         className="btnGraficoCosecha"
                         icon={!iconTable
@@ -368,7 +393,7 @@ const Capacidad = () => {
                         }}
                     // disabled={isButtonDisabled}
                     >
-                    </Button>
+                    </Button> */}
                     <Button
                         style={{ alignItems: "center", boxShadow: "none !important", outline: "0", border: "none !important", marginTop: "-8px" }}
                         className="btnAddCosecha"
