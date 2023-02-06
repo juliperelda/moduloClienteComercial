@@ -7,7 +7,7 @@ export const GraficoCapacidad = ({porcentajes}) => {
   console.log(porcentajes);
 
   if (!porcentajes || !Array.isArray(porcentajes) || porcentajes.length === 0) {
-    return <Empty/>;
+    return <Empty style={{marginTop:"15px"}} image={Empty.PRESENTED_IMAGE_SIMPLE}/>;
   }
 
 
