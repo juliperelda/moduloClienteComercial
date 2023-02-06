@@ -123,8 +123,6 @@ const Capacidad = () => {
 
         capacidad = result;
 
-        setPorcentajes(infoCap);
-
         capacidad = [
             // {
             //     key: 1,
@@ -189,13 +187,16 @@ const Capacidad = () => {
 
             },
         ];
-        console.log(" para porcentajes: ", porcentajes);
+
+        setPorcentajes(capacidad);
+        console.log(" para porcentajes dentro de la funcion: ", porcentajes);
         return result;
         
     };
     
 
-
+    setPorcentajes(capacidad);
+    console.log(" para porcentajes fuera de la funcion: ", porcentajes);
 
 
     const addCosecha = () => {
@@ -205,21 +206,6 @@ const Capacidad = () => {
     const verGrafico = () => {
         setAppStage(3);
     }
-
-    // const data = [
-    //     {
-    //       key: '1',
-    //       propias: 100,
-    //       alquilas: 150,
-    //       total: 250
-    //     },
-    //     {
-    //       key: '2',
-    //       propias: 100,
-    //       alquilas: 150,
-    //       total: 250
-    //     },
-    //   ];
 
 
     const handleStage = () => {
