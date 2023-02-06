@@ -18,21 +18,15 @@ export const GraficoCapacidad = ({porcentajes}) => {
       ];
       const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
-    // const data = [
-    //   { name: 'Agricultura', value: 400},
-    //   { name: 'Ganaderia', value: 400 },
-    //   { name: 'Tambo', value: 400 },
-    //   { name: 'Mixto', value: 400 },
-    // ];
-    // const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
   return (
     <>
-      <PieChart width={400} height={400} argin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
+    <div style={{display:"flex", justifyContent:"center", alignItems:"center", padding:"10px"}}>
+      <PieChart width={300} height={250} margin={{ top: 13, left: 50 }}>
           <Pie
-            data={data}
-            cx={120}
-            cy={200}
+            data={data ? data : "No hay datos para graficar"}
+            cx={100}
+            cy={100}
             innerRadius={60}
             outerRadius={80}
             fill="#8884d8"
@@ -41,11 +35,13 @@ export const GraficoCapacidad = ({porcentajes}) => {
             label
           >
           <Tooltip />
-            {data.map((entry, index) => (
+            {data ? data.map((entry, index) => (
               <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-            ))}
+            )) : "No hay datos para graficar"}
           </Pie>
         </PieChart>
+
+    </div>
     </>
   )
 }
