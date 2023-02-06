@@ -347,7 +347,6 @@ const Capacidad = () => {
                                     <Select.Option key={cosecha.acos_desc} value={cosecha.acos_desc}>{cosecha.acos_desc}</Select.Option>
                                 )
                             })}
-
                         </Select>
                     </div>
                 </div>
@@ -384,18 +383,6 @@ const Capacidad = () => {
                             // disabled={isButtonDisabled}
                             />
                     }
-                    {/* <Button
-                        style={{ boxShadow: "none !important", outline: "0", border: "none !important", marginTop: "-8px" }}
-                        className="btnGraficoCosecha"
-                        icon={!iconTable
-                            ? <PieChartOutlined style={{ "--antd-wave-shadow-color": "transparent !important" }} />
-                            : <TableOutlined style={{ "--antd-wave-shadow-color": "transparent !important" }} />}
-                        onClick={() => {
-                            verGrafico();
-                        }}
-                    // disabled={isButtonDisabled}
-                    >
-                    </Button> */}
                     <Button
                         style={{ alignItems: "center", boxShadow: "none !important", outline: "0", border: "none !important", marginTop: "-8px" }}
                         className="btnAddCosecha"

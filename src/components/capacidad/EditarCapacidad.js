@@ -1,12 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
-import { Button,Form, Input } from "antd";
+import { Button, Form, Input } from "antd";
 import React, { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "../../context/GlobalContext";
 import "./capacidad.css";
 
 export const EditarCapacidad = () => {
-  
+
   var objData = [];
 
   //! UseContext
@@ -21,15 +21,15 @@ export const EditarCapacidad = () => {
     isButtonEditDisabled,
     setIsButtonEditDisabled,
     infoEdit,
-    update, 
+    update,
     setUpdate,
-    isSelectEditDisabled, 
+    isSelectEditDisabled,
     setIsSelectEditDisabled,
   } = useContext(GlobalContext);
 
 
   console.log(infoEdit);
-    
+
   console.log(dataContext);
 
   useEffect(() => {
@@ -47,60 +47,60 @@ export const EditarCapacidad = () => {
       cosecha: localStorage.getItem("idCosechaSelec") ? localStorage.getItem("idCosechaSelec") : null,
     });
   }, [])
-  
+
   console.log(dataContext);
 
   //! UseState
   const [isActiveModal, setIsActiveModal] = useState(false); //Es por si utilizo el modal para el mensaje de que se paso de cantidad en los rubros
 
 
-    const handEdit = () => {
-        let inputPropias = document.getElementById("inputPropias").value;
-        let inputAgricultura = document.getElementById("inputAgricultura").value;
-        let inputGanaderia = document.getElementById("inputGanaderia").value;
-        let inputTambo = document.getElementById("inputTambo").value;
-        let inputMixto = document.getElementById("inputMixto").value;
-        let totalPropias =
-        parseInt(inputAgricultura) +
-        parseInt(inputGanaderia) +
-        parseInt(inputTambo) +
-        parseInt(inputMixto);
+  const handEdit = () => {
+    let inputPropias = document.getElementById("inputPropias").value;
+    let inputAgricultura = document.getElementById("inputAgricultura").value;
+    let inputGanaderia = document.getElementById("inputGanaderia").value;
+    let inputTambo = document.getElementById("inputTambo").value;
+    let inputMixto = document.getElementById("inputMixto").value;
+    let totalPropias =
+      parseInt(inputAgricultura) +
+      parseInt(inputGanaderia) +
+      parseInt(inputTambo) +
+      parseInt(inputMixto);
 
-        let inputAlquiladas = document.getElementById("inputAlquiladas").value;
-        let inputAgriculturaA = document.getElementById("inputAgriculturaA").value;
-        let inputGanaderiaA = document.getElementById("inputGanaderiaA").value;
-        let inputTamboA = document.getElementById("inputTamboA").value;
-        let inputMixtoA = document.getElementById("inputMixtoA").value;
-        let totalAlquiladas =
-        parseInt(inputAgriculturaA) +
-        parseInt(inputGanaderiaA) +
-        parseInt(inputTamboA) +
-        parseInt(inputMixtoA);
+    let inputAlquiladas = document.getElementById("inputAlquiladas").value;
+    let inputAgriculturaA = document.getElementById("inputAgriculturaA").value;
+    let inputGanaderiaA = document.getElementById("inputGanaderiaA").value;
+    let inputTamboA = document.getElementById("inputTamboA").value;
+    let inputMixtoA = document.getElementById("inputMixtoA").value;
+    let totalAlquiladas =
+      parseInt(inputAgriculturaA) +
+      parseInt(inputGanaderiaA) +
+      parseInt(inputTamboA) +
+      parseInt(inputMixtoA);
 
 
 
-        if ((totalPropias <= inputPropias) & (totalAlquiladas <= inputAlquiladas)) {
-        
-          console.log("entre if de handEdit");
+    if ((totalPropias <= inputPropias) & (totalAlquiladas <= inputAlquiladas)) {
 
-          objData = [...objData, dataContext];
+      console.log("entre if de handEdit");
 
-          console.log("objData: ", objData, "dataContext: ", dataContext);
+      objData = [...objData, dataContext];
 
-          localStorage.setItem("data", JSON.stringify({ objData }));
-          setAppStage(0);
+      console.log("objData: ", objData, "dataContext: ", dataContext);
 
-          let cli = localStorage.getItem("cliente");
+      localStorage.setItem("data", JSON.stringify({ objData }));
+      setAppStage(0);
 
-          editCap(cli, dataContext);
+      let cli = localStorage.getItem("cliente");
 
-          setUpdate(!update);
-          setIsSelectEditDisabled(!isSelectEditDisabled);
+      editCap(cli, dataContext);
 
-        } else {
-          alert("El total de Has. de Rubros supera a las Has. Propias en general");
-          setIsActiveModal(true);
-        }
+      setUpdate(!update);
+      setIsSelectEditDisabled(!isSelectEditDisabled);
+
+    } else {
+      alert("El total de Has. de Rubros supera a las Has. Propias en general");
+      setIsActiveModal(true);
+    }
   };
 
   const handleInputChangeEdit = (event) => {
@@ -111,7 +111,7 @@ export const EditarCapacidad = () => {
         cosecha: localStorage.getItem("idCosechaSelec") ? localStorage.getItem("idCosechaSelec") : null,
         [event.target.name]: parseInt(event.target.value),
       });
-      
+
     }
   };
 
@@ -336,15 +336,18 @@ export const EditarCapacidad = () => {
         </table>
       </div>
       <div className="contBotones">
-        <Button className="btnAddCosechaData" onClick={() => salir()}>
-          {" "}
-          Cancelar
-        </Button>
-
-        <Button className="btnAddCosechaData" onClick={() => handEdit()}>
-          {" "}
-          Actualizar
-        </Button>
+        <div>
+          <Button className="btnAddCosechaData" onClick={() => handEdit()}>
+            {" "}
+            Actualizar
+          </Button>
+        </div>
+        <div>
+          <Button className="btnAddCosechaData" onClick={() => salir()}>
+            {" "}
+            Cancelar
+          </Button>
+        </div>
       </div>
 
       {isActiveModal ? (

@@ -316,15 +316,15 @@ export const NuevaCapacidad = () => {
         </div>
         <div className="contBotonesNuevaCapacidad">
           <div>
-            <Button className="btnAddCosechaData" onClick={() => salir()}>
-              {" "}
-              Cancelar
-            </Button>
-          </div>
-          <div>
             <Button className="btnAddCosechaData" onClick={() => handleOk()}>
               {" "}
               Guardar
+            </Button>
+          </div>
+          <div>
+            <Button className="btnAddCosechaData" onClick={() => salir()}>
+              {" "}
+              Cancelar
             </Button>
           </div>
         </div>
