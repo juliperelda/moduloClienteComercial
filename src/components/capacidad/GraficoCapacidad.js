@@ -1,4 +1,4 @@
-import { Tooltip } from 'antd';
+import { Tooltip, Empty } from 'antd';
 import { useState } from 'react';
 import { Cell, Pie, PieChart } from 'recharts';
 
@@ -10,7 +10,7 @@ export const GraficoCapacidad = ({porcentajes}) => {
     return <p>No hay datos</p>;
   }
 
-  
+
   
   console.log(porcentajes[0].porcentaje);
 
@@ -50,7 +50,7 @@ export const GraficoCapacidad = ({porcentajes}) => {
 
       </div>
 
-    ): <p>No hay datos</p>}
+    ): <div><Empty image={Empty.PRESENTED_IMAGE_SIMPLE} /></div>}
     </>
   )
 }
