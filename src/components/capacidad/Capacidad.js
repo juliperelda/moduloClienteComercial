@@ -350,6 +350,8 @@ const Capacidad = () => {
 
                         </Select>
                     </div>
+                </div>
+                <div className="divBotonera">
                     <Button
                         style={{ alignItems: "center", boxShadow: "none !important", outline: "0", border: "none !important", marginTop: "-8px" }}
                         className="btnEditCosecha"
@@ -358,8 +360,6 @@ const Capacidad = () => {
                         // onChange={(e) => recuperaCosecha(e)}
                         disabled={isButtonEditDisabled}
                     />
-                </div>
-                <div className="divBotonera">
                     {
                         !iconTable
                             ?

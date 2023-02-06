@@ -371,16 +371,21 @@ td {
 }
 
 .contBotones{
-  /* display:flex; */
-  display:inline-flex;
+  display:flex;
+  /* display:inline-flex; */
   flex-direction: row;
+
+  justify-content:flex-end;
+  margin-top: 5px;
 }
 
 .contBotonesNuevaCapacidad{
-  /* display:flex; */
   display:flex;
   flex-direction: row;
-  margin: initial;
+  /* margin: initial; */
+
+  justify-content:flex-end;
+  margin-top: 5px;
 }
 
 .btnAddCosecha:focus:not(.focus-visible) {
