@@ -1,5 +1,5 @@
 import { Tooltip, Empty } from 'antd';
-import { Cell, Label, Pie, PieChart } from 'recharts';
+import { Cell, Legend, Pie, PieChart } from 'recharts';
 
 
 export const GraficoCapacidad = ({porcentajes}) => {
@@ -9,10 +9,8 @@ export const GraficoCapacidad = ({porcentajes}) => {
   if (!porcentajes || !Array.isArray(porcentajes) || porcentajes.length === 0) {
     return <Empty style={{marginTop:"20%"}} image={Empty.PRESENTED_IMAGE_SIMPLE}/>;
   }
-
-
-  
-  console.log(porcentajes[0].porcentaje);
+ 
+  // console.log(porcentajes[0].porcentaje);
 
 
 
@@ -27,7 +25,8 @@ export const GraficoCapacidad = ({porcentajes}) => {
   return (
     <>
       <div style={{display:"flex", justifyContent:"center", alignItems:"center", padding:"10px"}}>
-          <PieChart width={300} height={250} margin={{ top: 13, left: 50 }}>
+          <PieChart width={300} height={250} margin={{ top: 10, left: 50 }}>
+            <Legend style={{marginTop:"10px"}}/>
             <Pie
               data={data}
               cx={100}
@@ -44,7 +43,6 @@ export const GraficoCapacidad = ({porcentajes}) => {
                 
                 <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
               ))}
-              {/* <Label value={(entry) => `${entry.name}: ${entry.value}%`} position="center" /> */}
             </Pie>
         </PieChart>
 
