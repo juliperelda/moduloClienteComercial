@@ -14,7 +14,7 @@ export const GraficoCapacidad = ({porcentajes}) => {
         { name: 'Agricultura', value: parseInt(porcentajes[0].porcentaje) },
         { name: 'Ganaderia', value: parseInt(porcentajes[1].porcentaje) },
         { name: 'Tambo', value: parseInt(porcentajes[2].porcentaje) },
-        { name: 'Mixto', value: parseInt(porcentajes[4].porcentaje) },
+        { name: 'Mixto', value: parseInt(porcentajes[3].porcentaje) },
       ];
       const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
@@ -28,7 +28,7 @@ export const GraficoCapacidad = ({porcentajes}) => {
 
   return (
     <>
-    <PieChart width={400} height={400} style={{marginRight:"-10px !important", marginTop:"-5px !important"}}>
+    <PieChart width={400} height={400} style={{border:"2px solid red"}}>
         <Pie
           data={data}
           cx={120}
