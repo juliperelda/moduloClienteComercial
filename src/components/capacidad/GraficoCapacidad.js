@@ -39,7 +39,7 @@ export const GraficoCapacidad = ({porcentajes}) => {
             {data ? data.map((entry, index) => (
               <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
             )) : "No hay datos para graficar"}
-            <Label value={entry => `${entry.name}: ${entry.value}%`} position="center" />
+            <Label />
           </Pie>
         </PieChart>
 
