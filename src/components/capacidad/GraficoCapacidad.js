@@ -11,12 +11,20 @@ export const GraficoCapacidad = ({porcentajes}) => {
 
 
     const data = [
-        { name: 'Agricultura', value: porcentajes[0].porcentaje },
-        { name: 'Ganaderia', value: porcentajes[1].porcentaje },
-        { name: 'Tambo', value: porcentajes[2].porcentaje },
-        { name: 'Mixto', value: porcentajes[4].porcentaje },
+        { name: 'Agricultura', value: parseInt(porcentajes[0].porcentaje) },
+        { name: 'Ganaderia', value: parseInt(porcentajes[1].porcentaje) },
+        { name: 'Tambo', value: parseInt(porcentajes[2].porcentaje) },
+        { name: 'Mixto', value: parseInt(porcentajes[4].porcentaje) },
       ];
       const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
+
+    // const data = [
+    //   { name: 'Agricultura', value: 400},
+    //   { name: 'Ganaderia', value: 400 },
+    //   { name: 'Tambo', value: 400 },
+    //   { name: 'Mixto', value: 400 },
+    // ];
+    // const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
   return (
     <>
