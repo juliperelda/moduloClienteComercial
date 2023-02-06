@@ -7,7 +7,7 @@ export const GraficoCapacidad = ({porcentajes}) => {
   console.log(porcentajes);
 
   if (!porcentajes || !Array.isArray(porcentajes) || porcentajes.length === 0) {
-    return <p>No hay datos</p>;
+    return <Empty/>;
   }
 
 
@@ -26,7 +26,6 @@ export const GraficoCapacidad = ({porcentajes}) => {
 
   return (
     <>
-    {data && data.length > 0 ? (
       <div style={{display:"flex", justifyContent:"center", alignItems:"center", padding:"10px"}}>
           <PieChart width={300} height={250} margin={{ top: 13, left: 50 }}>
             <Pie
@@ -45,13 +44,11 @@ export const GraficoCapacidad = ({porcentajes}) => {
                 
                 <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
               ))}
-              <Label value={(entry) => `${entry.name}: ${entry.value}%`} position="center" />
+              {/* <Label value={(entry) => `${entry.name}: ${entry.value}%`} position="center" /> */}
             </Pie>
         </PieChart>
 
       </div>
-
-    ): <Empty/>}
     </>
   )
 }
