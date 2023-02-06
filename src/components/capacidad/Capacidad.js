@@ -183,7 +183,7 @@ const Capacidad = () => {
                 propias: <strong>{Math.trunc(infoCap[0].ahxs_propias)}</strong>,
                 alquiler: <strong>{Math.trunc(infoCap[0].ahxs_alquiladas)}</strong>,
                 total: <strong>{parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)}</strong>,
-                porcentaje: (((parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)) + '%'
+                porcentaje: <strong>{(((parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)) + '%' }</strong>
 
 
             },

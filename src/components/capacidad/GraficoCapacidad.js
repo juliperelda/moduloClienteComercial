@@ -13,7 +13,6 @@ export const GraficoCapacidad = ({porcentajes}) => {
   // console.log(porcentajes[0].porcentaje);
 
 
-
     const data = [
         { name: 'Agricultura', value: parseInt(porcentajes[0].porcentaje)},
         { name: 'Ganaderia', value: parseInt(porcentajes[1].porcentaje) },
@@ -25,7 +24,7 @@ export const GraficoCapacidad = ({porcentajes}) => {
   return (
     <>
       <div style={{display:"flex", justifyContent:"center", alignItems:"center", padding:"10px"}}>
-          <PieChart width={300} height={250} margin={{ top: 10, left: 50 }}>
+          <PieChart width={300} height={200} margin={{ top: 10, left: 50 }}>
             <Legend wrapperStyle={{marginTop:"10px !important"}}/>
             <Pie
               data={data}
@@ -45,7 +44,6 @@ export const GraficoCapacidad = ({porcentajes}) => {
               ))}
             </Pie>
         </PieChart>
-
       </div>
     </>
   )
