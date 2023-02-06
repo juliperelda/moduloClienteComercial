@@ -28,6 +28,7 @@ export const GraficoCapacidad = ({porcentajes}) => {
           <PieChart width={400} height={250}>
               <Legend iconType="circle" layout="vertical" align="left" verticalAlign="top"/>
               <Pie
+              className='pie'
                 data={data}
                 cx={100}
                 cy={100}
