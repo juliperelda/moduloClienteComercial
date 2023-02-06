@@ -88,6 +88,12 @@ const Capacidad = () => {
 
     const [isHayData, setIsHayData] = useState(false);
     const [selectedValue, setSelectedValue] = useState(localStorage.getItem("cosechaActiva"));
+    const [porcentajes, setPorcentajes] = useState({
+        porcentajeAgricultura: {name: '', porcentaje: null},
+        porcentajeGanaderia: {name: '', porcentaje: null},
+        porcentajeTambo: {name: '', porcentaje: null},
+        porcentajeMixto: {name: '', porcentaje: null},
+    });
     // const [isPrueba, setIsPrueba] = useState(false);
 
     const editarCosecha = () => {
@@ -121,6 +127,8 @@ const Capacidad = () => {
 
 
         capacidad = result;
+
+        //setPorcentajes();
 
         capacidad = [
             // {
@@ -186,7 +194,7 @@ const Capacidad = () => {
 
             },
         ];
-        // console.log(capacidad);
+        console.log(" para porcentajes: ", capacidad);
         return result;
         
     };
@@ -332,9 +340,9 @@ const Capacidad = () => {
         // console.log("infoCosechas[0] desde Capacidad: ", infoCosechas[0].acos_desc);
     }
 
-    useEffect(() => {
-        setIsPrueba(capacidad)
-    }, [cosecha])
+    // useEffect(() => {
+    //     setIsPrueba(capacidad)
+    // }, [cosecha])
     
 
 

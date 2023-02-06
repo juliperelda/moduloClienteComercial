@@ -33,12 +33,12 @@ function App() {
   const [infoEdit, setInfoEdit]=useState({});
   const [update, setUpdate] = useState(false);
   const [isPrueba, setIsPrueba] = useState(false);
-  const [isValorPorcentaje, setIsValorPorcentaje] = useState({
-      porcentajeAgricultura: {name: '', porcentaje: null},
-      porcentajeGanaderia: {name: '', porcentaje: null},
-      porcentajeTambo: {name: '', porcentaje: null},
-      porcentajeMixto: {name: '', porcentaje: null},
-  });
+  // const [isValorPorcentaje, setIsValorPorcentaje] = useState({
+  //     porcentajeAgricultura: {name: '', porcentaje: null},
+  //     porcentajeGanaderia: {name: '', porcentaje: null},
+  //     porcentajeTambo: {name: '', porcentaje: null},
+  //     porcentajeMixto: {name: '', porcentaje: null},
+  // });
 
   return (
     <GlobalContext.Provider value={{
@@ -55,7 +55,7 @@ function App() {
       infoEdit, setInfoEdit,
       update, setUpdate,
       isSelectEditDisabled, setIsSelectEditDisabled,
-      isValorPorcentaje, setIsValorPorcentaje,
+      // isValorPorcentaje, setIsValorPorcentaje,
       isPrueba, setIsPrueba,
     }}>
       
