@@ -14,13 +14,33 @@ export const GraficoCapacidad = ({ porcentajes }) => {
     );
   }
 
-  // console.log(porcentajes[0].porcentaje);
+  console.log(porcentajes[0].porcentaje);
 
   const data = [
-    { name: "Agricultura", value: parseInt(porcentajes[0].porcentaje) },
-    { name: "Ganaderia", value: parseInt(porcentajes[1].porcentaje) },
-    { name: "Tambo", value: parseInt(porcentajes[2].porcentaje) },
-    { name: "Mixto", value: parseInt(porcentajes[3].porcentaje) },
+    {
+      name: "Agricultura",
+      value: parseInt(porcentajes[0].porcentaje),
+      namet: "Total",
+      has: porcentajes[0].total
+    },
+    {
+      name: "Ganaderia",
+      value: parseInt(porcentajes[1].porcentaje),
+      namet: "Total",
+      has: porcentajes[1].total
+    },
+    {
+      name: "Tambo",
+      value: parseInt(porcentajes[2].porcentaje),
+      namet: "Total",
+      has: porcentajes[2].total
+    },
+    {
+      name: "Mixto",
+      value: parseInt(porcentajes[3].porcentaje),
+      namet: "Total",
+      has: porcentajes[3].total
+    },
   ];
 
   // const data = [
@@ -69,7 +89,15 @@ export const GraficoCapacidad = ({ porcentajes }) => {
               />
             ))}
           </Pie>
-          <Tooltip formatter={(value) => `${value}%`}/>
+          <Tooltip
+            formatter={(value) => `${value}%`}
+            content={(data) => (
+              <div className="custom-tooltip">
+                <p className="label">{`${data.name}: ${data.value}%`}</p>
+                <p className="label">{`${data.namet}: ${data.has}has.`}</p>
+              </div>
+            )}
+          />
         </PieChart>
       </div>
     </>
