@@ -14,34 +14,35 @@ export const GraficoCapacidad = ({ porcentajes }) => {
     );
   }
 
-  console.log(porcentajes[0].porcentaje);
+  //console.log(porcentajes[0].porcentaje);
 
   const data = [
     {
       name: "Agricultura",
       value: parseInt(porcentajes[0].porcentaje),
       namet: "Total",
-      has: porcentajes[0].total
+      has: porcentajes[0].total,
     },
     {
       name: "Ganaderia",
       value: parseInt(porcentajes[1].porcentaje),
       namet: "Total",
-      has: porcentajes[1].total
+      has: porcentajes[1].total,
     },
     {
       name: "Tambo",
       value: parseInt(porcentajes[2].porcentaje),
       namet: "Total",
-      has: porcentajes[2].total
+      has: porcentajes[2].total,
     },
     {
       name: "Mixto",
       value: parseInt(porcentajes[3].porcentaje),
       namet: "Total",
-      has: porcentajes[3].total
+      has: porcentajes[3].total,
     },
   ];
+
 
   // const data = [
   //   { name: 'Group J', value: 400, name2: 'Agricultura', has: 10 },
@@ -50,16 +51,24 @@ export const GraficoCapacidad = ({ porcentajes }) => {
   //   { name: 'Group D', value: 200, name2: 'Mixto', has: 13 },
   // ];
 
-  const COLORS = ["#4E944F", "#83BD75", "#B4E197", "#E9EFC0"];
+  const COLORS = ["#116611", "#56b43c", "#55AA55", "#88CC88"];
+
 
   const formatter = (value, name, props) => {
     return (
       <div>
-        <p className="label" style={{color:"grey", fontWeight:"500"}}>{`Porcentaje: ${value} %`}</p>
-        <p className="label" style={{color:"grey", fontWeight:"500"}}>{`${props.payload.namet}: ${props.payload.has} has.`}</p>
+        <p
+          className="label"
+          style={{ color: "grey", fontWeight: "500" }}
+        >{`${props.payload.namet}: ${props.payload.has} has.`}</p>
+        <p
+          className="label"
+          style={{ color: "grey", fontWeight: "500" }}
+        >{`Porcentaje: ${value}%`}</p>
       </div>
-    )
+    );
   };
+
 
   return (
     <>
@@ -72,10 +81,11 @@ export const GraficoCapacidad = ({ porcentajes }) => {
       >
         <PieChart width={400} height={250}>
           <Legend
+            className="legendAnillo"
             iconType="circle"
             layout="vertical"
-            align="left"
-            verticalAlign="top"
+            align="right"
+            verticalAlign="middle"
           />
           <Pie
             className="pie"
