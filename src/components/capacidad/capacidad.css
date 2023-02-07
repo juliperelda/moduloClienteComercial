@@ -127,7 +127,6 @@ input[type=number]::-webkit-outer-spin-button {
 .ant-btn-default:not(:disabled).btnEditCosecha:hover {
   color: #8fd14a;
   border-color: #8fd14a;
-  
 }
 /*------Fin boton editar--------*/
 
@@ -155,10 +154,11 @@ input[type=number]::-webkit-outer-spin-button {
   color: #8fd14a;
   border-color: #8fd14a;
 }
-.ant-btn-default:not(:disabled).btnGraficoCosecha:focus {
+.ant-btn-default:not(:disabled).btnGraficoCosecha:hover {
   color: #8fd14a;
   border-color: #8fd14a;
 }
+
 /*------Fin boton ver grafico--------*/
 
 /*------Boton agregar--------*/
@@ -186,15 +186,12 @@ input[type=number]::-webkit-outer-spin-button {
 .btnAddCosecha:disabled {
   background-color: #ffffff !important;
 }
-.ant-btn-default:not(:disabled).btnAddCosecha:focus, .ant-btn-default:not(:disabled).btnAddCosecha:focus {
-  box-shadow: none !important;
-  border: none !important;
-}
 .ant-btn .ant-btn-default .btnAddCosecha:focus{
   border-color: none !important;
   box-shadow: none !important;
 }
 .ant-btn-default:not(:disabled).btnAddCosecha:hover {
+  /* #8fd14a */
   color: #8fd14a;
   border-color: #8fd14a;
   transition: none;
@@ -203,32 +200,30 @@ input[type=number]::-webkit-outer-spin-button {
   color: #8fd14a;
   border-color: #8fd14a;
   transition: none;
-}
-.ant-btn-default:not(:disabled).btnAddCosechaData:hover {
-  color: #ffffff;
-  border-color: #8fd14a;
-}
-
-.ant-btn-default:not(:disabled).btnAddCosecha:focus{
   box-shadow: none !important;
   border: none !important;
 }
-
 .ant-btn-default:not(:disabled).btnAddCosecha:active{
   box-shadow: none !important;
   border: none !important;
 }
-
 .btnAddCosecha:focus:not(.focus-visible) {
   outline: 0;
 }
 /*------Fin boton agregar--------*/
+
+[ant-click-animating-without-extra-node='true']::after{display:none;} /*Saca la animacion de los botones al hacer click*/
+
 
 .btnAddCosechaData {
   display: flex;
   margin-left: auto;
   background-color: #00b33c;
   color: #ffffff;
+}
+.ant-btn-default:not(:disabled).btnAddCosechaData:hover {
+  color: #ffffff;
+  border-color: #8fd14a;
 }
 
 .AddCosecha {
@@ -237,7 +232,6 @@ input[type=number]::-webkit-outer-spin-button {
   padding-top: 20px;
   margin-left: 88%;
 }
-
 
 .divBotonera {
   display: flex;
