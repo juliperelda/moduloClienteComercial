@@ -78,23 +78,18 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .divDropdown {
-  /* background-color: #f2f0f1; */
   display: flex;
   flex-direction: row;
-  /* flex-direction: column; */
 }
 
 .divNuevaCapacidad {
   display: flex;
-  /* flex-direction: row; */
   flex-direction: column;
 }
 
 .divTitle{
   display: flex;
   width: 100%;
-  /* margin-right: -10px; */
-
 }
 
 .divSelectAndEdit{
@@ -109,8 +104,6 @@ input[type=number]::-webkit-outer-spin-button {
 
 /*------Boton editar--------*/
 .btnEditCosecha {
-  /* display: flex;
-  flex-direction: row; */
   margin-left: 10px;
   border: none;
   font-size: 18px !important;
@@ -132,8 +125,6 @@ input[type=number]::-webkit-outer-spin-button {
 
 /*------Boton ver grafico--------*/
 .btnGraficoCosecha{
-  /* margin-left: auto; */
-  /* margin-left: 10px; */
   border: none;
   font-size: 18px !important;
   color: #00b33c;
@@ -163,20 +154,16 @@ input[type=number]::-webkit-outer-spin-button {
 
 /*------Boton agregar--------*/
 .btnAddCosecha {
-  /* display: flex;
-  flex-direction: row; */
   margin-left: auto;
   margin-right: -2px;
   border: none;
   font-size: 18px !important;
   color: #00b33c;
   background-color: transparent; 
-  /* margin-right: -240px */
 }
 .ant-btn-default.btnAddCosecha{
   box-shadow: none;
   margin-top: 2px;
-  /* margin-right: 2px; */
   transition: none !important;
 }
 .btnAddCosecha:active:hover {
@@ -236,8 +223,6 @@ input[type=number]::-webkit-outer-spin-button {
 .divBotonera {
   display: flex;
   justify-content:flex-end;
-
-  /* width: 100%; */
 }
 
 .encabezados{
@@ -246,45 +231,32 @@ input[type=number]::-webkit-outer-spin-button {
   font-family: 'Open Sans', sans-serif;
   border-bottom: 1px solid rgba(5, 5, 5, 0.06);
   background:#fafafa ;
-  /* padding: 16px; */
   padding: 4px !important;
-
-  /* border-left: 1px solid rgba(5, 5, 5, 0.06); */
 }
 .encabezadoVacio{
   font-weight: bold;
   font-family: 'Open Sans', sans-serif;
   border-bottom: 1px solid rgba(5, 5, 5, 0.06);
   background:#fafafa ;
-  /* padding: 16px; */
   padding: 4px !important;
   width: 200px;
 }
 
 .celdaInput {
   margin: 0px;
-  /* padding: 16px; */
   padding: 0px 2px 0px !important;
-  /* padding: 0px 15px 0px !important; */ /*Como estaba antes*/
   border-bottom: 1px solid rgba(5, 5, 5, 0.06);
   text-align: start;
 }
 .celdaInputAlquiladas{
   margin: 0px;
-  /* margin-left: 100px !important; */
-  /* margin-right: 25px !important; */
-  /* padding: 16px; */
   padding: 0px 2px 0px 10px !important;
-  /* padding: 0px 8px 0px 67.98px !important; */
-  /* padding: 0px 15px 0px !important; */ /*Como estaba antes*/
   border-bottom: 1px solid rgba(5, 5, 5, 0.06);
   text-align: start;
 }
 .celdaRubro{
   margin: 0px;
-  /* padding: 16px; */
   padding: 0px 2px 0px !important;
-  /* padding: 0px 15px 0px !important; */ /*Como estaba antes*/
   border-bottom: 1px solid rgba(5, 5, 5, 0.06);
   text-align: start;
   width: 200px;
@@ -323,18 +295,7 @@ table {
 }
 
 th {
-  /* background: #d94a38; */
   padding: 10px 20px;
-}
-
-td {
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* align-items: center;
-  align-self: center;
-  align-content: center;
-  justify-content: center; */
-  
 }
 
 .inputTable{
@@ -342,34 +303,24 @@ td {
   border-style: solid;
   border-color: #d9d9d9;
   border-radius: 6px !important;
-
-  /* margin-right:20px !important ;  */
-  /* margin-top; */
-  /* width: 65px; */
   height: 25px !important;
-  /* width: 63px; */
 } 
 .inputTableAlquiladas{
   border-width: 1px;
   border-style: solid;
   border-color: #d9d9d9;
   border-radius: 6px !important;
-  /* width: 63px; */
-  /* margin-left:200px !important ; */
 }
 
 .cont {
   display: flex;
   flex-direction: row;
-  /* margin: auto; */
   width: 100%;
 }
 
 .contBotones{
   display:flex;
-  /* display:inline-flex; */
   flex-direction: row;
-
   justify-content:flex-end;
   margin-top: 5px;
 }
@@ -377,8 +328,6 @@ td {
 .contBotonesNuevaCapacidad{
   display:flex;
   flex-direction: row;
-  /* margin: initial; */
-
   justify-content:flex-end;
   margin-top: 5px;
 }
@@ -397,37 +346,10 @@ td {
   font-size: 13px !important;
 }
 
-.ant-select-arrow{
-  /* margin-top: -8px !important;  */
-
-  /* position: absolute;
-  top: 50%;
-  right: 20px;
-  transform: translateY(-50%); */
-
-}
-
-/* .ant-btn-default-focused .ant-btn-default-selector,
-.ant-btn-default-selector:focus,
-.ant-btn-default-selector:active,
-.ant-btn-default-open .ant-select-selector {
-  border-color: #d9d9d9 !important;
-  box-shadow: none !important;
-} */
-
-
 .legendGrafico{
   display: flex;
   flex-direction: column;
 }
-/* .graficoAnilloCapacidad{
-  width: 220px !important;
-} */
-
-/* .legendGrafico{
-  left: -70px !important;
-  top: 60px !important;
-} */
 
 .ant-select-open .ant-select-selector {
   border-color: #00b33c !important;
@@ -438,9 +360,6 @@ td {
 .ant-select-selection-placeholder{
   border-color: #00b33c !important;;
 }
-/* .ant-select[aria-live="polite"] .ant-select-selector {
-  border-color: #00b33c;
-} */
 .ant-select .selectCosecha .ant-select-single .ant-select-show-arrow {
   border-color: #00b33c !important;;
 }

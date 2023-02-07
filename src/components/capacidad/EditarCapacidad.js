@@ -98,7 +98,7 @@ export const EditarCapacidad = () => {
       setIsSelectEditDisabled(false);
 
     } else {
-      alert("El total de Has. de Rubros supera a las Has. Propias en general");
+      // alert("El total de Has. de Rubros supera a las Has. Propias en general");
       setIsActiveModal(true);
     }
   };
