@@ -95,7 +95,7 @@ export const EditarCapacidad = () => {
       editCap(cli, dataContext);
 
       setUpdate(!update);
-      setIsSelectEditDisabled(!isSelectEditDisabled);
+      setIsSelectEditDisabled(false);
 
     } else {
       alert("El total de Has. de Rubros supera a las Has. Propias en general");
@@ -148,7 +148,7 @@ export const EditarCapacidad = () => {
     setDataContext(null);
     setUpdate(!update);
     setAppStage(0);
-    setIsSelectEditDisabled(!isSelectEditDisabled);
+    setIsSelectEditDisabled(false);
   };
 
   return (

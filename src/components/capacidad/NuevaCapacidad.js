@@ -17,6 +17,7 @@ export const NuevaCapacidad = () => {
     setAppStage,
     isButtonDisabled,
     setIsButtonDisabled,
+    setIsSelectEditDisabled,
     update,
     setUpdate,
   } = useContext(GlobalContext);
@@ -79,6 +80,7 @@ export const NuevaCapacidad = () => {
         newCap(cli, isData);
 
         setUpdate(!update);
+        setIsSelectEditDisabled(false);
 
       } else {
         alert(
@@ -137,6 +139,7 @@ export const NuevaCapacidad = () => {
     setDataContext(null);
     setUpdate(!update);
     setAppStage(0);
+    setIsSelectEditDisabled(false);
   };
 
   return (

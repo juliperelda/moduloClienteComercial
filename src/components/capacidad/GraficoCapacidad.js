@@ -5,30 +5,30 @@ import "./capacidad.css";
 export const GraficoCapacidad = ({ porcentajes }) => {
   console.log(porcentajes);
 
-  if (!porcentajes || !Array.isArray(porcentajes) || porcentajes.length === 0) {
-    return (
-      <Empty
-        style={{ marginTop: "20%" }}
-        image={Empty.PRESENTED_IMAGE_SIMPLE}
-      />
-    );
-  }
+  // if (!porcentajes || !Array.isArray(porcentajes) || porcentajes.length === 0) {
+  //   return (
+  //     <Empty
+  //       style={{ marginTop: "20%" }}
+  //       image={Empty.PRESENTED_IMAGE_SIMPLE}
+  //     />
+  //   );
+  // }
 
   // console.log(porcentajes[0].porcentaje);
 
-  const data = [
-    { name: "Agricultura", value: parseInt(porcentajes[0].porcentaje) },
-    { name: "Ganaderia", value: parseInt(porcentajes[1].porcentaje) },
-    { name: "Tambo", value: parseInt(porcentajes[2].porcentaje) },
-    { name: "Mixto", value: parseInt(porcentajes[3].porcentaje) },
-  ];
-
   // const data = [
-  //   { name: 'Group A', value: 400 },
-  //   { name: 'Group B', value: 300 },
-  //   { name: 'Group C', value: 300 },
-  //   { name: 'Group D', value: 200 },
+  //   { name: "Agricultura", value: parseInt(porcentajes[0].porcentaje) },
+  //   { name: "Ganaderia", value: parseInt(porcentajes[1].porcentaje) },
+  //   { name: "Tambo", value: parseInt(porcentajes[2].porcentaje) },
+  //   { name: "Mixto", value: parseInt(porcentajes[3].porcentaje) },
   // ];
+
+  const data = [
+    { name: 'Group A', value: 400 },
+    { name: 'Group B', value: 300 },
+    { name: 'Group C', value: 300 },
+    { name: 'Group D', value: 200 },
+  ];
 
   const COLORS = ["#00C49F", "#0088FE", "#FFBB28", "#FF8042"];
 
