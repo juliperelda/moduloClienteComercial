@@ -53,14 +53,8 @@ export const GraficoCapacidad = ({ porcentajes }) => {
             paddingAngle={5}
             dataKey="value"
             cursor="pointer"
-            label
+
           >
-            {data.map((entry, index) => (
-              <Cell
-                key={`cell-${index}`}
-                fill={COLORS[index % COLORS.length]}
-              />
-            ))}
           </Pie>
           <Tooltip />
         </PieChart>
