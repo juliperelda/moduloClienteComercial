@@ -55,8 +55,8 @@ export const GraficoCapacidad = ({ porcentajes }) => {
   const formatter = (value, name, props) => {
     return (
       <div>
-        <p className="label" style={{color:"grey", fontWeight:"500"}}>{`Porcentaje: ${value} %`}</p>
         <p className="label" style={{color:"grey", fontWeight:"500"}}>{`${props.payload.namet}: ${props.payload.has} has.`}</p>
+        <p className="label" style={{color:"grey", fontWeight:"500"}}>{`Porcentaje: ${value}%`}</p>
       </div>
     )
   };
@@ -72,6 +72,7 @@ export const GraficoCapacidad = ({ porcentajes }) => {
       >
         <PieChart width={400} height={250}>
           <Legend
+          className="legendAnillo"
             iconType="circle"
             layout="vertical"
             align="right"
