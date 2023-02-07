@@ -26,6 +26,8 @@ export const GraficoCapacidad = ({ porcentajes }) => {
 
   const COLORS = ["#00C49F", "#0088FE", "#FFBB28", "#FF8042"];
 
+  const formatter = (value) => `${value}%`;
+
   return (
     <>
       <div
@@ -62,7 +64,7 @@ export const GraficoCapacidad = ({ porcentajes }) => {
               />
             ))}
           </Pie>
-          <Tooltip />
+          <Tooltip formatter={(value) => `${value}%`}/>
         </PieChart>
       </div>
     </>
