@@ -5,9 +5,19 @@
 .ant-btn-default-selector:focus,
 .ant-btn-default-selector:active,
 .ant-btn-default-open .ant-select-selector {
-  border-color: #d9d9d9 !important;
+  border-color: transparent !important;
   box-shadow: none !important;
 }
+
+.ant-btn-default:not(:disabled).btnGraficoCosecha:hover,
+.ant-btn-default:not(:disabled).btnGraficoCosecha:focus,
+.ant-btn-default:not(:disabled).btnGraficoCosecha:active {
+  border-color: transparent !important;
+  box-shadow: none !important;
+  transition: none !important;
+}
+
+
 
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
@@ -17,15 +27,21 @@ input[type=number]::-webkit-outer-spin-button {
 
 .ant-btn-default:not(:disabled):active {
   color: #8fd14a;
-  border-color: #8fd14a;
+  border-color: transparent;
+  box-shadow: none !important;
+  transition: none !important;
 }
 .ant-btn-default:not(:disabled):focus {
   color: #8fd14a;
-  border-color: #8fd14a;
+  border-color: transparent;
+  box-shadow: none !important;
+  transition: none !important;
 }
 .ant-btn-default:not(:disabled):focus {
   color: #8fd14a;
-  border-color: #8fd14a;
+  border-color: transparent;
+  box-shadow: none !important;
+  transition: none !important;
 }
 
 .ant-input.input-unidad:hover {
@@ -81,6 +97,7 @@ input[type=number]::-webkit-outer-spin-button {
   display: flex;
   flex-direction: row;
 }
+
 
 .divNuevaCapacidad {
   display: flex;
