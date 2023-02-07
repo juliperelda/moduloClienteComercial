@@ -14,7 +14,7 @@ export const GraficoCapacidad = ({ porcentajes }) => {
     );
   }
 
-  // console.log(porcentajes[0].porcentaje);
+  console.log(porcentajes[0].porcentaje);
 
   const data = [
     {
@@ -55,8 +55,8 @@ export const GraficoCapacidad = ({ porcentajes }) => {
   const formatter = (value, name, props) => {
     return (
       <div>
-        <p className="label" style={{color:"grey", fontWeight:"500"}}>{`Porcentaje ${value}%`}</p>
-        <p className="label" style={{color:"grey", fontWeight:"500"}}>{`${props.payload.name2}: ${props.payload.has}has.`}</p>
+        <p className="label" style={{color:"grey", fontWeight:"500"}}>{`Porcentaje: ${value} %`}</p>
+        <p className="label" style={{color:"grey", fontWeight:"500"}}>{`${props.payload.namet}: ${props.payload.has} has.`}</p>
       </div>
     )
   };
