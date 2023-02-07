@@ -92,7 +92,7 @@ const Capacidad = () => {
 
     const editarCosecha = () => {
         setIsButtonEditDisabled(true);
-        setIsSelectEditDisabled(!isSelectEditDisabled)
+        setIsSelectEditDisabled(true)
         setAppStage(1);
     };
 
@@ -197,6 +197,7 @@ const Capacidad = () => {
 
     const addCosecha = () => {
         setAppStage(2);
+        setIsSelectEditDisabled(false);
     };
 
     const verGrafico = () => {
