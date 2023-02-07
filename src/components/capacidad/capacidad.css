@@ -435,15 +435,11 @@ td {
   display: flex;
   flex-direction: column;
 }
-.graficoAnilloCapacidad{
+/* .graficoAnilloCapacidad{
   width: 220px !important;
-}
-/* .recharts-legend-wrapperr{
+} */
+
+/* .legendGrafico{
   left: -70px !important;
   top: 60px !important;
 } */
-
-.legendGrafico{
-  left: -70px !important;
-  top: 60px !important;
-}
