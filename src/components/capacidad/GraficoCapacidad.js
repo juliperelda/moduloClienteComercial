@@ -46,7 +46,18 @@ export const GraficoCapacidad = ({ porcentajes }) => {
 
   const COLORS = ["#00C49F", "#0088FE", "#FFBB28", "#FF8042"];
 
-  const formatter = (value) => `${value}%`;
+  const CustomTooltip = ({ active, payload }) => {
+    //PAARA VER AMBAS BARRAS
+    if (active && payload) {
+      return (
+        <div className="custom-tooltip">
+           <p className="label">{`${payload.name}: ${payload.value} %`}</p>
+           <p className="label">{`${payload.namet}: ${payload.has} has.`}</p>
+        </div>
+      );
+    }
+    return null;
+  };
 
   return (
     <>
@@ -84,13 +95,8 @@ export const GraficoCapacidad = ({ porcentajes }) => {
             ))}
           </Pie>
           <Tooltip
-            formatter={(value) => `${value}%`}
-            content={(data) => (
-              <div className="custom-tooltip">
-                <p className="label">{`${data.name}: ${data.value}%`}</p>
-                <p className="label">{`${data.namet}: ${data.has}has.`}</p>
-              </div>
-            )}
+            //formatter={(value) => `${value}%`}
+            content={CustomTooltip}
           />
         </PieChart>
       </div>
