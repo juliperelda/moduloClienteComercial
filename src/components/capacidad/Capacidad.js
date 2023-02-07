@@ -363,7 +363,7 @@ const Capacidad = () => {
                         !iconTable
                             ?
                             <Button
-                                style={{ boxShadow: "none !important", outline: "0", border: "none !important", marginTop: "-8px" }}
+                                style={{ alignItems: "center", boxShadow: "none !important", outline: "0", border: "none !important", marginTop: "-8px" }}
                                 className="btnGraficoCosecha"
                                 icon={<PieChartOutlined style={{ "--antd-wave-shadow-color": "transparent !important" }} />}
                                 onClick={() => {
@@ -374,7 +374,7 @@ const Capacidad = () => {
                             // </Button>
                             :
                             <Button
-                                style={{ boxShadow: "none !important", outline: "0", border: "none !important", marginTop: "-8px" }}
+                                style={{ alignItems: "center", boxShadow: "none !important", outline: "0", border: "none !important", marginTop: "-8px" }}
                                 className="btnGraficoCosecha"
                                 icon={<TableOutlined style={{ "--antd-wave-shadow-color": "transparent !important" }} />}
                                 onClick={() => {
