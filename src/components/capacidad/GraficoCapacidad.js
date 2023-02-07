@@ -5,54 +5,61 @@ import "./capacidad.css";
 export const GraficoCapacidad = ({ porcentajes }) => {
   console.log(porcentajes);
 
-  if (!porcentajes || !Array.isArray(porcentajes) || porcentajes.length === 0) {
-    return (
-      <Empty
-        style={{ marginTop: "20%" }}
-        image={Empty.PRESENTED_IMAGE_SIMPLE}
-      />
-    );
-  }
+  // if (!porcentajes || !Array.isArray(porcentajes) || porcentajes.length === 0) {
+  //   return (
+  //     <Empty
+  //       style={{ marginTop: "20%" }}
+  //       image={Empty.PRESENTED_IMAGE_SIMPLE}
+  //     />
+  //   );
+  // }
 
-  console.log(porcentajes[0].porcentaje);
-
-  const data = [
-    {
-      name: "Agricultura",
-      value: parseInt(porcentajes[0].porcentaje),
-      namet: "Total",
-      has: porcentajes[0].total
-    },
-    {
-      name: "Ganaderia",
-      value: parseInt(porcentajes[1].porcentaje),
-      namet: "Total",
-      has: porcentajes[1].total
-    },
-    {
-      name: "Tambo",
-      value: parseInt(porcentajes[2].porcentaje),
-      namet: "Total",
-      has: porcentajes[2].total
-    },
-    {
-      name: "Mixto",
-      value: parseInt(porcentajes[3].porcentaje),
-      namet: "Total",
-      has: porcentajes[3].total
-    },
-  ];
+  // console.log(porcentajes[0].porcentaje);
 
   // const data = [
-  //   { name: 'Group A', value: 400 },
-  //   { name: 'Group B', value: 300 },
-  //   { name: 'Group C', value: 300 },
-  //   { name: 'Group D', value: 200 },
+  //   {
+  //     name: "Agricultura",
+  //     value: parseInt(porcentajes[0].porcentaje),
+  //     namet: "Total",
+  //     has: porcentajes[0].total
+  //   },
+  //   {
+  //     name: "Ganaderia",
+  //     value: parseInt(porcentajes[1].porcentaje),
+  //     namet: "Total",
+  //     has: porcentajes[1].total
+  //   },
+  //   {
+  //     name: "Tambo",
+  //     value: parseInt(porcentajes[2].porcentaje),
+  //     namet: "Total",
+  //     has: porcentajes[2].total
+  //   },
+  //   {
+  //     name: "Mixto",
+  //     value: parseInt(porcentajes[3].porcentaje),
+  //     namet: "Total",
+  //     has: porcentajes[3].total
+  //   },
   // ];
+
+  const data = [
+    { name: 'Group J', value: 400, name2: 'Agricultura', has: 10 },
+    { name: 'Group B', value: 300, name2: 'Ganaderia', has: 11 },
+    { name: 'Group C', value: 300, name2: 'Tambo', has: 12 },
+    { name: 'Group D', value: 200, name2: 'Mixto', has: 13 },
+  ];
 
   const COLORS = ["#00C49F", "#0088FE", "#FFBB28", "#FF8042"];
 
-  const formatter = (value) => `${value}%`;
+  const formatter = (value, name, props) => {
+    return (
+      <div>
+        <p className="label" style={{color:"grey", fontWeight:"500"}}>{`Porcentaje ${value}%`}</p>
+        <p className="label" style={{color:"grey", fontWeight:"500"}}>{`${props.payload.name2}: ${props.payload.has}has.`}</p>
+      </div>
+    )
+  };
 
   return (
     <>
@@ -89,15 +96,7 @@ export const GraficoCapacidad = ({ porcentajes }) => {
               />
             ))}
           </Pie>
-          <Tooltip
-            formatter={(value) => `${value}%`}
-            content={(data) => (
-              <div className="custom-tooltip">
-                <p className="label">{`${data.name}: ${data.value}%`}</p>
-                <p className="label">{`${data.namet}: ${data.has}has.`}</p>
-              </div>
-            )}
-          />
+          <Tooltip formatter={formatter} />
         </PieChart>
       </div>
     </>
