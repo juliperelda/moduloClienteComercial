@@ -50,7 +50,7 @@ export const GraficoCapacidad = ({ porcentajes }) => {
   //   { name: 'Group D', value: 200, name2: 'Mixto', has: 13 },
   // ];
 
-  const COLORS = ["#4E944F", "#83BD75", "#B4E197", "#E9EFC0"];
+  const COLORS = ["#116611","#56b43c", "#55AA55", "#88CC88"];
 
   const formatter = (value, name, props) => {
     return (
@@ -74,8 +74,8 @@ export const GraficoCapacidad = ({ porcentajes }) => {
           <Legend
             iconType="circle"
             layout="vertical"
-            align="left"
-            verticalAlign="top"
+            align="right"
+            verticalAlign="middle"
           />
           <Pie
             className="pie"
