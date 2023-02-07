@@ -55,6 +55,12 @@ export const GraficoCapacidad = ({ porcentajes }) => {
             cursor="pointer"
 
           >
+            {data.map((entry, index) => (
+              <Cell
+                key={`cell-${index}`}
+                fill={COLORS[index % COLORS.length]}
+              />
+            ))}
           </Pie>
           <Tooltip />
         </PieChart>
