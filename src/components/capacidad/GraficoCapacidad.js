@@ -23,6 +23,7 @@ export const GraficoCapacidad = ({ porcentajes }) => {
     { name: "Mixto", value: parseInt(porcentajes[3].porcentaje) },
   ];
 
+
   const COLORS = ["#00C49F", "#0088FE", "#FFBB28", "#FF8042"];
 
   return (
