@@ -175,7 +175,7 @@ const Capacidad = () => {
                     <>
                         <strong>TOTAL </strong>
                         <InfoCircleOutlined
-                            title="El total puede diferir porque no es sumatoria del desglose por Rubro."
+                            title="El total puede diferir porque no es sumatoria del desglose por rubro."
                             style={{ color: "#00b33c" }}
                         />
                     </>

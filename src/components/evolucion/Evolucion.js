@@ -204,7 +204,7 @@ const Evolucion = () => {
               name="Propias"
               stackId="a"
               barSize={50}
-              fill="#a9ff96"
+              fill="#d8d8d8"
               key={"propias"}
               isAnimationActive={true}
             />
@@ -225,7 +225,7 @@ const Evolucion = () => {
               name="Alquiladas"
               stackId="a"
               barSize={50}
-              fill="#434348"
+              fill="#d8d8d8"
               key={"alquiladas"}
               isAnimationActive={true}
             />
