@@ -6,7 +6,8 @@ import { GlobalContext } from "../../context/GlobalContext";
 import "./capacidad.css";
 
 export const EditarCapacidad = () => {
-
+  
+  const URL = process.env.REACT_APP_URL;
   var objData = [];
 
   //! UseContext
@@ -130,7 +131,8 @@ export const EditarCapacidad = () => {
     data.append("cantMA", dataContext["mixtoA"]);
     data.append("totalP", dataContext["propias"]);
     data.append("totalA", dataContext["alquiladas"]);
-    fetch("../com_editCapacidad.php", {
+    // fetch("../com_editCapacidad.php", {
+    fetch(`${URL}com_editCapacidad.php`, {
       method: "POST",
       body: data,
     }).then(function (response) {

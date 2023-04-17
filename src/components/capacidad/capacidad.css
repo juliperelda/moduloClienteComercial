@@ -98,6 +98,8 @@ input[type=number]::-webkit-outer-spin-button {
 .divDropdown {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
 }
 
 
@@ -106,19 +108,31 @@ input[type=number]::-webkit-outer-spin-button {
   flex-direction: column;
 }
 
+.divTitle-select {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  /* justify-content:baseline; */
+}
+
 .divTitle{
   display: flex;
-  width: 100%;
+  width:180px;
+}
+.divSelect{
+  display: flex;
+  justify-content:flex-start;
+
+  /* width: 100%; */
+  width: 50px;
+  margin-top: -7px;
 }
 
 .divSelectAndEdit{
   display: flex;
   justify-content:flex-start;
 
-  width: 100%;
-}
-.divSelect{
-  margin-top: -10px;
+  width: 450%;
 }
 
 /*------Boton editar--------*/
@@ -389,3 +403,4 @@ th {
 .ant-select-focused .ant-select:not(.ant-select-disabled):not(.ant-select-customize-input):not(.ant-pagination-size-changer) .ant-select-selector {
   border-color: #00b33c !important;;
 }
+

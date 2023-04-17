@@ -29,10 +29,13 @@ function App() {
   const [infoEvo, setInfoEvo]=useState({});
   const [infoRubros, setInfoRubros]=useState({});
   const [infoCap, setInfoCap]=useState({});
-  const [infoCosechas, setCosechas]=useState({});
+  const [infoCosechas, setCosechas]=useState([]);
   const [infoEdit, setInfoEdit]=useState({});
   const [update, setUpdate] = useState(false);
   const [iconTable, setIconTable] = useState(false)
+
+
+  const [prueba, setPrueba] = useState([]);
 
 
   return (
@@ -51,6 +54,10 @@ function App() {
       update, setUpdate,
       isSelectEditDisabled, setIsSelectEditDisabled,
       iconTable, setIconTable,
+
+
+
+      prueba, setPrueba,
     }}>
       
       <Analitica/>

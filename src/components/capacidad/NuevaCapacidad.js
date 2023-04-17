@@ -1,10 +1,12 @@
 /* eslint-disable no-unused-vars */
-import { Button,Form, Input } from "antd";
+import { Button, Form, Input } from "antd";
 import React, { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "../../context/GlobalContext";
 import "./capacidad.css";
 
 export const NuevaCapacidad = () => {
+  
+  const URL = process.env.REACT_APP_URL;
   var objData = [];
 
   //! UseContext
@@ -121,7 +123,8 @@ export const NuevaCapacidad = () => {
     data.append("cantMA", isData["mixtoA"]);
     data.append("totalP", isData["propias"]);
     data.append("totalA", isData["alquiladas"]);
-    fetch("../com_newCapacidad.php", {
+    // fetch("../com_newCapacidad.php", {
+    fetch(`${URL}com_newCapacidad.php`, {
       method: "POST",
       body: data,
     }).then(function (response) {

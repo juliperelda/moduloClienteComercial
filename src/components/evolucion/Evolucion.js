@@ -14,6 +14,9 @@ import {
 import { GlobalContext } from "../../context/GlobalContext";
 
 const Evolucion = () => {
+
+  const URL = process.env.REACT_APP_URL;
+
   const { idCliente, infoEvo, setInfoEvo, update } = useContext(GlobalContext);
 
   const [isDataStorage, setIsDataStorage] = useState([]);
@@ -79,7 +82,8 @@ const Evolucion = () => {
   function InfoGrafEvol(idCliente) {
     const data = new FormData();
     data.append("idC", idCliente);
-    fetch("../com_graEvolucionData.php", {
+    // fetch("../com_graEvolucionData.php", {
+      fetch(`${URL}com_graEvolucionData.php`, {
       method: "POST",
       body: data,
     }).then(function (response) {
