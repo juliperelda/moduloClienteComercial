@@ -33,7 +33,7 @@ const Analitica = () => {
         if (resp) {
           const data = resp;
           const objetoData = JSON.parse(data);
-          console.log('objetoData: ', objetoData)
+          // console.log('objetoData: ', objetoData)
           // setCosechas(objetoData);
           setCosechaA(objetoData[0].acos_desc)
           setListCosechas(objetoData);

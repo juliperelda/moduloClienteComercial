@@ -59,8 +59,8 @@ const Capacidad = ({ listadoCosechas, cosechaActiva }) => {
 
     const URL = process.env.REACT_APP_URL;
 
-    console.log('listadoCosechas: ', listadoCosechas);
-    console.log('cosechaActiva: ', cosechaActiva);
+    // console.log('listadoCosechas: ', listadoCosechas);
+    // console.log('cosechaActiva: ', cosechaActiva);
     const {
         dataContext,
         setDataContext,
@@ -86,8 +86,6 @@ const Capacidad = ({ listadoCosechas, cosechaActiva }) => {
         setIsSelectEditDisabled,
         isValorPorcentaje,
         setIsValorPorcentaje,
-        isPrueba,
-        setIsPrueba,
         iconTable,
         setIconTable,
     } = useContext(GlobalContext);
@@ -188,8 +186,8 @@ const Capacidad = ({ listadoCosechas, cosechaActiva }) => {
             },
         ];
 
-        console.log('capacidad: ', capacidad);
-        console.log('result: ', result);
+        // console.log('capacidad: ', capacidad);
+        // console.log('result: ', result);
         return result;
     };
 
@@ -247,7 +245,7 @@ const Capacidad = ({ listadoCosechas, cosechaActiva }) => {
             response.text().then((resp) => {
                 const data = resp;
                 const objetoData = JSON.parse(data);
-                console.log('objetoData1: ', objetoData)
+                // console.log('objetoData1: ', objetoData)
                 setInfoRubros(objetoData);
             });
         });
@@ -260,11 +258,11 @@ const Capacidad = ({ listadoCosechas, cosechaActiva }) => {
         fetch(`${URL}com_traerCosechas.php`, {
             method: "POST",
             body: data,
-        }).then(function (response) {
+        }).then(function (response) { 
             response.text().then((resp) => {
                 const data = resp;
                 const objetoData = JSON.parse(data);
-                console.log('objetoData2: ', objetoData)
+                // console.log('objetoData2: ', objetoData)
                 setCosechas(objetoData);
 
             });
@@ -288,7 +286,7 @@ const Capacidad = ({ listadoCosechas, cosechaActiva }) => {
                     const data = resp;
                     const objetoData = JSON.parse(data);
                     setInfoCap(objetoData);
-                    console.log('objetoData3: ', objetoData)
+                    // console.log('objetoData3: ', objetoData)
                 });
             });
             cosechas(idCliente);

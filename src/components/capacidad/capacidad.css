@@ -404,3 +404,6 @@ th {
   border-color: #00b33c !important;;
 }
 
+.ant-select-selector{
+  width: 80px !important;
+}

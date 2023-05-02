@@ -24,6 +24,7 @@ function App() {
   //* Id de cliente que se obtine desde local storage
   const idC = localStorage.getItem("cliente");
   const [idCliente, setIdCliente]=useState(idC);
+  // const [idCliente, setIdCliente]=useState('2049');
 
   //! ESTADOS QUE ALMACENAN INFO QUE SE TRAE DESDE BASE DE DATOS
   const [infoEvo, setInfoEvo]=useState({});
@@ -32,11 +33,7 @@ function App() {
   const [infoCosechas, setCosechas]=useState([]);
   const [infoEdit, setInfoEdit]=useState({});
   const [update, setUpdate] = useState(false);
-  const [iconTable, setIconTable] = useState(false)
-
-
-  const [prueba, setPrueba] = useState([]);
-
+  const [iconTable, setIconTable] = useState(false);
 
   return (
     <GlobalContext.Provider value={{
@@ -54,10 +51,6 @@ function App() {
       update, setUpdate,
       isSelectEditDisabled, setIsSelectEditDisabled,
       iconTable, setIconTable,
-
-
-
-      prueba, setPrueba,
     }}>
       
       <Analitica/>
