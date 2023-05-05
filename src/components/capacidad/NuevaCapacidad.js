@@ -136,7 +136,7 @@ export const NuevaCapacidad = () => {
     }).then(function (response) {
       response.text().then((resp) => {
         const data = resp;
-        console.log(data);
+        // console.log(data);
         // const objetoData = JSON.parse(data);
         // console.log("Nueva capacidad: ", objetoData)
       });

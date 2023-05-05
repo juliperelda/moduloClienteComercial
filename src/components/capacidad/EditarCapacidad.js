@@ -33,20 +33,42 @@ export const EditarCapacidad = ({ cosechaActiva }) => {
   } = useContext(GlobalContext);
 
   const [messageApi, contextHolder] = message.useMessage();
-  console.log('infoEdit: ', infoEdit);
+  // console.log('infoEdit: ', infoEdit);
 
-  console.log('dataContext: ', dataContext);
+  // console.log('dataContext: ', dataContext);
+
+  // useEffect(() => {
+  //   setDataContext({
+  //     agricultura: Math.trunc(infoEdit[0].has),
+  //     agriculturaA: Math.trunc(infoEdit[1].has),
+  //     ganaderia: Math.trunc(infoEdit[2].has),
+  //     ganaderiaA: Math.trunc(infoEdit[3].has),
+  //     tambo: Math.trunc(infoEdit[4].has),
+  //     tamboA: Math.trunc(infoEdit[5].has),
+  //     mixto: Math.trunc(infoEdit[6].has),
+  //     mixtoA: Math.trunc(infoEdit[7].has),
+  //     propias: Math.trunc(infoEdit[0].ahxs_propias),
+  //     alquiladas: Math.trunc(infoEdit[0].ahxs_alquiladas),
+
+
+  //     // cosecha: localStorage.getItem("idCosechaSelec") ? localStorage.getItem("idCosechaSelec") : null,
+  //     cosecha: cosechaActiva ? cosechaActiva : null,
+  //   });
+  // }, [])
 
   useEffect(() => {
     setDataContext({
-      agricultura: Math.trunc(infoEdit[0].has),
-      agriculturaA: Math.trunc(infoEdit[1].has),
-      ganaderia: Math.trunc(infoEdit[2].has),
-      ganaderiaA: Math.trunc(infoEdit[3].has),
-      tambo: Math.trunc(infoEdit[4].has),
-      tamboA: Math.trunc(infoEdit[5].has),
-      mixto: Math.trunc(infoEdit[6].has),
-      mixtoA: Math.trunc(infoEdit[7].has),
+      //*PROPIAS
+      agricultura: Math.trunc(infoEdit.find(info => info.arubro_desc === "AGRICULTURA" && info.condicion === "P").has),
+      ganaderia: Math.trunc(infoEdit.find(info => info.arubro_desc === "GANADERIA" && info.condicion === "P").has),
+      tambo:Math.trunc(infoEdit.find(info => info.arubro_desc === "TAMBO" && info.condicion === "P").has),
+      mixto: Math.trunc(infoEdit.find(info => info.arubro_desc === "MIXTO" && info.condicion === "P").has),
+
+      //* ALQUILADAS
+      agriculturaA: Math.trunc(infoEdit.find(info => info.arubro_desc === "AGRICULTURA" && info.condicion === "A").has),
+      ganaderiaA: Math.trunc(infoEdit.find(info => info.arubro_desc === "GANADERIA" && info.condicion === "A").has),
+      tamboA: Math.trunc(infoEdit.find(info => info.arubro_desc === "TAMBO" && info.condicion === "A").has),
+      mixtoA: Math.trunc(infoEdit.find(info => info.arubro_desc === "MIXTO" && info.condicion === "A").has),
       propias: Math.trunc(infoEdit[0].ahxs_propias),
       alquiladas: Math.trunc(infoEdit[0].ahxs_alquiladas),
 
@@ -56,7 +78,7 @@ export const EditarCapacidad = ({ cosechaActiva }) => {
     });
   }, [])
 
-  console.log(dataContext);
+  // console.log(dataContext);
 
   //! UseState
   const [isActiveModal, setIsActiveModal] = useState(false); //Es por si utilizo el modal para el mensaje de que se paso de cantidad en los rubros
@@ -91,7 +113,7 @@ export const EditarCapacidad = ({ cosechaActiva }) => {
 
       objData = [...objData, dataContext];
 
-      console.log("objData: ", objData, "dataContext: ", dataContext);
+      // console.log("objData: ", objData, "dataContext: ", dataContext);
 
       localStorage.setItem("data", JSON.stringify({ objData }));
       setAppStage(0);
@@ -103,7 +125,7 @@ export const EditarCapacidad = ({ cosechaActiva }) => {
       setUpdate(!update);
       setIsSelectEditDisabled(false);
 
-      console.log("entre if de HANDEDIT");
+      // console.log("entre if de HANDEDIT");
 
     } else {
       // alert("El total de Has. de Rubros supera a las Has. Propias en general");
@@ -139,7 +161,7 @@ export const EditarCapacidad = ({ cosechaActiva }) => {
     // var valorCosecha = dataContext["cosecha"];
 
     // if (valorCosecha === null || valorCosecha === '') {
-    console.log('cosechaactivaaaaaa: ', localStorage.getItem("cosechaActiva"))
+    // console.log('cosechaactivaaaaaa: ', localStorage.getItem("cosechaActiva"))
     data.append("idCos", localStorage.getItem("cosechaActiva"));
     // data.append("idCos", cosechaActiva);
     // } else{
@@ -164,7 +186,7 @@ export const EditarCapacidad = ({ cosechaActiva }) => {
     }).then(function (response) {
       response.text().then((resp) => {
         const data = resp;
-        console.log('com_editCapacidad: ', data);
+        // console.log('com_editCapacidad: ', data);
         // const objetoData = JSON.parse(data);
         // console.log("Nueva capacidad: ", objetoData)
       });

@@ -195,7 +195,8 @@ const Capacidad = ({ listadoCosechas, cosechaActiva }) => {
 
             },
         ];
-
+        // console.log('result', result)
+        // console.log('capacidad', capacidad)
         return result;
     };
 
@@ -253,7 +254,7 @@ const Capacidad = ({ listadoCosechas, cosechaActiva }) => {
             response.text().then((resp) => {
                 const data = resp;
                 const objetoData = JSON.parse(data);
-                console.log('objetoData1: ', objetoData)
+                // console.log('objetoData1: ', objetoData)
                 setInfoRubros(objetoData);
                 // console.log('infoR')
             });
@@ -271,7 +272,7 @@ const Capacidad = ({ listadoCosechas, cosechaActiva }) => {
             response.text().then((resp) => {
                 const data = resp;
                 const objetoData = JSON.parse(data);
-                console.log('objetoData2: ', objetoData)
+                // console.log('objetoData2: ', objetoData)
                 setCosechas(objetoData);
 
             });
@@ -279,8 +280,8 @@ const Capacidad = ({ listadoCosechas, cosechaActiva }) => {
     }
 
     var cosecha = parseInt(selectedValue);
-    console.log('cosechaActiva', cosechaActiva);
-    console.log('selectedValue', selectedValue);
+    // console.log('cosechaActiva', cosechaActiva);
+    // console.log('selectedValue', selectedValue);
     //* EJECUTA LAS FUNCIONES QUE TRAE LA INFO y TRAE LOS DATOS PARA LLENAR TABLA CAPACIDAD PRODUCTIVA INICIAL
     useEffect(() => {
         // if (idCliente) {
@@ -297,12 +298,12 @@ const Capacidad = ({ listadoCosechas, cosechaActiva }) => {
                     const data = resp;
                     const objetoData = JSON.parse(data);
                     setInfoCap(objetoData);
-                    console.log('objetoData3: ', objetoData)
+                    // console.log('objetoData3: ', objetoData)
                 });
             });
             cosechas(idCliente);
             rubros();
-            console.log('Entro al useEffect original')
+            // console.log('Entro al useEffect original')
         }
         // }
     }, [idCliente, cosecha, update, selectedValue]);
@@ -323,7 +324,7 @@ const Capacidad = ({ listadoCosechas, cosechaActiva }) => {
                     const data = resp;
                     const objetoData = JSON.parse(data);
                     setInfoCap(objetoData);
-                    console.log('objetoData3 - INFO: ', objetoData)
+                    // console.log('objetoData3 - INFO: ', objetoData)
                 });
             });
             cosechas(idCliente);
@@ -333,7 +334,7 @@ const Capacidad = ({ listadoCosechas, cosechaActiva }) => {
             setSelectedValue(cosechaActiva);
             setEstadin1(true);
             // setPrueba(false)
-            console.log('Entro al useEffectProbando')
+            // console.log('Entro al useEffectProbando')
         }
         // }
     }, [estadin, cosechaActiva /*, update*/, prueba]);
