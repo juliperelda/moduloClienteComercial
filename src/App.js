@@ -35,6 +35,10 @@ function App() {
   const [update, setUpdate] = useState(false);
   const [iconTable, setIconTable] = useState(false);
 
+  const [estadin, setEstadin] = useState(false);
+  const [estadin1, setEstadin1] = useState(false);
+
+  const [prueba, setPrueba] = useState(false);
   return (
     <GlobalContext.Provider value={{
       dataContext, setDataContext,
@@ -51,6 +55,11 @@ function App() {
       update, setUpdate,
       isSelectEditDisabled, setIsSelectEditDisabled,
       iconTable, setIconTable,
+
+      estadin, setEstadin,
+      estadin1, setEstadin1,
+
+      prueba, setPrueba,
     }}>
       
       <Analitica/>

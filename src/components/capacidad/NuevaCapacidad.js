@@ -1,11 +1,11 @@
 /* eslint-disable no-unused-vars */
-import { Button, Form, Input } from "antd";
+import { Button, Form, Input, message } from "antd";
 import React, { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "../../context/GlobalContext";
 import "./capacidad.css";
 
 export const NuevaCapacidad = () => {
-  
+
   const URL = process.env.REACT_APP_URL;
   var objData = [];
 
@@ -28,6 +28,7 @@ export const NuevaCapacidad = () => {
   const [isData, setIsData] = useState({});
   const [isActiveModal, setIsActiveModal] = useState(false);
   const [isDataSet, setIsDataSet] = useState({});
+  const [messageApi, contextHolder] = message.useMessage();
 
   //! Funciones
   const traeData = () => {
@@ -85,10 +86,15 @@ export const NuevaCapacidad = () => {
         setIsSelectEditDisabled(false);
 
       } else {
-        alert(
-          "El total de Has. de Rubros supera a las Has. Propias en general"
-        );
-        setIsActiveModal(true);
+        // alert(
+        //   "El total de Has. de Rubros supera a las Has. Propias en general"
+        // );
+        // setIsActiveModal(true);
+        messageApi.open({
+          type: 'warning',
+          content: 'Por favor revise: Los Has. de Rubros exceden la cantidad total.',
+          // getContainer: () => document.body,
+        });
       }
     } else {
       alert("Se debe ingresar la cosecha");
@@ -334,17 +340,13 @@ export const NuevaCapacidad = () => {
             </Button>
           </div>
         </div>
-        {isActiveModal ? (
-          // <Modal title="" open={isActiveModal} onOk={cerrar}>
-          // <h2>VALOR INCORRECTO</h2>
-          <p style={{ color: "red" }}>
-            Revise la cantidad de Has. Total con las Has. de los Rubros
-          </p>
-        ) : (
-          // </Modal>
-          ""
-        )}
       </div>
+      {contextHolder}
+        {/* {isActiveModal &&
+          <p style={{ color: "red", display: "block", padding: "10px" }}>
+            Por favor revise: Los Has. de Rubros exceden la cantidad total.
+          </p>
+        } */}
     </>
   );
 };

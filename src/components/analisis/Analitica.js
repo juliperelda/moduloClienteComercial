@@ -15,6 +15,8 @@ const Analitica = () => {
     setIdCliente,
     setCosechas,
     update,
+
+    estadin, setEstadin,
   } = useContext(GlobalContext);
 
   // setIdCliente('2049'); // Es para probar de forma local.
@@ -33,10 +35,11 @@ const Analitica = () => {
         if (resp) {
           const data = resp;
           const objetoData = JSON.parse(data);
-          // console.log('objetoData: ', objetoData)
+          console.log('objetoData: ', objetoData)
           // setCosechas(objetoData);
           setCosechaA(objetoData[0].acos_desc)
           setListCosechas(objetoData);
+          setEstadin(!estadin);
         }
       });
     });

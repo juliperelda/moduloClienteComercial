@@ -85,6 +85,11 @@ const Capacidad = ({ listadoCosechas, cosechaActiva }) => {
         setIsValorPorcentaje,
         iconTable,
         setIconTable,
+
+        estadin, setEstadin,
+        estadin1, setEstadin1,
+
+        prueba, setPrueba,
     } = useContext(GlobalContext);
 
     const [selectedValue, setSelectedValue] = useState(localStorage.getItem("cosechaActiva"));
@@ -93,11 +98,27 @@ const Capacidad = ({ listadoCosechas, cosechaActiva }) => {
         setIsButtonEditDisabled(true);
         setIsSelectEditDisabled(true)
         setAppStage(1);
-    };
 
+    };
 
     var result = {};
     let capacidad = [];
+
+    //! INICIO - PROBANDO
+    useEffect(() => {
+        if (infoCap.length > 0) {
+            generaData(infoCap);
+        }
+        // generaData()
+    }, [infoCap, idCliente])
+
+    useEffect(() => {
+        if (infoCap.length > 0) {
+            generaData(infoCap);
+        }
+        // generaData()
+    }, [])
+    //! FIN - PROBANDO
 
 
     const generaData = (infoCap) => {
@@ -146,14 +167,6 @@ const Capacidad = ({ listadoCosechas, cosechaActiva }) => {
                 total: result.TAMBO ? parseInt(result.TAMBO.propio) + parseInt(result.TAMBO.alquilado) : 0,
                 porcentaje: result.TAMBO ? (((result.TAMBO ? (parseInt(result.TAMBO.propio) + parseInt(result.TAMBO.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)) + '%' : 0 + '%'
             },
-            // {
-            //     key: 3,
-            //     categoria: "TAMBO",
-            //     propias: result.TAMBO ? isNaN(result.TAMBO.propias) ? 0 : Math.trunc(result.TAMBO.propias) : 0,
-            //     alquiler: result.TAMBO ? isNaN(result.TAMBO.alquiladas) ? 0 : Math.trunc(result.TAMBO.alquiladas) : 0,
-            //     total: result.TAMBO ? (isNaN(result.TAMBO.propias) ? 0 : parseInt(result.TAMBO.propias)) + (isNaN(result.TAMBO.alquiladas) ? 0 : parseInt(result.TAMBO.alquiladas)) : 0,
-            //     porcentaje: (((result.TAMBO ? (isNaN(result.TAMBO.propias) ? 0 : parseInt(result.TAMBO.propias)) + (isNaN(result.TAMBO.alquiladas) ? 0 : parseInt(result.TAMBO.alquiladas)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)) + '%'
-            // },
             {
                 key: 4,
                 categoria: "MIXTO",
@@ -183,8 +196,6 @@ const Capacidad = ({ listadoCosechas, cosechaActiva }) => {
             },
         ];
 
-        // console.log('capacidad: ', capacidad);
-        // console.log('result: ', result);
         return result;
     };
 
@@ -242,8 +253,9 @@ const Capacidad = ({ listadoCosechas, cosechaActiva }) => {
             response.text().then((resp) => {
                 const data = resp;
                 const objetoData = JSON.parse(data);
-                // console.log('objetoData1: ', objetoData)
+                console.log('objetoData1: ', objetoData)
                 setInfoRubros(objetoData);
+                // console.log('infoR')
             });
         });
     }
@@ -255,11 +267,11 @@ const Capacidad = ({ listadoCosechas, cosechaActiva }) => {
         fetch(`${URL}com_traerCosechas.php`, {
             method: "POST",
             body: data,
-        }).then(function (response) { 
+        }).then(function (response) {
             response.text().then((resp) => {
                 const data = resp;
                 const objetoData = JSON.parse(data);
-                // console.log('objetoData2: ', objetoData)
+                console.log('objetoData2: ', objetoData)
                 setCosechas(objetoData);
 
             });
@@ -267,10 +279,12 @@ const Capacidad = ({ listadoCosechas, cosechaActiva }) => {
     }
 
     var cosecha = parseInt(selectedValue);
-
+    console.log('cosechaActiva', cosechaActiva);
+    console.log('selectedValue', selectedValue);
     //* EJECUTA LAS FUNCIONES QUE TRAE LA INFO y TRAE LOS DATOS PARA LLENAR TABLA CAPACIDAD PRODUCTIVA INICIAL
     useEffect(() => {
-        if (idCliente) {
+        // if (idCliente) {
+        if (estadin1) {
             const data = new FormData();
             data.append("idC", idCliente);
             data.append("cosecha", cosecha);
@@ -283,23 +297,67 @@ const Capacidad = ({ listadoCosechas, cosechaActiva }) => {
                     const data = resp;
                     const objetoData = JSON.parse(data);
                     setInfoCap(objetoData);
-                    // console.log('objetoData3: ', objetoData)
+                    console.log('objetoData3: ', objetoData)
                 });
             });
             cosechas(idCliente);
             rubros();
+            console.log('Entro al useEffect original')
         }
-    }, [idCliente, cosecha, update, selectedValue, cosechaActiva]);
+        // }
+    }, [idCliente, cosecha, update, selectedValue]);
+
+    //! INICIO - PROBANDO
+    useEffect(() => {
+        // if (idCliente) {
+        if (!estadin1) {
+            const data = new FormData();
+            data.append("idC", idCliente);
+            data.append("cosecha", cosechaActiva);
+            // fetch("com_tabCapacidadData.php", {
+            fetch(`${URL}com_tabCapacidadData.php`, {
+                method: "POST",
+                body: data,
+            }).then(function (response) {
+                response.text().then((resp) => {
+                    const data = resp;
+                    const objetoData = JSON.parse(data);
+                    setInfoCap(objetoData);
+                    console.log('objetoData3 - INFO: ', objetoData)
+                });
+            });
+            cosechas(idCliente);
+            rubros();
+
+
+            setSelectedValue(cosechaActiva);
+            setEstadin1(true);
+            // setPrueba(false)
+            console.log('Entro al useEffectProbando')
+        }
+        // }
+    }, [estadin, cosechaActiva /*, update*/, prueba]);
+    //! FIN - PROBANDO
 
     if (infoCap.length > 0) {
         generaData(infoCap);
-
-        setIsButtonEditDisabled(false);
         setIsButtonDisabled(true);
-
+    } else {
+        setIsButtonDisabled(false);
+    }
+    var titleBtnEditar = ''
+    if (selectedValue === cosechaActiva) {
+        if (infoCap.length > 0) {
+            // generaData(infoCap);
+            setIsButtonEditDisabled(false);
+            titleBtnEditar = 'Editar'
+            
+        } else {
+            setIsButtonEditDisabled(true);
+        }
     } else {
         setIsButtonEditDisabled(true);
-        setIsButtonDisabled(false);
+        titleBtnEditar = 'Solamente se puede modificar la cosecha activa.'
     }
 
     if (infoCosechas.length > 0) {
@@ -329,6 +387,7 @@ const Capacidad = ({ listadoCosechas, cosechaActiva }) => {
                             onChange={(value) => { setSelectedValue(value); localStorage.setItem("idCosechaSelec", value) }}
                             // defaultValue={(infoCosechas[0].acos_desc).toString()}
                             defaultValue={cosechaActiva && cosechaActiva}
+                            // value={cosechaActiva && cosechaActiva}
                             // value={selectedValue}
                             disabled={isSelectEditDisabled}
                         >
@@ -348,7 +407,7 @@ const Capacidad = ({ listadoCosechas, cosechaActiva }) => {
                     <Button
                         style={{ alignItems: "center", boxShadow: "none !important", outline: "0", border: "none !important", marginTop: "-8px" }}
                         className="btnEditCosecha"
-                        icon={<EditOutlined />}
+                        icon={<EditOutlined title={titleBtnEditar} />}
                         onClick={() => editarCosecha()}
                         // onChange={(e) => recuperaCosecha(e)}
                         disabled={isButtonEditDisabled}

@@ -1,12 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
-import { Button, Form, Input } from "antd";
+import { Button, Form, Input, message } from "antd";
 import React, { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "../../context/GlobalContext";
 import "./capacidad.css";
 
-export const EditarCapacidad = () => {
-  
+export const EditarCapacidad = ({ cosechaActiva }) => {
+
   const URL = process.env.REACT_APP_URL;
   var objData = [];
 
@@ -26,12 +26,16 @@ export const EditarCapacidad = () => {
     setUpdate,
     isSelectEditDisabled,
     setIsSelectEditDisabled,
+
+    estadin1,
+    setEstadin,
+    prueba, setPrueba,
   } = useContext(GlobalContext);
 
+  const [messageApi, contextHolder] = message.useMessage();
+  console.log('infoEdit: ', infoEdit);
 
-  console.log(infoEdit);
-
-  console.log(dataContext);
+  console.log('dataContext: ', dataContext);
 
   useEffect(() => {
     setDataContext({
@@ -45,7 +49,10 @@ export const EditarCapacidad = () => {
       mixtoA: Math.trunc(infoEdit[7].has),
       propias: Math.trunc(infoEdit[0].ahxs_propias),
       alquiladas: Math.trunc(infoEdit[0].ahxs_alquiladas),
-      cosecha: localStorage.getItem("idCosechaSelec") ? localStorage.getItem("idCosechaSelec") : null,
+
+
+      // cosecha: localStorage.getItem("idCosechaSelec") ? localStorage.getItem("idCosechaSelec") : null,
+      cosecha: cosechaActiva ? cosechaActiva : null,
     });
   }, [])
 
@@ -78,11 +85,9 @@ export const EditarCapacidad = () => {
       parseInt(inputTamboA) +
       parseInt(inputMixtoA);
 
-
-
     if ((totalPropias <= inputPropias) & (totalAlquiladas <= inputAlquiladas)) {
 
-      console.log("entre if de handEdit");
+
 
       objData = [...objData, dataContext];
 
@@ -98,10 +103,18 @@ export const EditarCapacidad = () => {
       setUpdate(!update);
       setIsSelectEditDisabled(false);
 
+      console.log("entre if de HANDEDIT");
+
     } else {
       // alert("El total de Has. de Rubros supera a las Has. Propias en general");
-      setIsActiveModal(true);
+      // setIsActiveModal(true);
+      messageApi.open({
+        type: 'warning',
+        content: 'Por favor revise: Los Has. de Rubros exceden la cantidad total.',
+        // getContainer: () => document.body,
+      });
     }
+
   };
 
   const handleInputChangeEdit = (event) => {
@@ -109,7 +122,8 @@ export const EditarCapacidad = () => {
       setDataContext({
         //Crea el objeto de lo que escribo en los campos
         ...dataContext,
-        cosecha: localStorage.getItem("idCosechaSelec") ? localStorage.getItem("idCosechaSelec") : null,
+        // cosecha: localStorage.getItem("idCosechaSelec") ? localStorage.getItem("idCosechaSelec") : null,
+        cosecha: cosechaActiva ? cosechaActiva : null,
         [event.target.name]: parseInt(event.target.value),
       });
 
@@ -118,9 +132,21 @@ export const EditarCapacidad = () => {
 
   //* FUNCION QUE CARGA LOS DATOS DE UNA NUEVA COSECHA
   function editCap(cli, dataContext) {
+    // console.log('dataContext.cosecha: ',dataContext["cosecha"])
     const data = new FormData();
     data.append("idC", cli);
-    data.append("idCos", dataContext["cosecha"]);
+
+    // var valorCosecha = dataContext["cosecha"];
+
+    // if (valorCosecha === null || valorCosecha === '') {
+    console.log('cosechaactivaaaaaa: ', localStorage.getItem("cosechaActiva"))
+    data.append("idCos", localStorage.getItem("cosechaActiva"));
+    // data.append("idCos", cosechaActiva);
+    // } else{
+    //   console.log('dataContext["cosecha"]: ',dataContext["cosecha"])
+    //   data.append("idCos", dataContext["cosecha"]);
+    // }
+
     data.append("cantAP", dataContext["agricultura"]);
     data.append("cantAA", dataContext["agriculturaA"]);
     data.append("cantGP", dataContext["ganaderia"]);
@@ -138,7 +164,7 @@ export const EditarCapacidad = () => {
     }).then(function (response) {
       response.text().then((resp) => {
         const data = resp;
-        console.log(data);
+        console.log('com_editCapacidad: ', data);
         // const objetoData = JSON.parse(data);
         // console.log("Nueva capacidad: ", objetoData)
       });
@@ -179,8 +205,11 @@ export const EditarCapacidad = () => {
                     placeholder="0"
                     name="agricultura"
                     style={{ textAlign: "right" }}
-                    defaultValue={Math.trunc(infoEdit[0].has)}
-                    value={Math.trunc(infoEdit[0].has)}
+                    // defaultValue={Math.trunc(infoEdit[0].has)}
+                    defaultValue={Math.trunc(infoEdit.find(info => info.arubro_desc === "AGRICULTURA" && info.condicion === "P").has)}
+                    // value={Math.trunc(infoEdit[0].has)}
+                    value={Math.trunc(infoEdit.find(info => info.arubro_desc === "AGRICULTURA" && info.condicion === "P").has)}
+
                     onChange={(value) => handleInputChangeEdit(value)}
                   />
                 </Form.Item>
@@ -193,8 +222,10 @@ export const EditarCapacidad = () => {
                     placeholder="0"
                     name="agriculturaA"
                     style={{ textAlign: "right" }}
-                    defaultValue={Math.trunc(infoEdit[1].has)}
-                    value={Math.trunc(infoEdit[1].has)}
+                    // defaultValue={Math.trunc(infoEdit[1].has)}
+                    // value={Math.trunc(infoEdit[1].has)}
+                    defaultValue={Math.trunc(infoEdit.find(info => info.arubro_desc === "AGRICULTURA" && info.condicion === "A").has)}
+                    value={Math.trunc(infoEdit.find(info => info.arubro_desc === "AGRICULTURA" && info.condicion === "A").has)}
                     onChange={(value) => handleInputChangeEdit(value)}
                   />
                 </Form.Item>
@@ -212,8 +243,10 @@ export const EditarCapacidad = () => {
                     placeholder="0"
                     name="ganaderia"
                     style={{ textAlign: "right" }}
-                    defaultValue={Math.trunc(infoEdit[2].has)}
-                    value={Math.trunc(infoEdit[2].has)}
+                    // defaultValue={Math.trunc(infoEdit[2].has)}
+                    // value={Math.trunc(infoEdit[2].has)}
+                    defaultValue={Math.trunc(infoEdit.find(info => info.arubro_desc === "GANADERIA" && info.condicion === "P").has)}
+                    value={Math.trunc(infoEdit.find(info => info.arubro_desc === "GANADERIA" && info.condicion === "P").has)}
                     onChange={(value) => handleInputChangeEdit(value)}
                   />
                 </Form.Item>
@@ -226,8 +259,10 @@ export const EditarCapacidad = () => {
                     placeholder="0"
                     name="ganaderiaA"
                     style={{ textAlign: "right" }}
-                    defaultValue={Math.trunc(infoEdit[3].has)}
-                    value={Math.trunc(infoEdit[3].has)}
+                    // defaultValue={Math.trunc(infoEdit[3].has)}
+                    // value={Math.trunc(infoEdit[3].has)}
+                    defaultValue={Math.trunc(infoEdit.find(info => info.arubro_desc === "GANADERIA" && info.condicion === "A").has)}
+                    value={Math.trunc(infoEdit.find(info => info.arubro_desc === "GANADERIA" && info.condicion === "A").has)}
                     onChange={(value) => handleInputChangeEdit(value)}
                   />
                 </Form.Item>
@@ -245,8 +280,10 @@ export const EditarCapacidad = () => {
                     placeholder="0"
                     name="tambo"
                     style={{ textAlign: "right" }}
-                    defaultValue={Math.trunc(infoEdit[4].has)}
-                    value={Math.trunc(infoEdit[4].has)}
+                    // defaultValue={Math.trunc(infoEdit[4].has)}
+                    // value={Math.trunc(infoEdit[4].has)}
+                    defaultValue={Math.trunc(infoEdit.find(info => info.arubro_desc === "TAMBO" && info.condicion === "P").has)}
+                    value={Math.trunc(infoEdit.find(info => info.arubro_desc === "TAMBO" && info.condicion === "P").has)}
                     onChange={(value) => handleInputChangeEdit(value)}
                   />
                 </Form.Item>
@@ -259,8 +296,10 @@ export const EditarCapacidad = () => {
                     placeholder="0"
                     name="tamboA"
                     style={{ textAlign: "right" }}
-                    defaultValue={Math.trunc(infoEdit[5].has)}
-                    value={Math.trunc(infoEdit[5].has)}
+                    // defaultValue={Math.trunc(infoEdit[5].has)}
+                    // value={Math.trunc(infoEdit[5].has)}
+                    defaultValue={Math.trunc(infoEdit.find(info => info.arubro_desc === "TAMBO" && info.condicion === "A").has)}
+                    value={Math.trunc(infoEdit.find(info => info.arubro_desc === "TAMBO" && info.condicion === "A").has)}
                     onChange={(value) => handleInputChangeEdit(value)}
                   />
                 </Form.Item>
@@ -278,8 +317,10 @@ export const EditarCapacidad = () => {
                     placeholder="0"
                     name="mixto"
                     style={{ textAlign: "right" }}
-                    defaultValue={Math.trunc(infoEdit[6].has)}
-                    value={Math.trunc(infoEdit[6].has)}
+                    // defaultValue={Math.trunc(infoEdit[6].has)}
+                    // value={Math.trunc(infoEdit[6].has)}
+                    defaultValue={Math.trunc(infoEdit.find(info => info.arubro_desc === "MIXTO" && info.condicion === "P").has)}
+                    value={Math.trunc(infoEdit.find(info => info.arubro_desc === "MIXTO" && info.condicion === "P").has)}
                     onChange={(value) => handleInputChangeEdit(value)}
                   />
                 </Form.Item>
@@ -292,8 +333,10 @@ export const EditarCapacidad = () => {
                     placeholder="0"
                     name="mixtoA"
                     style={{ textAlign: "right" }}
-                    defaultValue={Math.trunc(infoEdit[7].has)}
-                    value={Math.trunc(infoEdit[7].has)}
+                    // defaultValue={Math.trunc(infoEdit[7].has)}
+                    // value={Math.trunc(infoEdit[7].has)}
+                    defaultValue={Math.trunc(infoEdit.find(info => info.arubro_desc === "MIXTO" && info.condicion === "A").has)}
+                    value={Math.trunc(infoEdit.find(info => info.arubro_desc === "MIXTO" && info.condicion === "A").has)}
                     onChange={(value) => handleInputChangeEdit(value)}
                   />
                 </Form.Item>
@@ -337,6 +380,7 @@ export const EditarCapacidad = () => {
           </thead>
         </table>
       </div>
+      {/* <div className="btn-msgAdvertencia"> */}
       <div className="contBotones">
         <div>
           <Button className="btnAddCosechaData" onClick={() => handEdit()}>
@@ -351,14 +395,14 @@ export const EditarCapacidad = () => {
           </Button>
         </div>
       </div>
+        {contextHolder}
+      {/* {isActiveModal &&
+          <p style={{ color: "red", display: "block", marginTop: '-10px' }}>
+            Por favor revise: Los Has. de Rubros exceden la cantidad total.
+          </p>
+        } */}
+      {/* </div> */}
 
-      {isActiveModal ? (
-        <p style={{ color: "red" }}>
-          Revise la cantidad de Has. Total con las Has. de los Rubros
-        </p>
-      ) : (
-        ""
-      )}
     </>
   );
 };

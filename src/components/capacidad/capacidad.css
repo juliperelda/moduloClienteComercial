@@ -365,6 +365,11 @@ th {
   margin-top: 5px;
 }
 
+.btn-msgAdvertencia {
+  display:flex;
+  flex-direction: column;
+}
+
 /*TABLA: probando y margin sacar padding*/
 .ant-table-cell{
   padding: 5px !important;
