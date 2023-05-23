@@ -30,13 +30,15 @@ export const EditarCapacidad = ({ cosechaActiva }) => {
     estadin1,
     setEstadin,
     prueba, setPrueba,
+    ca,
+    refrescarTable, setRefrescarTable,
   } = useContext(GlobalContext);
 
   const [messageApi, contextHolder] = message.useMessage();
   // console.log('infoEdit: ', infoEdit);
 
   // console.log('dataContext: ', dataContext);
-
+  // console.log('cosechaActiva: ', ca)
   // useEffect(() => {
   //   setDataContext({
   //     agricultura: Math.trunc(infoEdit[0].has),
@@ -61,7 +63,7 @@ export const EditarCapacidad = ({ cosechaActiva }) => {
       //*PROPIAS
       agricultura: Math.trunc(infoEdit.find(info => info.arubro_desc === "AGRICULTURA" && info.condicion === "P").has),
       ganaderia: Math.trunc(infoEdit.find(info => info.arubro_desc === "GANADERIA" && info.condicion === "P").has),
-      tambo:Math.trunc(infoEdit.find(info => info.arubro_desc === "TAMBO" && info.condicion === "P").has),
+      tambo: Math.trunc(infoEdit.find(info => info.arubro_desc === "TAMBO" && info.condicion === "P").has),
       mixto: Math.trunc(infoEdit.find(info => info.arubro_desc === "MIXTO" && info.condicion === "P").has),
 
       //* ALQUILADAS
@@ -74,7 +76,8 @@ export const EditarCapacidad = ({ cosechaActiva }) => {
 
 
       // cosecha: localStorage.getItem("idCosechaSelec") ? localStorage.getItem("idCosechaSelec") : null,
-      cosecha: cosechaActiva ? cosechaActiva : null,
+      // cosecha: cosechaActiva ? cosechaActiva : null,
+      cosecha: ca ? parseInt(ca) : null,
     });
   }, [])
 
@@ -108,13 +111,9 @@ export const EditarCapacidad = ({ cosechaActiva }) => {
       parseInt(inputMixtoA);
 
     if ((totalPropias <= inputPropias) & (totalAlquiladas <= inputAlquiladas)) {
-
-
-
       objData = [...objData, dataContext];
-
-      // console.log("objData: ", objData, "dataContext: ", dataContext);
-
+      // console.log("objData: ", objData);
+      // console.log("dataContext: ", dataContext);
       localStorage.setItem("data", JSON.stringify({ objData }));
       setAppStage(0);
 
@@ -126,7 +125,6 @@ export const EditarCapacidad = ({ cosechaActiva }) => {
       setIsSelectEditDisabled(false);
 
       // console.log("entre if de HANDEDIT");
-
     } else {
       // alert("El total de Has. de Rubros supera a las Has. Propias en general");
       // setIsActiveModal(true);
@@ -145,7 +143,8 @@ export const EditarCapacidad = ({ cosechaActiva }) => {
         //Crea el objeto de lo que escribo en los campos
         ...dataContext,
         // cosecha: localStorage.getItem("idCosechaSelec") ? localStorage.getItem("idCosechaSelec") : null,
-        cosecha: cosechaActiva ? cosechaActiva : null,
+        // cosecha: cosechaActiva ? cosechaActiva : null,
+        cosecha: ca ? parseInt(ca) : null,
         [event.target.name]: parseInt(event.target.value),
       });
 
@@ -162,12 +161,15 @@ export const EditarCapacidad = ({ cosechaActiva }) => {
 
     // if (valorCosecha === null || valorCosecha === '') {
     // console.log('cosechaactivaaaaaa: ', localStorage.getItem("cosechaActiva"))
-    data.append("idCos", localStorage.getItem("cosechaActiva"));
+    // data.append("idCos", localStorage.getItem("cosechaActiva"));
     // data.append("idCos", cosechaActiva);
     // } else{
     //   console.log('dataContext["cosecha"]: ',dataContext["cosecha"])
     //   data.append("idCos", dataContext["cosecha"]);
     // }
+
+    data.append("idCos", parseInt(localStorage.getItem("cosechaActiva")));
+    // data.append("idCos", parseInt(ca));
 
     data.append("cantAP", dataContext["agricultura"]);
     data.append("cantAA", dataContext["agriculturaA"]);
@@ -191,6 +193,7 @@ export const EditarCapacidad = ({ cosechaActiva }) => {
         // console.log("Nueva capacidad: ", objetoData)
       });
     });
+    setRefrescarTable(true);  //! Sirve para refrescar la table en donde se utiliza en un useEffect en Capacidad.
   }
 
   const salir = () => {
@@ -417,7 +420,7 @@ export const EditarCapacidad = ({ cosechaActiva }) => {
           </Button>
         </div>
       </div>
-        {contextHolder}
+      {contextHolder}
       {/* {isActiveModal &&
           <p style={{ color: "red", display: "block", marginTop: '-10px' }}>
             Por favor revise: Los Has. de Rubros exceden la cantidad total.

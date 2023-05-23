@@ -90,6 +90,7 @@ const Capacidad = ({ listadoCosechas, cosechaActiva }) => {
         estadin1, setEstadin1,
 
         prueba, setPrueba,
+        refrescarTable, setRefrescarTable,
     } = useContext(GlobalContext);
 
     const [selectedValue, setSelectedValue] = useState(localStorage.getItem("cosechaActiva"));
@@ -142,6 +143,11 @@ const Capacidad = ({ listadoCosechas, cosechaActiva }) => {
 
         capacidad = result;
 
+        // console.log('ahxs_propias: ', parseInt(infoCap[0].ahxs_propias));
+        // console.log('ahxs_alquiladas: ', parseInt(infoCap[0].ahxs_alquiladas));
+        // console.log('porcentaje Agricultura: ', result.AGRICULTURA ? ((parseInt(infoCap[0].ahxs_propias || 0) + parseInt(infoCap[0].ahxs_alquiladas || 0)) !== 0 ? (((parseInt(result.AGRICULTURA.propio) + parseInt(result.AGRICULTURA.alquilado)) / (parseInt(infoCap[0].ahxs_propias || 0) + parseInt(infoCap[0].ahxs_alquiladas || 0)) * 100).toFixed(0)) : 0) + '%' : 0 + '%');
+        // console.log('porcentaje ganaderia: ', result.AGRICULTURA ? ((parseInt(infoCap[0].ahxs_propias || 0) + parseInt(infoCap[0].ahxs_alquiladas || 0)) !== 0 ? (((parseInt(result.AGRICULTURA.propio) + parseInt(result.AGRICULTURA.alquilado)) / (parseInt(infoCap[0].ahxs_propias || 0) + parseInt(infoCap[0].ahxs_alquiladas || 0)) * 100).toFixed(0)) : 0) + '%' : 0 + '%')
+
         capacidad = [
             {
                 key: 1,
@@ -150,8 +156,13 @@ const Capacidad = ({ listadoCosechas, cosechaActiva }) => {
                 alquiler: result.AGRICULTURA ? Math.trunc(result.AGRICULTURA.alquilado) : 0,
                 total: result.AGRICULTURA ? parseInt(result.AGRICULTURA.propio) + parseInt(result.AGRICULTURA.alquilado) : 0,
                 // porcentaje: result.AGRICULTURA ? (((result.AGRICULTURA ? (parseInt(result.AGRICULTURA.propio) + parseInt(result.AGRICULTURA.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)) + '%' : 0 + '%'
-                porcentaje: result.AGRICULTURA ? ((parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) !== 0 ? (((parseInt(result.AGRICULTURA.propio) + parseInt(result.AGRICULTURA.alquilado)) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)) : 0) + '%' : 0 + '%'
-
+                // porcentaje: result.AGRICULTURA ? ((parseInt(infoCap[0].ahxs_propias || 0) + parseInt(infoCap[0].ahxs_alquiladas || 0)) !== 0 ? (((parseInt(result.AGRICULTURA.propio) + parseInt(result.AGRICULTURA.alquilado)) / (parseInt(infoCap[0].ahxs_propias || 0) + parseInt(infoCap[0].ahxs_alquiladas || 0)) * 100).toFixed(0)) : 0) + '%' : 0 + '%'
+                porcentaje: result.AGRICULTURA ?
+                (parseInt(infoCap[0]?.ahxs_propias || 0) + parseInt(infoCap[0]?.ahxs_alquiladas || 0)) !== 0 ?
+                    (((parseInt(result.AGRICULTURA.propio) + parseInt(result.AGRICULTURA.alquilado)) /
+                    (parseInt(infoCap[0]?.ahxs_propias || 0) + parseInt(infoCap[0]?.ahxs_alquiladas || 0))) * 100).toFixed(0) + '%' :
+                    0 + '%' :
+                0 + '%'
             },
             {
                 key: 2,
@@ -160,7 +171,13 @@ const Capacidad = ({ listadoCosechas, cosechaActiva }) => {
                 alquiler: result.GANADERIA ? Math.trunc(result.GANADERIA.alquilado) : 0,
                 total: result.GANADERIA ? parseInt(result.GANADERIA.propio) + parseInt(result.GANADERIA.alquilado) : 0,
                 // porcentaje: result.GANADERIA ? (((result.GANADERIA ? (parseInt(result.GANADERIA.propio) + parseInt(result.GANADERIA.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)) + '%' : 0 + '%'
-                porcentaje: result.AGRICULTURA ? ((parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) !== 0 ? (((parseInt(result.AGRICULTURA.propio) + parseInt(result.AGRICULTURA.alquilado)) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)) : 0) + '%' : 0 + '%'
+                // porcentaje: result.AGRICULTURA ? ((parseInt(infoCap[0].ahxs_propias || 0) + parseInt(infoCap[0].ahxs_alquiladas || 0)) !== 0 ? (((parseInt(result.AGRICULTURA.propio) + parseInt(result.AGRICULTURA.alquilado)) / (parseInt(infoCap[0].ahxs_propias || 0) + parseInt(infoCap[0].ahxs_alquiladas || 0)) * 100).toFixed(0)) : 0) + '%' : 0 + '%'
+                porcentaje: result.GANADERIA ?
+                (parseInt(infoCap[0]?.ahxs_propias || 0) + parseInt(infoCap[0]?.ahxs_alquiladas || 0)) !== 0 ?
+                    (((parseInt(result.GANADERIA.propio) + parseInt(result.GANADERIA.alquilado)) /
+                    (parseInt(infoCap[0]?.ahxs_propias || 0) + parseInt(infoCap[0]?.ahxs_alquiladas || 0))) * 100).toFixed(0) + '%' :
+                    0 + '%' :
+                0 + '%'
             },
             {
                 key: 3,
@@ -169,7 +186,13 @@ const Capacidad = ({ listadoCosechas, cosechaActiva }) => {
                 alquiler: result.TAMBO ? Math.trunc(result.TAMBO.alquilado) : 0,
                 total: result.TAMBO ? parseInt(result.TAMBO.propio) + parseInt(result.TAMBO.alquilado) : 0,
                 // porcentaje: result.TAMBO ? (((result.TAMBO ? (parseInt(result.TAMBO.propio) + parseInt(result.TAMBO.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)) + '%' : 0 + '%'
-                porcentaje: result.AGRICULTURA ? ((parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) !== 0 ? (((parseInt(result.AGRICULTURA.propio) + parseInt(result.AGRICULTURA.alquilado)) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)) : 0) + '%' : 0 + '%'
+                // porcentaje: result.AGRICULTURA ? ((parseInt(infoCap[0].ahxs_propias || 0) + parseInt(infoCap[0].ahxs_alquiladas || 0)) !== 0 ? (((parseInt(result.AGRICULTURA.propio) + parseInt(result.AGRICULTURA.alquilado)) / (parseInt(infoCap[0].ahxs_propias || 0) + parseInt(infoCap[0].ahxs_alquiladas || 0)) * 100).toFixed(0)) : 0) + '%' : 0 + '%'
+                porcentaje: result.TAMBO ?
+                (parseInt(infoCap[0]?.ahxs_propias || 0) + parseInt(infoCap[0]?.ahxs_alquiladas || 0)) !== 0 ?
+                    (((parseInt(result.TAMBO.propio) + parseInt(result.TAMBO.alquilado)) /
+                    (parseInt(infoCap[0]?.ahxs_propias || 0) + parseInt(infoCap[0]?.ahxs_alquiladas || 0))) * 100).toFixed(0) + '%' :
+                    0 + '%' :
+                0 + '%'
             },
             {
                 key: 4,
@@ -178,7 +201,13 @@ const Capacidad = ({ listadoCosechas, cosechaActiva }) => {
                 alquiler: result.MIXTO ? Math.trunc(result.MIXTO.alquilado) : 0,
                 total: result.MIXTO ? parseInt(result.MIXTO.propio) + parseInt(result.MIXTO.alquilado) : 0,
                 // porcentaje: result.MIXTO ? (((result.MIXTO ? (parseInt(result.MIXTO.propio) + parseInt(result.MIXTO.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)) + '%' : 0 + '%'
-                porcentaje: result.AGRICULTURA ? ((parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) !== 0 ? (((parseInt(result.AGRICULTURA.propio) + parseInt(result.AGRICULTURA.alquilado)) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)) : 0) + '%' : 0 + '%'
+                // porcentaje: result.AGRICULTURA ? ((parseInt(infoCap[0].ahxs_propias || 0) + parseInt(infoCap[0].ahxs_alquiladas || 0)) !== 0 ? (((parseInt(result.AGRICULTURA.propio) + parseInt(result.AGRICULTURA.alquilado)) / (parseInt(infoCap[0].ahxs_propias || 0) + parseInt(infoCap[0].ahxs_alquiladas || 0)) * 100).toFixed(0)) : 0) + '%' : 0 + '%'
+                porcentaje: result.MIXTO ?
+                (parseInt(infoCap[0]?.ahxs_propias || 0) + parseInt(infoCap[0]?.ahxs_alquiladas || 0)) !== 0 ?
+                    (((parseInt(result.MIXTO.propio) + parseInt(result.MIXTO.alquilado)) /
+                    (parseInt(infoCap[0]?.ahxs_propias || 0) + parseInt(infoCap[0]?.ahxs_alquiladas || 0))) * 100).toFixed(0) + '%' :
+                    0 + '%' :
+                0 + '%'
             },
             {
                 key: 5,
@@ -191,10 +220,17 @@ const Capacidad = ({ listadoCosechas, cosechaActiva }) => {
                         />
                     </>
                 ),
-                propias: <strong>{Math.trunc(infoCap[0].ahxs_propias)}</strong>,
-                alquiler: <strong>{Math.trunc(infoCap[0].ahxs_alquiladas)}</strong>,
-                total: <strong>{parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)}</strong>,
-                porcentaje: <strong>{ (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) !== 0 ? (((parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)) + '%' : 0 + '%'}</strong>
+                // propias: <strong>{Math.trunc(infoCap[0].ahxs_propias)}</strong>,
+                // alquiler: <strong>{Math.trunc(infoCap[0].ahxs_alquiladas)}</strong>,
+                // total: <strong>{parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)}</strong>,
+                // porcentaje: <strong>{ (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) !== 0 ? (((parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)) + '%' : 0 + '%'}</strong>
+                propias: <strong>{Math.trunc(infoCap[0]?.ahxs_propias || 0)}</strong>,
+                alquiler: <strong>{Math.trunc(infoCap[0]?.ahxs_alquiladas || 0)}</strong>,
+                total: <strong>{parseInt(infoCap[0]?.ahxs_propias || 0) + parseInt(infoCap[0]?.ahxs_alquiladas || 0)}</strong>,
+                porcentaje: <strong>{(parseInt(infoCap[0]?.ahxs_propias || 0) + parseInt(infoCap[0]?.ahxs_alquiladas || 0)) !== 0 ?
+                    (((parseInt(infoCap[0]?.ahxs_propias || 0) + parseInt(infoCap[0]?.ahxs_alquiladas || 0)) /
+                    (parseInt(infoCap[0]?.ahxs_propias || 0) + parseInt(infoCap[0]?.ahxs_alquiladas || 0)) * 100).toFixed(0)) :
+                    0}% </strong>,
             },
         ];
         // console.log('result', result)
@@ -298,6 +334,8 @@ const Capacidad = ({ listadoCosechas, cosechaActiva }) => {
             }).then(function (response) {
                 response.text().then((resp) => {
                     const data = resp;
+                    // console.log('data: ', data)
+                    // setInfoCap(data);
                     const objetoData = JSON.parse(data);
                     setInfoCap(objetoData);
                     // console.log('objetoData3: ', objetoData)
@@ -324,9 +362,11 @@ const Capacidad = ({ listadoCosechas, cosechaActiva }) => {
             }).then(function (response) {
                 response.text().then((resp) => {
                     const data = resp;
+                    // console.log('data - INICIO: ', data)
+                    // setInfoCap(data);
                     const objetoData = JSON.parse(data);
                     setInfoCap(objetoData);
-                    // console.log('objetoData3 - INFO: ', objetoData)
+                    // console.log('objetoData3 - INFOINICIO: ', objetoData)
                 });
             });
             cosechas(idCliente);
@@ -342,12 +382,19 @@ const Capacidad = ({ listadoCosechas, cosechaActiva }) => {
     }, [estadin, cosechaActiva /*, update*/, prueba]);
     //! FIN - PROBANDO
 
-    if (infoCap.length > 0) {
+    if (infoCap.length > 0) { 
         generaData(infoCap);
         setIsButtonDisabled(true);
     } else {
         setIsButtonDisabled(false);
     }
+
+    if (infoCap.length > 0 || selectedValue !== cosechaActiva) { //!Esto es para que solamente se pueda agregar cosecha si es la cosecha activa.
+        setIsButtonDisabled(true);
+    }else{
+        setIsButtonDisabled(false);
+    }
+
     var titleBtnEditar = ''
     if (selectedValue === cosechaActiva) {
         if (infoCap.length > 0) {
@@ -368,6 +415,15 @@ const Capacidad = ({ listadoCosechas, cosechaActiva }) => {
         localStorage.setItem("idCosecha", infoCosechas[0].acos_id);
     }
 
+
+    //!Este useEffect es para cuando se edita o se agrega nueva cosecha - Sirve para refrescar la table.
+    useEffect(() => {
+      if(refrescarTable){
+          generaData(infoCap)
+          setRefrescarTable(false)
+      }
+    }, [refrescarTable])
+    
 
     return (
         <>

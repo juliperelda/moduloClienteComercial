@@ -24,38 +24,38 @@ const Evolucion = () => {
   const [sortedData, setSortedData] = useState([]);
 
 
-  useEffect(() => {
-    const fetchData = () => {
-      if (localStorage.getItem("data")) {
-        // Make a copy of the data from local storage and sort it in ascending order by the value of the 'cosecha' key
-        const data = [...JSON.parse(localStorage.getItem("data")).objData];
-        const sortedData = data.sort((a, b) => a.cosecha - b.cosecha);
-        setIsDataStorage(data);
-        setSortedData(sortedData);
-      } else {
-        setSortedData(null);
-      }
-    };
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   const fetchData = () => {
+  //     if (localStorage.getItem("data")) {
+  //       // Make a copy of the data from local storage and sort it in ascending order by the value of the 'cosecha' key
+  //       const data = [...JSON.parse(localStorage.getItem("data")).objData];
+  //       const sortedData = data.sort((a, b) => a.cosecha - b.cosecha);
+  //       setIsDataStorage(data);
+  //       setSortedData(sortedData);
+  //     } else {
+  //       setSortedData(null);
+  //     }
+  //   };
+  //   fetchData();
+  // }, []);
   /* FIN Probando ordenar de menor a mayor*/
 
   // Armo un array con lo que recupero del localstorage
-  const arrayData = [];
+  // const arrayData = [];
   /*USO EL sortedData para ordenar de mayor y menor y para que funcione la animacion de los graficos*/
-  if (sortedData) {
-    sortedData.forEach(function (data) {
-      arrayData.push(data);
-    });
-  }
+  // if (sortedData) {
+  //   sortedData.forEach(function (data) {
+  //     arrayData.push(data);
+  //   });
+  // }
 
-  const renderCustomBarLabel = ({ payload, x, y, width, height, value }) => {
-    return (
-      <text x={x + width / 2} y={y} fill="#666" textAnchor="middle" dy={-6}>
-        {value}
-      </text>
-    );
-  };
+  // const renderCustomBarLabel = ({ payload, x, y, width, height, value }) => {
+  //   return (
+  //     <text x={x + width / 2} y={y} fill="#666" textAnchor="middle" dy={-6}>
+  //       {value}
+  //     </text>
+  //   );
+  // };
 
   /*-----------------------------------*/
   const [isValorPropias, setIsValorPropias] = useState(true);

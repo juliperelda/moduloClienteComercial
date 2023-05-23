@@ -24,7 +24,7 @@ function App() {
   //* Id de cliente que se obtine desde local storage
   const idC = localStorage.getItem("cliente");
   const [idCliente, setIdCliente]=useState(idC);
-  // const [idCliente, setIdCliente]=useState('2049');
+  // const [idCliente, setIdCliente]=useState('2056');
 
   //! ESTADOS QUE ALMACENAN INFO QUE SE TRAE DESDE BASE DE DATOS
   const [infoEvo, setInfoEvo]=useState({});
@@ -37,6 +37,10 @@ function App() {
 
   const [estadin, setEstadin] = useState(false);
   const [estadin1, setEstadin1] = useState(false);
+
+  const [refrescarTable, setRefrescarTable] = useState(false);
+
+  const [ca, setCA] = useState(0);
 
   const [prueba, setPrueba] = useState(false);
   return (
@@ -60,6 +64,11 @@ function App() {
       estadin1, setEstadin1,
 
       prueba, setPrueba,
+
+      ca, setCA,
+
+      refrescarTable, setRefrescarTable,
+      
     }}>
       
       <Analitica/>

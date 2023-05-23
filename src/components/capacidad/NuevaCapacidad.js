@@ -4,7 +4,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "../../context/GlobalContext";
 import "./capacidad.css";
 
-export const NuevaCapacidad = () => {
+export const NuevaCapacidad = ({ cosechaActiva }) => {
 
   const URL = process.env.REACT_APP_URL;
   var objData = [];
@@ -22,6 +22,8 @@ export const NuevaCapacidad = () => {
     setIsSelectEditDisabled,
     update,
     setUpdate,
+    ca, setCA,
+    setRefrescarTable,
   } = useContext(GlobalContext);
 
   //! UseState
@@ -68,6 +70,7 @@ export const NuevaCapacidad = () => {
       parseInt(inputMixtoA);
 
     if (isData.cosecha !== null) {
+      // console.log('isData: ', isData)
       if (totalPropias <= inputPropias && totalAlquiladas <= inputAlquiladas) {
         if (localStorage.getItem("data")) {
           objData = [...isDataSet, isData];
@@ -86,18 +89,39 @@ export const NuevaCapacidad = () => {
         setIsSelectEditDisabled(false);
 
       } else {
-        // alert(
-        //   "El total de Has. de Rubros supera a las Has. Propias en general"
-        // );
-        // setIsActiveModal(true);
         messageApi.open({
           type: 'warning',
           content: 'Por favor revise: Los Has. de Rubros exceden la cantidad total.',
-          // getContainer: () => document.body,
         });
       }
     } else {
-      alert("Se debe ingresar la cosecha");
+      isData.cosecha = ca;
+      // console.log('cosechaActiva: ', ca);
+      // console.log('isData: ', isData);
+      // alert("Se debe ingresar la cosecha");
+      if (totalPropias <= inputPropias && totalAlquiladas <= inputAlquiladas) {
+        if (localStorage.getItem("data")) {
+          objData = [...isDataSet, isData];
+        } else {
+          objData = [isData];
+        }
+
+        localStorage.setItem("data", JSON.stringify({ objData }));
+        setAppStage(0);
+
+        let cli = localStorage.getItem("cliente");
+
+        newCap(cli, isData);
+
+        setUpdate(!update);
+        setIsSelectEditDisabled(false);
+
+      } else {
+        messageApi.open({
+          type: 'warning',
+          content: 'Por favor revise: Los Has. de Rubros exceden la cantidad total.',
+        });
+      }
     }
   };
 
@@ -141,6 +165,7 @@ export const NuevaCapacidad = () => {
         // console.log("Nueva capacidad: ", objetoData)
       });
     });
+    setRefrescarTable(true); //! Sirve para refrescar la table en donde se utiliza en un useEffect en Capacidad.
   }
 
   const salir = () => {
@@ -342,7 +367,7 @@ export const NuevaCapacidad = () => {
         </div>
       </div>
       {contextHolder}
-        {/* {isActiveModal &&
+      {/* {isActiveModal &&
           <p style={{ color: "red", display: "block", padding: "10px" }}>
             Por favor revise: Los Has. de Rubros exceden la cantidad total.
           </p>
