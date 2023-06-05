@@ -194,6 +194,25 @@ const Capacidad = ({ listadoCosechas, cosechaActiva }) => {
                         0 + '%' :
                     0 + '%'
             },
+
+            //! Inicio - Coop Camil
+            // {
+            //     key: 4,
+            //     categoria: "FEEDLOT",
+            //     propias: result.FEEDLOT ? Math.trunc(result.FEEDLOT.propio) : 0,
+            //     alquiler: result.FEEDLOT ? Math.trunc(result.FEEDLOT.alquilado) : 0,
+            //     total: result.FEEDLOT ? parseInt(result.FEEDLOT.propio) + parseInt(result.FEEDLOT.alquilado) : 0,
+            //     // porcentaje: result.FEEDLOT ? (((result.FEEDLOT ? (parseInt(result.FEEDLOT.propio) + parseInt(result.FEEDLOT.alquilado)) : 0) / (parseInt(infoCap[0].ahxs_propias) + parseInt(infoCap[0].ahxs_alquiladas)) * 100).toFixed(0)) + '%' : 0 + '%'
+            //     // porcentaje: result.AGRICULTURA ? ((parseInt(infoCap[0].ahxs_propias || 0) + parseInt(infoCap[0].ahxs_alquiladas || 0)) !== 0 ? (((parseInt(result.AGRICULTURA.propio) + parseInt(result.AGRICULTURA.alquilado)) / (parseInt(infoCap[0].ahxs_propias || 0) + parseInt(infoCap[0].ahxs_alquiladas || 0)) * 100).toFixed(0)) : 0) + '%' : 0 + '%'
+            //     porcentaje: result.FEEDLOT ?
+            //         (parseInt(infoCap[0]?.ahxs_propias || 0) + parseInt(infoCap[0]?.ahxs_alquiladas || 0)) !== 0 ?
+            //             (((parseInt(result.FEEDLOT.propio) + parseInt(result.FEEDLOT.alquilado)) /
+            //                 (parseInt(infoCap[0]?.ahxs_propias || 0) + parseInt(infoCap[0]?.ahxs_alquiladas || 0))) * 100).toFixed(0) + '%' :
+            //             0 + '%' :
+            //         0 + '%'
+            // },
+            //! Fin - Coop Camil
+            //! Inicio - Para todas las demas coop
             {
                 key: 4,
                 categoria: "MIXTO",
@@ -209,6 +228,8 @@ const Capacidad = ({ listadoCosechas, cosechaActiva }) => {
                         0 + '%' :
                     0 + '%'
             },
+            //! Fin - Para todas las demas coop
+
             {
                 key: 5,
                 categoria: (

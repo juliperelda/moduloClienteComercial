@@ -64,13 +64,26 @@ export const EditarCapacidad = ({ cosechaActiva }) => {
       agricultura: Math.trunc(infoEdit.find(info => info.arubro_desc === "AGRICULTURA" && info.condicion === "P").has),
       ganaderia: Math.trunc(infoEdit.find(info => info.arubro_desc === "GANADERIA" && info.condicion === "P").has),
       tambo: Math.trunc(infoEdit.find(info => info.arubro_desc === "TAMBO" && info.condicion === "P").has),
+      //! Inicio - Coop Camil
+      // feedlot: Math.trunc(infoEdit.find(info => info.arubro_desc === "FEEDLOT" && info.condicion === "P").has),
+      //! Fin - Coop Camil
+      //! Inicio - Para todas las demas coop
       mixto: Math.trunc(infoEdit.find(info => info.arubro_desc === "MIXTO" && info.condicion === "P").has),
+      //! Fin - Para todas las demas coop
 
       //* ALQUILADAS
       agriculturaA: Math.trunc(infoEdit.find(info => info.arubro_desc === "AGRICULTURA" && info.condicion === "A").has),
       ganaderiaA: Math.trunc(infoEdit.find(info => info.arubro_desc === "GANADERIA" && info.condicion === "A").has),
       tamboA: Math.trunc(infoEdit.find(info => info.arubro_desc === "TAMBO" && info.condicion === "A").has),
+
+      //! Inicio - Coop Camil
+      // feedlotA: Math.trunc(infoEdit.find(info => info.arubro_desc === "FEEDLOT" && info.condicion === "A").has),
+      //! Fin - Coop Camil
+
+      //! Inicio - Para todas las demas coop
       mixtoA: Math.trunc(infoEdit.find(info => info.arubro_desc === "MIXTO" && info.condicion === "A").has),
+      //! Fin - Para todas las demas coop
+
       propias: Math.trunc(infoEdit[0].ahxs_propias),
       alquiladas: Math.trunc(infoEdit[0].ahxs_alquiladas),
 
@@ -92,23 +105,55 @@ export const EditarCapacidad = ({ cosechaActiva }) => {
     let inputAgricultura = document.getElementById("inputAgricultura").value;
     let inputGanaderia = document.getElementById("inputGanaderia").value;
     let inputTambo = document.getElementById("inputTambo").value;
+
+
+    //! Inicio - Coop Camil
+    // let inputFeedlot = document.getElementById("inputFeedlot").value;
+    //! Fin - Coop Camil
+
+    //! Inicio - Para todas las demas coop
     let inputMixto = document.getElementById("inputMixto").value;
+    //! Fin - Para todas las demas coop
+
     let totalPropias =
       parseInt(inputAgricultura) +
       parseInt(inputGanaderia) +
       parseInt(inputTambo) +
-      parseInt(inputMixto);
+
+      //! Inicio - Coop Camil
+      // parseInt(inputFeedlot);
+    //! Fin - Coop Camil
+
+    //! Inicio - Para todas las demas coop
+    parseInt(inputMixto);
+    //! Fin - Para todas las demas coop
 
     let inputAlquiladas = document.getElementById("inputAlquiladas").value;
     let inputAgriculturaA = document.getElementById("inputAgriculturaA").value;
     let inputGanaderiaA = document.getElementById("inputGanaderiaA").value;
     let inputTamboA = document.getElementById("inputTamboA").value;
+
+
+    //! Inicio - Coop Camil
+    // let inputFeedlotA = document.getElementById("inputFeedlotA").value;
+    //! Fin - Coop Camil
+
+    //! Inicio - Para todas las demas coop
     let inputMixtoA = document.getElementById("inputMixtoA").value;
+    //! Fin - Para todas las demas coop
+
     let totalAlquiladas =
       parseInt(inputAgriculturaA) +
       parseInt(inputGanaderiaA) +
       parseInt(inputTamboA) +
-      parseInt(inputMixtoA);
+
+      //! Inicio - Coop Camil
+      // parseInt(inputFeedlotA);
+    //! Fin - Coop Camil
+
+    //! Inicio - Para todas las demas coop
+    parseInt(inputMixtoA);
+    //! Fin - Para todas las demas coop
 
     if ((totalPropias <= inputPropias) & (totalAlquiladas <= inputAlquiladas)) {
       objData = [...objData, dataContext];
@@ -177,8 +222,17 @@ export const EditarCapacidad = ({ cosechaActiva }) => {
     data.append("cantGA", dataContext["ganaderiaA"]);
     data.append("cantTP", dataContext["tambo"]);
     data.append("cantTA", dataContext["tamboA"]);
+
+
+    //! Inicio - Coop Camil
+    // data.append("cantMP", dataContext["feedlot"]);
+    // data.append("cantMA", dataContext["feedlotA"]);
+    //! Fin - Coop Camil
+
+    //! Inicio - Para todas las demas coop
     data.append("cantMP", dataContext["mixto"]);
     data.append("cantMA", dataContext["mixtoA"]);
+    //! Fin - Para todas las demas coop
     data.append("totalP", dataContext["propias"]);
     data.append("totalA", dataContext["alquiladas"]);
     // fetch("../com_editCapacidad.php", {
@@ -333,6 +387,46 @@ export const EditarCapacidad = ({ cosechaActiva }) => {
           </thead>
           <thead>
             <tr>
+            {/* //! INICIO - COOPERATIVA CAMIL */}
+
+              {/* <td className="celdaRubro">FEEDLOT</td>
+              <td className="celdaInput">
+                <Form.Item name="inputFeedlot">
+                  <Input
+                    className="inputTable"
+                    type="number"
+                    placeholder="0"
+                    name="feedlot"
+                    style={{ textAlign: "right" }}
+                    // defaultValue={Math.trunc(infoEdit[6].has)}
+                    // value={Math.trunc(infoEdit[6].has)}
+                    defaultValue={Math.trunc(infoEdit.find(info => info.arubro_desc === "FEEDLOT" && info.condicion === "P").has)}
+                    value={Math.trunc(infoEdit.find(info => info.arubro_desc === "FEEDLOT" && info.condicion === "P").has)}
+
+                    onChange={(value) => handleInputChangeEdit(value)}
+                  />
+                </Form.Item>
+              </td>
+              <td className="celdaInput">
+                <Form.Item name="inputFeedlotA">
+                  <Input
+                    className="inputTable"
+                    type="number"
+                    placeholder="0"
+                    name="feedlotA"
+                    style={{ textAlign: "right" }}
+
+                    defaultValue={Math.trunc(infoEdit.find(info => info.arubro_desc === "FEEDLOT" && info.condicion === "A").has)}
+                    value={Math.trunc(infoEdit.find(info => info.arubro_desc === "FEEDLOT" && info.condicion === "A").has)}
+                    onChange={(value) => handleInputChangeEdit(value)}
+                  />
+                </Form.Item>
+              </td> */}
+
+            {/* //! FIN - COOPERATIVA CAMIL */}
+
+              {/* //! INICIO PARA LAS DEMAS */}
+
               <td className="celdaRubro">MIXTO</td>
               <td className="celdaInput">
                 <Form.Item name="inputMixto">
@@ -342,10 +436,10 @@ export const EditarCapacidad = ({ cosechaActiva }) => {
                     placeholder="0"
                     name="mixto"
                     style={{ textAlign: "right" }}
-                    // defaultValue={Math.trunc(infoEdit[6].has)}
-                    // value={Math.trunc(infoEdit[6].has)}
+
                     defaultValue={Math.trunc(infoEdit.find(info => info.arubro_desc === "MIXTO" && info.condicion === "P").has)}
                     value={Math.trunc(infoEdit.find(info => info.arubro_desc === "MIXTO" && info.condicion === "P").has)}
+
                     onChange={(value) => handleInputChangeEdit(value)}
                   />
                 </Form.Item>
@@ -366,6 +460,9 @@ export const EditarCapacidad = ({ cosechaActiva }) => {
                   />
                 </Form.Item>
               </td>
+
+            {/* //! FIN PARA LAS DEMAS */}
+
             </tr>
           </thead>
           <thead>

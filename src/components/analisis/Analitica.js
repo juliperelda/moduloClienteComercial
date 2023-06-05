@@ -25,6 +25,7 @@ const Analitica = () => {
 
   const [listCosechas, setListCosechas] = useState([])
   const [cosechaA, setCosechaA] = useState('')
+  
   useEffect(() => {
     const data = new FormData();
     // data.append("idC", idCliente);

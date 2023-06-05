@@ -51,23 +51,53 @@ export const NuevaCapacidad = ({ cosechaActiva }) => {
     let inputAgricultura = document.getElementById("inputAgricultura").value;
     let inputGanaderia = document.getElementById("inputGanaderia").value;
     let inputTambo = document.getElementById("inputTambo").value;
+    //! Inicio - Coop Camil
+    // let inputFeedlot = document.getElementById("inputFeedlot").value;
+    //! Fin - Coop Camil
+    //! Inicio - Para todas las demas coop
     let inputMixto = document.getElementById("inputMixto").value;
+    //! Fin - Para todas las demas coop
+
+
+
     let totalPropias =
       parseInt(inputAgricultura) +
       parseInt(inputGanaderia) +
       parseInt(inputTambo) +
-      parseInt(inputMixto);
+      //! Inicio - Coop Camil
+      // parseInt(inputFeedlot);
+    //! Fin - Coop Camil
+    //! Inicio - Para todas las demas coop
+    parseInt(inputMixto);
+    //! Fin - Para todas las demas coop
+
 
     let inputAlquiladas = document.getElementById("inputAlquiladas").value;
     let inputAgriculturaA = document.getElementById("inputAgriculturaA").value;
     let inputGanaderiaA = document.getElementById("inputGanaderiaA").value;
     let inputTamboA = document.getElementById("inputTamboA").value;
+
+
+
+    //! Inicio - Coop Camil
+    // let inputFeedlotA = document.getElementById("inputFeedlotA").value;
+    //! Fin - Coop Camil
+    //! Inicio - Para todas las demas coop
     let inputMixtoA = document.getElementById("inputMixtoA").value;
+    //! Fin - Para todas las demas coop
+
+
     let totalAlquiladas =
       parseInt(inputAgriculturaA) +
       parseInt(inputGanaderiaA) +
       parseInt(inputTamboA) +
-      parseInt(inputMixtoA);
+      //! Inicio - Coop Camil
+      // parseInt(inputFeedlotA);
+    //! Fin - Coop Camil
+    //! Inicio - Para todas las demas coop
+    parseInt(inputMixtoA);
+    //! Fin - Para todas las demas coop
+
 
     if (isData.cosecha !== null) {
       // console.log('isData: ', isData)
@@ -149,8 +179,14 @@ export const NuevaCapacidad = ({ cosechaActiva }) => {
     data.append("cantGA", isData["ganaderiaA"]);
     data.append("cantTP", isData["tambo"]);
     data.append("cantTA", isData["tamboA"]);
+    //! Inicio - Coop Camil
+    // data.append("cantMP", isData["feedlot"]);
+    // data.append("cantMA", isData["feedlotA"]);
+    //! Fin - Coop Camil
+    //! Inicio - Para todas las demas coop
     data.append("cantMP", isData["mixto"]);
     data.append("cantMA", isData["mixtoA"]);
+    //! Fin - Para todas las demas coop
     data.append("totalP", isData["propias"]);
     data.append("totalA", isData["alquiladas"]);
     // fetch("../com_newCapacidad.php", {
@@ -287,6 +323,36 @@ export const NuevaCapacidad = ({ cosechaActiva }) => {
             </thead>
             <thead>
               <tr>
+              {/* //! Inicio - Coop Camil */}
+                {/* <td className="celdaRubro">FEEDLOT</td>
+                <td className="celdaInput">
+                  <Form.Item name="inputFeedlot">
+                    <Input
+                      className="inputTable"
+                      type="number"
+                      placeholder="0"
+                      name="feedlot"
+                      style={{ textAlign: "right" }}
+                      defaultValue={0}
+                      onChange={(e) => handleInputChange(e)}
+                    />
+                  </Form.Item>
+                </td>
+                <td className="celdaInputAlquiladas">
+                  <Form.Item name="inputFeedlotA">
+                    <Input
+                      className="inputTable"
+                      type="number"
+                      placeholder="0"
+                      name="feedlotA"
+                      style={{ textAlign: "right" }}
+                      defaultValue={0}
+                      onChange={(e) => handleInputChange(e)}
+                    />
+                  </Form.Item>
+                </td> */}
+                {/* //! Fin - Coop Camil */}
+                {/* //! Inicio - Para todas las demas coop */}
                 <td className="celdaRubro">MIXTO</td>
                 <td className="celdaInput">
                   <Form.Item name="inputMixto">
@@ -314,6 +380,7 @@ export const NuevaCapacidad = ({ cosechaActiva }) => {
                     />
                   </Form.Item>
                 </td>
+                {/* //! Fin - Para todas las demas coop */}
               </tr>
             </thead>
             <thead>

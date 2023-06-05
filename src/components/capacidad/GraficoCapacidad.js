@@ -35,12 +35,24 @@ export const GraficoCapacidad = ({ porcentajes }) => {
       namet: "Total",
       has: porcentajes[2].total,
     },
+
+    //! Inicio - Coop Camil
+    {
+      // name: "Feedlot",
+      // value: parseInt(porcentajes[3].porcentaje),
+      // namet: "Total",
+      // has: porcentajes[3].total,
+    },
+    //! Fin - Coop Camil
+    //! Inicio - Para todas las demas coop
     {
       name: "Mixto",
       value: parseInt(porcentajes[3].porcentaje),
       namet: "Total",
       has: porcentajes[3].total,
     },
+    //! Fin - Para todas las demas coop
+
   ];
 
 
