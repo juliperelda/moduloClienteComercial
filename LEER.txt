@@ -1,0 +1,25 @@
+LEER
+
+Se deja comentado el codigo cuando se tiene que generar una nueva build para la Coop. de Camil. En este caso utiliza el rubro Feedlot en vez de mixto.
+
+Descomentar el codigo perteneciente y comentar el codigo general.
+
+
+Ejemplo:
+    //! Inicio - Coop Camil
+    {
+      // name: "Feedlot",
+      // value: parseInt(porcentajes[3].porcentaje),
+      // namet: "Total",
+      // has: porcentajes[3].total,
+    },
+    //! Fin - Coop Camil
+
+    //! Inicio - Para todas las demas coop
+    {
+      name: "Mixto",
+      value: parseInt(porcentajes[3].porcentaje),
+      namet: "Total",
+      has: porcentajes[3].total,
+    },
+    //! Fin - Para todas las demas coop
